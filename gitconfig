@@ -1,0 +1,24 @@
+[include]
+path = ~/.gitconfig.local
+
+[core]
+excludesfile = ~/.gitignore
+editor = vim
+pager = "lv -c"
+quotepath = false
+
+[color]
+ui = auto
+
+[alias]
+lg = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
+lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
+s = status
+co = checkout
+a = add
+b = branch
+c = commit
+d = diff
+dc = diff --cached
+ru = remote update
+cat = cat-file -p
