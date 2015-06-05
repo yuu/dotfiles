@@ -273,9 +273,6 @@ remake(){
     fi
 }
 
-# log
-alias dlog="tee ~/log/$(date +%Y%m%d_%H%M%S)-$(git log --oneline | awk 'NR==1 {print $1}').log"
-
 # valgrind
 alias dvalgrind="valgrind -v --error-limit=no --leak-check=full --leak-resolution=high --show-reachable=yes 2>&1"
 alias dcvalgrind="valgrind -v --error-limit=no --leak-check=full --leak-resolution=high --show-reachable=yes --trace-children=yes 2>&1"
