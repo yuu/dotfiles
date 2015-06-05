@@ -16,9 +16,8 @@ cp    ~/dotfiles/gitconfig.local ~/.gitconfig.local
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/zsh ~/.zsh
-ln -s ~/dotfiles/tmux ~/.tmux
 git clone git://github.com/zsh-users/zaw.git ~/dotfiles/zsh/zaw/
-git clone git://github.com/tmux-plugins/tpm ~/dotfiles/tmux/tpm/
+git clone git://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 if [ "$(uname)" == 'Darwin' ]; then
     ln -s ~/dotfiles/karabiner-private.xml ~/Library/Application\ Support/Karabiner/private.xml
