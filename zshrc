@@ -284,14 +284,8 @@ alias dvalgrind="valgrind -v --error-limit=no --leak-check=full --leak-resolutio
 alias dcvalgrind="valgrind -v --error-limit=no --leak-check=full --leak-resolution=high --show-reachable=yes --trace-children=yes 2>&1"
 
 # vim
-alias vim="/usr/local/bin/vim"
-alias v="vim"
 alias vi="vim -u NONE --noplugin"
 alias agit="vim -c Agit"
-
-# emacs
-alias emacs="/usr/local/Cellar/emacs/24.4/bin/emacs"
-alias em="/usr/local/Cellar/emacs/24.4/bin/emacs"
 
 # less
 alias vless="/usr/local/share/vim/vim74/macros/less.sh"
@@ -335,12 +329,6 @@ case "${OSTYPE}" in
     alias today="date +'%Y.%m.%d'"
     ;;
 esac
-
-if [[ ${OSTYPE} == darwin* ]] then
- # alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-else
-  alias emacs="emacs24 -nw"
-fi
 
 #------ Python ------#
 alias pyhttpserver="python -m SimpleHTTPServer 8080"
