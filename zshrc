@@ -166,6 +166,12 @@ source $HOME/.zsh/behind-window-notify/behind-window-notify.zsh (N-/)
 
 
 #------ tools ------#
+if [[ $(uname) == "Linux" ]]; then
+    export PATH="$HOME/.linuxbrew/bin:$PATH" (N-/)
+    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH" (N-/)
+    export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:$LD_LIBRARY_PATH" (N-/)
+fi
+
 # tmux
 nw(){
     local CMDNAME split_opts spawn_command
