@@ -256,6 +256,7 @@ alias su="su -l"
 alias lv="lv -c"
 alias grep="grep --color=auto"
 alias rsync="rsync --progress"
+alias rm="trash"
 
 alias g="git"
 alias gitlog="git log --oneline --graph --decorate"
