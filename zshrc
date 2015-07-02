@@ -16,8 +16,8 @@ autoload -U compinit
 compinit
 
 HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=20000
+SAVEHIST=20000
 
 bindkey -e
 bindkey '^W' kill-region
