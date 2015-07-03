@@ -13,6 +13,8 @@ ui = auto
 [alias]
 lg = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
 lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
+lgs = log --graph --oneline --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s'
+lgas = log --graph --all --oneline --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s'
 s = status
 co = checkout
 a = add
