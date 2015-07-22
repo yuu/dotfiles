@@ -243,7 +243,9 @@ alias dvalgrind="valgrind -v --error-limit=no --leak-check=full --leak-resolutio
 alias dcvalgrind="valgrind -v --error-limit=no --leak-check=full --leak-resolution=high --show-reachable=yes --trace-children=yes 2>&1"
 
 # vim
-alias vi="vim -u NONE --noplugin"
+alias vi="vim"
+alias vir="vim -R"
+alias vin="vim -u NONE --noplugin"
 alias agit="vim -c Agit"
 
 # less
