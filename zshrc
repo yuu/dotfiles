@@ -172,6 +172,8 @@ if [[ $(uname) == "Linux" ]]; then
     export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:$LD_LIBRARY_PATH" (N-/)
 fi
 
+export PYTHONSTARTUP=~/.pythonstartup
+
 # grpe
 dgrep(){
     if [ $# -eq 1 ]; then
