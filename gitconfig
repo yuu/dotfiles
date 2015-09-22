@@ -6,6 +6,8 @@ excludesfile = ~/.gitignore
 editor = vim
 pager = "lv -c"
 quotepath = false
+autocrlf = input
+safecrlf = true
 
 [color]
 ui = auto
