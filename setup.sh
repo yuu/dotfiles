@@ -21,7 +21,7 @@ git clone git://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # vim
 mkdir ~/.vim
-ls -l vim |awk '{print $9}' |xargs -i ln -s "`pwd`/{}" ~/.vim/
+ls -l vim |awk '{print $9}' |xargs -i ln -s "`pwd`/vim/{}" ~/.vim/
 
 if [ "$(uname)" == 'Darwin' ]; then
     ln -s ~/dotfiles/karabiner-private.xml ~/Library/Application\ Support/Karabiner/private.xml
