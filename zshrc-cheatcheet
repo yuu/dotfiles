@@ -1,0 +1,20 @@
+#------ cheat cheet ------#
+cheat-sheet () { zle -M "`cat $HOME/.zsh/cheatsheets/cheat-sheet.conf`" }
+zle -N cheat-sheet
+bindkey "^[^h" cheat-sheet
+
+git-cheat () { zle -M "`cat $HOME/.zsh/cheatsheets/git-cheat.conf`" }
+zle -N git-cheat
+bindkey "^[^g" git-cheat
+
+screen-cheat () { zle -M "`cat $HOME/.zsh/cheatsheets/screen-cheat.conf`" }
+zle -N screen-cheat
+bindkey "^[^s" screen-cheat
+
+tmux-cheat () { zle -M "`cat $HOME/.zsh/cheatsheets/tmux-cheat.conf`" }
+zle -N tmux-cheat
+bindkey "^[^b" tmux-cheat
+
+command-cheat () { zle -M "`cat $HOME/.zsh/cheatsheets/command-cheat.conf`" }
+zle -N command-cheat
+bindkey "^[^j" command-cheat

@@ -1,0 +1,66 @@
+# grpe
+dgrep(){
+    if [ $# -eq 1 ]; then
+        grep --color=auto -Hnr $1
+    elif [ $# -eq 2 ]; then
+        grep --color=auto -Hn $1 -- **/*.$2
+    elif [ $# -gt 2 ]; then
+        x=$1
+        shift
+        y=`echo $* | sed -e 's/ \+/|/g'`
+        zsh -c "grep --color=auto -Hn $x -- **/*.($y)"
+    fi
+}
+edgrep(){
+    if [ $# -eq 1 ]; then
+        grep --color=auto -EHnr $1
+    elif [ $# -eq 2 ]; then
+        grep --color=auto -EHn $1 -- **/*.$2
+    elif [ $# -gt 2 ]; then
+        x=$1
+        shift
+        y=`echo $* | sed -e 's/ \+/|/g'`
+        zsh -c "grep -E --color=auto -Hn $x -- **/*.($y)"
+    fi
+}
+pdgrep(){
+    if [ $# -eq 1 ]; then
+        grep --color=auto -PHnr $1
+    elif [ $# -eq 2 ]; then
+        grep --color=auto -PHn $1 -- **/*.$2
+    elif [ $# -gt 2 ]; then
+        x=$1
+        shift
+        y=`echo $* | sed -e 's/ \+/|/g'`
+        zsh -c "grep -P --color=auto -Hn $x -- **/*.($y)"
+    fi
+}
+
+# mac app execute
+run(){
+    ./$1/Contents/MacOS/`basename $1 .app`
+}
+
+# make
+mmake(){
+    if [ $? -eq 0 ]; then
+        if [ $# -eq 0 ]; then
+            x=`egrep -c "^processor\s:\s[0-9]+$" /proc/cpuinfo`
+            make -j $x
+        elif [ $# -eq 1 ]; then
+            make $1
+        fi
+    fi
+}
+
+remake(){
+    make clean
+    if [ $? -eq 0 ]; then
+        if [ $# -eq 0 ]; then
+            x=`egrep -c "^processor\s:\s[0-9]+$" /proc/cpuinfo`
+            make -j $x
+        elif [ $# -eq 1 ]; then
+            make $1
+        fi
+    fi
+}
