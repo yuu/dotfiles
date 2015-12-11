@@ -1,0 +1,11 @@
+# ls
+alias ls="ls --color -Fh"
+alias la="ls --color -aFh"
+alias ll="ls --color -lFh"
+alias lla="ls --color -laFh"
+
+# エイリアスいろいろ
+alias open="xdg-open"
+alias pbcopy="xsel --clipboard --input"
+alias pbpaste="xsel --clipboard --output"
+alias today="date +'%Y.%m.%d'"
