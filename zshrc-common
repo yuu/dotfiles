@@ -26,6 +26,8 @@ setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 # incremental append
 setopt inc_append_history
+# 半角スペースで始まるコマンドラインはヒストリに追加しない
+setopt hist_ignore_space
 
 # ディレクトリ名だけで､ディレクトリの移動をする｡
 setopt auto_cd
