@@ -10,9 +10,9 @@ function echo_blue() { echo -e "\e[2;34m$*\e[m"; }
 # dotfiles                                                                   #
 #----------------------------------------------------------------------------#
 echo_blue link: dotfiles
-ln -s ~/dotfiles/gitconfig ~/.gitconfig
-ln -s ~/dotfiles/gitignore ~/.gitignore
-cp    ~/dotfiles/gitconfig.local ~/.gitconfig.local
+ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
+ln -s ~/dotfiles/git/gitignore ~/.gitignore
+cp    ~/dotfiles/git/gitconfig.local ~/.gitconfig.local
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/dotfiles/zsh ~/.zsh
