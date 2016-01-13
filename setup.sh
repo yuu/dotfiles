@@ -14,7 +14,7 @@ ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/gitignore ~/.gitignore
 cp    ~/dotfiles/gitconfig.local ~/.gitconfig.local
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/zshrc ~/.zshrc
+ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/dotfiles/zsh ~/.zsh
 git clone git://github.com/zsh-users/zaw.git ~/dotfiles/zsh/zaw/
 git clone git://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
