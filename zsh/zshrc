@@ -1,18 +1,18 @@
-source $HOME/dotfiles/zsh/zshrc-common
-source $HOME/dotfiles/zsh/zshrc-env
-source $HOME/dotfiles/zsh/zshrc-plugin
-source $HOME/dotfiles/zsh/zshrc-func
-source $HOME/dotfiles/zsh/zshrc-cheatcheet
-source $HOME/dotfiles/zsh/zshrc-alias.common
+source $HOME/.config/zsh/zshrc-common
+source $HOME/.config/zsh/zshrc-env
+source $HOME/.config/zsh/zshrc-plugin
+source $HOME/.config/zsh/zshrc-func
+source $HOME/.config/zsh/zshrc-cheatcheet
+source $HOME/.config/zsh/zshrc-alias.common
 
 case "${OSTYPE}" in
   darwin*)
-    source $HOME/dotfiles/zsh/zshrc-alias.mac
+    source $HOME/.config/zsh/zshrc-alias.mac
     ;;
   linux*)
-    source $HOME/dotfiles/zsh/zshrc-alias.linux
+    source $HOME/.config/zsh/zshrc-alias.linux
     ;;
 esac
 
 # zshrc local setting
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+[ -f $HOME/.config/zsh/zshrc.local ] && source $HOME/.config/zsh/zshrc.local

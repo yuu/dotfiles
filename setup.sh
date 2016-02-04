@@ -10,14 +10,20 @@ function echo_blue() { echo -e "\e[2;34m$*\e[m"; }
 # dotfiles                                                                   #
 #----------------------------------------------------------------------------#
 echo_blue link: dotfiles
+# git
 ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/git/gitignore ~/.gitignore
 cp    ~/dotfiles/git/gitconfig.local ~/.gitconfig.local
+
+# tmux
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
-ln -s ~/dotfiles/zsh ~/.zsh
-git clone git://github.com/zsh-users/zaw.git ~/dotfiles/zsh/zaw/
 git clone git://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# zsh
+mkdir -p ~/.config/zsh
+ln -s $(pwd)/zsh/* ~/.config/zsh/
+ln -s ~/.config/zsh/zshrc ~/.zshrc
+git clone git://github.com/zsh-users/zaw.git ~/.config/zsh/zaw
 
 # vim
 mkdir ~/.vim

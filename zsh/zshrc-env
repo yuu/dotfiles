@@ -7,12 +7,5 @@ export TERM=xterm-256color
 
 export GPG_TTY=`tty`
 
-# linuxbrew
-if [[ $(uname) == "Linux" ]]; then
-    export PATH="$HOME/.linuxbrew/bin:$PATH" (N-/)
-    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH" (N-/)
-    export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:$LD_LIBRARY_PATH" (N-/)
-fi
-
 # python
-export PYTHONSTARTUP=~/.pythonstartup
+export PYTHONSTARTUP=~/.config/python/pythonstartup

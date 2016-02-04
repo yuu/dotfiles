@@ -3,7 +3,6 @@ alias dvalgrind="valgrind -v --error-limit=no --leak-check=full --leak-resolutio
 alias dcvalgrind="valgrind -v --error-limit=no --leak-check=full --leak-resolution=high --show-reachable=yes --trace-children=yes 2>&1"
 
 # vim
-alias vi="vim"
 alias vir="vim -R"
 alias vin="vim -u NONE --noplugin"
 alias agit="vim -c Agit"
@@ -29,7 +28,6 @@ alias su="su -l"
 alias lv="lv -c"
 alias grep="grep --color=auto"
 alias rsync="rsync --progress"
-alias rm="trash"
 alias pc="percol"
 
 # Python
