@@ -32,5 +32,8 @@ ls -l vim |awk '{print $9}' |xargs -i ln -s "`pwd`/vim/{}" ~/.vim/
 if [ "$(uname)" == 'Darwin' ]; then
     ln -s ~/dotfiles/karabiner-private.xml ~/Library/Application\ Support/Karabiner/private.xml
     ln -s ~/dotfiles/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+else
+    mkdir -p ~/.config/terminator
+    ln -s ~/dotfiles/terminator/config ~/.config/terminator/
 fi
 echo_success success
