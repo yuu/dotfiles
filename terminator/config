@@ -1,0 +1,42 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    palette = "#282a2e:#a54242:#8c9440:#de935f:#5d809d:#85678f:#5e8d87:#707880:#373b41:#cc6666:#b5bd68:#f0c674:#80a2be:#b294bb:#8abeb7:#c5c8c6"
+    copy_on_selection = True
+    background_image = None
+    background_darkness = 0.9
+    background_type = transparent
+    use_system_font = False
+    cursor_color = "#26fcff"
+    foreground_color = "#c5c8c6"
+    show_titlebar = False
+    font = Source Code Pro Medium 9
+    background_color = "#1d1f21"
+    cursor_blink = False
+    scrollback_infinite = True
+  [[hybrid-reduced-contrast]]
+    scrollbar_position = hidden
+    palette = "#2d3c46:#a54242:#8c9440:#de935f:#5f819d:#85678f:#5e8d87:#6c7a80:#425059:#cc6666:#b5bd68:#f0c674:#81a2be:#b294bb:#8abeb7:#c5c8c6"
+    copy_on_selection = True
+    background_image = None
+    background_darkness = 0.9
+    background_type = transparent
+    use_system_font = False
+    cursor_color = "#26fcff"
+    foreground_color = "#c5c8c6"
+    show_titlebar = False
+    font = Source Code Pro Medium 9
+    background_color = "#232c31"
+    cursor_blink = False
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
