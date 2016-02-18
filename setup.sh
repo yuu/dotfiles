@@ -32,7 +32,7 @@ ls -l vim |awk '{print $9}' |xargs -i ln -s "`pwd`/vim/{}" ~/.vim/
 # other
 mkdir ~/.config/python
 ln -s $(pwd)/pythonstartup ~/.config/python/pythonstartup
-ln -s $(pwd)/screenrc ~/.config/.screenrc
+ln -s $(pwd)/screenrc ~/.screenrc
 
 if [ "$(uname)" == 'Darwin' ]; then
     ln -s ~/dotfiles/karabiner-private.xml ~/Library/Application\ Support/Karabiner/private.xml
