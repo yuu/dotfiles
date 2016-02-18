@@ -29,6 +29,11 @@ git clone git://github.com/zsh-users/zaw.git ~/.config/zsh/zaw
 mkdir ~/.vim
 ls -l vim |awk '{print $9}' |xargs -i ln -s "`pwd`/vim/{}" ~/.vim/
 
+# other
+mkdir ~/.config/python
+ln -s $(pwd)/pythonstartup ~/.config/python/pythonstartup
+ln -s $(pwd)/screenrc ~/.config/.screenrc
+
 if [ "$(uname)" == 'Darwin' ]; then
     ln -s ~/dotfiles/karabiner-private.xml ~/Library/Application\ Support/Karabiner/private.xml
     ln -s ~/dotfiles/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
