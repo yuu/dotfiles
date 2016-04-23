@@ -26,3 +26,4 @@ d = diff
 dc = diff --cached
 ru = remote update
 cat = cat-file -p
+root = rev-parse --show-toplevel
