@@ -20,8 +20,8 @@ lgas = log --graph --all --oneline --pretty=format:'%Cred%h%Creset -%C(auto)%d%C
 s = status
 co = checkout
 a = add
-b = branch
-c = commit
+br = branch
+ci = commit
 d = diff
 dc = diff --cached
 ru = remote update
