@@ -27,3 +27,6 @@ dc = diff --cached
 ru = remote update
 cat = cat-file -p
 root = rev-parse --show-toplevel
+
+[http]
+postBuffer = 157286400
