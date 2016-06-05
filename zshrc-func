@@ -38,7 +38,7 @@ pdgrep(){
 
 # mac app execute
 run(){
-    ./$1/Contents/MacOS/`basename $1 .app`
+    $1/Contents/MacOS/$(basename $1 .app)
 }
 
 # make
