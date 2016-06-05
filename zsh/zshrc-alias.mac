@@ -3,3 +3,5 @@ alias ls="ls -FGh"
 alias ll="ls -lFGh"
 alias la="ls -aFGh"
 alias lla="ls -laFGh"
+
+alias updatedb="/usr/libexec/locate.updatedb"
