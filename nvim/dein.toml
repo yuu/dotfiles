@@ -1,0 +1,181 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+let g:lightline = { 
+\   'colorscheme': 'wombat'
+\ }
+'''
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+function! s:color()
+    colorscheme hybrid
+    hi Normal ctermbg=none
+    set background=dark
+
+    " Line number color
+    hi LineNr ctermfg=8
+    " Current line number color
+    " hi CursorLineNr ctermbg=235 ctermfg=3
+    hi CursorLineNr ctermfg=8
+
+    " Search
+    hi Search ctermfg=7 ctermbg=26
+
+    "set cursorline
+    " Row Color
+    hi CursorLine ctermbg=235 guibg=Grey40
+
+    "スペルチェックを下線にする
+    hi clear SpellBad
+    hi SpellBad cterm=underline
+    hi clear SpellCap
+    hi SpellCap cterm=underline
+    hi clear SpellRare
+    hi SpellRare cterm=underline
+    hi clear SpellLocal
+    hi SpellLocal cterm=underline
+
+endfunction
+
+augroup initColor
+    autocmd!
+    autocmd VimEnter * nested call s:color()
+augroup END
+'''
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+hook_add = '''
+let g:neoyank#limit = 50
+let g:unite_source_file_mru_limit = 50
+let g:unite_split_rule = 'botright'
+
+nnoremap [unite]    <Nop>
+nnoremap <Space>uu  :Unite -start-insert <CR>
+
+nnoremap <silent> <Space>ub :Unite buffer<CR>
+nnoremap <silent> <Space>ut :<C-u>Unite tab<CR>
+nnoremap <silent> <Space>uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> <Space>ua :Unite -start-insert file_rec/async:!<CR>
+nnoremap <silent> <Space>ug :Unite -start-insert file_rec/git<CR>
+
+'''
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+else
+    let cmd = 'make'
+endif
+let g:dein#plugin.build = cmd
+'''
+
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+hook_add = '''
+let g:clever_f_across_no_line=1
+'''
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+hook_add = '''
+" デフォルトマッピングを OFF
+let g:caw_no_default_keymappings = 1
+" キーマッピング
+nmap <silent> ,/ <Plug>(caw:i:toggle)
+vmap <silent> ,/ <Plug>(caw:i:toggle)
+'''
+
+[[plugins]]
+repo = 'rhysd/committia.vim'
+hook_add = '''
+let g:committia_hooks = {}
+function! g:committia_hooks.edit_open(info)
+    " If no commit message, start with insert mode
+    if a:info.vcs ==# 'git' && getline(1) ==# ''
+        startinsert
+    end
+
+    " Scroll the diff window from insert mode
+    " Map <C-n> and <C-p>
+    imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
+    imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
+endfunction
+'''
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add  = '''
+let g:rooter_disable_map = 1
+let g:rooter_change_directory_for_non_project_files = 1
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '➜'
+let g:gitgutter_sign_removed = '_'
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 1
+let g:gitgutter_max_signs = 2000
+let g:gitgutter_escape_grep = 1
+'''
+
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
+depends = 'Shougo/unite.vim'
+hook_add = '''
+"vimデフォルトのエクスプローラをvimfilerで置き換える
+let g:vimfiler_as_default_explorer = 1
+"Auto change of current directory
+let g:vimfiler_enable_auto_cd = 1
+
+"デフォルトのキーマッピングを変更
+if !has('gui_running')
+    nnoremap <silent> <Space>ff :VimFilerBufferDir -simple<CR>
+else
+    nnoremap <silent> <Space>ff :VimFiler<CR>
+end
+
+augroup vim-filer
+    autocmd FileType vimfiler call s:vimfiler_my_settings()
+augroup END
+function! s:vimfiler_my_settings()
+    nmap <buffer> q <Plug>(vimfiler_hide)
+    nmap <buffer> Q <Plug>(vimfiler_exit)
+    nmap <buffer> <C-j> <C-w>j
+    nmap <buffer> <C-k> <C-w>k
+    nmap <buffer> <C-h> <C-w>h
+    nmap <buffer> <C-l> <C-w>l
+endfunction
+'''
+
+[[plugins]]
+repo = 'hewes/unite-gtags'
+hookadd = '''
+" lists references of a word. (It executes global -qrs -e <pattern> in internal.)
+nnoremap <silent> <Space>gr :<C-u>Unite gtags/ref<CR>
+" lists definitions of a word. (It executes global -qd -e <pattern> in internal.)
+nnoremap <silent> <Space>gd :<C-u>Unite gtags/def<CR>
+" lists grep result of a word. (It executes global -qg -e <pattern> in internal.)
+nnoremap <silent> <Space>gg :<C-u>Unite gtags/grep<CR>
+'''
