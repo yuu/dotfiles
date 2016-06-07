@@ -3,7 +3,7 @@ path = ~/.gitconfig.local
 
 [core]
 excludesfile = ~/.gitignore
-editor = vim
+editor = nvim
 pager = "lv -c"
 quotepath = false
 autocrlf = input
