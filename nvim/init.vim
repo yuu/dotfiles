@@ -43,6 +43,9 @@ set shiftwidth=4
 set softtabstop=4
 set smarttab
 
+" See tab/space
+set listchars=tab:\|\ ,trail:~
+
 " set paste
 nnoremap <silent> ,p :<C-u>set paste!<CR>
       \:<C-u>echo("Toggle PasteMode => " . (&paste == 0 ? "Off" : "On"))<CR>
