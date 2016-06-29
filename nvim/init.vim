@@ -84,6 +84,9 @@ imap <C-j> <Esc>
 " macro
 noremap q mq
 
+" 曖昧な文字列幅を全角
+" set ambiwidth=double
+
 if filereadable(expand('~/.config/nvim/init.local'))
     source ~/.config/vim/vimrc.local
 endif
