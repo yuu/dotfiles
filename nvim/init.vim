@@ -81,6 +81,9 @@ vnoremap > >gv
 " ESC Bind
 imap <C-j> <Esc>
 
+" macro
+noremap q mq
+
 if filereadable(expand('~/.config/nvim/init.local'))
     source ~/.config/vim/vimrc.local
 endif
