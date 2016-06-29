@@ -14,7 +14,7 @@ repo = 'w0ng/vim-hybrid'
 hook_add = '''
 function! s:color()
     colorscheme hybrid
-    hi Normal ctermbg=none
+    hi Normal ctermbg=NONE
     set background=dark
 
     " Line number color
