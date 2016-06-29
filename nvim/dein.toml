@@ -13,9 +13,9 @@ let g:lightline = {
 repo = 'w0ng/vim-hybrid'
 hook_add = '''
 function! s:color()
+    set background=dark
     colorscheme hybrid
     hi Normal ctermbg=NONE
-    set background=dark
 
     " Line number color
     hi LineNr ctermfg=8
