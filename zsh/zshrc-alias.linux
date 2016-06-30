@@ -10,3 +10,5 @@ alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"
 alias today="date +'%Y.%m.%d'"
 alias now="date +'%H.%M.%S'"
+
+alias make="make -j$(nproc)"
