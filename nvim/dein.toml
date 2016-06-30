@@ -18,7 +18,7 @@ function! s:color()
     hi Normal ctermbg=NONE
 
     " Line number color
-    hi LineNr ctermfg=8
+    hi LineNr ctermfg=7
     " Current line number color
     " hi CursorLineNr ctermbg=235 ctermfg=3
     hi CursorLineNr ctermfg=8
