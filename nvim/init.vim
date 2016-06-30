@@ -104,4 +104,14 @@ function! s:vimrc_local(loc)
     endfor
 endfunction
 
+function! s:cpp_marker()
+    set foldmethod=marker
+    set foldmarker=R\"\(,\)\"\;
+endfunction
+
+augroup FoldMethod
+    autocmd!
+    autocmd FileType cpp call s:cpp_marker()
+augroup END
+
 filetype plugin indent on
