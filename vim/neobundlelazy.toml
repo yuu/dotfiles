@@ -1,0 +1,111 @@
+[[plugins]]
+repository = 'Shougo/vimfiler.vim'
+depends    = 'Shougo/unite.vim'
+mappings = '<Plug>'
+explorer = 1
+    [plugins.commands]
+    name = ['VimFiler']
+    complete = 'customlist,vimfiler#complete'
+
+# TOML
+[[plugins]]
+repository = 'cespare/vim-toml'
+filetypes  = 'toml'
+
+# QUICKFIX
+[[plugins]]
+repository = 'dannyob/quickfixstatus'
+
+[[plugins]]
+repository = 'cohama/vim-hier'
+
+# GTAGS
+[[plugins]]
+repository = 'hewes/unite-gtags'
+
+# QuickRun
+[[plugins]]
+repository = 'thinca/vim-quickrun'
+commands = ['QuickRun']
+
+[[plugins]]
+repository = 'tyru/open-browser.vim'
+filetypes  = 'markdown'
+
+# gist
+[[plugins]]
+repository = 'lambdalisue/vim-gista-unite'
+depends    = ['lambdalisue/vim-gista', 'Shougo/unite.vim']
+commands = ['Gista']
+mappings = '<Plug>(gista-'
+unite_sources = ['gista', 'gista/file']
+
+[[plugins]]
+repository = 'rhysd/wandbox-vim'
+filetypes  =  ['c', 'cpp']
+
+# Langage syntax
+# python
+[[plugins]]
+repository = 'davidhalter/jedi-vim'
+filetypes  = 'python'
+    [plugins.build]
+    others = 'git submodule update --init'
+
+# C/C++
+[[plugins]]
+repository = 'octol/vim-cpp-enhanced-highlight'
+filetypes  =  ['c', 'cpp']
+
+# Qt
+[[plugins]]
+repository = 'Townk/vim-qt'
+filetypes  =  ['c', 'cpp', 'qml']
+
+# QML
+[[plugins]]
+repository = 'peterhoeg/vim-qml'
+filetypes  = 'qml'
+
+# JSON
+[[plugins]]
+repository = 'elzr/vim-json'
+filetypes  = 'json'
+
+# Markdown
+[[plugins]]
+repository = 'kannokanno/previm'
+filetypes  = 'markdown'
+
+[[plugins]]
+repository = 'plasticboy/vim-markdown'
+filetypes  = 'markdown'
+
+# wayland
+[[plugins]]
+repository = 'koara-local/vim-wayland'
+filetypes  =  ['c', 'cpp']
+
+# Go
+[[plugins]]
+repository = 'fatih/vim-go'
+filetypes  = 'go'
+
+# Open CL (*.cl)
+[[plugins]]
+repository = 'frasercrmck/opencl.vim'
+filetypes  = 'opencl'
+
+# Open GL
+[[plugins]]
+repository = 'koara-local/opengl.vim'
+lazy = 1
+
+# GLSL
+[[plugins]]
+repository = 'beyondmarc/glsl.vim'
+
+# Completion
+[[plugins]]
+repository = 'justmao945/vim-clang'
+filetypes  =  ['c', 'cpp']

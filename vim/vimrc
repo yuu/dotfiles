@@ -1,9 +1,29 @@
-" tiny $B$H(B small $B$G$O(B $B$3$l0J>e(B vimrc $B$rFI$_9~$^$J$$(B
-if !1 | finish | endif
-if has('vim_starting')
-  " syntax hilight
-  syntax enable
-endif
+"------------------------------------------------------------------------------
+" Initialize:
+"
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+function! s:source_rc(path)
+    execute 'source' fnameescape(expand('~/.config/vim/rc/' . a:path))
+endfunction
+
+let s:is_windows = has('win16') || has('win32') || has('win64')
+let s:is_cygwin = has('win32unix')
+let s:is_sudo = $SUDO_USER !=# '' && $USER !=# $SUDO_USER
+      \ && $HOME !=# expand('~'.$USER)
+      \ && $HOME ==# expand('~'.$SUDO_USER)
+
+function! IsWindows()
+    return s:is_windows
+endfunction
+
+function! IsMac()
+    return !s:is_windows && !s:is_cygwin
+    \ && (has('mac') || has('macunix') || has('gui_macvim') ||
+    \   (!executable('xdg-open') &&
+    \     system('uname') =~? '^darwin'))
+endfunction
 
 function! s:get_SID()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeget_SID$')
@@ -11,226 +31,10 @@ endfunction
 let s:SID = s:get_SID()
 delfunction s:get_SID
 
-" Vimrc augroup
-augroup MyVimrc
-  autocmd!
-augroup END
-command! -nargs=* Autocmd   autocmd MyVimrc <args>
-command! -nargs=* AutocmdFT autocmd MyVimrc FileType <args>
-
-" $B4pK\@_Dj(B
-" $B9bB.%?!<%_%J%k@\B3$r9T$&(B
-set ttyfast
-" $B%3%^%s%I<B9TCf$O:FIA2h$7$J$$(B
-set lazyredraw
-
-" $B%?%V$H9TKv%9%Z!<%9$r2D;k2=(B
-set list
-" $BIT2D;kJ8;z$NI=<(7A<0(B
-set listchars=tab:\|\ ,trail:~
-
-" $B0u;zIT2DG=J8;z$r(B16$B?J?t$GI=<((B
-set display=uhex
-
-" 2$B%P%$%HH>3QJ8;z$N@_Dj(B
-if exists('&ambiwidth')
-  set ambiwidth=double
-endif
-
-"$B%9%Z%k%A%'%C%/$rM-8z$K$9$k(B($B$?$@$7F|K\8l$O=|30$9$k(B)
-"set spelllang+=cjk
-"set spell
-
-" number
-set number
-
-" TAB
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set smarttab
-
-" INDENT
-set autoindent
-set smartindent
-
-AutocmdFT * set formatoptions-=ro
-
-" $B@^$jJV$7$G%$%s%G%s%H$rJ];}(B
-if exists('+breakindent')
-  set breakindent
-endif
-
-" BACKSPACE
-set backspace=indent,eol,start
-
-" Status Line
-set laststatus=2
-
-" tabline
-set showtabline=2
-
-" SCROLL
-set scrolloff=5
-
-" $B99?7;~<+F0:FFI9~$_(B
-set autoread
-" $BJT=8Cf$G$bB>$N%U%!%$%k$r3+$1$k$h$&$K$9$k(B
-set hidden
-" $B%9%o%C%W%U%!%$%k$r:n$i$J$$(B
-set noswapfile
-
-" SEARCH
-" set ignorecase smartcase
-"検索をファイルの先頭へループしない
-set nowrapscan
-set incsearch
-set hlsearch
-
-
-" matchpairs
-set matchpairs& matchpairs+=<:>
-
-" CLIP BOARD
-set clipboard=unnamed,autoselect
-
-" command mode
-set wildmenu wildmode=longest:full,full
-
-" $B@^$j$?$?$_(B
-set foldenable
-set foldcolumn=1 " $B:8B&$K@^$j$?$?$_%,%$%II=<((B
-" set foldmethod=indent " $B@^>v$NH=JL(B
-set foldtext=Mopp_fold() " $B@^$j$?$?$_;~$NI=<(@_Dj(B
-set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo " fold$BFb$K0\F0$9$l$P<+F0$G3+$/(B
-
-function! Mopp_fold()
-    let line = ' ' . substitute(getline(v:foldstart), '^\s*', '', '')
-    for i in range(&shiftwidth * v:foldlevel - 2)
-        let line = '-' . line
-    endfor
-    let line = '+' . line
-
-    let tail = printf('[ %2d Lines Lv%02d ] --- ', (v:foldend - v:foldstart + 1), v:foldlevel)
-
-    let space_size = (winwidth(0) - &foldcolumn - strdisplaywidth(line . tail) - 1) - ((&number) ? max([&numberwidth, len(line('$'))]) : 0)
-
-    return printf('%s%' . space_size . 'S%s', line, '', tail)
-endfunction
-
-" $B%S!<%W$N@_Dj(B
-" $B%S!<%W2;$9$Y$F$rL58z$K$9$k(B
-set visualbell t_vb=
-" $B%(%i!<%a%C%;!<%8$NI=<(;~$K%S!<%W$rLD$i$5$J$$(B"
-set noerrorbells
-
-" Vim$B$r=*N;$7$F$b(BUndo
-if has('persistent_undo')
-  set undofile
-  set undodir=./.nvimundo,~/.nvim/undo
-endif
-
-" $B%U%!%$%k$r3+$$$?;~$K%+!<%=%k$rA02sJT=8;~$N0LCV$K0\F0(B
 augroup previousline
   autocmd!
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
-
-" tmux $BMQ$N@_Dj(B
-"256 bit$B%+%i!<%b!<%I(B(for tmux)
-if !has('gui_running') && $TMUX !=# ''
-  set t_Co=256
-endif
-
-" $B%(%3!<%(%j%"$KJd40;~$N%a%C%;!<%8$rI=<($5$;$J$$(B
-" https://github.com/vim-jp/issues/issues/305
-if (v:version > 704 || (v:version == 704 && has('patch314')))
-  set shortmess=c
-endif
-
-let g:localvimrc_ask=0        " いちいち聞かずに勝手に読み込む
-let g:localvimrc_persistent=2 " 一度聞いたファイルを記録しておき、次回からは自動で読み込む
-let g:localvimrc_persistent=1 " 聞いたときに大文字のY/N/Aで答えた場合のみ上記の動作をする"
-
-" keybind $B@_Dj(B {{{
-" set paste
-nnoremap <silent> ,p :<C-u>set paste!<CR>
-      \:<C-u>echo("Toggle PasteMode => " . (&paste == 0 ? "Off" : "On"))<CR>
-
-nnoremap <silent> ,P :<C-u>set list!<CR>
-      \:<C-u>set number!<CR>
-      \:<C-u>set foldcolumn=0<CR>
-      \:<C-u>GitGutterToggle<CR>
-      \:<C-u>echo("Toggle CopyMode => " . (&list == 0 ? "On" : "Off"))<CR>
-
-" clear search highlight
-nnoremap ,, :<C-u>nohlsearch<CR>
-
-" KEYMAP
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> ]B :blast<CR>
-
-nnoremap <silent> [t :tabprevious<CR>
-nnoremap <silent> ]t :tabnext<CR>
-nnoremap <silent> [T :tabfirst<CR>
-nnoremap <silent> ]T :tablast<CR>
-nnoremap <silent> [1 :tabnext1<CR>
-nnoremap <silent> [2 :tabnext2<CR>
-nnoremap <silent> [3 :tabnext3<CR>
-nnoremap <silent> [4 :tabnext4<CR>
-nnoremap <silent> [5 :tabnext5<CR>
-nnoremap <silent> [6 :tabnext6<CR>
-nnoremap <silent> [7 :tabnext7<CR>
-nnoremap <silent> [8 :tabnext8<CR>
-nnoremap <silent> [9 :tabnext9<CR>
-
-nnoremap <silent> [q :cprevious<CR>
-nnoremap <silent> ]q :cnext<CR>
-nnoremap <silent> [Q :cfirst<CR>
-nnoremap <silent> ]Q :clast<CR>
-
-" Edit vimrc
-nnoremap ,v :edit $MYVIMRC<CR>
-
-" Ctrl + j, k, h, l$B$G%&%$%s%I%&$r0\F0$G$-$k$h$&$K(B
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-nnoremap <C-Down>  <C-w>j
-nnoremap <C-Up>    <C-w>k
-nnoremap <C-Left>  <C-w>h
-nnoremap <C-Right> <C-w>l
-
-" no one is really happy until you have this shortcuts
-cnoreabbrev W! w!
-cnoreabbrev Q! q!
-cnoreabbrev Wq wq
-cnoreabbrev Wa wa
-cnoreabbrev wQ wq
-cnoreabbrev WQ wq
-cnoreabbrev W w
-cnoreabbrev Q q
-
-" $BO"B3%$%s%G%s%H(B
-vnoremap < <gv
-vnoremap > >gv
-
-" ESC Bind
-imap <C-j> <Esc>
-
-" ファイル保存
-nnoremap <Space>w  :<C-u>w<CR>
-" ウィンドウを閉じる
-nnoremap <Space>z  :<C-u>q<CR>
-nnoremap <Space>Q  :<C-u>q!<CR>
-
-" OPEN/CLOSE QUICKFIX WINDOW SETTINGS
-nnoremap <silent> <Space>q :<C-U>QFix<CR>
 
 " toggles the quickfix window.
 " http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
@@ -245,8 +49,8 @@ function! QFixToggle(forced)
   endif
 endfunction
 
-Autocmd QuickfixCmdPost vimgrep,grep botright copen
-Autocmd QuickfixCmdPost make call s:open_quickfix_window()
+autocmd QuickfixCmdPost vimgrep,grep botright copen
+autocmd QuickfixCmdPost make call s:open_quickfix_window()
 function! s:open_quickfix_window()
   silent redraw!
   if (len(getqflist()) == 1)
@@ -256,7 +60,6 @@ function! s:open_quickfix_window()
     let g:qfix_win = bufnr("$")
   endif
 endfunction
-
 " auto close
 " http://qiita.com/hidetzu/items/97b11c06e3e3a6c6d699
 function s:QuickFix_Exit_OnlyWindow()
@@ -266,41 +69,88 @@ function s:QuickFix_Exit_OnlyWindow()
     endif
   endif
 endfunction
-Autocmd WinEnter * call s:QuickFix_Exit_OnlyWindow()
+autocmd WinEnter * call s:QuickFix_Exit_OnlyWindow()
 
-" -----------------------------------------------------------------------------
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+augroup MyVimrc
+  autocmd!
+augroup END
+command! -nargs=* Autocmd   autocmd MyVimrc <args>
+command! -nargs=* AutocmdFT autocmd MyVimrc FileType <args>
+
+
+" Initialize
+call s:source_rc('init.vim')
+
+call neobundle#begin(expand('$CACHE/neobundle'))
+if neobundle#load_cache()
+    NeoBundleFetch 'Shougo/neobundle.vim'
+
+    call neobundle#load_toml('~/.config/vim/neobundle.toml')
+    call neobundle#load_toml('~/.config/vim/neobundlelazy.toml')
+
+    NeoBundleSaveCache
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
 
-let g:neobundle#types#git#clone_depth = 1
+"------------------------------------------------------------------------------
+" NeoBundle configurations.
+"
+call s:source_rc('plugins.vim')
+call s:source_rc('plugins-tools.vim')
+call s:source_rc('plugins-syntax.vim')
+call s:source_rc('plugins-git.vim')
 
-if neobundle#load_cache(expand('~/.vimrc')) ||
- \ neobundle#load_cache(expand('~/.vim/neobundle.toml')) ||
- \ neobundle#load_cache(expand('~/.vimrc.bundle.local'))
+call neobundle#end()
+filetype plugin indent on
 
-  " Let NeoBundle manage NeoBundle
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  " Load plugins
-  call neobundle#load_toml('~/.vim/neobundle.toml')
+" Enable syntax color.
+syntax enable
+set background=dark
+colorscheme hybrid
 
-  " load local neobundle settings
-  if filereadable(expand('~/.vimrc.bundle.local'))
-    source ~/.vimrc.bundle.local
-  endif
-
-  " save cache
-  NeoBundleSaveCache
+if !has('vim_starting')
+    " Installation check.
+    NeoBundleCheck
 endif
 
-if filereadable(expand('~/.vimrc.local'))
-  source ~/.vimrc.local
-endif
 
-if filereadable(expand('~/.vim/vimrc_plugin'))
-  source ~/.vim/vimrc_plugin
+"------------------------------------------------------------------------------
+" Encoding
+"
+call s:source_rc('encoding.vim')
+
+
+"------------------------------------------------------------------------------
+" Edit
+"
+call s:source_rc('edit.vim')
+
+
+"------------------------------------------------------------------------------
+" View
+"
+call s:source_rc('view.vim')
+
+
+"------------------------------------------------------------------------------
+" Mappings
+"
+call s:source_rc('mappings.vim')
+
+
+function! s:cpp_marker()
+    set foldmethod=marker
+    set foldmarker=R\"\(,\)\"\;
+endfunction
+
+augroup FoldMethod
+    autocmd!
+    autocmd FileType cpp call s:cpp_marker()
+augroup END
+
+"------------------------------------------------------------------------------
+if filereadable(expand('~/.config/vim/vimrc.local'))
+    source ~/.config/vim/vimrc.local
 endif
 
 " find vimrc from current repository
@@ -315,55 +165,3 @@ function! s:vimrc_local(loc)
         source `=i`
     endfor
 endfunction
-
-" colorscheme / highlight $B@_Dj(B
-if has('syntax')
-  " 行番号の色を設定
-  hi LineNr ctermbg=0 ctermfg=8
-  hi CursorLineNr ctermbg=235 ctermfg=3
-  set cursorline
-  hi clear CursorLine
-  " カレント行
-  hi CursorLine   ctermbg=235 guibg=Grey40
-  " colorcolumnの列にライン
-  hi ColorColumn  ctermbg=235 guibg=DarkRed
-
-  hi SpecialKey cterm=NONE ctermfg=239      ctermbg=NONE
-  hi SignColumn cterm=NONE ctermfg=DarkGrey ctermbg=NONE
-  hi Folded     cterm=NONE ctermfg=RED      ctermbg=NONE
-  hi FoldColumn cterm=NONE ctermfg=DarkBlue ctermbg=NONE
-  hi MatchParen cterm=bold ctermfg=39       ctermbg=NONE
-
-  hi Search       ctermfg=234 ctermbg=221 guifg=Black guibg=Yellow
-  hi Visual       ctermbg=237 guibg=DarkGrey
-  hi VisualNOS    term=bold,underline cterm=bold,underline gui=bold,underline
-  hi ErrorMsg     term=standout cterm=standout ctermfg=234 ctermbg=167 guifg=White guibg=Red
-  hi Error        term=underline cterm=underline ctermfg=167 ctermbg=52 guifg=White guibg=Red
-
-  "コミッ�時のスペルチェックを下線にする
-  hi clear SpellBad
-  hi SpellBad cterm=underline
-  hi clear SpellCap
-  hi SpellCap cterm=underline
-  hi clear SpellRare
-  hi SpellRare cterm=underline
-  hi clear SpellLocal
-  hi SpellLocal cterm=underline
-
-" $BA43Q%9%Z!<%9$NI=<((B
-  function! ZenkakuSpace()
-    highlight ZenkakuSpace cterm=underline ctermfg=darkgrey ctermbg=238 gui=underline guifg=darkgrey
-  endfunction
-
-  augroup ZenkakuSpace
-    autocmd!
-    autocmd ColorScheme * call ZenkakuSpace()
-    autocmd VimEnter,WinEnter * match ZenkakuSpace /$B!!(B/
-  augroup END
-  call ZenkakuSpace()
-endif
-
-" neobundle end
-call neobundle#end()
-filetype plugin indent on     " Required!
-NeoBundleCheck
