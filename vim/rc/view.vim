@@ -30,6 +30,8 @@ if has('syntax')
   " Row Color
   hi CursorLine ctermbg=235 guibg=Grey40
 
+  hi Search ctermfg=250 ctermbg=26
+
   "スペルチェックを下線にする
   hi clear SpellBad
   hi SpellBad cterm=underline
