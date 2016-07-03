@@ -24,7 +24,7 @@ function! s:color()
     hi CursorLineNr ctermfg=8
 
     " Search
-    hi Search ctermfg=7 ctermbg=26
+    hi Search ctermfg=250 ctermbg=26
 
     "set cursorline
     " Row Color
