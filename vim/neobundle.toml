@@ -86,3 +86,9 @@ repository = 'itchyny/lightline.vim'
 # COLOR
 [[plugins]]
 repository = 'w0ng/vim-hybrid'
+
+[[plugins]]
+repository = 'fuenor/qfixhowm.git'
+
+[[plugins]]
+repository = 'osyo-manga/unite-qfixhowm'
