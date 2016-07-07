@@ -202,7 +202,7 @@ endfunction
 
 [[plugins]]
 repo = 'hewes/unite-gtags'
-hookadd = '''
+hook_add = '''
 " lists references of a word. (It executes global -qrs -e <pattern> in internal.)
 nnoremap <silent> <Space>gr :<C-u>Unite gtags/ref<CR>
 " lists definitions of a word. (It executes global -qd -e <pattern> in internal.)

@@ -68,7 +68,7 @@ noremap q mq
 " highway
 " http://tkengo.github.io/blog/2015/10/19/release-highway/
 "
-nnoremap <Space>gh  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <Space>ug  :<C-u>Unite grep: -buffer-name=search-buffer<CR>
 
 " unite grepにhw(highway)を使う
 if executable('hw')
