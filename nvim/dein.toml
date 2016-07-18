@@ -100,6 +100,14 @@ endfunction
 on_i = 1
 
 [[plugins]]
+repo = 'zchee/deoplete-clang'
+hook_add = '''
+let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.6.2/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.6.2/lib/clang'
+'''
+on_ft = ['h', 'c', 'hpp', 'cpp', 'cc']
+
+[[plugins]]
 repo = 'Shougo/vimproc.vim'
 hook_post_update = '''
 if dein#util#_is_windows()
@@ -202,3 +210,7 @@ nnoremap <silent> <Space>gd :<C-u>Unite gtags/def<CR>
 " lists grep result of a word. (It executes global -qg -e <pattern> in internal.)
 " nnoremap <silent> <Space>gg :<C-u>Unite gtags/grep<CR>
 '''
+
+[[plugins]]
+repo = 'peterhoeg/vim-qml'
+on_ft = 'qml'
