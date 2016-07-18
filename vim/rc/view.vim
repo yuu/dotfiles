@@ -21,6 +21,8 @@ endif
 " endif
 
 if has('syntax')
+  set background=dark
+  colorscheme hybrid
   hi Normal ctermbg=none
 
   " Line number color
