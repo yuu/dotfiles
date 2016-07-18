@@ -105,8 +105,6 @@ filetype plugin indent on
 
 " Enable syntax color.
 syntax enable
-set background=dark
-colorscheme hybrid
 
 if !has('vim_starting')
     " Installation check.
