@@ -96,11 +96,11 @@ endfunction
 
 [[plugins]]
 repo = 'zchee/deoplete-clang'
+on_ft = ['h', 'c', 'hpp', 'cpp', 'cc']
 hook_add = '''
 let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.6.2/lib/libclang.dylib'
 let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.6.2/lib/clang'
 '''
-on_ft = ['h', 'c', 'hpp', 'cpp', 'cc']
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
