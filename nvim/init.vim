@@ -119,3 +119,5 @@ augroup FoldMethod
 augroup END
 
 filetype plugin indent on
+
+set path=.,include,../include,/usr/include,/usr/local/include,$HOME/usrfs/include,$HOME/usrfs/qt/include
