@@ -54,13 +54,13 @@ let g:unite_split_rule = 'botright'
 nnoremap [unite]    <Nop>
 nnoremap <Space>uu  :Unite -start-insert <CR>
 
-nnoremap <silent> <Space>ub :Unite buffer<CR>
+nnoremap <silent> <Space>b :Unite buffer<CR>
 nnoremap <silent> <Space>ut :<C-u>Unite tab<CR>
 nnoremap <silent> <Space>uy :<C-u>Unite history/yank<CR>
-nnoremap <silent> <Space>ua :Unite -start-insert file_rec/async:!<CR>
-nnoremap <silent> <Space>ug :Unite -start-insert file_rec/git<CR>
+nnoremap <silent> <Space>ufa :Unite -start-insert file_rec/async:!<CR>
+nnoremap <silent> <Space>ufg :Unite -start-insert file_rec/git<CR>
 
-nnoremap <silent> <Space>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> <Space>ug  :<C-u>Unite grep: -buffer-name=search-buffer<CR>
 if executable('hw')
   let g:unite_source_grep_command = 'hw'
   let g:unite_source_grep_default_opts = '--no-group --no-color'
