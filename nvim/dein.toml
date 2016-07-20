@@ -17,20 +17,14 @@ function! s:color()
     colorscheme hybrid
     hi Normal ctermbg=NONE
 
-    " Line number color
-    hi LineNr ctermfg=7
-    " Current line number color
-    " hi CursorLineNr ctermbg=235 ctermfg=3
+    hi LineNr ctermfg=8
     hi CursorLineNr ctermfg=8
-
-    " Search
+    hi CursorLine ctermbg=235 guibg=Grey40
     hi Search ctermfg=250 ctermbg=26
 
-    "set cursorline
-    " Row Color
-    hi CursorLine ctermbg=235 guibg=Grey40
+    " set cursorline
+    set colorcolumn=90
 
-    "スペルチェックを下線にする
     hi clear SpellBad
     hi SpellBad cterm=underline
     hi clear SpellCap
@@ -40,6 +34,7 @@ function! s:color()
     hi clear SpellLocal
     hi SpellLocal cterm=underline
 
+    hi MatchParen ctermbg=1
 endfunction
 
 augroup initColor
