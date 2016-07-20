@@ -80,6 +80,9 @@ vnoremap > >gv
 
 " ESC Bind
 imap <C-j> <Esc>
+nnoremap <Space>w  :<C-u>w<CR>
+nnoremap <Space>z  :<C-u>q<CR>
+nnoremap <Space>Z  :<C-u>q!<CR>
 
 " macro
 noremap q mq
