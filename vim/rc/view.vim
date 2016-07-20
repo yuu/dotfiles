@@ -43,6 +43,7 @@ if has('syntax')
   hi SpellRare cterm=underline
   hi clear SpellLocal
   hi SpellLocal cterm=underline
+  hi MatchParen ctermbg=1
 
   function! ZenkakuSpace()
     highlight ZenkakuSpace cterm=underline ctermfg=darkgrey ctermbg=238 gui=underline guifg=darkgrey
