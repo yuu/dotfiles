@@ -92,7 +92,7 @@ noremap q mq
 " set ambiwidth=double
 
 if filereadable(expand('~/.config/nvim/init.local'))
-    source ~/.config/vim/vimrc.local
+    source ~/.config/nvim/init.local
 endif
 
 " find vimrc from current repository
