@@ -17,8 +17,14 @@ function! s:color()
     colorscheme hybrid
     hi Normal ctermbg=NONE
 
-    hi LineNr ctermfg=8
-    hi CursorLineNr ctermfg=8
+    if has('unix')
+        hi LineNr ctermfg=7
+        hi CursorLineNr ctermfg=7
+    endif
+    if has('mac')
+        hi LineNr ctermfg=8
+        hi CursorLineNr ctermfg=8
+    endif
     hi CursorLine ctermbg=235 guibg=Grey40
     hi Search ctermfg=250 ctermbg=26
 
@@ -98,8 +104,14 @@ endfunction
 repo = 'zchee/deoplete-clang'
 on_ft = ['h', 'c', 'hpp', 'cpp', 'cc']
 hook_add = '''
-let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.6.2/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.6.2/lib/clang'
+if has('unix')
+    let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.5/lib/libclang.so'
+    let g:deoplete#sources#clang#clang_header =  '/usr/include/llvm-3.5/llvm'
+endif
+if has('mac')
+    let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.6.2/lib/libclang.dylib'
+    let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.6.2/lib/clang'
+endif
 '''
 
 [[plugins]]
