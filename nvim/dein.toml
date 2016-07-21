@@ -28,9 +28,6 @@ function! s:color()
     hi CursorLine ctermbg=235 guibg=Grey40
     hi Search ctermfg=250 ctermbg=26
 
-    " set cursorline
-    set colorcolumn=90
-
     hi clear SpellBad
     hi SpellBad cterm=underline
     hi clear SpellCap
