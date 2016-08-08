@@ -142,6 +142,7 @@ vmap <silent> ,/ <Plug>(caw:i:toggle)
 
 [[plugins]]
 repo = 'rhysd/committia.vim'
+on_ft = ['gitcommit']
 hook_add = '''
 let g:committia_hooks = {}
 function! g:committia_hooks.edit_open(info)
