@@ -217,6 +217,12 @@ nnoremap <silent> <Space>gd :<C-u>Unite gtags/def<CR>
 '''
 
 [[plugins]]
+repo = 'Shougo/unite-outline'
+hook_add = '''
+nnoremap <silent> <Space>uo :<C-u>Unite -vertical -no-quit -keep-focus outline<CR>
+'''
+
+[[plugins]]
 repo = 'haya14busa/incsearch.vim'
 hook_add = '''
 map /  <Plug>(incsearch-forward)
