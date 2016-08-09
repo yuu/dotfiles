@@ -61,6 +61,10 @@ noremap q mq
 " 曖昧な文字列幅を全角
 " set ambiwidth=double
 
+set cmdheight=2
+set completeopt=menuone
+let g:echodoc_enable_at_startup = 1
+
 function! s:cpp_marker()
     set foldmethod=marker
     set foldmarker=R\"\(,\)\"\;

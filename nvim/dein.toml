@@ -238,3 +238,6 @@ on_ft = 'markdown'
 [[plugins]]
 repo = 'kannokanno/previm'
 on_ft = 'markdown'
+
+[[plugins]]
+repo = 'Shougo/echodoc'
