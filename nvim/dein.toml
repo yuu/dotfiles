@@ -157,6 +157,9 @@ endfunction
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
+repo = 'cohama/agit.vim'
+
+[[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add  = '''
 let g:rooter_disable_map = 1
