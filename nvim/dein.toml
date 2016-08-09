@@ -77,7 +77,7 @@ repo = 'Shougo/neomru.vim'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
-hook_source = '''
+hook_add = '''
 let g:deoplete#enable_at_startup = 1
 
 inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
