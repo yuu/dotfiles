@@ -157,6 +157,12 @@ endfunction
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
+repo = 'jreybert/vimagit'
+hook_source = '''
+let g:magit_default_fold_level = 2
+'''
+
+[[plugins]]
 repo = 'cohama/agit.vim'
 
 [[plugins]]
