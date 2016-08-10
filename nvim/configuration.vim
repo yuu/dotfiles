@@ -74,3 +74,10 @@ augroup FoldMethod
     autocmd!
     autocmd FileType cpp call s:cpp_marker()
 augroup END
+
+augroup LastCursolPos
+    autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+augroup END
