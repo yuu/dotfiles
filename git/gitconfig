@@ -31,3 +31,5 @@ todo = commit --allow-empty -m
 
 [http]
 postBuffer = 157286400
+[rebase]
+    autosquash = true
