@@ -81,3 +81,5 @@ augroup LastCursolPos
     \   exe "normal! g`\"" |
     \ endif
 augroup END
+
+set path=.,include,../include,/usr/include,/usr/local/include
