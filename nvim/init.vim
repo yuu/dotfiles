@@ -32,8 +32,8 @@ endif
 
 source ~/.config/nvim/configuration.vim
 
-if filereadable(expand('~/.config/nvim/init.local'))
-    source ~/.config/nvim/init.local
+if filereadable(expand('~/.config/nvim/local.vim'))
+    source ~/.config/nvim/local.vim
 endif
 
 " find vimrc from current repository
