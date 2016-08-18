@@ -158,7 +158,7 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'jreybert/vimagit'
-hook_source = '''
+hook_add = '''
 let g:magit_default_fold_level = 2
 '''
 
