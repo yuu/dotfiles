@@ -1,36 +1,37 @@
 [include]
-path = ~/.gitconfig.local
+    path = ~/.gitconfig.local
 
 [core]
-excludesfile = ~/.gitignore
-editor = nvim
-pager = "lv -c"
-quotepath = false
-autocrlf = input
-safecrlf = false
+    excludesfile = ~/.gitignore
+    editor = nvim
+    pager = "lv -c"
+    quotepath = false
+    autocrlf = input
+    safecrlf = false
 
 [color]
-ui = auto
+    ui = auto
 
 [alias]
-lg = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
-lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
-lgs = log --graph --oneline --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s'
-lgas = log --graph --all --oneline --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s'
-s = status
-co = checkout
-a = add
-br = branch
-ci = commit
-d = diff
-dc = diff --cached
-ru = remote update
-cat = cat-file -p
-root = rev-parse --show-toplevel
-todo = commit --allow-empty -m
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
+    lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
+    lgs = log --graph --oneline --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s'
+    lgas = log --graph --all --oneline --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s'
+    s = status
+    co = checkout
+    a = add
+    br = branch
+    ci = commit
+    d = diff
+    dc = diff --cached
+    ru = remote update
+    cat = cat-file -p
+    root = rev-parse --show-toplevel
+    todo = commit --allow-empty -m
 
 [http]
-postBuffer = 157286400
+    postBuffer = 157286400
+
 [rebase]
     autosquash = true
 
