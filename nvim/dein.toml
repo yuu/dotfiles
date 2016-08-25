@@ -93,6 +93,14 @@ endfunction
 '''
 
 [[plugins]]
+repo = 'Konfekt/FastFold'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_i = 1
+
+[[plugins]]
 repo = 'zchee/deoplete-clang'
 on_ft = ['h', 'c', 'hpp', 'cpp', 'cc']
 hook_add = '''
