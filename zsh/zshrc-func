@@ -4,11 +4,18 @@ dgrep(){
         grep --color=auto -Hnr $1
     elif [ $# -eq 2 ]; then
         grep --color=auto -Hn $1 -- **/*.$2
-    elif [ $# -gt 2 ]; then
-        x=$1
-        shift
-        y=`echo $* | sed -e 's/ \+/|/g'`
-        zsh -c "grep --color=auto -Hn $x -- **/*.($y)"
+    fi
+}
+degrep() {
+    if [ $# -eq 1 ]; then
+        hw --no-group $1
+    elif [ $# -eq 2 ]; then
+        ret=$(hw --no-group $1 **/*.$2 |peco)
+        if [ -n "$ret" ]; then
+            file=$(echo $ret |awk '{print $1}' |sed -e 's@[:][0-9].*@@g')
+            line=$(echo $ret |awk '{print $1}' |sed -e 's@[^0-9]@@g')
+            vi $file -c $line
+        fi
     fi
 }
 edgrep(){
