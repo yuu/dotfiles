@@ -82,3 +82,11 @@ function ghq-list () {
 }
 zle -N ghq-list
 bindkey '^xl' ghq-list
+
+function zsh-select-history() {
+    BUFFER=$(fc -l -r -n 1 | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle redisplay
+}
+zle -N zsh-select-history
+bindkey '^[r' zsh-select-history
