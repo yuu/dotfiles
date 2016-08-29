@@ -15,6 +15,7 @@ set softtabstop=4
 set smarttab
 
 " See tab/space
+set list
 set listchars=tab:\|\ ,trail:~
 
 " set paste
