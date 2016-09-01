@@ -1,5 +1,7 @@
 set mouse =""
 
+set undofile
+
 set number
 " set ignorecase smartcase
 set nowrapscan "検索をファイルの先頭へループしない
