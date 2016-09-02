@@ -139,8 +139,8 @@ hook_add = '''
 " デフォルトマッピングを OFF
 let g:caw_no_default_keymappings = 1
 " キーマッピング
-nmap <silent> ,/ <Plug>(caw:i:toggle)
-vmap <silent> ,/ <Plug>(caw:i:toggle)
+nmap <silent> ,/ <Plug>(caw:hatpos:toggle)
+vmap <silent> ,/ <Plug>(caw:hatpos:toggle)
 '''
 
 [[plugins]]
