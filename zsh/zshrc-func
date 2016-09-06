@@ -64,3 +64,14 @@ remake(){
         fi
     fi
 }
+
+function ghq-list () {
+    local selected_dir=$(ghq list | peco --query "$LBUFFER")
+    local root_dir=$(ghq root)
+    if [ -n "$selected_dir" ]; then
+        BUFFER=" cd $root_dir/${selected_dir}"
+        zle accept-line
+    fi
+}
+zle -N ghq-list
+bindkey '^xl' ghq-list
