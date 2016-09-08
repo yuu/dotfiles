@@ -172,6 +172,10 @@ let g:magit_default_fold_level = 2
 
 [[plugins]]
 repo = 'cohama/agit.vim'
+hook_add = '''
+nmap <silent> CP <Plug>(agit-git-cherry-pick)
+nmap <silent> RV <Plug>(agit-git-revert)
+'''
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
