@@ -37,3 +37,8 @@
 
 [ghq]
     root = ~/src
+
+[filter "lfs"]
+    required = true
+    smudge = git-lfs smudge -- %f
+    clean = git-lfs clean -- %f
