@@ -5,6 +5,11 @@ source $HOME/.config/zsh/zshrc-func
 source $HOME/.config/zsh/zshrc-cheatcheet
 source $HOME/.config/zsh/zshrc-alias.common
 
+fpath+=($HOME/.config/zsh)
+autoload -U compinit
+compinit -u
+# autoload -Uz ghq
+
 case "${OSTYPE}" in
   darwin*)
     source $HOME/.config/zsh/zshrc-alias.mac
