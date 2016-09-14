@@ -29,6 +29,9 @@ git clone git://github.com/zsh-users/zaw.git ~/.config/zsh/zaw
 mkdir ~/.vim
 ls -l vim |awk '{print $9}' |xargs -i ln -s "`pwd`/vim/{}" ~/.vim/
 
+# peco
+ln -s $(pwd)/peco ~/.peco
+
 # other
 mkdir ~/.config/python
 ln -s $(pwd)/pythonstartup ~/.config/python/pythonstartup
