@@ -225,7 +225,7 @@ endfunction
 
 [[plugins]]
 repo = 'hewes/unite-gtags'
-on_ft = ['python']
+on_ft = ['c', 'cpp']
 hook_add = '''
 " lists references of a word. (It executes global -qrs -e <pattern> in internal.)
 nnoremap <silent> <Space>gr :<C-u>Unite gtags/ref -auto-preview <CR>
@@ -258,11 +258,9 @@ let g:rtagsUseDefaultMappings = 0
 let g:rtagsUseLocationList = 0
 
 " ref
-nnoremap <silent> <Space>gr :<C-u>Unite<Space>rtags/references<CR>
+nnoremap <silent> <F3> :<C-u>Unite rtags/references<CR>
 " def
-nnoremap <silent> <Space>gd :call rtags#JumpTo(g:SAME_WINDOW)<CR>
-" jump
-nnoremap <silent> <Space>gg :call rtags#JumpToParent()<CR>
+nnoremap <silent> <F2> :call rtags#JumpTo(g:SAME_WINDOW)<CR>
 '''
 
 [[plugins]]
