@@ -9,6 +9,9 @@ on_ft = 'toml'
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'
+hook_add = '''
+let g:vim_markdown_folding_disabled = 1
+'''
 
 [[plugins]]
 repo = 'Townk/vim-qt'
