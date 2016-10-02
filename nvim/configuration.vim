@@ -86,3 +86,8 @@ augroup LastCursolPos
 augroup END
 
 set path=.,include,../include,/usr/include,/usr/local/include
+
+augroup ChangeFileTypeIndent
+    autocmd!
+    autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2
+augroup END
