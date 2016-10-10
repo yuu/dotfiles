@@ -28,6 +28,7 @@
     cat = cat-file -p
     root = rev-parse --show-toplevel
     todo = commit --allow-empty -m
+    see = browse
 
 [http]
     postBuffer = 157286400
