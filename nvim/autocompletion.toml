@@ -20,8 +20,8 @@ repo = 'zchee/deoplete-clang'
 on_ft = ['h', 'c', 'hpp', 'cpp', 'cc']
 hook_add = '''
 if has('unix')
-    let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.5/lib/libclang.so'
-    let g:deoplete#sources#clang#clang_header =  '/usr/include/llvm-3.5/llvm'
+    let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so'
+    let g:deoplete#sources#clang#clang_header =  '/usr/include/llvm-3.8/llvm'
 endif
 if has('mac')
     let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.6.2/lib/libclang.dylib'
