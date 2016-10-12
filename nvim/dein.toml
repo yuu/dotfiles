@@ -75,46 +75,6 @@ endif
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_i = 1
-hook_add = '''
-let g:deoplete#enable_at_startup = 1
-
-inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-g> deoplete#cancel_popup()."\<C-h>"
-
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-  return deoplete#close_popup() . "\<CR>"
-endfunction
-
-'''
-
-[[plugins]]
-repo = 'Konfekt/FastFold'
-on_i = 1
-
-[[plugins]]
-repo = 'Shougo/neoinclude.vim'
-on_i = 1
-
-[[plugins]]
-repo = 'zchee/deoplete-clang'
-on_ft = ['h', 'c', 'hpp', 'cpp', 'cc']
-hook_add = '''
-if has('unix')
-    let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.5/lib/libclang.so'
-    let g:deoplete#sources#clang#clang_header =  '/usr/include/llvm-3.5/llvm'
-endif
-if has('mac')
-    let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.6.2/lib/libclang.dylib'
-    let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.6.2/lib/clang'
-endif
-'''
-
-[[plugins]]
 repo = 'Shougo/vimproc.vim'
 hook_post_update = '''
 if dein#util#_is_windows()
@@ -128,69 +88,14 @@ let g:dein#plugin.build = cmd
 '''
 
 [[plugins]]
-repo = 'rhysd/clever-f.vim'
+repo = 'Shougo/unite-outline'
 hook_add = '''
-let g:clever_f_across_no_line=1
+nnoremap <silent> <Space>uo :<C-u>Unite -vertical -no-quit -keep-focus outline<CR>
 '''
 
 [[plugins]]
-repo = 'tyru/caw.vim'
-hook_add = '''
-" デフォルトマッピングを OFF
-let g:caw_no_default_keymappings = 1
-" キーマッピング
-nmap <silent> ,/ <Plug>(caw:hatpos:toggle)
-vmap <silent> ,/ <Plug>(caw:hatpos:toggle)
-'''
-
-[[plugins]]
-repo = 'rhysd/committia.vim'
-on_ft = ['gitcommit']
-hook_add = '''
-let g:committia_hooks = {}
-function! g:committia_hooks.edit_open(info)
-    " If no commit message, start with insert mode
-    if a:info.vcs ==# 'git' && getline(1) ==# ''
-        startinsert
-    end
-
-    " Scroll the diff window from insert mode
-    " Map <C-n> and <C-p>
-    imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
-    imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
-endfunction
-'''
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo = 'jreybert/vimagit'
-hook_add = '''
-let g:magit_default_fold_level = 2
-'''
-
-[[plugins]]
-repo = 'cohama/agit.vim'
-hook_add = '''
-nmap <silent> CP <Plug>(agit-git-cherry-pick)
-nmap <silent> RV <Plug>(agit-git-revert)
-'''
-
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-hook_add  = '''
-let g:rooter_disable_map = 1
-let g:rooter_change_directory_for_non_project_files = 1
-let g:gitgutter_sign_column_always = 1
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '➜'
-let g:gitgutter_sign_removed = '_'
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 1
-let g:gitgutter_max_signs = 2000
-let g:gitgutter_escape_grep = 1
-'''
+repo = 'Konfekt/FastFold'
+on_i = 1
 
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
@@ -232,26 +137,6 @@ nnoremap <silent> <Space>gr :<C-u>Unite gtags/ref -auto-preview <CR>
 nnoremap <silent> <Space>gd :<C-u>Unite gtags/def -auto-preview <CR>
 " lists grep result of a word. (It executes global -qg -e <pattern> in internal.)
 " nnoremap <silent> <Space>gg :<C-u>Unite gtags/grep -auto-preview <CR>
-'''
-
-[[plugins]]
-repo = 'Shougo/unite-outline'
-hook_add = '''
-nnoremap <silent> <Space>uo :<C-u>Unite -vertical -no-quit -keep-focus outline<CR>
-'''
-
-[[plugins]]
-repo = 'haya14busa/incsearch.vim'
-hook_add = '''
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-'''
-
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-hook_add = '''
-let g:neoyank#limit = 50
 '''
 
 [[plugins]]
