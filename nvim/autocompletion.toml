@@ -1,4 +1,35 @@
 [[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
+hook_add = '''
+let g:deoplete#enable_at_startup = 1
+
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-g> deoplete#cancel_popup()."\<C-h>"
+
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#close_popup() . "\<CR>"
+endfunction
+'''
+
+[[plugins]]
+repo = 'zchee/deoplete-clang'
+on_ft = ['h', 'c', 'hpp', 'cpp', 'cc']
+hook_add = '''
+if has('unix')
+    let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.5/lib/libclang.so'
+    let g:deoplete#sources#clang#clang_header =  '/usr/include/llvm-3.5/llvm'
+endif
+if has('mac')
+    let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.6.2/lib/libclang.dylib'
+    let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.6.2/lib/clang'
+endif
+'''
+
+[[plugins]]
 repo = 'zchee/deoplete-jedi'
 on_ft = ['python']
 
@@ -11,3 +42,7 @@ let g:deoplete#sources#omni#input_patterns = {
 \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
 \}
 '''
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_i = 1

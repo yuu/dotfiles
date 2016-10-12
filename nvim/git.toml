@@ -1,0 +1,48 @@
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add  = '''
+let g:rooter_disable_map = 1
+let g:rooter_change_directory_for_non_project_files = 1
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '➜'
+let g:gitgutter_sign_removed = '_'
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 1
+let g:gitgutter_max_signs = 2000
+let g:gitgutter_escape_grep = 1
+'''
+
+[[plugins]]
+repo = 'rhysd/committia.vim'
+on_ft = ['gitcommit']
+hook_add = '''
+let g:committia_hooks = {}
+function! g:committia_hooks.edit_open(info)
+    " If no commit message, start with insert mode
+    if a:info.vcs ==# 'git' && getline(1) ==# ''
+        startinsert
+    end
+
+    " Scroll the diff window from insert mode
+    " Map <C-n> and <C-p>
+    imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
+    imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
+endfunction
+'''
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'jreybert/vimagit'
+hook_add = '''
+let g:magit_default_fold_level = 2
+'''
+
+[[plugins]]
+repo = 'cohama/agit.vim'
+hook_add = '''
+nmap <silent> CP <Plug>(agit-git-cherry-pick)
+nmap <silent> RV <Plug>(agit-git-revert)
+'''
