@@ -7,7 +7,9 @@ set number
 set nowrapscan "検索をファイルの先頭へループしない
 set incsearch
 set hlsearch
-set clipboard+=unnamedplus
+if has('unix')
+    set clipboard+=unnamedplus
+endif
 
 " TAB
 set expandtab
