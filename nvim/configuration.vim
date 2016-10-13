@@ -62,7 +62,7 @@ nnoremap <Space>Z  :<C-u>q!<CR>
 noremap q mq
 
 " 曖昧な文字列幅を全角
-" set ambiwidth=double
+set ambiwidth=double
 
 set cmdheight=2
 set completeopt=menuone
