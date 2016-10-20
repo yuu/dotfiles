@@ -43,3 +43,6 @@
     required = true
     smudge = git-lfs smudge -- %f
     clean = git-lfs clean -- %f
+
+[commit]
+    template = ~/dotfiles/git/message.txt
