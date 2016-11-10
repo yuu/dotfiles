@@ -130,11 +130,11 @@ endfunction
 repo = 'hewes/unite-gtags'
 hook_add = '''
 " lists references of a word. (It executes global -qrs -e <pattern> in internal.)
-nnoremap <silent> <Space>gr :<C-u>Unite gtags/ref -auto-preview <CR>
+nnoremap <silent> <Space>gr :<C-u>Unite gtags/ref <CR>
 " lists definitions of a word. (It executes global -qd -e <pattern> in internal.)
-nnoremap <silent> <Space>gd :<C-u>Unite gtags/def -auto-preview <CR>
+nnoremap <silent> <Space>gd :<C-u>Unite gtags/def <CR>
 " lists grep result of a word. (It executes global -qg -e <pattern> in internal.)
-" nnoremap <silent> <Space>gg :<C-u>Unite gtags/grep -auto-preview <CR>
+" nnoremap <silent> <Space>gg :<C-u>Unite gtags/grep <CR>
 '''
 
 [[plugins]]
