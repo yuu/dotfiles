@@ -4,6 +4,8 @@ if &compatible
   set nocompatible
 endif
 
+source ~/.config/nvim/configuration.vim
+
 let s:conf_dir = expand('~/.config/nvim')
 let s:dein_dir = expand('~/.cache/nvim')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -31,8 +33,6 @@ endif
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
-
-source ~/.config/nvim/configuration.vim
 
 if filereadable(expand('~/.config/nvim/local.vim'))
     source ~/.config/nvim/local.vim
