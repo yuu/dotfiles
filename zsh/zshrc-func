@@ -52,8 +52,7 @@ run(){
 mmake(){
     if [ $? -eq 0 ]; then
         if [ $# -eq 0 ]; then
-            x=`egrep -c "^processor\s:\s[0-9]+$" /proc/cpuinfo`
-            make -j $x
+            make -j $(nproc)
         elif [ $# -eq 1 ]; then
             make $1
         fi
@@ -64,8 +63,7 @@ remake(){
     make clean
     if [ $? -eq 0 ]; then
         if [ $# -eq 0 ]; then
-            x=`egrep -c "^processor\s:\s[0-9]+$" /proc/cpuinfo`
-            make -j $x
+            make -j$(nproc)
         elif [ $# -eq 1 ]; then
             make $1
         fi
