@@ -2,6 +2,9 @@ set mouse =""
 
 set undofile
 
+set encoding=utf-8
+set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+
 set number
 " set ignorecase smartcase
 set nowrapscan "検索をファイルの先頭へループしない
