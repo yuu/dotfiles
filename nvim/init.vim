@@ -22,7 +22,7 @@ if dein#load_state(s:dein_dir)
     call dein#load_toml(s:conf_dir . '/dein.toml', {'lazy': 0})
     call dein#load_toml(s:conf_dir . '/util.toml', {'lazy': 0})
     call dein#load_toml(s:conf_dir . '/git.toml', {'lazy': 0})
-    call dein#load_toml(s:conf_dir . '/syntax.toml', {'lazy': 1})
+    call dein#load_toml(s:conf_dir . '/syntax.toml', {'lazy': 0})
     call dein#load_toml(s:conf_dir . '/autocompletion.toml', {'lazy': 1})
 "    call dein#load_toml(s:conf_dir . '/dein_lazy.toml', {'lazy': 1})
 
