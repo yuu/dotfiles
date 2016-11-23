@@ -28,3 +28,12 @@ on_ft = ['c', 'cpp']
 [[plugins]]
 repo = 'peterhoeg/vim-qml'
 on_ft = 'qml'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+source_add = '''
+set noexpandtab
+set shiftwidth=8
+set softtabstop=8
+'''

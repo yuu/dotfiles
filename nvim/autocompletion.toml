@@ -36,3 +36,7 @@ let g:deoplete#sources#omni#input_patterns = {
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
 on_i = 1
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+on_ft = 'go'
