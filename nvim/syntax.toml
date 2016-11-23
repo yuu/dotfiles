@@ -23,7 +23,7 @@ on_ft = ['c', 'cpp']
 
 [[plugins]]
 repo = 'Townk/vim-qt'
-on_ft = ['c', 'cpp', 'qml']
+on_ft = ['c', 'cpp']
 
 [[plugins]]
 repo = 'peterhoeg/vim-qml'
