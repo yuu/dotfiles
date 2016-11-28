@@ -5,7 +5,7 @@ alias ll="ls --color -lFh"
 alias lla="ls --color -laFh"
 
 # エイリアスいろいろ
-alias open="xdg-open"
+alias open="xdg-open > /dev/null 2>&1"
 alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"
 alias today="date +'%Y.%m.%d'"
