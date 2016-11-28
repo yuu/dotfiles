@@ -70,7 +70,7 @@ remake(){
     fi
 }
 
-function ghq-list () {
+function ghq-list() {
     local selected_dir=$(ghq list | peco --query "$LBUFFER")
     local root_dir=$(ghq root)
     if [ -n "$selected_dir" ]; then
