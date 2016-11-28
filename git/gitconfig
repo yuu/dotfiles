@@ -46,3 +46,6 @@
 
 [commit]
     template = ~/dotfiles/git/message.txt
+
+[diff]
+    compactionHeuristic = true
