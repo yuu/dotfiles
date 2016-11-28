@@ -2,6 +2,9 @@ set mouse =""
 
 set undofile
 
+" VIM Disable Automatic Newline At End Of File
+set binary
+
 set encoding=utf-8
 set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
 
