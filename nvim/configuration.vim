@@ -38,6 +38,8 @@ nnoremap <silent> ,P :<C-u>set list!<CR>
       \:<C-u>GitGutterToggle<CR>
       \:<C-u>echo("Toggle CopyMode => " . (&list == 0 ? "On" : "Off"))<CR>
 
+nnoremap <silent> ,cd :<C-u>lcd %:h<CR>
+
 " clear search highlight
 nnoremap ,, :<C-u>nohlsearch<CR>
 
