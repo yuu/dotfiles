@@ -27,3 +27,22 @@ let g:caw_no_default_keymappings = 1
 nmap <silent> ,/ <Plug>(caw:hatpos:toggle)
 vmap <silent> ,/ <Plug>(caw:hatpos:toggle)
 '''
+
+[[plugins]]
+repo = 'rhysd/vim-clang-format'
+hook_add = '''
+let g:clang_format#style_options = {
+   \ "BasedOnStyle" : "Google",
+   \ "IndentWidth" : 4,
+   \ "AccessModifierOffset" : -4,
+   \ "Standard" : "C++11",
+   \ "BreakConstructorInitializersBeforeComma" : "true",
+   \ "ConstructorInitializerAllOnOneLineOrOnePerLine" : "false",
+   \ "IndentCaseLabels" : "false",
+   \ "AlwaysBreakTemplateDeclarations" : "true",
+   \ "AllowShortFunctionsOnASingleLine" : "Inline",
+   \ "AllowShortIfStatementsOnASingleLine" : "false",
+   \ "UseTab" : "Never"}
+
+autocmd FileType c,cpp nmap <buffer>,cf :ClangFormat<CR>
+'''
