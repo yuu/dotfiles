@@ -36,6 +36,7 @@ let g:clang_format#style_options = {
    \ "IndentWidth" : 4,
    \ "AccessModifierOffset" : -4,
    \ "Standard" : "C++11",
+   \ "ColumnLimit" : "110",
    \ "BreakConstructorInitializersBeforeComma" : "true",
    \ "ConstructorInitializerAllOnOneLineOrOnePerLine" : "false",
    \ "IndentCaseLabels" : "false",
