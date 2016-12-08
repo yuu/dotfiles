@@ -88,3 +88,12 @@ function zsh-select-history() {
 }
 zle -N zsh-select-history
 bindkey '^[r' zsh-select-history
+
+function peco-dfind() {
+    local selected_dir="$(find . -maxdepth 5 -type f ! -path "*/.*"| peco)"
+    BUFFER="${LBUFFER}${selected_dir}"
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-dfind
+bindkey '^xf' peco-dfind
