@@ -6,7 +6,7 @@ set undofile
 set binary
 
 set encoding=utf-8
-set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
 set number
 " set ignorecase smartcase
