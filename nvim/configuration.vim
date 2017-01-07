@@ -69,7 +69,8 @@ nnoremap <Space>z  :<C-u>q<CR>
 nnoremap <Space>Z  :<C-u>q!<CR>
 
 " macro
-noremap q mq
+nnoremap Q q
+nnoremap q <Nop>
 
 " 曖昧な文字列幅を全角
 set ambiwidth=double
