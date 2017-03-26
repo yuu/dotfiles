@@ -7,17 +7,9 @@ git-cheat () { zle -M "`cat $HOME/.config/zsh/cheatsheets/git-cheat.conf`" }
 zle -N git-cheat
 bindkey "^[^g" git-cheat
 
-screen-cheat () { zle -M "`cat $HOME/.config/zsh/cheatsheets/screen-cheat.conf`" }
-zle -N screen-cheat
-bindkey "^[^s" screen-cheat
-
 tmux-cheat () { zle -M "`cat $HOME/.config/zsh/cheatsheets/tmux-cheat.conf`" }
 zle -N tmux-cheat
 bindkey "^[^b" tmux-cheat
-
-command-cheat () { zle -M "`cat $HOME/.config/zsh/cheatsheets/command-cheat.conf`" }
-zle -N command-cheat
-bindkey "^[^j" command-cheat
 
 editor-cheat () { zle -M "`cat $HOME/.config/zsh/cheatsheets/vim-sheet.conf`" }
 zle -N editor-cheat
