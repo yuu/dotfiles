@@ -5,6 +5,8 @@ zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34'
 # 色
 export TERM=xterm-256color
 
+export PAGER="lv -c"
+
 export GPG_TTY=`tty`
 
 # python
