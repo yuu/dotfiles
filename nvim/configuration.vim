@@ -8,7 +8,6 @@ set binary
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 
-set number
 " set ignorecase smartcase
 set nowrapscan "検索をファイルの先頭へループしない
 set incsearch
