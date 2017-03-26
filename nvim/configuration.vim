@@ -71,6 +71,8 @@ nnoremap <Space>Z  :<C-u>q!<CR>
 nnoremap Q q
 nnoremap q <Nop>
 
+" nnoremap ,cd :lcd %:h
+
 " 曖昧な文字列幅を全角
 set ambiwidth=double
 
