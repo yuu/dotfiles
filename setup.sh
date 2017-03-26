@@ -26,8 +26,9 @@ ln -s ~/.config/zsh/zshrc ~/.zshrc
 git clone git://github.com/zsh-users/zaw.git ~/.config/zsh/zaw
 
 # vim
-mkdir ~/.vim
-ls -l vim |awk '{print $9}' |xargs -i ln -s "`pwd`/vim/{}" ~/.vim/
+VIM="~/.config/nvim"
+mkdir -p $VIM
+ls -l nvim |awk '{print $9}' |xargs -i ln -s "`pwd`/vim/{}" $VIM
 
 # peco
 ln -s $(pwd)/peco ~/.peco
