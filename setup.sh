@@ -39,7 +39,9 @@ ln -s $(pwd)/pythonstartup ~/.config/python/pythonstartup
 ln -s $(pwd)/screenrc ~/.screenrc
 
 if [ "$(uname)" == 'Darwin' ]; then
-    ln -s ~/dotfiles/karabiner-private.xml ~/Library/Application\ Support/Karabiner/private.xml
+    KD=$HOME/.config/karabiner
+    mkdir -p $KD
+    ln -s ~/dotfiles/karabiner.json $KD
     ln -s ~/dotfiles/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 else
     mkdir -p ~/.config/terminator
