@@ -1,62 +1,31 @@
 # grpe
 dgrep(){
     if [ $# -eq 1 ]; then
-        grep --color=auto -Hnr $1
+        egrep --color=auto -Hnr "$1"
     elif [ $# -eq 2 ]; then
-        grep --color=auto -Hn $1 -- **/*.$2
+        egrep --color=auto -Hn "$1" -- **/*.$2
     fi
 }
-degrep() {
+pgrep() {
+    local cmd=""
     if [ $# -eq 1 ]; then
-        hw --no-group $1
+        cmd="egrep --color=auto -Hnr '$1' |peco"
     elif [ $# -eq 2 ]; then
-        ret=$(hw --no-group $1 **/*.$2 |peco)
+        cmd="egrep --color=auto -Hnr '$1' **/*.$2 |peco"
+    fi
+    if [ -n "$cmd" ]; then
+        ret=$(eval "$cmd")
         if [ -n "$ret" ]; then
-            file=$(echo $ret |awk '{print $1}' |sed -e 's@[:][0-9].*@@g')
-            line=$(echo $ret |awk '{print $1}' |sed -e 's@[^0-9]@@g')
-            vi $file -c $line
+            file=$(echo "$ret" |grep -Po '.+?(?=:\d{1,}:)')
+            line=$(echo "$ret" |grep -Po '(?<=:)[0-9]{1,}(?=:)')
+            nvim "$file" -c $line
         fi
-    fi
-}
-edgrep(){
-    if [ $# -eq 1 ]; then
-        grep --color=auto -EHnr $1
-    elif [ $# -eq 2 ]; then
-        grep --color=auto -EHn $1 -- **/*.$2
-    elif [ $# -gt 2 ]; then
-        x=$1
-        shift
-        y=`echo $* | sed -e 's/ \+/|/g'`
-        zsh -c "grep -E --color=auto -Hn $x -- **/*.($y)"
-    fi
-}
-pdgrep(){
-    if [ $# -eq 1 ]; then
-        grep --color=auto -PHnr $1
-    elif [ $# -eq 2 ]; then
-        grep --color=auto -PHn $1 -- **/*.$2
-    elif [ $# -gt 2 ]; then
-        x=$1
-        shift
-        y=`echo $* | sed -e 's/ \+/|/g'`
-        zsh -c "grep -P --color=auto -Hn $x -- **/*.($y)"
     fi
 }
 
 # mac app execute
 run(){
     $1/Contents/MacOS/$(basename $1 .app)
-}
-
-# make
-mmake(){
-    if [ $? -eq 0 ]; then
-        if [ $# -eq 0 ]; then
-            make -j $(nproc)
-        elif [ $# -eq 1 ]; then
-            make $1
-        fi
-    fi
 }
 
 remake(){
