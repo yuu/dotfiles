@@ -1,36 +1,16 @@
+# Markdown
 [[plugins]]
-repo = 'rhysd/clever-f.vim'
-hook_add = '''
-let g:clever_f_across_no_line=1
-'''
+repo = 'tyru/open-browser.vim'
+on_ft = 'markdown'
 
 [[plugins]]
-repo = 'haya14busa/incsearch.vim'
-hook_add = '''
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-'''
-
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-hook_add = '''
-let g:neoyank#limit = 50
-'''
-
-[[plugins]]
-repo = 'tyru/caw.vim'
-hook_add = '''
-" デフォルトマッピングを OFF
-let g:caw_no_default_keymappings = 1
-" キーマッピング
-nmap <silent> ,/ <Plug>(caw:hatpos:toggle)
-vmap <silent> ,/ <Plug>(caw:hatpos:toggle)
-'''
+repo = 'kannokanno/previm'
+on_ft = 'markdown'
 
 [[plugins]]
 repo = 'rhysd/vim-clang-format'
-hook_add = '''
+on_ft = ['h', 'c', 'hpp', 'cpp', 'cc']
+hook_post_source = '''
 let g:clang_format#style_options = {
    \ "BasedOnStyle" : "Google",
    \ "IndentWidth" : 4,

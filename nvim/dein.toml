@@ -46,33 +46,30 @@ augroup initColor
 augroup END
 '''
 
+# Require unite-outline
 [[plugins]]
 repo = 'Shougo/unite.vim'
-depends = 'neomru.vim'
-hook_add = '''
-let g:neoyank#limit = 50
-let g:unite_source_file_mru_limit = 50
-let g:unite_split_rule = 'botright'
-
-nnoremap [unite]    <Nop>
-nnoremap <Space>uu  :Unite -start-insert <CR>
-
-nnoremap <silent> <Space>b :Unite buffer<CR>
-nnoremap <silent> <Space>ut :<C-u>Unite tab<CR>
-nnoremap <silent> <Space>uy :<C-u>Unite history/yank<CR>
-nnoremap <silent> <Space>ufa :Unite -start-insert file_rec/async:!<CR>
-nnoremap <silent> <Space>ufg :Unite -start-insert file_rec/git<CR>
-
-nnoremap <silent> <Space>ug  :<C-u>Unite grep: -buffer-name=search-buffer<CR>
-if executable('hw')
-  let g:unite_source_grep_command = 'hw'
-  let g:unite_source_grep_default_opts = '--no-group --no-color'
-  let g:unite_source_grep_recursive_opt = ''
-endif
-'''
 
 [[plugins]]
-repo = 'Shougo/neomru.vim'
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+" Insert move cursol C-t C-g
+" Insert preview C-v
+" The prefix key
+nnoremap [denite] <Nop>
+nmap     <Space>u [denite]
+
+nnoremap <silent> <Space>b :Denite buffer -mode=normal <CR>
+
+nnoremap <silent> [denite]y :Denite neoyank -mode=normal <CR>
+nnoremap <silent> [denite]gg :Denite grep -mode=normal <CR>
+nnoremap <silent> [denite]gc :DeniteCursorWord grep -mode=normal <CR>
+nnoremap <silent> [denite]ff :Denite file_rec -mode=normal <CR>
+'''
+hook_post_source = '''
+" Change value
+"call denite#custom#var('grep', 'command', ['dgrep'])
+'''
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -88,74 +85,66 @@ let g:dein#plugin.build = cmd
 '''
 
 [[plugins]]
-repo = 'Shougo/unite-outline'
+repo = 'cocopon/vaffle.vim'
+
+#[[plugins]]
+#repo = 'fuenor/qfixhowm'
+#hook_add = '''
+#let QFixHowm_Key = 'm'
+#
+#let howm_dir          = '~/Dropbox/howm'
+#let howm_filename     = '%Y/%m/%Y-%m-%dT%H%M%S.txt'
+#let howm_fileencoding = 'utf-8'
+#let howm_fileformat   = 'unix'
+#let QFixHowm_FileType = 'markdown'
+#'''
+
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
 hook_add = '''
-nnoremap <silent> <Space>uo :<C-u>Unite -vertical -no-quit -keep-focus outline<CR>
+let g:clever_f_across_no_line=1
 '''
 
 [[plugins]]
-repo = 'Konfekt/FastFold'
-on_i = 1
+repo = 'haya14busa/incsearch.vim'
+hook_add = '''
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+'''
 
 [[plugins]]
-repo = 'Shougo/vimfiler.vim'
-depends = 'Shougo/unite.vim'
+repo = 'tyru/caw.vim'
 hook_add = '''
-"vimデフォルトのエクスプローラをvimfilerで置き換える
-let g:vimfiler_as_default_explorer = 1
+" デフォルトマッピングを OFF
+let g:caw_no_default_keymappings = 1
+" キーマッピング
+nmap <silent> ,/ <Plug>(caw:hatpos:toggle)
+vmap <silent> ,/ <Plug>(caw:hatpos:toggle)
+'''
 
-"デフォルトのキーマッピングを変更
-if !has('gui_running')
-    nnoremap <silent> <Space>ff :VimFilerBufferDir -simple<CR>
-else
-    nnoremap <silent> <Space>ff :VimFiler<CR>
-end
+[[plugins]]
+repo = 'Shougo/neomru.vim'
 
-augroup vim-filer
-    autocmd FileType vimfiler call s:vimfiler_my_settings()
-augroup END
-function! s:vimfiler_my_settings()
-    nmap <buffer> q <Plug>(vimfiler_hide)
-    nmap <buffer> Q <Plug>(vimfiler_exit)
-    nnoremap <silent><buffer><expr> v vimfiler#do_switch_action('vsplit')
-    nnoremap <silent><buffer><expr> s vimfiler#do_switch_action('split')
-    nmap <buffer> <C-j> <C-w>j
-    nmap <buffer> <C-k> <C-w>k
-    nmap <buffer> <C-h> <C-w>h
-    nmap <buffer> <C-l> <C-w>l
-endfunction
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+hook_add = '''
+let g:neoyank#limit = 50
+'''
+
+[[plugins]]
+repo = 'Shougo/unite-outline'
+hook_add = '''
+nnoremap <silent> <Space>ul :Denite unite:outline -mode=normal <CR>
 '''
 
 [[plugins]]
 repo = 'hewes/unite-gtags'
 hook_add = '''
 " lists references of a word. (It executes global -qrs -e <pattern> in internal.)
-nnoremap <silent> <Space>gr :<C-u>Unite gtags/ref <CR>
+nnoremap <silent> <Space>gr :Denite unite:gtags/ref -mode=normal <CR>
 " lists definitions of a word. (It executes global -qd -e <pattern> in internal.)
-nnoremap <silent> <Space>gd :<C-u>Unite gtags/def <CR>
+nnoremap <silent> <Space>gd :Denite unite:gtags/def -mode=normal <CR>
 " lists grep result of a word. (It executes global -qg -e <pattern> in internal.)
-" nnoremap <silent> <Space>gg :<C-u>Unite gtags/grep <CR>
-'''
-
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-on_ft = 'markdown'
-
-[[plugins]]
-repo = 'kannokanno/previm'
-on_ft = 'markdown'
-
-[[plugins]]
-repo = 'Shougo/echodoc'
-
-[[plugins]]
-repo = 'fuenor/qfixhowm'
-hook_add = '''
-let QFixHowm_Key = 'g'
-
-let howm_dir          = '~/Dropbox/howm'
-let howm_filename     = '%Y/%m/%Y-%m-%dT%H%M%S.txt'
-let howm_fileencoding = 'utf-8'
-let howm_fileformat   = 'unix'
-let QFixHowm_FileType = 'markdown'
+" nnoremap <silent> <Space>gg :Denite unite:gtags/grep <CR>
 '''
