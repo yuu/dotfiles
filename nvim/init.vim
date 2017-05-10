@@ -46,3 +46,6 @@ function! s:vimrc_local(loc)
         source `=i`
     endfor
 endfunction
+
+" must be deoplete
+filetype plugin indent on
