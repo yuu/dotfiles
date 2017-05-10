@@ -77,11 +77,6 @@ let g:deoplete#sources#go#align_class = 1
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
-hook_add = '''
-set noexpandtab
-set shiftwidth=8
-set softtabstop=8
-'''
 
 # python
 [[plugins]]
