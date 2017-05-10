@@ -46,6 +46,14 @@ augroup initColor
 augroup END
 '''
 
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
+hook_add = '''
+let g:deoplete#enable_at_startup = 1
+"let g:deoplete#disable_auto_complete = 1
+'''
+
 # Require unite-outline
 [[plugins]]
 repo = 'Shougo/unite.vim'
@@ -148,3 +156,7 @@ nnoremap <silent> <Space>gd :Denite unite:gtags/def -mode=normal <CR>
 " lists grep result of a word. (It executes global -qg -e <pattern> in internal.)
 " nnoremap <silent> <Space>gg :Denite unite:gtags/grep <CR>
 '''
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_i = 1
