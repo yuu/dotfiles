@@ -27,6 +27,13 @@ set smarttab
 set list
 set listchars=tab:\|\ ,trail:~
 
+" 曖昧な文字列幅を全角
+set ambiwidth=double
+
+set cmdheight=2
+set completeopt=menuone
+let g:echodoc_enable_at_startup = 1
+
 " set paste
 nnoremap <silent> ,p :<C-u>set paste!<CR>
       \:<C-u>echo("Toggle PasteMode => " . (&paste == 0 ? "Off" : "On"))<CR>
@@ -63,6 +70,7 @@ vnoremap > >gv
 
 " ESC Bind
 imap <C-j> <Esc>
+tnoremap <silent> <ESC> <C-\><C-n>
 nnoremap <Space>w  :<C-u>w<CR>
 nnoremap <Space>z  :<C-u>q<CR>
 nnoremap <Space>Z  :<C-u>q!<CR>
@@ -71,35 +79,9 @@ nnoremap <Space>Z  :<C-u>q!<CR>
 nnoremap Q q
 nnoremap q <Nop>
 
-" nnoremap ,cd :lcd %:h
-
-" 曖昧な文字列幅を全角
-set ambiwidth=double
-
-set cmdheight=2
-set completeopt=menuone
-let g:echodoc_enable_at_startup = 1
-
-function! s:cpp_marker()
-    set foldmethod=marker
-    set foldmarker=R\"\(,\)\"\;
-endfunction
-
-augroup FoldMethod
-    autocmd!
-    autocmd FileType cpp call s:cpp_marker()
-augroup END
-
 augroup LastCursolPos
     autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
-augroup END
-
-set path=.,include,../include,/usr/include,/usr/local/include
-
-augroup ChangeFileTypeIndent
-    autocmd!
-    autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2
 augroup END

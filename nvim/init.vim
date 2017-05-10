@@ -7,6 +7,9 @@ if !isdirectory(s:dein_repo_dir)
   execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
 endif
 
+source ~/.config/nvim/configuration.vim
+set path=.,include,../include,/usr/include,/usr/local/include
+
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " 適宜 call dein#update や call dein#clear_state を呼んでください。
 execute 'set runtimepath^=' . s:dein_repo_dir
@@ -26,8 +29,6 @@ endif
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
-
-source ~/.config/nvim/configuration.vim
 
 if filereadable(expand('~/.config/nvim/local.vim'))
     source ~/.config/nvim/local.vim
