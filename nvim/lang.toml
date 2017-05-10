@@ -1,0 +1,110 @@
+# Markdown
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+hook_add = '''
+let g:vim_markdown_folding_disabled = 1
+'''
+
+# C/C++
+[[plugins]]
+repo = 'vim-jp/vim-cpp'
+on_ft = 'cpp'
+
+[[plugins]]
+repo = 'rhysd/vim-clang-format'
+on_ft = ['h', 'c', 'hpp', 'cpp', 'cc']
+hook_add = '''
+let g:clang_format#style_options = {
+   \ "BasedOnStyle" : "Google",
+   \ "IndentWidth" : 4,
+   \ "AccessModifierOffset" : -4,
+   \ "Standard" : "C++11",
+   \ "ColumnLimit" : "110",
+   \ "BreakConstructorInitializersBeforeComma" : "true",
+   \ "ConstructorInitializerAllOnOneLineOrOnePerLine" : "false",
+   \ "IndentCaseLabels" : "false",
+   \ "AlwaysBreakTemplateDeclarations" : "true",
+   \ "AllowShortFunctionsOnASingleLine" : "Inline",
+   \ "AllowShortIfStatementsOnASingleLine" : "false",
+   \ "UseTab" : "Never"}
+
+autocmd FileType c,cpp nmap <buffer>,cf :ClangFormat<CR>
+'''
+
+[[plugins]]
+repo = 'zchee/deoplete-clang'
+on_ft = ['h', 'c', 'hpp', 'cpp', 'cc']
+hook_add = '''
+if has('unix')
+    let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so'
+    let g:deoplete#sources#clang#clang_header =  '/usr/lib/clang/3.8'
+endif
+if has('mac')
+    let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/3.6.2/lib/libclang.dylib'
+    let g:deoplete#sources#clang#clang_header = '/usr/local/Cellar/llvm/3.6.2/lib/clang'
+endif
+'''
+
+## Qt
+[[plugins]]
+repo = 'Townk/vim-qt'
+on_ft = ['c', 'cpp']
+
+[[plugins]]
+repo = 'peterhoeg/vim-qml'
+on_ft = ['qml']
+
+# golang
+[[plugins]]
+repo = 'zchee/deoplete-go'
+on_ft = ['go']
+build = 'make'
+hook_add = '''
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#align_class = 1
+'''
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+hook_add = '''
+set noexpandtab
+set shiftwidth=8
+set softtabstop=8
+'''
+
+# python
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_ft = ['python']
+
+# ruby
+[[plugins]]
+repo = 'osyo-manga/vim-monster'
+on_ft = ['ruby']
+hook_add = '''
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+let g:deoplete#sources#omni#input_patterns = {
+\   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+\}
+'''
+
+# toml
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+# json
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = 'json'

@@ -17,10 +17,8 @@ if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
 
     call dein#load_toml(s:conf_dir . '/dein.toml', {'lazy': 0})
-    call dein#load_toml(s:conf_dir . '/dein_lazy.toml', {'lazy': 1})
     call dein#load_toml(s:conf_dir . '/git.toml', {'lazy': 0})
-    call dein#load_toml(s:conf_dir . '/syntax.toml', {'lazy': 1})
-    call dein#load_toml(s:conf_dir . '/autocompletion.toml', {'lazy': 1})
+    call dein#load_toml(s:conf_dir . '/lang.toml', {'lazy': 0})
 
     call dein#end()
     call dein#save_state()
