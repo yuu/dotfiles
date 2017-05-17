@@ -95,17 +95,17 @@ let g:dein#plugin.build = cmd
 [[plugins]]
 repo = 'cocopon/vaffle.vim'
 
-#[[plugins]]
-#repo = 'fuenor/qfixhowm'
-#hook_add = '''
-#let QFixHowm_Key = 'm'
-#
-#let howm_dir          = '~/Dropbox/howm'
-#let howm_filename     = '%Y/%m/%Y-%m-%dT%H%M%S.txt'
-#let howm_fileencoding = 'utf-8'
-#let howm_fileformat   = 'unix'
-#let QFixHowm_FileType = 'markdown'
-#'''
+[[plugins]]
+repo = 'fuenor/qfixhowm'
+hook_add = '''
+let QFixHowm_Key = 'm'
+
+let howm_dir          = '~/Dropbox/howm'
+let howm_filename     = '%Y/%m/%Y-%m-%dT%H%M%S.txt'
+let howm_fileencoding = 'utf-8'
+let howm_fileformat   = 'unix'
+let QFixHowm_FileType = 'markdown'
+'''
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
