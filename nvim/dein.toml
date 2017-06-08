@@ -27,6 +27,7 @@ function! s:color()
     endif
     hi CursorLine ctermbg=235 guibg=Grey40
     hi Search ctermfg=250 ctermbg=26
+    hi Comment ctermfg=7
 
     hi clear SpellBad
     hi SpellBad cterm=underline
