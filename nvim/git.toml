@@ -11,6 +11,12 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 1
 let g:gitgutter_max_signs = 2000
 let g:gitgutter_escape_grep = 1
+
+"nmap ]h <Plug>GitGutterNextHunk
+"nmap [h <Plug>GitGutterPrevHunk
+"nmap <Leader>ha <Plug>GitGutterStageHunk
+"nmap <Leader>hu <Plug>GitGutterRevertHunk
+"nmap <Leader>hv <Plug>GitGutterPreviewHunk
 '''
 
 [[plugins]]
