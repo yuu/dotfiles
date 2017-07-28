@@ -1,42 +1,42 @@
 [global_config]
 [keybindings]
-[profiles]
-  [[default]]
-    scrollbar_position = hidden
-    palette = "#282a2e:#a54242:#8c9440:#de935f:#5d809d:#85678f:#5e8d87:#707880:#373b41:#cc6666:#b5bd68:#f0c674:#80a2be:#b294bb:#8abeb7:#c5c8c6"
-    copy_on_selection = True
-    background_image = None
-    background_darkness = 0.9
-    background_type = transparent
-    use_system_font = False
-    cursor_color = "#b3ffff"
-    foreground_color = "#c5c8c6"
-    show_titlebar = False
-    font = Source Code Pro Medium 9
-    background_color = "#1d1f21"
-    cursor_blink = False
-    scrollback_infinite = True
-  [[hybrid-reduced-contrast]]
-    scrollbar_position = hidden
-    palette = "#2d3c46:#a54242:#8c9440:#de935f:#5f819d:#85678f:#5e8d87:#6c7a80:#425059:#cc6666:#b5bd68:#f0c674:#81a2be:#b294bb:#8abeb7:#c5c8c6"
-    copy_on_selection = True
-    background_image = None
-    background_darkness = 0.9
-    background_type = transparent
-    use_system_font = False
-    cursor_color = "#26fcff"
-    foreground_color = "#c5c8c6"
-    show_titlebar = False
-    font = Source Code Pro Medium 9
-    background_color = "#232c31"
-    cursor_blink = False
-    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_color = "#1d1f21"
+    background_darkness = 0.9
+    background_image = None
+    background_type = transparent
+    copy_on_selection = True
+    cursor_blink = False
+    cursor_color = "#b3ffff"
+    font = Source Han Code JP 8
+    foreground_color = "#c5c8c6"
+    palette = "#282a2e:#a54242:#8c9440:#de935f:#5d809d:#85678f:#5e8d87:#707880:#373b41:#cc6666:#b5bd68:#f0c674:#80a2be:#b294bb:#8abeb7:#c5c8c6"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[hybrid-reduced-contrast]]
+    background_color = "#232c31"
+    background_darkness = 0.9
+    background_image = None
+    background_type = transparent
+    copy_on_selection = True
+    cursor_blink = False
+    cursor_color = "#26fcff"
+    font = Source Code Pro Medium 9
+    foreground_color = "#c5c8c6"
+    palette = "#2d3c46:#a54242:#8c9440:#de935f:#5f819d:#85678f:#5e8d87:#6c7a80:#425059:#cc6666:#b5bd68:#f0c674:#81a2be:#b294bb:#8abeb7:#c5c8c6"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
