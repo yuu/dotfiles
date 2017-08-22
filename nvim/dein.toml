@@ -38,7 +38,7 @@ function! s:color()
     hi clear SpellLocal
     hi SpellLocal cterm=underline
 
-    hi MatchParen ctermbg=1
+    hi MatchParen ctermfg=26 ctermbg=NONE
 endfunction
 
 augroup initColor
