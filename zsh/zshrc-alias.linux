@@ -8,7 +8,11 @@ alias lla="ls --color -laFh"
 alias open="xdg-open > /dev/null 2>&1"
 alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"
-alias today="date +'%Y.%m.%d'"
-alias now="date +'%H.%M.%S'"
+
+# time
+alias date="date --iso-8601=seconds"
+alias datem="date --iso-8601=minutes"
+alias today="command date +'%Y-%m-%d'"
+alias now="command date +'%H.%M.%S'"
 
 alias make="make -j$(nproc)"
