@@ -28,6 +28,19 @@ run(){
     $1/Contents/MacOS/$(basename $1 .app)
 }
 
+xcode-switch() {
+    xcode-select --switch $1/Contents/Developer
+}
+
+sdmount() {
+    img=$1
+    pos=$2
+    sector=$3
+    partitionStart=$4
+
+    mount -o loop,offset=$(expr ${partitionStart} \* ${sector}) ${img} ${pos}
+}
+
 remake(){
     make clean
     if [ $? -eq 0 ]; then
