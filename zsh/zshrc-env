@@ -9,3 +9,6 @@ export GPG_TTY=`tty`
 
 # python
 export PYTHONSTARTUP=~/.config/python/pythonstartup
+
+export GOPATH=$HOME
+export PATH=$PATH:$GOPATH/bin
