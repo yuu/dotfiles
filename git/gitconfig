@@ -17,6 +17,8 @@
     lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
     lgs = log --graph --oneline --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s'
     lgas = log --graph --all --oneline --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s'
+    cdiff = diff --word-diff-regex=.
+    cd = diff --word-diff-regex=.
     s = status
     co = checkout
     a = add
@@ -48,6 +50,7 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     clean = git-lfs clean -- %f
+    process = git-lfs filter-process
 
 [commit]
     template = ~/dotfiles/git/message.txt
