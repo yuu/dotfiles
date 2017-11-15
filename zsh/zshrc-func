@@ -63,8 +63,25 @@ function ghq-list() {
 zle -N ghq-list
 bindkey '^xl' ghq-list
 
+function dropbox-list() {
+    local root_dir="$HOME/Dropbox/src"
+    if [ ! -d "$root_dir" ]; then
+        return
+    fi
+    local selected_dir="$(cd $root_dir; find . -maxdepth 3 -type d ! -path "*/.*"| sort | uniq | peco)"
+    if [ -n "$selected_dir" ]; then
+        BUFFER=" cd $root_dir/${selected_dir}"
+        zle accept-line
+    fi
+}
+zle -N dropbox-list
+bindkey '^x^l' dropbox-list
+
 function proj-list() {
     local root_dir="$HOME/projects"
+    if [ ! -d "$root_dir" ]; then
+        return
+    fi
     local selected_dir="$(cd $root_dir; find . -maxdepth 4 -type d ! -path "*/.*"| sort | uniq | peco)"
     if [ -n "$selected_dir" ]; then
         BUFFER=" cd $root_dir/${selected_dir}"
