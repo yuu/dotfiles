@@ -64,18 +64,23 @@ zle -N ghq-list
 bindkey '^xl' ghq-list
 
 function dropbox-list() {
-    local root_dir="$HOME/Dropbox/src"
-    if [ ! -d "$root_dir" ]; then
-        return
-    fi
-    local selected_dir="$(cd $root_dir; find . -maxdepth 3 -type d ! -path "*/.*"| sort | uniq | peco)"
+    export GHQ_ROOT="$HOME/Dropbox/src"
+    local selected_dir=$(ghq list | peco --query "$LBUFFER")
+    local root_dir=$(ghq root)
     if [ -n "$selected_dir" ]; then
         BUFFER=" cd $root_dir/${selected_dir}"
         zle accept-line
     fi
+    unset GHQ_ROOT
 }
 zle -N dropbox-list
 bindkey '^x^l' dropbox-list
+
+function ghqd() {
+    GHQ_ROOT="$HOME/Dropbox/src"
+    ghq $@
+    unset GHQ_ROOT
+}
 
 function proj-list() {
     local root_dir="$HOME/projects"
