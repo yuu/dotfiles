@@ -4,8 +4,6 @@
   (setq user-emacs-directory (file-name-directory load-file-name)))
 (load (concat user-emacs-directory "init-el-get.el"))
 
-(load-theme 'hc-zenburn t)
-
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil)
 (init-loader-load (concat user-emacs-directory "inits"))

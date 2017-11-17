@@ -29,11 +29,11 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;;行番号
-(global-linum-mode t)
-(set-face-attribute 'linum nil
-                    :foreground "#696969"
-                    :height 0.9)
-(setq linum-format "%8d")
+; (global-linum-mode t)
+; (set-face-attribute 'linum nil
+;                     :foreground "#696969"
+;                     :height 0.9)
+; (setq linum-format "%8d")
 
 ;; tab
 (setq-default indent-tabs-mode nil)
