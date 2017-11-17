@@ -74,10 +74,6 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 let g:deoplete#sources#go#align_class = 1
 '''
 
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
-
 # python
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
