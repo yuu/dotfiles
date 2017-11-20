@@ -6,7 +6,7 @@
 ;; ツールバー非表示
 (tool-bar-mode -1)
 ;; メニューバーを非表示
-;;(menu-bar-mode -1)
+(menu-bar-mode -1)
 ;; スクロールバー非表示
 (set-scroll-bar-mode nil)
 ;; titilebar file full name
@@ -27,13 +27,6 @@
 (setq file-name-coding-system 'utf-8)
 ;; yes or noをy or n
 (fset 'yes-or-no-p 'y-or-n-p)
-
-;;行番号
-; (global-linum-mode t)
-; (set-face-attribute 'linum nil
-;                     :foreground "#696969"
-;                     :height 0.9)
-; (setq linum-format "%8d")
 
 ;; tab
 (setq-default indent-tabs-mode nil)
@@ -59,16 +52,21 @@
       scroll-step 1)
 (setq comint-scroll-show-maximum-output t) ;; shell-mode
 
-;; C-Ret で矩形選択
-;; 詳しいキーバインド操作：http://dev.ariel-networks.com/articles/emacs/part5/
-(cua-mode t)
-(setq cua-enable-cua-keys nil)
+;; モードラインの割合表示を総行数表示
+;; (defvar my-lines-page-mode t)
+;; (defvar my-mode-line-format)
 
-;; -------------------------------------------------------------------------
-;; @ whitespace
-(global-whitespace-mode 1)
-(setq whitespace-space-regexp "\\(\u3000\\)")
-(setq whitespace-style '(face tabs tab-mark spaces space-mark))
-(setq whitespace-display-mappings ())
-(set-face-foreground 'whitespace-tab "#F1C40F")
-(set-face-background 'whitespace-space "#E74C3C")
+;; (when my-lines-page-mode
+;;   (setq my-mode-line-format "%d")
+;;   (if size-indication-mode
+;;       (setq my-mode-line-format (concat my-mode-line-format " of %%I")))
+;;   (cond ((and (eq line-number-mode t) (eq column-number-mode t))
+;;          (setq my-mode-line-format (concat my-mode-line-format " (%%l,%%c)")))
+;;         ((eq line-number-mode t)
+;;          (setq my-mode-line-format (concat my-mode-line-format " L%%l")))
+;;         ((eq column-number-mode t)
+;;          (setq my-mode-line-format (concat my-mode-line-format " C%%c"))))
+
+;;   (setq mode-line-position
+;;         '(:eval (format my-mode-line-format
+;;                         (count-lines (point-max) (point-min))))))
