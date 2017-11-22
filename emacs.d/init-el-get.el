@@ -11,3 +11,13 @@
 (el-get-bundle magit :branch "2.6.2")
 (el-get-bundle elpa:hc-zenburn-theme)
 (el-get-bundle smart-mode-line)
+
+(el-get-bundle undohist)
+(el-get-bundle undo-tree)
+  (global-undo-tree-mode)
+
+(el-get-bundle markdown-mode)
+(el-get-bundle markdown-toc)
+
+(el-get-bundle auto-complete)
+(el-get-bundle auto-complete-clang)

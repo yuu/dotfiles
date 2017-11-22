@@ -1,9 +1,6 @@
 ;; C-h BackSpace
 (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 
-;(setq cua-enable-cua-keys nil) ; デフォルトキーバインドを無効化
-(define-key global-map (kbd "C-x SPC") 'cua-set-rectangle-mark)
-
 ;; C-w 単語削除
 (defun kill-region-or-backward-kill-word ()
   (interactive)
