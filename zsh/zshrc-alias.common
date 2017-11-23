@@ -7,6 +7,9 @@ alias vi=nvim
 alias vin="vi -u NONE --noplugin"
 alias agit="vi -c Agit"
 
+alias emacs='emacsclient -nw -a ""'
+alias ekill='emacsclient -e "(kill-emacs)"'
+
 # git
 alias g="git"
 alias gitlog="git log --oneline --graph --decorate"
