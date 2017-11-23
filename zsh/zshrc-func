@@ -77,7 +77,7 @@ zle -N dropbox-list
 bindkey '^x^l' dropbox-list
 
 function ghqd() {
-    GHQ_ROOT="$HOME/Dropbox/src"
+    export GHQ_ROOT="$HOME/Dropbox/src"
     ghq $@
     unset GHQ_ROOT
 }
