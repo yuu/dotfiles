@@ -5,13 +5,6 @@ source $HOME/.config/zsh/zshrc-func
 source $HOME/.config/zsh/zshrc-cheatcheet
 source $HOME/.config/zsh/zshrc-alias.common
 
-fpath+=($HOME/.config/zsh)
-fpath+=(/usr/local/Homebrew/completions/zsh)
-autoload -U compinit
-compinit -u
-autoload -Uz _ghq
-autoload -Uz _brew _brew_cask
-
 case "${OSTYPE}" in
   darwin*)
     source $HOME/.config/zsh/zshrc-alias.mac
