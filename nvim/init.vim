@@ -8,7 +8,7 @@ if !isdirectory(s:dein_repo_dir)
 endif
 
 source ~/.config/nvim/configuration.vim
-set path=.,include,../include,/usr/include,/usr/local/include
+set path=.,include,../include,/usr/include,/usr/local/include,**
 
 " プラグインの追加・削除やtomlファイルの設定を変更した後は
 " 適宜 call dein#update や call dein#clear_state を呼んでください。
