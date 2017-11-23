@@ -1,3 +1,6 @@
+# profiling / time zsh -icx exit
+#zmodload zsh/zprof
+
 source $HOME/.config/zsh/zshrc-common
 source $HOME/.config/zsh/zshrc-env
 source $HOME/.config/zsh/zshrc-plugin
@@ -16,3 +19,8 @@ esac
 
 # zshrc local setting
 [ -f $HOME/.config/zsh/zshrc.local ] && source $HOME/.config/zsh/zshrc.local
+
+# profiling
+# if type zprof > /dev/null 2>&1; then
+#     zprof |less
+# fi
