@@ -30,8 +30,10 @@ set listchars=tab:\|\ ,trail:~
 " 曖昧な文字列幅を全角
 set ambiwidth=double
 
-set cmdheight=2
-set completeopt=menuone
+" set cmdheight=2
+set completeopt=noselect,menuone
+" require echodoc.vim
+set noshowmode
 let g:echodoc_enable_at_startup = 1
 
 " set paste

@@ -14,6 +14,10 @@ hook_add = '''
 let g:vim_markdown_folding_disabled = 1
 '''
 
+[[plugins]]
+repo = 'Shougo/echodoc.vim'
+on_i = 1
+
 # C/C++
 [[plugins]]
 repo = 'vim-jp/vim-cpp'
