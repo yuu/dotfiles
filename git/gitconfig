@@ -35,6 +35,7 @@
     mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
     delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
     archive-gz = --prefix=$(basename $(pwd))/ -o $(basename $(pwd)).tar.gz
+    pushf = push --force-with-lease
 
 [http]
     postBuffer = 157286400
