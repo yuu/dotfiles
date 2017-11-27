@@ -7,7 +7,3 @@
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil)
 (init-loader-load (concat user-emacs-directory "inits"))
-
-(setq-default message-log-max nil)
-(kill-buffer "*Messages*")
-(kill-buffer "*scratch*")

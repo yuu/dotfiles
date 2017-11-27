@@ -3,6 +3,11 @@
 ;; scratchの初期メッセージ消去
 (setq initial-scratch-message "")
 
+(setq split-width-threshold 9999999)
+(setq-default message-log-max nil)
+(kill-buffer "*Messages*")
+(kill-buffer "*scratch*")
+
 ;; ツールバー非表示
 (tool-bar-mode -1)
 ;; メニューバーを非表示
