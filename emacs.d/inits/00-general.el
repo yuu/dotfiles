@@ -3,6 +3,9 @@
 ;; scratchの初期メッセージ消去
 (setq initial-scratch-message "")
 
+;; disable wrapping in isearch
+(setq isearch-wrap-function '(lambda nil))
+
 (setq split-width-threshold 9999999)
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
