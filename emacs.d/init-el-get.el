@@ -8,6 +8,8 @@
 
 (el-get-bundle init-loader)
 (el-get-bundle helm)
+(el-get-bundle helm-tramp)
+(el-get-bundle helm-ghq)
 (el-get-bundle magit :branch "2.6.2")
 (el-get-bundle elpa:hc-zenburn-theme)
 (el-get-bundle smart-mode-line)
