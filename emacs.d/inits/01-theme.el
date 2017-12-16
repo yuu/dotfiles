@@ -1,2 +1,2 @@
-(load-theme 'niflheim t)
-;(load-theme 'hc-zenburn t)
+;(load-theme 'niflheim t)
+(load-theme 'hc-zenburn t)

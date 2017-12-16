@@ -18,6 +18,10 @@
 (el-get-bundle undo-tree)
   (global-undo-tree-mode)
 
+;; v1.4.4
+(el-get-bundle howm :type "git" :checkout "e0237b0"
+               :url "git://git.osdn.net/gitroot/howm/howm.git")
+(el-get-bundle org-mode)
 (el-get-bundle markdown-mode)
 (el-get-bundle markdown-toc)
 
