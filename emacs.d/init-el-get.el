@@ -25,5 +25,9 @@
 (el-get-bundle markdown-mode)
 (el-get-bundle markdown-toc)
 
-(el-get-bundle auto-complete)
-(el-get-bundle auto-complete-clang)
+(el-get-bundle company-mode)
+(el-get-bundle flycheck)
+
+;; golang
+(el-get-bundle go-mode)
+(el-get-bundle go-company)
