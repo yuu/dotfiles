@@ -23,6 +23,10 @@
                :url "git://git.osdn.net/gitroot/howm/howm.git")
 (el-get-bundle org-mode)
 (el-get-bundle markdown-mode)
+(autoload 'gfm-mode "markdown-mode"
+   "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
+
 (el-get-bundle markdown-toc)
 
 (el-get-bundle company-mode)
