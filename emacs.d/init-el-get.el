@@ -17,6 +17,13 @@
 (el-get-bundle undohist)
 (el-get-bundle undo-tree)
   (global-undo-tree-mode)
+(el-get-bundle quickrun)
+  (quickrun-add-command "c++/clang 1z"
+    '((:command . "clang++")
+      (:exec    . ("%c -std=c++1z %o -o %e %s"
+                   "%e %a"))
+      (:remove  . ("%e")))
+    :default "c++")
 
 ;; v1.4.4
 (el-get-bundle howm :type "git" :checkout "e0237b0"
@@ -35,3 +42,7 @@
 ;; golang
 (el-get-bundle go-mode)
 (el-get-bundle go-company)
+
+;; c++
+(el-get-bundle irony-mode)
+(el-get-bundle flycheck-irony)
