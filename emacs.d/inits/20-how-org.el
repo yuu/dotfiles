@@ -31,7 +31,8 @@
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 (setq org-mobile-inbox-for-pull (concat org-mobile-directory "/notes.org"))
 
-(setq org-default-notes-file (concat org-directory "/notes.org"))
+(setq org-default-notes-file (concat org-directory "notes.org"))
+; this is don't working now...
 (setq org-agenda-files (file-expand-wildcards (concat org-directory "/*.org")))
 
 ; http://orgmode.org/manual/Template-elements.html#Template-elements
