@@ -40,7 +40,7 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/Dropbox/org/task.org" "Tasks")
              "* TODO %?\n  %U")
-        ("n" "Note" entry (file+headline "~/Dropbox/org/notes.org" "Notes")
+        ("n" "Note" entry (file "~/Dropbox/org/notes.org")
              "* %?")
         ("j" "Journal" entry (file+datetree "~/Dropbox/org/journal.org")
              "* %?")
