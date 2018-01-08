@@ -24,6 +24,8 @@
                    "%e %a"))
       (:remove  . ("%e")))
     :default "c++")
+(el-get-bundle yasnippet :type "git" :checkout "0.12.2"
+               :url "https://github.com/joaotavora/yasnippet")
 
 ;; v1.4.4
 (el-get-bundle howm :type "git" :checkout "e0237b0"
