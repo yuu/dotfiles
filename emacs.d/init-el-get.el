@@ -47,3 +47,4 @@
 ;; c++
 (el-get-bundle irony-mode)
 (el-get-bundle flycheck-irony)
+(el-get-bundle doxymacs)
