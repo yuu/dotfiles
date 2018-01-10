@@ -8,6 +8,7 @@
 
 (el-get-bundle init-loader)
 (el-get-bundle helm)
+(el-get-bundle helm-rg :type github :pkgname "microamp/helm-rg")
 (el-get-bundle helm-tramp)
 (el-get-bundle helm-ghq)
 (el-get-bundle magit :branch "2.6.2")
@@ -25,8 +26,8 @@
                    "%e %a"))
       (:remove  . ("%e")))
     :default "c++")
-(el-get-bundle yasnippet :type "git" :checkout "0.12.2"
-               :url "https://github.com/joaotavora/yasnippet")
+(el-get-bundle yasnippet :type github :checkout "0.12.2"
+               :pkgname "joaotavora/yasnippet")
 
 (el-get-bundle elpa:howm)
   (global-set-key (kbd "C-c , ,") 'howm-menu)
