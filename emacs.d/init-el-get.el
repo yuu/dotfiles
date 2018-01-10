@@ -10,6 +10,7 @@
 (el-get-bundle helm)
 (el-get-bundle helm-rg :type github :pkgname "microamp/helm-rg")
 (el-get-bundle helm-tramp)
+(el-get-bundle docker-tramp)
 (el-get-bundle helm-ghq)
 (el-get-bundle magit :branch "2.6.2")
 (el-get-bundle hc-zenburn-theme :type github :pkgname "edran/hc-zenburn-emacs")
