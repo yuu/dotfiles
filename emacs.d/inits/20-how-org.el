@@ -14,8 +14,7 @@
 ;; org-mode
 ;; These lines only if org-mode is not part of the X/Emacs distribution.
 (autoload 'org-mode "org" "Org mode" t)
-(autoload 'org-diary "org" "Diary entries from Org mode" t)
-(autoload 'org-agenda "org" "Multi-file agenda from Org mode" t)
+(autoload 'org-agenda-mode "org" "Multi-file agenda from Org mode" t)
 
 (global-set-key (kbd "C-x cc") 'org-capture)
 (global-set-key (kbd "C-x ca") 'org-agenda)
