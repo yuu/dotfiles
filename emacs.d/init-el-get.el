@@ -11,7 +11,8 @@
 (el-get-bundle helm-tramp)
 (el-get-bundle helm-ghq)
 (el-get-bundle magit :branch "2.6.2")
-(el-get-bundle elpa:hc-zenburn-theme)
+(el-get-bundle hc-zenburn-theme :type github :pkgname "edran/hc-zenburn-emacs")
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/el-get/hc-zenburn-theme/")
 (el-get-bundle smart-mode-line)
 
 (el-get-bundle undohist)
