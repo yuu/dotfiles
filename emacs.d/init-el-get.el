@@ -18,7 +18,6 @@
 
 (el-get-bundle undohist)
 (el-get-bundle undo-tree)
-  (global-undo-tree-mode)
 (el-get-bundle quickrun)
   (quickrun-add-command "c++/clang 1z"
     '((:command . "clang++")
