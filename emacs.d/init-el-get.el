@@ -27,16 +27,14 @@
 (el-get-bundle yasnippet :type "git" :checkout "0.12.2"
                :url "https://github.com/joaotavora/yasnippet")
 
-;; v1.4.4
-(el-get-bundle howm :type "git" :checkout "e0237b0"
-               :url "git://git.osdn.net/gitroot/howm/howm.git")
-(el-get-bundle org-mode)
+(el-get-bundle elpa:howm)
+  (global-set-key (kbd "C-c , ,") 'howm-menu)
+  (autoload 'howm-menu "howm" "Hitori Otegaru Wiki Modoki" t)
 (el-get-bundle markdown-mode)
-(autoload 'gfm-mode "markdown-mode"
-   "Major mode for editing GitHub Flavored Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
+  (autoload 'gfm-mode "markdown-mode" "Major mode for editing GitHub Flavored Markdown files" t)
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
-(el-get-bundle markdown-toc)
+  (el-get-bundle markdown-toc)
 
 (el-get-bundle company-mode)
 (el-get-bundle flycheck)
