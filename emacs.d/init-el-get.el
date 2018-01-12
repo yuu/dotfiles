@@ -30,13 +30,8 @@
                :pkgname "joaotavora/yasnippet")
 
 (el-get-bundle elpa:howm)
-  (global-set-key (kbd "C-c , ,") 'howm-menu)
-  (autoload 'howm-menu "howm" "Hitori Otegaru Wiki Modoki" t)
 (el-get-bundle markdown-mode)
-  (autoload 'gfm-mode "markdown-mode" "Major mode for editing GitHub Flavored Markdown files" t)
-  (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
-
-  (el-get-bundle markdown-toc)
+(el-get-bundle markdown-toc)
 
 (el-get-bundle company-mode)
 (el-get-bundle flycheck)
