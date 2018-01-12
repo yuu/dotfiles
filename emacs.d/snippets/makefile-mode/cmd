@@ -1,0 +1,5 @@
+# key: cmd
+# name: cmd
+# expand-env: ((yas-indent-line 'fixed))
+# --
+$1: ## 
