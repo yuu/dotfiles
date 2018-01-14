@@ -28,6 +28,7 @@
     :default "c++")
 (el-get-bundle yasnippet :type github :checkout "0.12.2"
                :pkgname "joaotavora/yasnippet")
+  (yas-global-mode)
 
 (el-get-bundle elpa:howm)
 (el-get-bundle markdown-mode)
