@@ -6,7 +6,7 @@
 (set-face-underline-p 'show-paren-match-face "yellow")
 
 ;; リージョンカラー
-(set-face-background 'region "#696969"
+(set-face-background 'region "#696969")
 
 ;; 行末の空白を強調表示
 (setq-default show-trailing-whitespace t)
