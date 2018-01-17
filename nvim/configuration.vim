@@ -2,6 +2,9 @@ set mouse =""
 
 set undofile
 
+" https://github.com/neovim/neovim/issues/6154
+set guicursor=
+
 " VIM Disable Automatic Newline At End Of File
 set binary
 
