@@ -13,6 +13,8 @@
 (el-get-bundle docker-tramp)
 (el-get-bundle helm-ghq)
 (el-get-bundle magit :branch "2.6.2")
+(el-get-bundle git-gutter)
+  (global-git-gutter-mode)
 (el-get-bundle hc-zenburn-theme :type github :pkgname "edran/hc-zenburn-emacs")
   (add-to-list 'custom-theme-load-path "~/.emacs.d/el-get/hc-zenburn-theme/")
 (el-get-bundle smart-mode-line)
