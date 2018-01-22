@@ -12,6 +12,7 @@ SAVEHIST=20000
 
 bindkey -e
 bindkey '^W' kill-region
+bindkey \^U backward-kill-line
 # 複数の zsh を同時に使う時など history ファイルに上書きせず追加
 setopt append_history
 # シェルのプロセスごとに履歴を共有
