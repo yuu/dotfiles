@@ -35,6 +35,7 @@
 (el-get-bundle elpa:howm)
 (el-get-bundle markdown-mode)
 (el-get-bundle markdown-toc)
+(el-get-bundle plantuml-mode :type github :pkgname "skuro/plantuml-mode")
 
 (el-get-bundle company-mode)
 (el-get-bundle flycheck)
