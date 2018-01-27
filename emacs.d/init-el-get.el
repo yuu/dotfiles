@@ -48,4 +48,4 @@
 (el-get-bundle irony-mode)
 (el-get-bundle flycheck-irony)
 (el-get-bundle doxymacs :type github :checkout "v1.8.0"
-               :pkgname "pniedzielski/doxymacs")
+               :pkgname "yuu/doxymacs")
