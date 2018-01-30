@@ -8,6 +8,25 @@
 ;; リージョンカラー
 (set-face-background 'region "#696969")
 
-;; 行末の空白を強調表示
-(setq-default show-trailing-whitespace t)
-(set-face-background 'trailing-whitespace "#b14770")
+(require 'whitespace)
+(setq whitespace-style '(face           ; faceで可視化
+                         trailing       ; 行末
+                         empty          ; 先頭/末尾の空行
+                         tabs           ; タブ
+                         tab-mark
+                         spaces
+                         space-mark     ; 表示のマッピング
+                         ))
+
+(setq whitespace-display-mappings
+     '((space-mark ?\u3000 [?\u25a1])
+       (tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
+(setq whitespace-space-regexp "\\(\u3000+\\)")
+(set-face-foreground 'whitespace-space "#7cfc00")
+(set-face-background 'whitespace-space 'nil)
+(set-face-bold-p 'whitespace-space t)
+(set-face-foreground 'whitespace-tab "#adff2f")
+(set-face-background 'whitespace-tab 'nil)
+(set-face-underline  'whitespace-tab t)
+
+(global-whitespace-mode 1)
