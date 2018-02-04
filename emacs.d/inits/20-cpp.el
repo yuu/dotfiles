@@ -9,3 +9,8 @@
   '(progn
      (when (locate-library "flycheck-irony")
        (flycheck-irony-setup))))
+
+(add-hook 'c-mode-common-hook
+          (function (lambda ()
+                    (add-hook 'after-save-hook
+                              'clang-format-buffer))))

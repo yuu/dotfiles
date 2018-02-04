@@ -49,3 +49,4 @@
 (el-get-bundle flycheck-irony)
 (el-get-bundle doxymacs :type github :checkout "v1.8.0"
                :pkgname "yuu/doxymacs")
+(el-get-bundle clang-format)
