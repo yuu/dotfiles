@@ -20,6 +20,8 @@
 ;; titilebar file full name
 (setq frame-title-format "%f")
 
+(blink-cursor-mode 0)
+
 ;;使用する言語環境
 (set-language-environment "Japanese")
 ;;開く場合に優先する文字コード
