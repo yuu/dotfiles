@@ -14,3 +14,6 @@
           (function (lambda ()
                     (add-hook 'after-save-hook
                               'clang-format-buffer))))
+
+(require 'doxymacs)
+(add-hook 'c-mode-common-hook 'doxymacs-mode)
