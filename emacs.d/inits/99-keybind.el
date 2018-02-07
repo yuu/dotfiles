@@ -13,3 +13,5 @@
 (global-set-key (kbd "M-k")(lambda ()
                             (interactive)
                             (kill-line 0)))
+
+(global-set-key (kbd "C-x c g") 'magit-status)

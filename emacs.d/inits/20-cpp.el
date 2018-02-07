@@ -5,6 +5,8 @@
      (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
      (add-hook 'c-mode-common-hook 'irony-mode)))
 
+(irony-additional-clang-options (quote ("-std=c++14")))
+
 (eval-after-load "flycheck"
   '(progn
      (when (locate-library "flycheck-irony")
