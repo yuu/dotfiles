@@ -8,3 +8,6 @@ bindkey '^x^b' zaw-git-branches
 
 # notify
 source $HOME/.config/zsh/behind-window-notify/behind-window-notify.zsh
+
+# docker completion
+source $HOME/.config/zsh/docker/docker-zsh-completion.plugin.zsh

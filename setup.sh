@@ -24,6 +24,7 @@ mkdir -p ~/.config/zsh
 ln -s $(pwd)/zsh/* ~/.config/zsh/
 ln -s ~/.config/zsh/zshrc ~/.zshrc
 git clone git://github.com/zsh-users/zaw.git ~/.config/zsh/zaw
+git clone git://github.com/felixr/docker-zsh-completion.git ~/.config/zsh/docker
 
 # vim
 VIM="$HOME/.config/nvim"
