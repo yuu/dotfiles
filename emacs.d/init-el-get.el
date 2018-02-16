@@ -45,6 +45,7 @@
 (el-get-bundle go-company)
 
 ;; c++
+(el-get-bundle company-irony)
 (el-get-bundle irony-mode)
 (el-get-bundle flycheck-irony)
 (el-get-bundle doxymacs :type github :checkout "v1.8.0"

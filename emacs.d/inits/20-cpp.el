@@ -1,11 +1,7 @@
-(eval-after-load "irony"
+(eval-after-load 'company
   '(progn
      (custom-set-variables '(irony-additional-clang-options '("-std=c++14")))
-     (add-to-list 'company-backends 'company-irony)
-     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-     (add-hook 'c-mode-common-hook 'irony-mode)))
-
-(irony-additional-clang-options (quote ("-std=c++14")))
+     (add-to-list 'company-backends 'company-irony)))
 
 (eval-after-load "flycheck"
   '(progn
@@ -13,9 +9,9 @@
        (flycheck-irony-setup))))
 
 (add-hook 'c-mode-common-hook
-          (function (lambda ()
+          (lambda ()
                     (add-hook 'after-save-hook
-                              'clang-format-buffer))))
+                              'clang-format-buffer nil 'local)))
 
 (require 'doxymacs)
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
