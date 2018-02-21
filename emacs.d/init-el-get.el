@@ -48,6 +48,7 @@
 (el-get-bundle company-irony)
 (el-get-bundle irony-mode)
 (el-get-bundle flycheck-irony)
+(el-get-bundle clang-format)
 (el-get-bundle doxymacs :type github :checkout "v1.8.0"
                :pkgname "pniedzielski/doxymacs")
   (add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
