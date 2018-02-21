@@ -13,7 +13,7 @@
 
 (add-hook 'c-mode-common-hook
           (lambda ()
-                    (add-hook 'after-save-hook
+                    (add-hook 'before-save-hook
                               'clang-format-buffer nil 'local)))
 
 (require 'doxymacs)
