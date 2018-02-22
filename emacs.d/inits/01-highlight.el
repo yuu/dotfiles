@@ -25,7 +25,7 @@
 (set-face-foreground 'whitespace-space "#7cfc00")
 (set-face-background 'whitespace-space 'nil)
 (set-face-bold-p 'whitespace-space t)
-(set-face-foreground 'whitespace-tab "#adff2f")
+(set-face-foreground 'whitespace-tab "#669125")
 (set-face-background 'whitespace-tab 'nil)
 (set-face-underline  'whitespace-tab t)
 
