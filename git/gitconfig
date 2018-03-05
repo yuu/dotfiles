@@ -6,8 +6,6 @@
     editor = nvim
     pager = "lv -c"
     quotepath = false
-    autocrlf = input
-    safecrlf = false
 
 [color]
     ui = auto
