@@ -52,3 +52,8 @@
 (el-get-bundle doxymacs :type github :checkout "v1.8.0"
                :pkgname "pniedzielski/doxymacs")
   (add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
+
+;; python
+(el-get-bundle company-jedi)
+(el-get-bundle py-autopep8 :type github
+               :pkgname "fujimisakari/py-autopep8.el")
