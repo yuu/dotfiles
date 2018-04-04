@@ -11,10 +11,17 @@
      (when (locate-library "flycheck-irony")
        (flycheck-irony-setup))))
 
-(add-hook 'c-mode-common-hook
-          (lambda ()
-                    (add-hook 'before-save-hook
-                              'clang-format-buffer nil 'local)))
+(defun enable-hook-for-clang-format ()
+  "Add hook clang-format-buffer"
+  (interactive)
+  (add-hook 'before-save-hook 'clang-format-buffer nil t))
+(provide 'enable-hook-for-clang-format)
+
+(defun disable-hook-for-clang-format ()
+  "Remove hook clang-format-buffer"
+  (interactive)
+  (remove-hook 'before-save-hook 'clang-format-buffer t))
+(provide 'disable-hook-for-clang-format)
 
 (require 'doxymacs)
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
