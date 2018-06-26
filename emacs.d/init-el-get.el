@@ -57,3 +57,7 @@
 (el-get-bundle company-jedi)
 (el-get-bundle py-autopep8 :type github
                :pkgname "fujimisakari/py-autopep8.el")
+
+;; web
+(el-get-bundle web-mode)
+(el-get-bundle company-web)
