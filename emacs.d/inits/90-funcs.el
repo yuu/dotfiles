@@ -15,3 +15,8 @@
         (add-hook 'isearch-mode-hook 'isearch-set-initial-string)
         (isearch-forward regexp-p no-recursive-edit)))))
 (define-key isearch-mode-map "\C-w" 'isearch-forward-at-point)
+
+(defun x-clipboard-copy ()
+  (interactive)
+  (when (region-active-p)
+    (shell-command-on-region (region-beginning) (region-end) "xsel --clipboard --input" nil nil)))
