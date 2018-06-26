@@ -6,6 +6,12 @@
 (setq company-echo-delay 0)                          ; remove annoying blinking
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 
+(add-hook 'go-mode-hook 'compnany-mode)
+(add-hook 'go-mode-hook 'flycheck-mode)
 (add-hook 'go-mode-hook (lambda ()
+                          (add-hook 'before-save-hook 'gofmt-before-save)
                           (set (make-local-variable 'company-backends) '(company-go))
-                          (company-mode)))
+                          (company-mode)
+                          (setq indent-tabs-mode t)
+                          (setq c-basic-offset 8)
+                          (setq tab-width 8)))
