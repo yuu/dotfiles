@@ -9,6 +9,7 @@
 (add-hook 'go-mode-hook 'flycheck-mode)
 (add-hook 'go-mode-hook (lambda ()
                           (add-hook 'before-save-hook 'gofmt-before-save)
+                          (add-hook 'go-mode-hook 'go-eldoc-setup)
                           (set (make-local-variable 'company-backends) '(company-go))
                           (company-mode)
                           (setq indent-tabs-mode t)
