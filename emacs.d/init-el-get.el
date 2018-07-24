@@ -32,7 +32,6 @@
                :pkgname "joaotavora/yasnippet")
   (yas-global-mode)
 
-(el-get-bundle elpa:howm)
 (el-get-bundle markdown-mode)
 (el-get-bundle markdown-toc)
 (el-get-bundle plantuml-mode :type github :pkgname "skuro/plantuml-mode")
