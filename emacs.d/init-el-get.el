@@ -38,6 +38,7 @@
 
 (el-get-bundle company-mode)
 (el-get-bundle flycheck)
+(el-get-bundle editorconfig)
 
 ;; golang
 (el-get-bundle go-mode)
