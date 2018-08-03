@@ -46,3 +46,8 @@
         ("r" "Reading" entry (file+function "~/Dropbox/org/reading.org" helm-occur)
              "* %?")
          ))
+
+(with-eval-after-load 'org
+  (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
+  (setq org-plantuml-jar-path "~/.emacs.d/el-get/plantuml-mode/bin/plantuml.jar")
+)
