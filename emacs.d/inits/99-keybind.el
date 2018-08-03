@@ -15,3 +15,6 @@
                             (kill-line 0)))
 
 (global-set-key (kbd "C-x c g") 'magit-status)
+
+(global-unset-key (kbd "C-x ;"))
+(global-set-key (kbd "C-c ;") 'comment-line)
