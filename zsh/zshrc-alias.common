@@ -3,8 +3,7 @@ alias dvalgrind="valgrind -v --error-limit=no --leak-check=full --leak-resolutio
 alias dcvalgrind="valgrind -v --error-limit=no --leak-check=full --leak-resolution=high --show-reachable=yes --trace-children=yes 2>&1"
 
 # vim
-alias vi=nvim
-alias vin="vi -u NONE --noplugin"
+alias vin="vim -u NONE --noplugin"
 alias agit="vi -c Agit"
 
 alias emacs='emacsclient -nw -a ""'
