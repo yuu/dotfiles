@@ -23,5 +23,5 @@
   (remove-hook 'before-save-hook 'clang-format-buffer t))
 (provide 'disable-hook-for-clang-format)
 
-(require 'doxymacs)
-(add-hook 'c-mode-common-hook 'doxymacs-mode)
+(eval-after-load 'doxymacs
+  (add-hook 'c-mode-common-hook 'doxymacs-mode))
