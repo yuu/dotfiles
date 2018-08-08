@@ -1,5 +1,5 @@
-(require 'undo-tree)
-(global-undo-tree-mode t)
+(eval-after-load 'undo-tree
+  (global-undo-tree-mode t))
 
 (defun enable-tabs-mode ()
   "Enable indent-tabs-mode"
