@@ -1,3 +1,4 @@
 ;(load-theme 'niflheim t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/el-get/hc-zenburn-theme/")
 (load-theme 'hc-zenburn t)
-  (set-frame-parameter nil 'alpha 80) ;transpaent on gui emacs
+(set-frame-parameter nil 'alpha 80)) ;transpaent on gui emacs

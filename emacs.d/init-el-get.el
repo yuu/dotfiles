@@ -14,24 +14,15 @@
 (el-get-bundle helm-ghq)
 (el-get-bundle magit :branch "2.6.2")
 (el-get-bundle git-gutter)
-  (global-git-gutter-mode)
 (el-get-bundle hc-zenburn-theme :type github :pkgname "edran/hc-zenburn-emacs")
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/el-get/hc-zenburn-theme/")
 (el-get-bundle smart-mode-line)
 
 (el-get-bundle undohist)
 (el-get-bundle undo-tree)
 (el-get-bundle quickrun)
-  (quickrun-add-command "c++/clang 1z"
-    '((:command . "clang++")
-      (:exec    . ("%c -std=c++1z %o -o %e %s"
-                   "%e %a"))
-      (:remove  . ("%e")))
-    :default "c++")
-(el-get-bundle yasnippet :type github :checkout "0.12.2"
-               :pkgname "joaotavora/yasnippet")
-  (yas-global-mode)
+(el-get-bundle yasnippet :type github :checkout "0.12.2" :pkgname "joaotavora/yasnippet")
 
+;; markup lang
 (el-get-bundle markdown-mode)
 (el-get-bundle markdown-toc)
 (el-get-bundle plantuml-mode :type github :pkgname "skuro/plantuml-mode")
@@ -50,14 +41,11 @@
 (el-get-bundle irony-mode)
 (el-get-bundle flycheck-irony)
 (el-get-bundle clang-format)
-(el-get-bundle doxymacs :type github :checkout "v1.8.0"
-               :pkgname "pniedzielski/doxymacs")
-  (add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
+(el-get-bundle doxymacs :type github :checkout "v1.8.0" :pkgname "pniedzielski/doxymacs")
 
 ;; python
 (el-get-bundle company-jedi)
-(el-get-bundle py-autopep8 :type github
-               :pkgname "fujimisakari/py-autopep8.el")
+(el-get-bundle py-autopep8 :type github :pkgname "fujimisakari/py-autopep8.el")
 
 ;; web
 (el-get-bundle web-mode)

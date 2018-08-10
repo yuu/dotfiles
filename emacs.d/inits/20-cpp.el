@@ -1,15 +1,11 @@
-(eval-after-load 'company
-  '(progn
-     (custom-set-variables '(irony-additional-clang-options '("-std=c++14")))
-     (add-hook 'c-mode-hook 'irony-mode)
-     (add-hook 'c++-mode-hook 'irony-mode)
-     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-     (add-to-list 'company-backends 'company-irony)))
+(with-eval-after-load 'company-irony
+  (custom-set-variables '(irony-additional-clang-options '("-std=c++14")))
+  (flycheck-irony-setup))
 
-(eval-after-load "flycheck"
-  '(progn
-     (when (locate-library "flycheck-irony")
-       (flycheck-irony-setup))))
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+(add-to-list 'company-backends 'company-irony)
 
 (defun enable-hook-for-clang-format ()
   "Add hook clang-format-buffer"
@@ -23,5 +19,28 @@
   (remove-hook 'before-save-hook 'clang-format-buffer t))
 (provide 'disable-hook-for-clang-format)
 
-(eval-after-load 'doxymacs
-  (add-hook 'c-mode-common-hook 'doxymacs-mode))
+(add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
+(add-hook 'c-mode-common-hook 'doxymacs-mode))
+
+(with-eval-after-load 'quickrun
+  (quickrun-add-command "c++/clang 1z"
+    '((:command . "clang++")
+      (:exec    . ("%c -std=c++1z %o -o %e %s"
+                   "%e %a"))
+      (:remove  . ("%e")))
+    :default "c++"))
+
+(defvar my/company-cmake-prefix nil)
+(defun my/company-completion-started (unused)
+  (let ((prefix (company-grab-symbol)))
+    (setq my/company-cmake-prefix (and (not (string-empty-p prefix)) (string= prefix (upcase prefix))))))
+
+(defun my/company-completion-finished (result)
+  (when my/company-cmake-prefix
+    (delete-char (- (length result)))
+    (insert (upcase result))))
+
+(defun my/cmake-mode-hook ()
+  (add-hook 'company-completion-started-hook #'my/company-completion-started nil t)
+  (add-hook 'company-completion-finished-hook #'my/company-completion-finished nil t))
+(add-hook 'cmake-mode-hook #'my/cmake-mode-hook)

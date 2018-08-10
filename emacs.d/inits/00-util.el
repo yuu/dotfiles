@@ -1,5 +1,6 @@
-(eval-after-load 'undo-tree
-  (global-undo-tree-mode t))
+(global-undo-tree-mode)
+(global-git-gutter-mode)
+(yas-global-mode)
 
 (defun enable-tabs-mode ()
   "Enable indent-tabs-mode"
