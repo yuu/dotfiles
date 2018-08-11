@@ -1,5 +1,5 @@
-(define-key global-map (kbd "C-x C-b") 'nil)
-(define-key global-map (kbd "M-g g") 'nil)
-(define-key global-map (kbd "C-h C-p") 'nil) ;view-emacs-problems
-(define-key global-map (kbd "C-h n") 'nil) ;view-emacs-news
-(define-key global-map (kbd "C-h C-n") 'nil) ;view-emacs-news
+(global-unset-key (kbd "C-x C-b"))
+(global-unset-key (kbd "M-g g"))
+(global-unset-key (kbd "C-h C-p")) ;view-emacs-problems
+(global-unset-key (kbd "C-h n")) ;view-emacs-news
+(global-unset-key (kbd "C-h C-n")) ;view-emacs-news

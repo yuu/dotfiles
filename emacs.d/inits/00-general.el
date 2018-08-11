@@ -41,15 +41,11 @@
 ;; tab
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
-(setq c-basic-offset 4)
+(setq-default c-basic-offset 4)
 
 ;; backup file
 (setq make-backup-files nil)
 (setq auto-save-default nil)
-;;(setq backup-directroy-alist '((".*" . ,(expand-file-name "/tmp")))
-;;(setq auto-save-file-name-transforms '((".*" ,(expand-file-name "/tmp") t)))
-(setq auto-save-timeout 900) ;; 15min
-(setq auto-save-interval 300)
 
 ;; ミニバッファの履歴を保存する
 (savehist-mode 1)

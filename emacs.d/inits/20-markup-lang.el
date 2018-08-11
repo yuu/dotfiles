@@ -3,3 +3,4 @@
 (autoload 'plantuml-mode "plantuml-mode" "plantuml-mode" t)
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
 (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+(setq plantuml-jar-path "~/.emacs.d/el-get/plantuml-mode/bin/plantuml.jar")
