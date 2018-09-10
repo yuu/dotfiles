@@ -26,4 +26,4 @@
   (set-face-foreground 'whitespace-tab "#669125")
   (set-face-background 'whitespace-tab 'nil)
   (set-face-underline  'whitespace-tab t))
-(global-whitespace-mode)
+;; (global-whitespace-mode)

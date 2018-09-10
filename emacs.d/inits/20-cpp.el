@@ -19,8 +19,9 @@
   (remove-hook 'before-save-hook 'clang-format-buffer t))
 (provide 'disable-hook-for-clang-format)
 
+(require 'doxymacs)
 (add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
-(add-hook 'c-mode-common-hook 'doxymacs-mode))
+(add-hook 'c-mode-common-hook 'doxymacs-mode)
 
 (with-eval-after-load 'quickrun
   (quickrun-add-command "c++/clang 1z"

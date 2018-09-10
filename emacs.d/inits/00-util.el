@@ -1,3 +1,4 @@
+(require 'undo-tree)
 (global-undo-tree-mode)
 (global-git-gutter-mode)
 (yas-global-mode)
