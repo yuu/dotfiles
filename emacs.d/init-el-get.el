@@ -28,6 +28,7 @@
 (el-get-bundle plantuml-mode :type github :pkgname "skuro/plantuml-mode")
 (el-get-bundle browser-refresh :type github :pkgname "syohex/emacs-browser-refresh")
 (el-get-bundle toml-mode)
+(el-get-bundle dockerfile-mode)
 
 (el-get-bundle company-mode)
 (el-get-bundle flycheck)
