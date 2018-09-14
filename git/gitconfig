@@ -3,7 +3,7 @@
 
 [core]
     excludesfile = ~/.gitignore
-    editor = nvim
+    editor = vim
     pager = "lv -c"
     quotepath = false
 
