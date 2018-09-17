@@ -8,7 +8,6 @@
 
 (el-get-bundle init-loader)
 (el-get-bundle helm)
-(el-get-bundle helm-rg :type github :pkgname "microamp/helm-rg")
 (el-get-bundle helm-tramp)
 (el-get-bundle docker-tramp)
 (el-get-bundle helm-ghq)
@@ -36,13 +35,11 @@
 (el-get-bundle editorconfig)
 
 ;; golang
-(el-get-bundle go-mode)
 (el-get-bundle go-company)
 (el-get-bundle go-eldoc)
 
 ;; c++
 (el-get-bundle company-irony)
-(el-get-bundle irony-mode)
 (el-get-bundle flycheck-irony)
 (el-get-bundle clang-format)
 (el-get-bundle doxymacs :type github :checkout "v1.8.0" :pkgname "pniedzielski/doxymacs")
