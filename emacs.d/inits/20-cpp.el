@@ -1,11 +1,14 @@
 (with-eval-after-load 'company-irony
-  (custom-set-variables '(irony-additional-clang-options '("-std=c++14")))
-  (flycheck-irony-setup))
+  (custom-set-variables '(irony-additional-clang-options '("-std=c++14"))))
 
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-(add-to-list 'company-backends 'company-irony)
+(defun my/c-mode-hook ()
+  (add-to-list 'company-backends 'company-irony)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+  (add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
+  (flycheck-irony-setup)
+  (irony-mode))
+(add-hook 'c-mode-hook 'my/cmake-mode-hook)
+(add-hook 'c++-mode-hook 'my/c-mode-hook)
 
 (defun enable-hook-for-clang-format ()
   "Add hook clang-format-buffer"
@@ -18,8 +21,6 @@
   (interactive)
   (remove-hook 'before-save-hook 'clang-format-buffer t))
 (provide 'disable-hook-for-clang-format)
-
-(add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
 
 (with-eval-after-load 'quickrun
   (quickrun-add-command "c++/clang 1z"

@@ -17,3 +17,6 @@
   (define-key global-map [remap dabbrev-expand] 'helm-dabbrev)
 
   (define-key helm-map (kbd "C-h") 'delete-backward-char)
+
+(global-unset-key (kbd "C-x c c")) ; helm-colors
+(global-unset-key (kbd "C-x c a")) ; helm-apropos

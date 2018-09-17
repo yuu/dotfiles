@@ -1,8 +1,14 @@
-;; org-mode
-;; These lines only if org-mode is not part of the X/Emacs distribution.
 (autoload 'org-mode "org" "Org mode" t)
-(autoload 'org-agenda-mode "org" "Multi-file agenda from Org mode" t)
+;; (autoload 'org-capture "org-capture" "docstring" t)
+;; (autoload 'org-agenda "org-agenda" "docstring" t)
+
+(global-set-key (kbd "C-x cc") 'org-capture)
+(global-set-key (kbd "C-x ca") 'org-agenda)
+
 (with-eval-after-load 'org
+  (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
+  (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+
   (setq org-startup-with-inline-image t)
   ;; DONEの時刻を記録
   (setq org-log-done 'time)
@@ -30,8 +36,3 @@
 
   (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
   (setq org-plantuml-jar-path "~/.emacs.d/el-get/plantuml-mode/bin/plantuml.jar"))
-
-(global-set-key (kbd "C-x cc") 'org-capture)
-(global-set-key (kbd "C-x ca") 'org-agenda)
-(add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
