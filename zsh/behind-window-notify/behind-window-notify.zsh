@@ -13,7 +13,7 @@ function behind-window-notify(){
 
     if [[ -z ${(M)current_panes#$TMUX_PANE} ]] then
       if [[ ${OSTYPE} == darwin* ]] then
-	ret=$?
+        ret=$?
         growlnotify -n $LASTCMD -m "$LASTCMD: ($ret)"
       else
         notify-send -t 3000 -u low "コマンド終了: " "$LASTCMD"
