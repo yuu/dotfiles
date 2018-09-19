@@ -32,7 +32,7 @@ git clone git://github.com/felixr/docker-zsh-completion.git ~/.config/zsh/docker
 echo_blue link: emacs
 EMCONF="$HOME/.emacs.d"
 mkdir -p $EMCONF
-for i in $(command ls emacs); do echo $i; ln -s $(pwd)/emacs/$i $EMCONF/; done
+for i in $(command ls emacs.d); do echo $i; ln -s $(pwd)/emacs.d/$i $EMCONF/; done
 
 # peco
 echo_blue link: peco
