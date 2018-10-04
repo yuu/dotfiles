@@ -39,8 +39,8 @@ echo_blue link: peco
 ln -s $(pwd)/peco ~/.peco
 
 # other
-ln -s clang-format ~/.clang-format
-ln -s rtorrent.rc ~/.rtorrent.rc
+ln -s $(pwd)/clang-format ~/.clang-format
+ln -s $(pwd)/rtorrent.rc ~/.rtorrent.rc
 mkdir ~/.config/python
 ln -s $(pwd)/pythonstartup ~/.config/python/pythonstartup
 ln -s $(pwd)/screenrc ~/.screenrc
