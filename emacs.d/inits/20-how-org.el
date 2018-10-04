@@ -13,7 +13,7 @@
   ;; DONEの時刻を記録
   (setq org-log-done 'time)
 
-  (setq org-directory "~/Dropbox/org")
+  (setq org-directory "~/Dropbox/Apps/org")
   (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
   (setq org-mobile-inbox-for-pull (concat org-mobile-directory "/notes.org"))
 
@@ -24,13 +24,13 @@
   ; http://orgmode.org/manual/Template-elements.html#Template-elements
   ; http://orgmode.org/manual/Template-expansion.html#Template-expansion
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/Dropbox/org/task.org" "Tasks")
+        '(("t" "Todo" entry (file+headline "~/Dropbox/Apps/org/task.org" "Tasks")
            "* TODO %?\n  %U")
-          ("n" "Note" entry (file "~/Dropbox/org/notes.org")
+          ("n" "Note" entry (file "~/Dropbox/Apps/org/notes.org")
            "* %?")
-          ("j" "Journal" entry (file+datetree "~/Dropbox/org/journal.org")
+          ("j" "Journal" entry (file+datetree "~/Dropbox/Apps/org/journal.org")
            "* %?")
-          ("r" "Reading" entry (file+function "~/Dropbox/org/reading.org" helm-occur)
+          ("r" "Reading" entry (file+function "~/Dropbox/Apps/org/reading.org" helm-occur)
            "* %?")
           ))
 
