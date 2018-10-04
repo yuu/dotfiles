@@ -23,16 +23,18 @@
 
   ; http://orgmode.org/manual/Template-elements.html#Template-elements
   ; http://orgmode.org/manual/Template-expansion.html#Template-expansion
-  (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/Dropbox/Apps/org/task.org" "Tasks")
-           "* TODO %?\n  %U")
-          ("n" "Note" entry (file "~/Dropbox/Apps/org/notes.org")
-           "* %?")
-          ("j" "Journal" entry (file+datetree "~/Dropbox/Apps/org/journal.org")
-           "* %?")
-          ("r" "Reading" entry (file+function "~/Dropbox/Apps/org/reading.org" helm-occur)
-           "* %?")
-          ))
+  (add-to-list 'org-capture-templates
+               '("t" "Todo" entry (file+headline "~/Dropbox/Apps/org/task.org" "Tasks")
+                 "* TODO %?\n  %U"))
+  (add-to-list 'org-capture-templates
+               '("n" "Note" entry (file "~/Dropbox/Apps/org/notes.org")
+                 "* %?"))
+  (add-to-list 'org-capture-templates
+               '("j" "Journal" entry (file+datetree "~/Dropbox/Apps/org/journal.org")
+                 "* %?"))
+  (add-to-list 'org-capture-templates
+               '("r" "Reading" entry (file+function "~/Dropbox/Apps/org/reading.org" helm-occur)
+                 "* %?"))
 
   (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
   (setq org-plantuml-jar-path "~/.emacs.d/el-get/plantuml-mode/bin/plantuml.jar"))
