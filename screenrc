@@ -1,1 +1,3 @@
 termcapinfo xterm* ti@:te@ # マウスのホイール
+escape ^^^
+
