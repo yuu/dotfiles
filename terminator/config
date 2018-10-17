@@ -1,5 +1,6 @@
 [global_config]
 [keybindings]
+  new_tab = F12
   next_tab = <Primary>Tab
   prev_tab = <Primary><Shift>Tab
 [layouts]
