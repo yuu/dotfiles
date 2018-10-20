@@ -52,3 +52,9 @@
 ;; web
 (el-get-bundle web-mode)
 (el-get-bundle company-web)
+
+;; rust
+(el-get-bundle rust-mode)
+(el-get-bundle flymake-rust)
+(el-get-bundle racer)
+(el-get-bundle cargo)
