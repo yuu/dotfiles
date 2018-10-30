@@ -3,6 +3,7 @@
 
 (defun my/c-mode-hook ()
   (add-to-list 'company-backends 'company-irony)
+  (add-to-list 'company-backends 'company-c-headers)
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
   (add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
   (flycheck-irony-setup)

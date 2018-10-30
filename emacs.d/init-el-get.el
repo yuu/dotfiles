@@ -43,6 +43,7 @@
 (el-get-bundle flycheck-irony)
 (el-get-bundle clang-format)
 (el-get-bundle doxymacs :type github :checkout "v1.8.0" :pkgname "pniedzielski/doxymacs")
+(el-get-bundle company-c-headers :type github :pkgname "randomphrase/company-c-headers")
 
 ;; python
 (el-get-bundle company-jedi)
