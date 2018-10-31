@@ -1,9 +1,28 @@
 [global_config]
+  broadcast_default = off
 [keybindings]
-  broadcast_group = disable
   new_tab = F12
   next_tab = <Primary>Tab
   prev_tab = <Primary><Shift>Tab
+  broadcast_all = disabled
+  broadcast_group = disabled
+  broadcast_off = disabled
+  edit_tab_title = disabled
+  edit_terminal_title = disabled
+  edit_window_title = disabled
+  group_all = disabled
+  group_tab = disabled
+  help = disabled
+  hide_window = disabled
+  insert_number = disabled
+  insert_padded = disabled
+  layout_launcher = disabled
+  new_window = disabled
+  search = <Primary><Shift>f
+  toggle_scrollbar = disabled
+  toggle_zoom = disabled
+  ungroup_all = disabled
+  ungroup_tab = disabled
 [layouts]
   [[default]]
     [[[child1]]]
@@ -24,7 +43,8 @@
     font = Source Code Pro Medium 10
     foreground_color = "#c5c8c6"
     palette = "#282a2e:#a54242:#8c9440:#de935f:#5d809d:#85678f:#5e8d87:#707880:#373b41:#cc6666:#b5bd68:#f0c674:#80a2be:#b294bb:#8abeb7:#c5c8c6"
-    scrollback_infinite = True
+    scroll_on_keystroke = False
+    scrollback_lines = 0
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
