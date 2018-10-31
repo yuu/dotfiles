@@ -1,7 +1,7 @@
 (require 'undo-tree)
-(global-undo-tree-mode)
-(global-git-gutter-mode)
-(yas-global-mode)
+(add-hook 'after-init-hook 'global-undo-tree-mode)
+(add-hook 'after-init-hook 'global-git-gutter-mode)
+(add-hook 'after-init-hook 'yas-global-mode)
 
 (defun enable-tabs-mode ()
   "Enable indent-tabs-mode"
