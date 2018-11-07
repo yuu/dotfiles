@@ -1,9 +1,7 @@
 [global_config]
   broadcast_default = off
+  enabled_plugins = ,
 [keybindings]
-  new_tab = F12
-  next_tab = <Primary>Tab
-  prev_tab = <Primary><Shift>Tab
   broadcast_all = disabled
   broadcast_group = disabled
   broadcast_off = disabled
@@ -17,7 +15,10 @@
   insert_number = disabled
   insert_padded = disabled
   layout_launcher = disabled
+  new_tab = F12
   new_window = disabled
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
   search = <Primary><Shift>f
   toggle_scrollbar = disabled
   toggle_zoom = disabled
