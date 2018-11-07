@@ -28,7 +28,7 @@
 (prefer-coding-system 'utf-8-unix)
 ;;デフォルトで使用する文字コード
 (set-default-coding-systems 'utf-8)
-(setq default-buffer-file-coding-system 'utf-8)
+(setq-default buffer-file-coding-system 'utf-8)
 ;;キーボードから入力される文字コード
 (set-keyboard-coding-system 'utf-8)
 ;;ターミナルの文字コード

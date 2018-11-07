@@ -9,21 +9,21 @@
   (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
   (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
-  (setq org-startup-with-inline-image t)
+  (defvar org-startup-with-inline-image t)
   ;; DONEの時刻を記録
-  (setq org-log-done 'time)
+  (defvar org-log-done 'time)
 
-  (setq org-directory "~/Dropbox/Apps/org")
-  (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
-  (setq org-mobile-inbox-for-pull (concat org-mobile-directory "/notes.org"))
+  (defvar org-directory "~/Dropbox/Apps/org")
+  (defvar org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+  (defvar org-mobile-inbox-for-pull (concat org-mobile-directory "/notes.org"))
 
-  (setq org-default-notes-file (concat org-directory "notes.org"))
+  (defvar org-default-notes-file (concat org-directory "notes.org"))
   ;; this is don't working now...
-  (setq org-agenda-files (file-expand-wildcards (concat org-directory "/*.org")))
+  (defvar org-agenda-files (file-expand-wildcards (concat org-directory "/*.org")))
 
   ;; http://orgmode.org/manual/Template-elements.html#Template-elements
   ;; http://orgmode.org/manual/Template-expansion.html#Template-expansion
-  (setq org-capture-templates
+  (defvar org-capture-templates
         '(("t" "Todo" entry (file+headline "~/Dropbox/org/task.org" "Tasks")
            "* TODO %?\n  %U")
           ("n" "Note" entry (file "~/Dropbox/org/notes.org")
@@ -35,4 +35,4 @@
           ))
 
   (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
-  (setq org-plantuml-jar-path "~/.emacs.d/el-get/plantuml-mode/bin/plantuml.jar"))
+  (defvar org-plantuml-jar-path "~/.emacs.d/el-get/plantuml-mode/bin/plantuml.jar"))
