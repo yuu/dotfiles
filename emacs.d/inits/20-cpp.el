@@ -1,5 +1,5 @@
 (with-eval-after-load 'company-irony
-  (custom-set-variables '(irony-additional-clang-options '("-std=c++14"))))
+  (setq irony-additional-clang-options "-std=c++14"))
 
 (defun my/c-mode-hook ()
   (add-to-list 'company-backends 'company-irony)
