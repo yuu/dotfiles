@@ -14,3 +14,5 @@
   (interactive)
   (setq indent-tabs-mode nil))
 (provide 'disable-tabs-mode)
+
+(rg-enable-default-bindings "\M-s")
