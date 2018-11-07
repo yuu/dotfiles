@@ -8,7 +8,6 @@
   (add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
   (flycheck-irony-setup)
   (irony-mode))
-(add-hook 'c-mode-hook 'my/cmake-mode-hook)
 (add-hook 'c++-mode-hook 'my/c-mode-hook)
 
 (defun enable-hook-for-clang-format ()
@@ -44,4 +43,4 @@
 (defun my/cmake-mode-hook ()
   (add-hook 'company-completion-started-hook #'my/company-completion-started nil t)
   (add-hook 'company-completion-finished-hook #'my/company-completion-finished nil t))
-(add-hook 'cmake-mode-hook #'my/cmake-mode-hook)
+(add-hook 'cmake-mode-hook 'my/cmake-mode-hook)
