@@ -46,6 +46,7 @@
 (el-get-bundle doxymacs :type github :checkout "v1.8.0" :pkgname "pniedzielski/doxymacs")
 (el-get-bundle company-c-headers :type github :pkgname "randomphrase/company-c-headers")
 (el-get-bundle cmake-mode :type git :checkout "v3.12.4" :url "https://gitlab.kitware.com/cmake/cmake.git")
+(el-get-bundle helm-gtags)
 
 ;; python
 (el-get-bundle company-jedi)
