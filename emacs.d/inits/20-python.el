@@ -1,6 +1,6 @@
 (with-eval-after-load 'compnay-jedi
-  (setq jedi:complete-on-dot t)
-  (setq jedi:use-shortcuts t))
+  (defvar jedi:complete-on-dot t)
+  (defvar jedi:use-shortcuts t))
 
 (defun my/python-mode-hook ()
   (add-to-list 'company-backends 'company-jedi))
