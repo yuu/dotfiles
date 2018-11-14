@@ -36,8 +36,8 @@
 (el-get-bundle editorconfig)
 
 ;; golang
-(el-get-bundle go-company)
-(el-get-bundle go-eldoc)
+;; (el-get-bundle go-company)
+;; (el-get-bundle go-eldoc)
 
 ;; c++
 (el-get-bundle company-irony)
