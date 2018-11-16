@@ -16,3 +16,6 @@
 (provide 'disable-tabs-mode)
 
 (rg-enable-default-bindings "\M-s")
+(setq rg-group-result t) ;; グループ表示
+(setq rg-align-position-numbers t)
+(setq rg-align-position-content-separator "|")
