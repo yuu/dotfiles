@@ -6,8 +6,8 @@ alias dcvalgrind="valgrind -v --error-limit=no --leak-check=full --leak-resoluti
 alias vin="vim -u NONE --noplugin"
 alias agit="vi -c Agit"
 
-alias emacs='emacsclient -nw -a ""'
-alias ekill='emacsclient -e "(kill-emacs)"'
+alias emacs='emacs -nw'
+#alias ekill='emacsclient -e "(kill-emacs)"'
 
 # git
 alias g="git"
