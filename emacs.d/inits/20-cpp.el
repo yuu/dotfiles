@@ -7,7 +7,11 @@
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
   (add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
   (flycheck-irony-setup)
-  (irony-mode))
+  (irony-mode)
+  (require 'google-c-style)
+  (google-set-c-style)
+)
+
 (add-hook 'c++-mode-hook 'my/c-mode-hook)
 
 (defun enable-hook-for-clang-format ()
