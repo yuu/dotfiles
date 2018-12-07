@@ -11,7 +11,7 @@
 (el-get-bundle helm-tramp)
 (el-get-bundle docker-tramp)
 (el-get-bundle helm-ghq)
-(el-get-bundle magit :branch "2.6.2")
+(el-get-bundle magit :branch "2.13.1")
 (el-get-bundle git-gutter)
 (el-get-bundle hc-zenburn-theme :type github :pkgname "edran/hc-zenburn-emacs")
 (el-get-bundle smart-mode-line)
