@@ -106,9 +106,9 @@ Suitable for inclusion in `c-offsets-alist'."
                        list-close-comma
                        scope-operator))
     (c-offsets-alist . ((arglist-intro google-c-lineup-expression-plus-4)
-                        (func-decl-cont . ++)
-                        (member-init-intro . ++)
-                        (inher-intro . ++)
+                        (func-decl-cont . +)
+                        (member-init-intro . +)
+                        (inher-intro . +)
                         (comment-intro . 0)
                         (arglist-close . c-lineup-arglist)
                         (topmost-intro . 0)
@@ -123,10 +123,10 @@ Suitable for inclusion in `c-offsets-alist'."
                              'c-lineup-assignments)
                           ++))
                         (label . /)
-                        (case-label . +)
+                        (case-label . 0)
                         (statement-case-open . +)
                         (statement-case-intro . +) ; case w/o {
-                        (access-label . /)
+                        (access-label . -)
                         (innamespace . 0))))
   "Google C/C++ Programming Style.")
 
