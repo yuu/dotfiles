@@ -48,6 +48,7 @@
 (el-get-bundle company-c-headers :type github :pkgname "randomphrase/company-c-headers")
 (el-get-bundle cmake-mode :type git :checkout "v3.12.4" :url "https://gitlab.kitware.com/cmake/cmake.git")
 (el-get-bundle helm-gtags)
+(el-get-bundle irony-eldoc)
 
 ;; python
 (el-get-bundle company-jedi)

@@ -1,18 +1,22 @@
 (with-eval-after-load 'company-irony
   (setq irony-additional-clang-options "-std=c++14"))
 
+(add-to-list 'load-path "~/.emacs.d/el-get/cmake-mode/Auxiliary")
+
 (defun my/c-mode-hook ()
   (add-to-list 'company-backends 'company-irony)
   (add-to-list 'company-backends 'company-c-headers)
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
   (add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
   (flycheck-irony-setup)
-  (irony-mode)
+  (electric-pair-mode 1)
   (require 'google-c-style)
+  (require 'cmake-mode)
   (google-set-c-style)
 )
 
 (add-hook 'c++-mode-hook 'my/c-mode-hook)
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 (defun enable-hook-for-clang-format ()
   "Add hook clang-format-buffer"
