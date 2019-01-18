@@ -2,6 +2,7 @@
 (add-hook 'after-init-hook 'global-undo-tree-mode)
 (add-hook 'after-init-hook 'global-git-gutter-mode)
 (add-hook 'after-init-hook 'yas-global-mode)
+(add-hook 'after-init-hook 'editorconfig-mode)
 
 (defun enable-tabs-mode ()
   "Enable indent-tabs-mode"

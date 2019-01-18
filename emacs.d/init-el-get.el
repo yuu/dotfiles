@@ -22,6 +22,7 @@
 (el-get-bundle yasnippet :type github :checkout "0.12.2" :pkgname "joaotavora/yasnippet")
 (el-get-bundle wgrep)
 (el-get-bundle rg :type github :checkout "master" :pkgname "dajva/rg.el")
+(el-get-bundle editorconfig)
 
 ;; markup lang
 (el-get-bundle markdown-mode)
