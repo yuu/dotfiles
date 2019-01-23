@@ -10,9 +10,8 @@
   (add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
   (flycheck-irony-setup)
   (electric-pair-mode 1)
-  (require 'google-c-style)
   (require 'cmake-mode)
-  (google-set-c-style)
+  (editorconfig-apply)
 )
 
 (add-hook 'c++-mode-hook 'my/c-mode-hook)
