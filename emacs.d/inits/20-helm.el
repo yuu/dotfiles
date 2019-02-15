@@ -24,3 +24,5 @@
 
 (global-unset-key (kbd "C-x c c")) ; helm-colors
 (global-unset-key (kbd "C-x c a")) ; helm-apropos
+
+(setq helm-split-window-default-side 'right)
