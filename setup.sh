@@ -44,6 +44,7 @@ ln -s $(pwd)/rtorrent.rc ~/.rtorrent.rc
 mkdir ~/.config/python
 ln -s $(pwd)/pythonstartup ~/.config/python/pythonstartup
 ln -s $(pwd)/screenrc ~/.screenrc
+ln -s $(pwd)/editorconfig ~/.editorconfig
 
 if [ "$(uname)" == 'Darwin' ]; then
     KD=$HOME/.config/karabiner
