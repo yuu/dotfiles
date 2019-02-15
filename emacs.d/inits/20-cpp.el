@@ -10,7 +10,6 @@
   (add-to-list 'load-path "~/.emacs.d/el-get/doxymacs/lisp/")
   (flycheck-irony-setup)
   (electric-pair-mode 1)
-  (require 'cmake-mode)
   (editorconfig-apply)
 )
 
