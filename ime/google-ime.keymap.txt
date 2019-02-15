@@ -1,0 +1,99 @@
+status	key	command
+Composition	Ctrl f	MoveCursorRight
+Precomposition	Ctrl f	MoveCursorRight
+Composition	Right	MoveCursorRight
+Precomposition	Ctrl e	MoveCursorToEnd
+Composition	Ctrl Right	MoveCursorToEnd
+Composition	Ctrl b	MoveCursorLeft
+Precomposition	Ctrl b	MoveCursorLeft
+Composition	Left	MoveCursorLeft
+Precomposition	Ctrl a	MoveCursorToBeginning
+Composition	Ctrl Left	MoveCursorToBeginning
+Conversion	Backspace	Cancel
+Conversion	Ctrl h	Cancel
+Composition	ESC	Cancel
+Conversion	ESC	Cancel
+Conversion	Ctrl Shift Space	CancelAndIMEOff
+Composition	Ctrl Shift Space	CancelAndIMEOff
+Composition	Hankaku/Zenkaku	CancelAndIMEOff
+Conversion	Hankaku/Zenkaku	CancelAndIMEOff
+Precomposition	Hankaku/Zenkaku	CancelAndIMEOff
+Conversion	Ctrl u	ConvertToHiragana
+Composition	Ctrl u	ConvertToHiragana
+Composition	F6	ConvertToHiragana
+Conversion	F6	ConvertToHiragana
+Precomposition	Ctrl F12	LaunchConfigDialog
+Suggestion	Tab	PredictAndConvert
+Composition	Ctrl i	ConvertToFullKatakana
+Conversion	Ctrl i	ConvertToFullKatakana
+Composition	F7	ConvertToFullKatakana
+Conversion	F7	ConvertToFullKatakana
+Conversion	Ctrl [	ConvertToFullAlphanumeric
+Composition	Ctrl [	ConvertToFullAlphanumeric
+Composition	F9	ConvertToFullAlphanumeric
+Conversion	F9	ConvertToFullAlphanumeric
+Suggestion	Ctrl Enter	CommitFirstSuggestion
+Suggestion	Shift Enter	CommitFirstSuggestion
+Conversion	Shift Tab	ConvertPrevPage
+Conversion	Ctrl Shift p	ConvertPrev
+Prediction	Shift Space	ConvertPrev
+Conversion	Shift Space	ConvertPrev
+Prediction	Shift Tab	ConvertPrev
+Suggestion	Shift Tab	ConvertPrev
+Conversion	Up	ConvertPrev
+Prediction	Up	ConvertPrev
+Composition	Ctrl o	ConvertToHalfKatakana
+Conversion	Ctrl o	ConvertToHalfKatakana
+Composition	F8	ConvertToHalfWidth
+Conversion	F8	ConvertToHalfWidth
+Composition	Ctrl p	ConvertToHalfAlphanumeric
+Conversion	Ctrl p	ConvertToHalfAlphanumeric
+Conversion	Ctrl Shift p	ConvertToHalfAlphanumeric
+Composition	F10	ConvertToHalfAlphanumeric
+Conversion	F10	ConvertToHalfAlphanumeric
+Composition	Ctrl d	Delete
+Composition	Delete	Delete
+Composition	Shift Space	Convert
+Composition	Space	Convert
+Composition	F2	ConvertWithoutHistory
+Composition	Backspace	Backspace
+Composition	Ctrl h	Backspace
+Conversion	Ctrl Shift f	SegmentWidthExpand
+Conversion	Shift Right	SegmentWidthExpand
+Conversion	Right	SegmentFocusRight
+Conversion	Ctrl Right	SegmentFocusLast
+Conversion	Left	SegmentFocusLeft
+Conversion	Ctrl Left	SegmentFocusFirst
+Conversion	Ctrl Shift b	SegmentWidthShrink
+Conversion	Shift Left	SegmentWidthShrink
+Conversion	Tab	ConvertNextPage
+Conversion	Ctrl Shift n	ConvertNext
+Conversion	Down	ConvertNext
+Prediction	Down	ConvertNext
+Prediction	Space	ConvertNext
+Conversion	Space	ConvertNext
+Prediction	Tab	ConvertNext
+Suggestion	Tab	ConvertNext
+Conversion	Ctrl m	Commit
+Composition	Down	Commit
+Composition	Enter	Commit
+Conversion	Enter	Commit
+Precomposition	Ctrl Backspace	Undo
+Precomposition	Space	InsertSpace
+Prediction	Ctrl Delete	DeleteSelectedCandidate
+Composition	Ctrl Shift p	ConvertToHalfAlphanumeric
+Precomposition	Ctrl Shift Space	IMEOn
+DirectInput	Hankaku/Zenkaku	IMEOn
+DirectInput	Ctrl Shift Space	IMEOn
+Precomposition	Ctrl Shift Space	IMEOff
+Composition	Kanji	CancelAndIMEOff
+Composition	OFF	CancelAndIMEOff
+Composition	ON	IMEOn
+Conversion	Kanji	CancelAndIMEOff
+Conversion	OFF	CancelAndIMEOff
+Conversion	ON	IMEOn
+DirectInput	Kanji	IMEOn
+DirectInput	ON	IMEOn
+Precomposition	Kanji	CancelAndIMEOff
+Precomposition	OFF	CancelAndIMEOff
+Precomposition	ON	IMEOn
