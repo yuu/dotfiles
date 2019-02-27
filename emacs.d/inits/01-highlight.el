@@ -27,3 +27,14 @@
   (set-face-background 'whitespace-tab 'nil)
   (set-face-underline  'whitespace-tab t))
 ;; (global-whitespace-mode)
+
+(with-eval-after-load 'magit
+    (set-face-foreground 'magit-branch-local "brightgreen")
+    (set-face-bold 'magit-branch-local t)
+    (set-face-foreground 'magit-branch-remote "brightred")
+    (set-face-bold 'magit-branch-remote t)
+)
+
+(with-eval-after-load 'company
+    (set-face-background 'company-preview "green")
+)
