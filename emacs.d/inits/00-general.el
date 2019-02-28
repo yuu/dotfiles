@@ -11,16 +11,16 @@
 (kill-buffer "*Messages*")
 (kill-buffer "*scratch*")
 
-;; ツールバー非表示
+;; ツールバー
 (tool-bar-mode -1)
-;; メニューバーを非表示
-(menu-bar-mode -1)
-;; スクロールバー非表示
+;; メニューバー
+(menu-bar-mode t)
+;; スクロールバー
 (set-scroll-bar-mode nil)
+(set-fringe-mode 0)
 ;; titilebar file full name
 (setq frame-title-format "%f")
-
-(blink-cursor-mode 0)
+(blink-cursor-mode nil)
 
 ;;使用する言語環境
 (set-language-environment "Japanese")
