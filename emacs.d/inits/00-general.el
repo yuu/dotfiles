@@ -57,3 +57,6 @@
       scroll-margin 0
       scroll-step 1)
 (setq comint-scroll-show-maximum-output t) ;; shell-mode
+
+(set-frame-font "Source Han Code JP M")
+(set-face-attribute 'default nil :height 90)
