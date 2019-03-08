@@ -14,7 +14,9 @@
 ;; ツールバー
 (tool-bar-mode -1)
 ;; メニューバー
-(menu-bar-mode t)
+(menu-bar-mode -1)
+(if (display-graphic-p)
+    (menu-bar-mode t))
 ;; スクロールバー
 (set-scroll-bar-mode nil)
 (set-fringe-mode 0)
