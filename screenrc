@@ -1,3 +1,4 @@
 termcapinfo xterm* ti@:te@ # マウスのホイール
 escape ^^^
 
+cjkwidth on
