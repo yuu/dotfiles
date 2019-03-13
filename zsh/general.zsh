@@ -3,6 +3,8 @@ PS1="[@${HOST%%.*} %1~]%(!.#.$) "
 #RPROMPT="%T"                      # 右側に時間を表示する
 setopt transient_rprompt          # 右側まで入力がきたら時間を消す
 
+fpath=(source $HOME/.config/zsh/func $fpath)
+
 autoload -U compinit
 compinit
 

@@ -26,7 +26,7 @@ mkdir -p ~/.config/zsh
 ln -s $(pwd)/zsh/* ~/.config/zsh/
 ln -s ~/.config/zsh/zshrc.zsh ~/.zshrc
 git clone git://github.com/zsh-users/zaw.git ~/.config/zsh/zaw
-git clone git://github.com/felixr/docker-zsh-completion.git ~/.config/zsh/docker
+curl -fLo ~/.config/zsh/func/_docker https://raw.github.com/felixr/docker-zsh-completion/master/_docker
 
 # emacs
 echo_blue link: emacs
