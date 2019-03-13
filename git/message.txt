@@ -8,22 +8,22 @@
 # e.g. "fix (another repo)#num, fix #num"
 
 
-# ==== Emojis ====
-# ➕  :heavy_plus_sign:   機能を追加
-# ➖  :heavy_minus_sign:  機能を削除
-# ✨  :sparkles:     部分的な機能追加
-# 🎉  :tada:         盛大に祝うべき大きな機能追加
-# 🐛  :bug:          バグ修正
-# 👍  :+1:           機能改善
-# 🚀  :rocket:       パフォーマンス改善
-# ♻️   :recycle:      リファクタリング
-# 💚  :green_heart:  テストやCIの修正・改善
-# 👕  :shirt:        Lintエラーの修正やコードスタイルの修正
-# 🚿  :shower:       不要な機能・使われなくなった機能の削除
-# 🆙  :up:           依存パッケージなどのアップデート
-# 🔒  :lock:         新機能の公開範囲の制限
-# 👮  :cop:          セキュリティ関連の改善
-# ✏️   :pencil2:      when writing docs
+ ==== Emojis ====
+# ✨ :sparkles:        New feature
+# 🐛 :bug:             Bugfix
+# 📝 :memo:            Documentation
+# 🚨 :rotating_light:  Test
+# 🔒 :lock:            when dealing with security
+# 🚿 :shower:          when refactoring
+# 🚀 :rocket:          when improving performance
+# 🎨 :art:             when improving the format/structure of the code
+# 💚 :green_heart:     when fixing the CI build
+# 👕 :shirt:           when removing linter warnings
+# 🔼 :arrow_up:        when upgrading dependencies
+# 🔽 :arrow_down:      when downgrading dependencies
+# 🍎 :apple:           when fixing something on macOS
+# 🐧 :penguin:         when fixing something on Linux
+# 🏁 :checkered_flag:  when fixing something on Windows
 
 # ==== Format ====
 # :emoji: Subject
