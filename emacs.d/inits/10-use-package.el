@@ -94,15 +94,15 @@
 ;;;  ([remap occur] . helm-occur-from-isearch)
 
 (use-package undo-tree
-  :init (add-hook 'after-init-hook 'global-undo-tree-mode)
+  :hook (after-init-hook . global-undo-tree-mode)
 )
 
 (use-package yasnippet
-  :init (add-hook 'after-init-hook 'yas-global-mode)
+  :hook (after-init-hook . yas-global-mode)
 )
 
 (use-package editorconfig
-  :init (add-hook 'after-init-hook 'editorconfig-mode)
+  :hook (after-init-hook . editorconfig-mode)
 )
 
 (use-package rg
@@ -125,7 +125,7 @@
 )
 
 (use-package git-gutter
-  :init (add-hook 'after-init-hook 'global-git-gutter-mode)
+  :hook (after-init-hook . global-git-gutter-mode)
 )
 
 ;;; about frontend
