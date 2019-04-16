@@ -94,15 +94,18 @@
 ;;;  ([remap occur] . helm-occur-from-isearch)
 
 (use-package undo-tree
-  :hook (after-init-hook . global-undo-tree-mode)
+  :diminish undo-tree-mode
+  :init (global-undo-tree-mode)
 )
 
 (use-package yasnippet
-  :hook (after-init-hook . yas-global-mode)
+  :diminish yas-minor-mode
+  :init
+  (yas-global-mode)
 )
 
 (use-package editorconfig
-  :hook (after-init-hook . editorconfig-mode)
+  :init (editorconfig-mode)
 )
 
 (use-package rg
@@ -140,10 +143,33 @@
   (:map company-search-map
     ("C-n" . company-select-next)
     ("C-p" . company-select-previous))
+  :diminish company-mode
   :config
   (global-company-mode)
   (set-face-background 'company-preview "green")
   :custom
-  (company-idle-delay 0)
-  :diminish company-mode
+  (company-idle-delay nil)
 )
+
+;;; markup lang
+(use-package markdown-mode
+  :mode ("\\.md\\" . gfm-mode)
+  :config
+  (setq
+    markdown-split-window-direction 'right
+    markdown-command "github-markup"
+    markdown-command-needs-filename t
+    markdown-css-paths (list "https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css"))
+)
+(use-package markdown-toc)
+(use-package plantuml-mode
+  :mode
+  (("\\.puml\\'" . plantuml-mode)
+  ("\\.plantuml\\'" . plantuml-mode))
+  :config
+  (setq plantuml-jar-path "~/.emacs.d/straight/repos/plantuml-mode/bin/plantuml.jar")
+)
+(use-package browser-refresh)
+(use-package toml-mode)
+(use-package dockerfile-mode)
+(use-package yaml-mode)
