@@ -10,9 +10,9 @@
 (use-package hc-zenburn-theme
   :init (load-theme 'hc-zenburn t)
   :config
-;;;  (set-face-background 'region "#696969")
+  (set-face-background 'region "#696969")
+  (set-frame-parameter nil 'alpha 85)
 )
-  ;(set-frame-parameter nil 'alpha 90)
 
 (with-eval-after-load 'whitespace
   (setq-default whitespace-style '(face   ; faceで可視化
@@ -144,7 +144,7 @@
     ("C-n" . company-select-next)
     ("C-p" . company-select-previous))
   :diminish company-mode
-  :config
+  :init
   (global-company-mode)
   (set-face-background 'company-preview "green")
   :custom
