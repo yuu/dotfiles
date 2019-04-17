@@ -34,9 +34,7 @@
 (setq frame-title-format "%f") ; titilebar file full name
 (setq split-width-threshold 9999999)
 (if (display-graphic-p)
-  (menu-bar-mode t)
-  (set-frame-font "Source Han Code JP M")
-  (set-face-attribute 'default nil :height 90))
+  (menu-bar-mode t))
 
 ;; 1行ずつスクロール
 (setq scroll-conservatively 35
@@ -45,4 +43,3 @@
 (setq comint-scroll-show-maximum-output t) ; shell-mode
 
 (setq isearch-wrap-function '(lambda nil)) ; disable wrapping in isearch
-
