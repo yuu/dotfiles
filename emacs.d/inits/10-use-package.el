@@ -153,7 +153,7 @@
 
 ;;; markup lang
 (use-package markdown-mode
-  :mode ("\\.md\\" . gfm-mode)
+  :mode ("\\.md\\'" . gfm-mode)
   :config
   (setq
     markdown-split-window-direction 'right
