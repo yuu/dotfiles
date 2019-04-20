@@ -10,15 +10,6 @@
               100)
          '(100 . 100) '(80 . 80)))))
 
-(defun x-clipboard-copy ()
-  (interactive)
-  (when (region-active-p)
-    (shell-command-on-region (region-beginning) (region-end) "xsel --clipboard --input" nil nil)))
-(defun m-clipboard-copy ()
-  (interactive)
-  (when (region-active-p)
-    (shell-command-on-region (region-beginning) (region-end) "pbcopy" nil nil)))
-
 (defun enable-tabs-mode ()
   "Enable indent-tabs-mode"
   (interactive)
@@ -48,4 +39,3 @@
         (add-hook 'isearch-mode-hook 'isearch-set-initial-string)
         (isearch-forward regexp-p no-recursive-edit)))))
 (define-key isearch-mode-map "\C-w" 'isearch-forward-at-point)
-
