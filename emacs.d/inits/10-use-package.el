@@ -168,7 +168,6 @@
   :config
   (setq plantuml-jar-path "~/.emacs.d/straight/repos/plantuml-mode/bin/plantuml.jar")
 )
-(use-package browser-refresh)
 (use-package toml-mode)
 (use-package dockerfile-mode)
 (use-package yaml-mode)
