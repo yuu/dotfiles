@@ -15,8 +15,7 @@
 )
 
 (use-package whitespace
-  :commands
-  (whitespace-mode)
+  :commands whitespace-mode
   :config
   (setq whitespace-style '(face            ; faceで可視化
                             trailing       ; 行末
@@ -151,8 +150,7 @@
 )
 
 (use-package lsp-mode
-  :commands
-  lsp
+  :commands lsp
   :custom
   ;; debug
   (lsp-print-io nil)
