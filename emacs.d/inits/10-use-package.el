@@ -150,6 +150,26 @@
   (company-idle-delay nil)
 )
 
+(use-package lsp-mode
+  :commands
+  lsp
+  :custom
+  ;; debug
+  (lsp-print-io nil)
+  (lsp-trace nil)
+  (lsp-print-performance nil)
+  ;; general
+  (lsp-auto-guess-root t)
+  (lsp-document-sync-method 'incremental)
+  (lsp-enable-completion-at-point nil)
+)
+
+(use-package lsp-ui
+)
+
+(use-package company-lsp
+)
+
 ;;; markup lang
 (use-package markdown-mode
   :mode ("\\.md\\'" . gfm-mode)
