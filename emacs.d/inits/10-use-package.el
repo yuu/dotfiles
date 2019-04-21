@@ -14,27 +14,30 @@
   (set-frame-parameter nil 'alpha 85)
 )
 
-(with-eval-after-load 'whitespace
-  (setq-default whitespace-style '(face   ; faceで可視化
-                           trailing       ; 行末
-                           empty          ; 先頭/末尾の空行
-                           tabs           ; タブ
-                           tab-mark
-                           spaces
-                           space-mark     ; 表示のマッピング
-                           ))
+(use-package whitespace
+  :commands
+  (whitespace-mode)
+  :config
+  (setq whitespace-style '(face            ; faceで可視化
+                            trailing       ; 行末
+                            empty          ; 先頭/末尾の空行
+                            tabs           ; タブ
+                            tab-mark
+                            spaces
+                            space-mark     ; 表示のマッピング
+                            ))
 
-  (setq-default whitespace-display-mappings
-        '((space-mark ?\u3000 [?\u25a1])
-          (tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
-  (setq-default whitespace-space-regexp "\\(\u3000+\\)")
+  (setq whitespace-display-mappings
+    '((space-mark ?\u3000 [?\u25a1])
+       (tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
+  (setq whitespace-space-regexp "\\(\u3000+\\)")
   (set-face-foreground 'whitespace-space "#7cfc00")
   (set-face-background 'whitespace-space 'nil)
   (set-face-bold 'whitespace-space t)
   (set-face-foreground 'whitespace-tab "#669125")
   (set-face-background 'whitespace-tab 'nil)
-  (set-face-underline  'whitespace-tab t))
-; (global-whitespace-mode)
+  (set-face-underline  'whitespace-tab t)
+)
 
 ;;;; keybind
 (global-unset-key (kbd "C-x C-b"))
