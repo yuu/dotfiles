@@ -147,6 +147,8 @@
   (set-face-background 'company-preview "green")
   :custom
   (company-idle-delay nil)
+  :config
+  (delete 'company-clang company-backends)
 )
 
 (use-package lsp-mode
@@ -162,10 +164,9 @@
   (lsp-enable-completion-at-point nil)
 )
 
-(use-package lsp-ui
-)
-
 (use-package company-lsp
+  :after lsp-mode
+
 )
 
 ;;; markup lang
@@ -201,3 +202,6 @@
   :hook
   (c++-mode . (lambda () (lsp)))
 )
+
+(use-package clang-format)
+(use-package company-c-headers)
