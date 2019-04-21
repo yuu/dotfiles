@@ -93,9 +93,6 @@
         helm-source-file-cache))
   )
 )
-;("C-x I" . helm-semantic-or-imenu)
-;;;  ([remap occur] . helm-occur-from-isearch)
-
 (use-package undo-tree
   :diminish undo-tree-mode
   :init (global-undo-tree-mode)
@@ -103,8 +100,7 @@
 
 (use-package yasnippet
   :diminish yas-minor-mode
-  :init
-  (yas-global-mode)
+  :init (yas-global-mode)
 )
 
 (use-package editorconfig
@@ -131,7 +127,7 @@
 )
 
 (use-package git-gutter
-  :hook (after-init-hook . global-git-gutter-mode)
+  :init (global-git-gutter-mode)
 )
 
 ;;; about frontend
