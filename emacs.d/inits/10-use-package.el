@@ -191,3 +191,15 @@
 (use-package toml-mode)
 (use-package dockerfile-mode)
 (use-package yaml-mode)
+
+;;; cpp lang
+(use-package modern-cpp-font-lock
+  :diminish
+  :hook
+  (c++-mode . modern-c++-font-lock-mode)
+)
+
+(use-package ccls
+  :hook
+  (c++-mode . (lambda () (lsp)))
+)
