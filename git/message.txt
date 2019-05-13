@@ -8,7 +8,7 @@
 # e.g. "fix (another repo)#num, fix #num"
 
 
- ==== Emojis ====
+# ==== Emojis ====
 # ✨ :sparkles:        New feature
 # 🐛 :bug:             Bugfix
 # 📝 :memo:            Documentation
