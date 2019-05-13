@@ -92,10 +92,13 @@
         helm-source-file-cache))
   )
 )
+
 (use-package undo-tree
   :diminish undo-tree-mode
   :init (global-undo-tree-mode)
 )
+
+(use-package undohist)
 
 (use-package yasnippet
   :diminish yas-minor-mode
@@ -149,6 +152,16 @@
   (company-idle-delay nil)
   :config
   (delete 'company-clang company-backends)
+)
+
+(use-package quickrun
+  :config
+  (quickrun-add-command "c++/clang 1z"
+    '((:command . "clang++")
+       (:exec    . ("%c -std=c++1z %o -o %e %s"
+                     "%e %a"))
+       (:remove  . ("%e")))
+    :default "c++")
 )
 
 (use-package lsp-mode
