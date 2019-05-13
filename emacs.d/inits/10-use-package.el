@@ -218,3 +218,26 @@
 
 (use-package clang-format)
 (use-package company-c-headers)
+
+;;; rust lang
+(use-package racer
+  :after company-mode
+  :hook
+  ((racer-mode-hook . eldoc-mode)
+  (racer-mode-hook . company-mode))
+)
+
+(use-package company-racer
+  :init
+  (add-to-list 'company-backends 'company-racer)
+)
+
+(use-package rust-mode
+  :hook
+  (rust-mode-hook . racer-mode)
+)
+
+(use-package cargo
+  :hook
+  (rust-mode-hook . cargo-minor-mode)
+)
