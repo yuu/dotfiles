@@ -31,8 +31,9 @@ curl -fLo ~/.config/zsh/func/_docker https://raw.github.com/felixr/docker-zsh-co
 # emacs
 echo_blue link: emacs
 EMCONF="$HOME/.emacs.d"
-mkdir -p $EMCONF
-for i in $(command ls emacs.d); do echo $i; ln -s $(pwd)/emacs.d/$i $EMCONF/; done
+mkdir -p $EMCONF/straight
+for i in $(command ls emacs.d |grep -v versions); do echo $i; ln -s $(pwd)/emacs.d/$i $EMCONF/; done
+ln -s $(pwd)/emacs.d/versions $EMCONF/straight
 
 # peco
 echo_blue link: peco
