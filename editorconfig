@@ -28,3 +28,6 @@ indent_size = 2
 
 [*.rs]
 max_line_length = 120
+
+[*.{yml,yaml}]
+indent_size = 2
