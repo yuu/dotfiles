@@ -1,0 +1,7 @@
+---
+title: $1
+author: yuu
+date: `(insert (format-time-string "%b %d, %Y"))`
+---
+
+## $2
