@@ -218,6 +218,8 @@
     :default "c++")
 )
 
+;; (use-package flymake)
+
 (use-package lsp-mode
   :commands lsp
   :custom
