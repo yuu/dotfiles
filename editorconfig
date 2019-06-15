@@ -14,6 +14,7 @@ tab_width = 8
 
 [*.md]
 indent_size = 2
+tab_width = 2
 trim_trailing_whitespace = false
 
 [*.{c,h,cpp,hpp,cc,hh}]
