@@ -1,2 +1,9 @@
 ;; using (w32-select-font)
-(set-frame-font "源ノ角ゴシック Code JP M-10:medium")
+;; "源ノ角ゴシック Code JP M-10:medium"
+;; "Source Code Pro Medium-11:medium"
+(set-face-attribute 'default nil
+                    :family "Source Code Pro"
+                    :height 110
+                    :weight 'normal
+                    :width 'normal)
+(set-fontset-font t 'japanese-jisx0208 (font-spec :family "源ノ角ゴシック Code JP M"))
