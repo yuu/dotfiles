@@ -114,7 +114,6 @@
 (use-package rg
   :config
   (rg-enable-default-bindings "\M-s")
-  (setq rg-group-result t)
   (setq rg-align-position-numbers t)
   (setq rg-align-position-content-separator "|")
 )
