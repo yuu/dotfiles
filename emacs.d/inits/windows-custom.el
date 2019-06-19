@@ -7,3 +7,8 @@
                     :weight 'normal
                     :width 'normal)
 (set-fontset-font t 'japanese-jisx0208 (font-spec :family "源ノ角ゴシック Code JP M"))
+
+(use-package rg
+  :config
+  (add-to-list 'rg-toggle-command-line-flags "--path-separator \"/\"")
+)
