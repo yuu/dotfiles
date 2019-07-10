@@ -253,7 +253,12 @@
   (("\\.puml\\'" . plantuml-mode)
   ("\\.plantuml\\'" . plantuml-mode))
   :config
-  (setq plantuml-jar-path "~/.emacs.d/straight/repos/plantuml-mode/bin/plantuml.jar")
+  (setq plantuml-jar-path (concat (getenv "HOME") "/.emacs.d/straight/repos/plantuml-mode/bin/plantuml.jar"))
+)
+(use-package flycheck-plantuml
+  :hook
+  (plantuml-mode . flycheck-plantuml-setup)
+  (plantuml-mode . flycheck-mode)
 )
 (use-package toml-mode)
 (use-package dockerfile-mode)
