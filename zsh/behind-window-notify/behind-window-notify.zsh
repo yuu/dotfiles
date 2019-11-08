@@ -7,17 +7,25 @@ function remenber-cmd(){
 
 add-zsh-hook preexec remenber-cmd
 
-function behind-window-notify(){
+local terminal_identity="com.apple.Terminal"
+if [[ ${OSTYPE} == darwin* ]] then
+  if [[ "${TERM_PROGRAM}" == "iTerm.app" ]] then
+    terminal_identity="com.googlecode.iterm2"
+  fi
+fi
+
+function behind-window-notify() {
   if [[ -n $TMUX ]] then
     current_panes=(${(@f)"$(tmux list-panes -F'#{pane_id}')"})
-
     if [[ -z ${(M)current_panes#$TMUX_PANE} ]] then
+
       if [[ ${OSTYPE} == darwin* ]] then
         ret=$?
-        growlnotify -n $LASTCMD -m "$LASTCMD: ($ret)"
+        /usr/local/bin/terminal-notifier -title "$LASTCMD" -message "$ret" -activate $terminal_identity
       else
         notify-send -t 3000 -u low "コマンド終了: " "$LASTCMD"
-       fi
+      fi
+
     fi
   fi
 }
