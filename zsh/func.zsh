@@ -29,7 +29,7 @@ run(){
 }
 
 xcode-switch() {
-    xcode-select --switch $1/Contents/Developer
+    sudo xcode-select --switch $1/Contents/Developer
 }
 
 sdmount() {
