@@ -22,7 +22,7 @@
 (setq-default indent-tabs-mode nil)
 (setq show-paren-delay 0)
 (show-paren-mode t)
-(setq show-paren-style 'expression)
+(setq show-paren-style 'parenthesis)
 (electric-pair-mode 1)
 
 ;;; view
