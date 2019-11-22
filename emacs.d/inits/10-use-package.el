@@ -349,3 +349,13 @@
 
 ;;; swift lang
 (use-package swift-mode)
+
+;;; csharp
+(use-package omnisharp
+  :init
+  (add-to-list 'company-backends 'company-omnisharp)
+  :hook
+  (csharp-mode-hook . omnisharp-mode)
+  (csharp-mode-hook . company-mode)
+  (csharp-mode-hook . flycheck-mode)
+)
