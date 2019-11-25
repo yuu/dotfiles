@@ -211,7 +211,7 @@
   :config
   (quickrun-add-command "c++/clang 1z"
     '((:command . "clang++")
-       (:exec    . ("%c -std=c++1z %o -o %e %s"
+       (:exec    . ("%c -std=c++17 -Wall -pedantic-errors %o -o %e %s"
                      "%e %a"))
        (:remove  . ("%e")))
     :default "c++")
@@ -231,6 +231,8 @@
   (lsp-document-sync-method 'incremental)
   (lsp-enable-completion-at-point nil)
 )
+
+(use-package lsp-ui :commands lsp-ui-mode)
 
 (use-package company-lsp
   :after lsp-mode
@@ -274,6 +276,7 @@
 (use-package ccls
   :hook
   (c++-mode . (lambda () (lsp)))
+  (c++-mode . (lambda () (c-set-offset 'innamespace 0)))
 )
 
 (use-package clang-format)
@@ -283,6 +286,7 @@
 (use-package racer
   :after company-mode
   :hook
+  ((racer-mode-hook . racer-mode)
   ((racer-mode-hook . eldoc-mode)
   (racer-mode-hook . company-mode))
 )
