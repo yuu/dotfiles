@@ -346,3 +346,6 @@
   :hook
   (rust-mode-hook . cargo-minor-mode)
 )
+
+;;; swift lang
+(use-package swift-mode)
