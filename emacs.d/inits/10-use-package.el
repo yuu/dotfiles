@@ -328,7 +328,7 @@
   :after company-mode
   :hook
   ((racer-mode-hook . racer-mode)
-  ((racer-mode-hook . eldoc-mode)
+  (racer-mode-hook . eldoc-mode)
   (racer-mode-hook . company-mode))
 )
 
