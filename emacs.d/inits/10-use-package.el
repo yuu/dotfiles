@@ -327,8 +327,7 @@
 (use-package racer
   :after company-mode
   :hook
-  ((racer-mode-hook . racer-mode)
-  (racer-mode-hook . eldoc-mode)
+  ((racer-mode-hook . eldoc-mode)
   (racer-mode-hook . company-mode))
 )
 
@@ -338,8 +337,8 @@
 )
 
 (use-package rust-mode
-  :hook
-  (rust-mode-hook . racer-mode)
+  :init
+  (add-hook 'rust-mode-hook #'racer-mode)
 )
 
 (use-package cargo
