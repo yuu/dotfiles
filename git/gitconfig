@@ -42,7 +42,7 @@
     autosquash = true
 
 [ghq]
-    root = ~/src
+    root = ~/.local/src
 
 [filter "lfs"]
     required = true
