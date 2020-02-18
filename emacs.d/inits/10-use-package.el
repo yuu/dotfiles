@@ -154,7 +154,7 @@
 
 (use-package rg
   :config
-  (rg-enable-default-bindings "\M-s")
+  (rg-enable-menu)
   (setq rg-align-position-numbers t)
   (setq rg-align-position-content-separator "|")
 )
