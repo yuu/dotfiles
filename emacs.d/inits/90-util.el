@@ -28,7 +28,7 @@
   (add-hook 'find-file-hooks 'view-mode)
 )
 
-(defun enable-view-mode ()
+(defun disable-view-mode ()
   "Disable view-mode that always open file"
   (interactive)
   (remove-hook 'find-file-hooks 'view-mode)
