@@ -22,6 +22,18 @@
   (setq indent-tabs-mode nil))
 (provide 'disable-tabs-mode)
 
+(defun enable-view-mode ()
+  "Enable view-mode that always open file"
+  (interactive)
+  (add-hook 'find-file-hooks 'view-mode)
+)
+
+(defun enable-view-mode ()
+  "Disable view-mode that always open file"
+  (interactive)
+  (remove-hook 'find-file-hooks 'view-mode)
+)
+
 (defvar isearch-initial-string nil)
 (defun isearch-set-initial-string ()
   (remove-hook 'isearch-mode-hook 'isearch-set-initial-string)
