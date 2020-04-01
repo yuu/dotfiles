@@ -358,3 +358,8 @@
   (csharp-mode-hook . company-mode)
   (csharp-mode-hook . flycheck-mode)
 )
+
+;;; web
+(use-package web-mode)
+(use-package emmet-mode)
+(use-package rjsx-mode)
