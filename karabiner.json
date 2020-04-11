@@ -71,10 +71,7 @@
                         "vendor_id": 1452
                     },
                     "ignore": false,
-                    "simple_modifications": {
-                        "caps_lock": "left_control",
-                        "left_control": "caps_lock"
-                    }
+                    "simple_modifications": {}
                 },
                 {
                     "disable_built_in_keyboard_if_exists": false,
