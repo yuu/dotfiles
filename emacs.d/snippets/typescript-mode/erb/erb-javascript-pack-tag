@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: erb javascript_pack_tag
+# key: erb-js-tag
+# --
+<%= javascript_pack_tag "$1", "data-turbolinks-track": "reload", defer: true %>

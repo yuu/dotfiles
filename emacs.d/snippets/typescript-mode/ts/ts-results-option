@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: option of ts-results
+# key: option
+# --
+import { Option, Some, None } from 'ts-results'

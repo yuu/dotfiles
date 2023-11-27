@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: react hooks form import
+# key: im-form
+# --
+import { useForm, Controller } from 'react-hook-form'
+import { FormProvider, useFormContext } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'

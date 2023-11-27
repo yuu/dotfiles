@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: for statement
+# key: for
+# --
+<% $1.each do |$2| %>
+  <%= $3 %>
+<% end %>

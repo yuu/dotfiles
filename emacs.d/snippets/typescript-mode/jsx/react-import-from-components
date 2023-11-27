@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import from components
+# key: com
+# --
+import { $2 } from 'src/components/$1'

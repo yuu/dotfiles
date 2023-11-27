@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: react import i18n with hi18n
+# key: im-hi18n
+# --
+import { Translate, useI18n } from '@hi18n/react'

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: nextjs getServerSideProps
+# key: nextjs-ssr
+# --
+import { GetServerSideProps } from 'next'
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return { props: { $1 } }
+}

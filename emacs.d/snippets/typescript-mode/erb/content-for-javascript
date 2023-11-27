@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: content for javascript
+# key: content-for-js
+# --
+<% content_for(:javascript) do %>
+  $1
+<% end %>

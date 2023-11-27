@@ -1,0 +1,8 @@
+const methods = useForm<Schema>({
+  resolver: yupResolver(schema),
+  defaultValues: schema.cast({})
+})
+
+<FormProvider {...methods}>
+  $1
+</FormProvider>

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: react hooks form useForm
+# key: useForm
+# --
+const { control, reset, handleSubmit } = useForm<Schema>({
+  resolver: yupResolver(schema),
+  defaultValues: schema.cast({})
+})

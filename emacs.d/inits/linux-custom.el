@@ -1,10 +1,15 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
+
 (defun isWSL ()
-  "run emacs on windows subsystem linux ?"
+  "Run Emacs on windows subsystem linux ?."
   (if (string= "" (shell-command-to-string "uname -r |grep Microsoft"))
     nil
     t))
 
 (defun clipboard-copy ()
+  "Copy to clipboard."
   (interactive)
   (when (region-active-p)
     (if (isWSL)
@@ -18,3 +23,5 @@
   :config
   (setq rg-group-result t)
 )
+
+;;; linux-custom.el ends here

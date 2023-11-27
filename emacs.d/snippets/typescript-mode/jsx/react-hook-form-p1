@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: react hooks form pattern 1
+# key: form1
+# --
+import { useForm, Controller  } from 'react-hook-form'
+import { yupResolver  } from '@hookform/resolvers/yup'
+
+const { control, reset, handleSubmit  } = useForm<Schema>({
+  resolver: yupResolver(blackoutPeriodSchema),
+  defaultValues: {}
+})

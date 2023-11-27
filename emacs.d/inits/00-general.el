@@ -1,3 +1,7 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
+
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message "")
 (kill-buffer "*Messages*")
@@ -11,29 +15,30 @@
 (setq history-length 3000) ; Up history num
 (setq recentf-max-saved-itemds 3000)
 
-(set-language-environment "Japanese")
 (prefer-coding-system 'utf-8-unix)
-(set-default-coding-systems 'utf-8)
-(setq-default buffer-file-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(setq file-name-coding-system 'utf-8)
 
 (setq-default indent-tabs-mode nil)
-(setq show-paren-delay 0)
-(show-paren-mode t)
-(setq show-paren-style 'parenthesis)
-(electric-pair-mode 1)
 
 ;;; view
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(set-scroll-bar-mode nil)
-(set-fringe-mode 0)
 (blink-cursor-mode nil)
-(fset 'yes-or-no-p 'y-or-n-p)
+(defalias 'yes-or-no-p 'y-or-n-p)
 (setq frame-title-format "%f") ; titilebar file full name
-(setq split-width-threshold 9999999)
+
+;; disable bell and flash
+(setq ring-bell-function 'ignore)
+
+;; 整数の場合は、元のウィンドウが最低でもその行数なければ分割しないことを意味する。
+;; nilの場合は、この方法では分割しないことを意味する。
+(defun adjust-window-split-thresholds nil
+  "Adjust split thresholds so that popup windows always split vertically in a tall frame, horizontally in a wide frame, with a maximum of two columns."
+  (interactive)
+  (setq split-width-threshold  (+ (/ (frame-width) 2) 10)) ; 10 = offset. when exist 2 window, don't split
+  (setq split-height-threshold nil)
+)
+(add-hook 'window-configuration-change-hook 'adjust-window-split-thresholds)
+
 (if (display-graphic-p)
   (menu-bar-mode t))
 
@@ -44,3 +49,19 @@
 (setq comint-scroll-show-maximum-output t) ; shell-mode
 
 (setq isearch-wrap-function '(lambda nil)) ; disable wrapping in isearch
+
+;; デフォルトでは、ウィンドウを分割したとき、
+;; Emacsは分割されたウィンドウのサイズをフレームのデフォルトフォントの整数倍にします。
+;; これによりスクリーンが正確に2分割されない場合があります。
+;; 変数window-resize-pixelwiseを非nil値にセットすると、
+;; Emacsは分割されたウィンドウのサイズを、同じピクセル数にします
+;; (元のサイズが奇数のピクセル数の場合、1ピクセル増減されます)。
+;; フレームのピクセル数がフレームの文字サイズ倍でない場合、
+;; このオプションがnilでも、
+;; 少なくとも1つのウィンドウがピクセル幅のサイズ変更をされることに注意してください。
+(setq window-resize-pixelwise t)
+(setq frame-resize-pixelwise t)
+
+(add-to-list 'load-path "~/.emacs.d/site-lisp/")
+
+;;; 00-general.el ends here

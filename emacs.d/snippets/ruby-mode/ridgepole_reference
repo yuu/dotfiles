@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: schema reference
+# key: ref
+# --
+t.references :$1, foregin_key: true, null: $2, comment: "$3"

@@ -1,8 +1,0 @@
-[user]
-name = yuu
-email = yuu@users.noreply.github.com
-
-# windows only settings
-#[core]
-#autocrlf = input
-#safecrlf = true

@@ -1,0 +1,60 @@
+# -*- mode: snippet -*-
+# name: openapi get/post template
+# key:
+# --
+---
+get:
+  operationId: list
+  summary: 情報を取得します
+  security:
+    - bearer_auth: []
+  parameters: []
+  responses:
+    '200':
+      description: ok
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../components/schemas/.yml
+    '401':
+      description: unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/error_response.yml
+  tags:
+    - v1
+
+post:
+  operationId: create
+  summary: 情報を作成します
+  security:
+    - bearer_auth: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/new_.yml
+  responses:
+    '200':
+      description: ok
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/.yml
+    '401':
+      description: unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/error_response.yml
+    '422':
+      description: failed created
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/error_response.yml
+  tags:
+    - v1

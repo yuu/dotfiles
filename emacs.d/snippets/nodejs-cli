@@ -1,0 +1,70 @@
+# npm install yargs
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
+
+yargs(hideBin(process.argv))
+  .option('credential', {
+    alias: 'c',
+    type: 'string',
+    description: 'service account credential path'
+  })
+  .command(
+    'seed',
+    'import seed data',
+    yargs => {
+      yargs.option('file', {
+        demandOption: true,
+        describe: 'seed file',
+        default: 'seed.json'
+      })
+    },
+    argv => {
+      console.log(`Hello, ${argv.file} ${argv.credential}!`)
+    }
+  )
+  .demandCommand(1, 'You need at least one command before moving on')
+  .help().argv
+
+
+yargs(hideBin(process.argv))
+  .option('credential', {
+    demandOption: true,
+    type: 'string',
+    description: 'service account credential path',
+    alias: 'c'
+  })
+  .command(
+    'seed',
+    'import seed data',
+    yargs => {
+      yargs.option('file', {
+        demandOption: true,
+        type: 'string',
+        describe: 'seed file',
+        default: 'seed.json'
+      })
+      yargs.example('seed --credential /path/to/service--account.json --file seed.json')
+    },
+    argv => {
+      initialize(argv.credential)
+      importData(argv.file)
+    }
+  )
+  .command(
+    'export',
+    'export firestore data',
+    yargs => {
+      yargs.option('collection', {
+        demandOption: true,
+        type: 'string',
+        describe: 'collection name'
+      })
+      yargs.example('seed --credential /path/to/service--account.json --collection customers')
+    },
+    argv => {
+      initialize(argv.credential)
+      exportData(argv.collection)
+    }
+  )
+  .demandCommand(1, 'You need at least one command before moving on')
+  .help().argv

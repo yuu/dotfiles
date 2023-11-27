@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: react-context
+# key: context
+# --
+import { createContext, useContext } from 'react'
+
+export type ${1:$(yas-capitalize-first yas-text)}Context = {}
+
+const $1Context = createContext<${1:$(yas-capitalize-first yas-text)}Context>(undefined!)
+
+export const ${1:$(yas-capitalize-first yas-text)}ContextProvider = $1Context.Provider
+
+export const ${1:$(yas-capitalize-first yas-text)}ContextConsumer = $1Context.Consumer
+
+export const use${1:$(yas-capitalize-first yas-text)} = () => {
+  const context = useContext($1Context)
+  if (context === undefined) {
+    throw new Error('use${1:$(yas-capitalize-first yas-text)} must be used within a ${1:$(yas-capitalize-first yas-text)}Context.Provider')
+  }
+
+  return context
+}

@@ -1,236 +1,100 @@
-(use-package el-patch
-  :config
-  (setq el-patch-use-aggressive-defvar t)
-)
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
 
-;;;; modeline
-(use-package smart-mode-line
-  :init
-  (setq sml/theme 'light)
-  (setq sml/no-confirm-load-theme t)
-  (sml/setup)
-)
-
-;;;; theme
-(use-package hc-zenburn-theme
-  :config/el-patch
-  (el-patch-defvar hc-zenburn-colors-alist
-    '(("hc-zenburn-fg+1"     . "#FFFFEF")
-       ("hc-zenburn-fg"       . "#DCDCCC")
-       ("hc-zenburn-fg-1"     . "#70705E")
-       ("hc-zenburn-bg-2"     . "#000000")
-       ("hc-zenburn-bg-1"     . "#202020")
-       ("hc-zenburn-bg-05"    . "#2D2D2D")
-       ("hc-zenburn-bg"       . "#000000")
-       ("hc-zenburn-bg+05"    . "#383838")
-       ("hc-zenburn-bg+1"     . "#3E3E3E")
-       ("hc-zenburn-bg+2"     . "#4E4E4E")
-       ("hc-zenburn-bg+3"     . "#5E5E5E")
-       ("hc-zenburn-red+1"    . "#E9B0B0")
-       ("hc-zenburn-red"      . "#D9A0A0")
-       ("hc-zenburn-red-1"    . "#C99090")
-       ("hc-zenburn-red-2"    . "#B98080")
-       ("hc-zenburn-red-3"    . "#A97070")
-       ("hc-zenburn-red-4"    . "#996060")
-       ("hc-zenburn-orange"   . "#ECBC9C")
-       ("hc-zenburn-yellow"   . "#FDECBC")
-       ("hc-zenburn-yellow-1" . "#EDDCAC")
-       ("hc-zenburn-yellow-2" . "#DDCC9C")
-       ("hc-zenburn-green-1"  . "#6C8C6C")
-       ("hc-zenburn-green"    . "#8CAC8C")
-       ("hc-zenburn-green+1"  . "#9CBF9C")
-       ("hc-zenburn-green+2"  . "#ACD2AC")
-       ("hc-zenburn-green+3"  . "#BCE5BC")
-       ("hc-zenburn-green+4"  . "#CCF8CC")
-       ("hc-zenburn-cyan"     . "#A0EDF0")
-       ("hc-zenburn-blue+1"   . "#9CC7FB")
-       ("hc-zenburn-blue"     . "#99DDE0")
-       ("hc-zenburn-blue-1"   . "#89C5C8")
-       ("hc-zenburn-blue-2"   . "#79ADB0")
-       ("hc-zenburn-blue-3"   . "#699598")
-       ("hc-zenburn-blue-4"   . "#597D80")
-       ("hc-zenburn-blue-5"   . "#436D6D")
-       ("hc-zenburn-magenta"  . "#E090C7")))
-  :config
-  (load-theme 'hc-zenburn t)
-  (set-face-background 'region "#696969")
-  (set-frame-parameter nil 'alpha 85)
-)
-
-(use-package whitespace
-  :commands whitespace-mode
-  :config
-  (setq whitespace-style '(face            ; faceで可視化
-                            trailing       ; 行末
-                            empty          ; 先頭/末尾の空行
-                            tabs           ; タブ
-                            tab-mark
-                            spaces
-                            space-mark     ; 表示のマッピング
-                            ))
-
-  (setq whitespace-display-mappings
-    '((space-mark ?\u3000 [?\u25a1])
-       (tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
-  (setq whitespace-space-regexp "\\(\u3000+\\)")
-  (set-face-foreground 'whitespace-space "#7cfc00")
-  (set-face-background 'whitespace-space 'nil)
-  (set-face-bold 'whitespace-space t)
-  (set-face-foreground 'whitespace-tab "#669125")
-  (set-face-background 'whitespace-tab 'nil)
-  (set-face-underline  'whitespace-tab t)
-)
-
-;;;; keybind
-(global-unset-key (kbd "C-x C-b"))
-(global-unset-key (kbd "M-g g"))
-(global-unset-key (kbd "C-h C-p")) ;view-emacs-problems
-(global-unset-key (kbd "C-h n")) ;view-emacs-news
-(global-unset-key (kbd "C-h C-n")) ;view-emacs-news
-(global-unset-key (kbd "C-x ;"))
-
-(define-key key-translation-map (kbd "C-h") (kbd "<DEL>")) ; C-h BackSpace
-(global-set-key (kbd "M-k")(lambda () (interactive) (kill-line 0))) ; backward kill line
-(global-set-key (kbd "C-c ;") 'comment-line)
-
-;; C-w 単語削除
-(defun kill-region-or-backward-kill-word ()
-  (interactive)
-  (if (region-active-p)
-      (kill-region (point) (mark))
-    (backward-kill-word 1)))
-(global-set-key (kbd "C-w") 'kill-region-or-backward-kill-word)
-
-;;;; packages
-(use-package helm
-  :bind (
-  ("M-x" . helm-M-x)
-  ("M-y" . helm-show-kill-ring)
-  ("C-x b" . helm-mini)
-  ("C-x f" . helm-find-files)
-  ("C-x C-b" . helm-for-files)
-  ("C-x C-f" . helm-ls-git-ls)
-  ("C-c i" . helm-imenu)
-  ("C-x r l" . helm-bookmarks))
-  :init
-  (use-package helm-ls-git
-    :config
-    (custom-set-variables
-      '(helm-source-ls-git (helm-ls-git-build-ls-git-source))
-    )
-  )
-  (use-package helm-xref
-    :config
-    (setq xref-show-xrefs-function 'helm-xref-show-xrefs))
-  (use-package helm-tramp)
-  (use-package docker-tramp)
-  (use-package helm-ghq)
-  :config
-  (custom-set-variables
-    '(helm-split-window-default-side 'right)
-    '(helm-mini-default-sources
-      '(helm-source-buffers-list
-        helm-source-bookmarks
-        helm-source-recentf
-        helm-source-file-cache))
-  )
-)
-
-(use-package undo-tree
-  :diminish undo-tree-mode
-  :init (global-undo-tree-mode)
-)
-
-(use-package undohist)
-
-(use-package yasnippet
-  :diminish yas-minor-mode
-  :init (yas-global-mode)
-)
-
-(use-package editorconfig
-  :init (editorconfig-mode)
-)
-
-(use-package rg
-  :config
-  (rg-enable-menu)
-  (setq rg-align-position-numbers t)
-  (setq rg-align-position-content-separator "|")
-)
-
-(use-package google-translate
+(use-package counsel
   :bind
-  (("C-c t" . google-translate-enja-or-jaen))
+  ("M-x" . counsel-M-x)
+  ("M-y" . counsel-yank-pop)
+  ("C-x b" . ivy-switch-buffer)
+  ("C-x C-b" . counsel-ibuffer)
+  ("C-x f" . counsel-git)
+  ("C-x C-f" . counsel-find-file)
+  ("M-s M-s" . swiper-thing-at-point)
+  ("C-c i" . imenu)
+  ("C-c g g" . counsel-rg)
+  :custom
+  (ivy-use-virtual-buffers t)
+  (ivy-use-selectable-prompt t)
+  (enable-recursive-minibuffers t)
+  (minibuffer-depth-indicate-mode 1)
+  (counsel-find-file-ignore-regexp (regexp-opt completion-ignored-extensions))
   :config
-  (setq google-translate-translation-directions-alist '(("en" . "ja") ("ja" . "en")))
-  (defun google-translate-enja-or-jaen (&optional string)
-    "Translate words in region or current position. Can also specify query with C-u"
-    (interactive)
-    (setq string
-      (cond ((stringp string) string)
-        (current-prefix-arg
-          (read-string "Google Translate: "))
-        ((use-region-p)
-          (buffer-substring (region-beginning) (region-end)))
-        (t
-          (thing-at-point 'word))))
-    (let* ((asciip (string-match
-                     (format "\\`[%s]+\\'" "[:ascii:]’“”–")
-                     string)))
+  (ivy-mode)
+  (counsel-mode))
 
-      (run-at-time 0.1 nil 'deactivate-mark)
-      (google-translate-translate
-        (if asciip "en" "ja")
-        (if asciip "ja" "en")
-        string)))
+(use-package counsel-tramp
+  :after counsel)
 
-  (defun remove-c-comment (args)
-    (let ((text (nth 2 args)))
-      (setf (nth 2 args) (replace-regexp-in-string "\n" " "
-                           (replace-regexp-in-string "[ \t]*//[/*!]*[ \t]+" ""
-                             (replace-regexp-in-string "[ \t]+\\(\\*[ \t]+\\)+" " " text))))
-      args))
+(use-package ivy-hydra
+  :defer t
+  :after counsel
+  :ensure counsel
+  :custom
+  (ivy-read-action-function 'ivy-hydra-read-action))
 
-  (advice-add 'google-translate-request :filter-args #'remove-c-comment)
+;; (use-package ivy-xref
+;;   :defer t
+;;   :custom
+;;   (xref-show-xrefs-function 'ivy-xref-show-xrefs)
+;;   :init
+;;   (when (>= emacs-major-version 27)
+;;     (setq xref-show-definitions-function 'ivy-xref-show-defs))
+;;   ;; Necessary in Emacs <27. In Emacs 27 it will affect all xref-based
+;;   ;; commands other than xref-find-definitions (e.g. project-find-regexp) as well
+;;   (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
-  :config/el-patch
-  (el-patch-defun google-translate--search-tkk ()
-    "Search TKK."
-    (el-patch-swap
-      (let ((start nil)
-             (tkk nil)
-             (nums '()))
-        (setq start (search-forward ",tkk:'"))
-        (search-forward "',")
-        (backward-char 2)
-        (setq tkk (buffer-substring start (point)))
-        (setq nums (split-string tkk "\\."))
-        (list (string-to-number (car nums))
-          (string-to-number (car (cdr nums)))))
-      (list 430675 2721866130)))
+(straight-use-package '(ivy-ghq :type git :host github :repo "analyticd/ivy-ghq"))
+(use-package ivy-ghq
+  :ensure nil
+  :after counsel
+  :commands (ghq ivy-ghq-open)
+  :config
+  (defalias 'ghq 'ivy-ghq-open))
+
+(use-package ivy-yasnippet
+  :ensure t
+  :after yasnippet
+  :bind (("C-c y" . ivy-yasnippet)))
+
+;;; general
+(use-package eldoc
+  :defer t
+  :ensure nil
+  :config
+  (defun ad:eldoc-message (f &optional string)
+    (unless (active-minibuffer-window)
+      (funcall f string)))
+  (advice-add 'eldoc-message :around #'ad:eldoc-message))
+
+(use-package quickrun
+  :defer t
+  :config
+  (quickrun-add-command "c++/clang 1z"
+    '((:command . "clang++")
+       (:exec    . ("%c -std=c++17 -Wall -pedantic-errors %o -o %e %s"
+                     "%e %a"))
+       (:remove  . ("%e")))
+    :default "c++"))
+
+(use-package flycheck
+  :defer t
+  :custom
+  (flycheck-check-syntax-automatically '(save))
+  :bind (:map flycheck-mode-map
+          ("M-n" . flycheck-next-error)
+          ("M-p" . flycheck-previous-error))
 )
 
-;;; vsc
-(use-package magit
+(use-package prettier
+  :defer t
   :bind
-  (("C-x c g" . magit-status))
-  :config
-  (set-face-foreground 'magit-branch-local "brightgreen")
-  (set-face-bold 'magit-branch-local t)
-  (set-face-foreground 'magit-branch-remote "brightred")
-  (set-face-bold 'magit-branch-remote t)
-)
+  ("C-c f f" . prettier-prettify))
 
-(use-package git-gutter
-  :init (global-git-gutter-mode)
-)
-
-;;; about frontend
+;;; auto complete
 (use-package company
   :bind
-  (:map company-mode-map
-    ("C-M-i" . company-complete))
+  (:map company-mode-map ("C-M-i" . company-complete))
   (:map company-active-map
     ("C-n" . company-select-next)
     ("C-p" . company-select-previous)
@@ -239,29 +103,24 @@
     ("C-n" . company-select-next)
     ("C-p" . company-select-previous))
   :diminish company-mode
-  :init
-  (global-company-mode)
-  (set-face-background 'company-preview "green")
   :custom
   (company-idle-delay nil)
+  (company-dabbrev-downcase nil)
+  (company-dabbrev-ignore-case t)
+  (completion-ignore-case t)
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (delete 'company-clang company-backends)
-)
+  (delete 'company-clang company-backends))
 
-(use-package quickrun
-  :config
-  (quickrun-add-command "c++/clang 1z"
-    '((:command . "clang++")
-       (:exec    . ("%c -std=c++17 -Wall -pedantic-errors %o -o %e %s"
-                     "%e %a"))
-       (:remove  . ("%e")))
-    :default "c++")
-)
-
-;; (use-package flymake)
-
+;;; lsp
 (use-package lsp-mode
-  :commands lsp
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook ((rust-mode . lsp))
+  :bind
+  (:map lsp-mode ("C-c u d" . lsp-ui-doc-toggle))
   :custom
   ;; debug
   (lsp-print-io nil)
@@ -269,15 +128,28 @@
   (lsp-print-performance nil)
   ;; general
   (lsp-auto-guess-root t)
-  (lsp-document-sync-method 'incremental)
-  (lsp-enable-completion-at-point nil)
+  (lsp-headerline-breadcrumb-enable nil)
+  (gc-cons-threshold 1600000)
+  (read-process-output-max (* 1024 32768)) ;; 32mb
+  (lsp-document-sync-method 'lsp--sync-incremental)
+  (lsp-solargraph-use-bundler t)
+  (lsp-prefer-capf t)
+  (lsp-headerline-breadcrumb-enable nil)
 )
 
-(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ui
+  :hook ((lsp-mode-hook . lsp-ui-mode))
+  :bind
+  (:map lsp-ui-mode-map
+    ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+    ([remap xref-find-references] . lsp-ui-peek-find-references)))
 
-(use-package company-lsp
-  :after lsp-mode
-
+; completion-map not working...
+(use-package copilot
+  :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
+  :ensure t
+  :bind
+  (:map copilot-mode-map ("TAB" . copilot-accept-completion))
 )
 
 ;;; markup lang
@@ -288,78 +160,164 @@
     markdown-split-window-direction 'right
     markdown-command "github-markup"
     markdown-command-needs-filename t
-    markdown-css-paths (list "https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css"))
-)
+    markdown-css-paths (list "https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css")))
+
 (use-package markdown-toc)
+
 (use-package plantuml-mode
   :mode
   (("\\.puml\\'" . plantuml-mode)
   ("\\.plantuml\\'" . plantuml-mode))
-  :config
-  (setq plantuml-jar-path (concat (getenv "HOME") "/.emacs.d/straight/repos/plantuml-mode/bin/plantuml.jar"))
+  :custom
+  (plantuml-default-exec-mode 'jar)
+  (plantuml-indent-level 2)
 )
+
 (use-package flycheck-plantuml
   :hook
   (plantuml-mode . flycheck-plantuml-setup)
-  (plantuml-mode . flycheck-mode)
-)
+  (plantuml-mode . flycheck-mode))
+
 (use-package toml-mode)
-(use-package dockerfile-mode)
 (use-package yaml-mode)
+(use-package json-mode)
+(use-package csv-mode)
+(use-package dockerfile-mode)
+(use-package graphql-mode)
+
+(use-package terraform-mode
+  :hook
+  (terraform-mode-hook . terraform-format-on-save-mode))
 
 ;;; cpp lang
 (use-package modern-cpp-font-lock
-  :diminish
+  :defer t
   :hook
-  (c++-mode . modern-c++-font-lock-mode)
-)
+  (c++-mode . modern-c++-font-lock-mode))
 
 (use-package ccls
+  :defer t
   :hook
-  (c++-mode . (lambda () (lsp)))
-  (c++-mode . (lambda () (c-set-offset 'innamespace 0)))
-)
+  (c++-mode . (lambda () (lsp))))
 
-(use-package clang-format)
-(use-package company-c-headers)
+(use-package clang-format
+  :defer t)
+(use-package company-c-headers
+  :defer t)
 
 ;;; rust lang
-(use-package racer
-  :after company-mode
-  :hook
-  ((racer-mode-hook . eldoc-mode)
-  (racer-mode-hook . company-mode))
-)
-
-(use-package company-racer
-  :init
-  (add-to-list 'company-backends 'company-racer)
-)
-
 (use-package rust-mode
-  :init
-  (add-hook 'rust-mode-hook #'racer-mode)
+  :defer t
+  :hook (rust-mode . lsp)
 )
 
 (use-package cargo
+  :defer t
+  :after rust-mode
   :hook
-  (rust-mode-hook . cargo-minor-mode)
-)
+  (rust-mode-hook . cargo-minor-mode))
 
 ;;; swift lang
-(use-package swift-mode)
+(use-package swift-mode
+  :defer t)
 
 ;;; csharp
-(use-package omnisharp
-  :init
-  (add-to-list 'company-backends 'company-omnisharp)
-  :hook
-  (csharp-mode-hook . omnisharp-mode)
-  (csharp-mode-hook . company-mode)
-  (csharp-mode-hook . flycheck-mode)
-)
+;; (use-package omnisharp
+;;   :defer t
+;;   :hook
+;;   (csharp-mode-hook . omnisharp-mode)
+;;   (csharp-mode-hook . (lambda () (add-to-list 'company-backends 'company-omnisharp))))
 
 ;;; web
-(use-package web-mode)
-(use-package emmet-mode)
-(use-package rjsx-mode)
+(use-package web-mode
+  :defer t
+  :bind
+  ("C-c TAB" . nil)
+  :mode
+  ("\\.html\\'" . web-mode)
+  ("\\.js\\'" . web-mode)
+  ("\\.jsx\\'" . web-mode)
+  ("\\.tsx\\'" . web-mode)
+  ("\\.ts\\'" . web-mode)
+  ("\\.d.ts\\'" . web-mode)
+  ("\\.erb\\'" . web-mode)
+  ("\\.twig\\'" . web-mode)
+  :config
+  (defcustom my-web-yas-mode-alist
+    '(("erb" . erb)
+       ("django" . django))
+    ""
+    :group 'web-mode
+    :type '(repeat (cons
+                     :tag "Map engine name to mode"
+                     (string :tag "Engine Name")
+                     (symbol :tag "Mode"))))
+
+  :hook
+  (web-mode-on-engine-setted . my-web-setup-yas)
+  (web-mode . lsp-deferred)
+
+  :custom
+  (web-mode-content-types-alist '(("jsx"  . "\\.jsx?\\'")))
+  (web-mode-content-types-alist '(("jsx"  . "\\.tsx?\\'")))
+  (web-mode-engines-alist
+    '(("djang" . "\\.twig\\'"))
+  )
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
+  (web-mode-enable-auto-pairing t)
+  (web-mode-enable-auto-closing t)
+
+  :init
+  (defun my-web-setup-yas ()
+    "Setup yas according tof `web-mode-engine`."
+    (require 'yasnippet)
+    (let ((extra-mode (cdr (assoc-string web-mode-engine my-web-yas-mode-alist))))
+      (when extra-mode
+        (yas-activate-extra-mode extra-mode)))))
+
+(use-package add-node-modules-path
+  :after web-mode
+  :hook
+  ((web-mode . add-node-modules-path)))
+
+(use-package emmet-mode
+  :defer t
+  :after web-mode
+  :hook (web-mode . emmet-mode))
+
+;; See: https://qiita.com/watson1978/items/debafdfc49511fb173e9
+(flycheck-define-checker ruby-rubocop
+  "A Ruby syntax and style checker using the RuboCop tool."
+  :command ("rubocop" "--format" "emacs"
+             (config-file "--config" flycheck-rubocoprc) source)
+  :error-patterns
+  ((warning line-start
+     (file-name) ":" line ":" column ": " (or "C" "W") ": " (message) line-end)
+    (error line-start
+      (file-name) ":" line ":" column ": " (or "E" "F") ": " (message) line-end))
+  :modes (ruby-mode motion-mode))
+
+;; (use-package rubocop
+;;   :hook
+;;   (ruby-mode-hook . rubocop-mode)
+;;   (ruby-mode-hook . (lambda () (setq flycheck-checker 'ruby-rubocop)))
+;; )
+
+(use-package js-doc
+  :defer t)
+
+;; (straight-use-package '(compile-eslint :type git :host github :repo "Fuco1/compile-eslint"))
+;; (use-package compile-eslint
+;;   :ensure nil
+;;   :config
+;;   (push 'eslint compilation-error-regexp-alist))
+
+;;; vtl
+;; (use-package vtl-mode :defer t)
+
+;;; php
+(use-package php-mode
+  :defer t
+)
+
+;;; 10-use-package.el ends here

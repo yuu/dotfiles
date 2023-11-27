@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: rails controller concern
+# key: ruby rails concern
+# --
+module $1Concern extend ActiveSupport::Concern
+end

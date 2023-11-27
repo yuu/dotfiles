@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: rubocop disable
+# key: ruby rubocop
+# --
+
+# rubocop:disable $1

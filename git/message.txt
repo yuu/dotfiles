@@ -1,4 +1,4 @@
-# If this commit is applied, it will...
+# <type>(optional scope): <description>
 
 
 # Why was this change made?
@@ -8,36 +8,19 @@
 # e.g. "fix (another repo)#num, fix #num"
 
 
-# ==== Emojis ====
-# ✨ :sparkles:        New feature
-# 🐛 :bug:             Bugfix
-# 📝 :memo:            Documentation
-# 🚨 :rotating_light:  Test
-# 🔒 :lock:            when dealing with security
-# 🚿 :shower:          when refactoring
-# 🚀 :rocket:          when improving performance
-# 🎨 :art:             when improving the format/structure of the code
-# 💚 :green_heart:     when fixing the CI build
-# 👕 :shirt:           when removing linter warnings
-# 🔼 :arrow_up:        when upgrading dependencies
-# 🔽 :arrow_down:      when downgrading dependencies
-# 🍎 :apple:           when fixing something on macOS
-# 🐧 :penguin:         when fixing something on Linux
-# 🏁 :checkered_flag:  when fixing something on Windows
+# ==== Type ====
+# fix: A bug fix
+# feat: A new feature
+# build: Changes that affect the build system or external dependencies
+# ci: Changes to our CI configuration files and scripts
+# docs: Documentation only changes
+# style: Changes that do not affect the meaning of the code (formatting
+# refactor: A code change that neither fixes a bug nor adds a feature
+# perf: A code change that improves performance
+# test: Adding missing tests or correcting existing tests
 
-# ==== Format ====
-# :emoji: Subject
-#
-# Commit body...
+# ==== Conventional Commits ====
+# https://www.conventionalcommits.org/en/v1.0.0/
 
 # ==== The Seven Rules ====
-# 1. Separate subject from body with a blank line
-# 2. Limit the subject line to 50 characters
-# 3. Capitalize the subject line
-# 4. Do not end the subject line with a period
-# 5. Use the imperative mood in the subject line
-# 6. Wrap the body at 72 characters
-# 7. Use the body to explain what and why vs. how
-#
 # How to Write a Git Commit Message http://chris.beams.io/posts/git-commit/
-# for http://memo.goodpatch.co/2016/07/beautiful-commits-with-emojis/

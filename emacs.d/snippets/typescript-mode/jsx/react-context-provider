@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: react-context-provider
+# key: provider
+# --
+import { PropsWithChildren } from 'react'
+import { $1Provider } from 'src/context'
+
+type $2ProviderProps = PropsWithChildren<{}>
+
+export const $2Provider = ({ children }: $2ProviderProps) => {
+  return <$1Provider>{children}</$1Provider>
+}

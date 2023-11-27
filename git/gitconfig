@@ -1,11 +1,12 @@
 [include]
-    path = ~/.gitconfig.local
+    path = ~/.config/git/config.local
 
 [core]
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.config/git/ignore
     editor = vim
     pager = "lv -c"
     quotepath = false
+    ignorecase = true
 
 [color]
     ui = auto
@@ -19,10 +20,6 @@
     cd = diff --word-diff-regex=.
     s = status
     co = checkout
-    a = add
-    br = branch
-    ci = commit
-    cif = commit --fixup
     d = diff
     dc = diff --cached
     ru = remote update
@@ -52,7 +49,15 @@
     process = git-lfs filter-process
 
 [commit]
-    template = ~/dotfiles/git/message.txt
+    template = ~/.config/git/message.txt
 
 [diff]
     compactionHeuristic = true
+
+[init]
+    defaultBranch = main
+
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less

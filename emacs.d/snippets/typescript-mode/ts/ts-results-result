@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: result of ts-results
+# key: result
+# --
+import { Ok, Err, Result } from 'ts-results'

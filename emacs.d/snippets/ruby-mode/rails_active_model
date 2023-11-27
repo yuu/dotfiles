@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: rails active model
+# key: rails active model
+# --
+include ActiveModel::Model

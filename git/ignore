@@ -4,4 +4,5 @@ GPATH
 GRTAGS
 GSYMS
 GTAGS
-env
+.env
+*.~undo-tree~

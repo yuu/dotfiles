@@ -1,5 +1,7 @@
+# -*- mode: snippet -*-
+# name: makefile cmd
 # key: cmd
-# name: cmd
 # expand-env: ((yas-indent-line 'fixed))
 # --
-$1: ## 
+.PHONY: $1
+$1: ## $2

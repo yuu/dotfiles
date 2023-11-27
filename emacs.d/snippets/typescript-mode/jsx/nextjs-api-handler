@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: nextjs api handler
+# key: nextjs-api
+# --
+import type { NextApiRequest, NextApiResponse } from 'next/types'
+
+const $1 = async (req: NextApiRequest, res: NextApiResponse) => {
+  $2
+  res.status(200).json({ name: 'foo bar' })
+}
+
+export default $1

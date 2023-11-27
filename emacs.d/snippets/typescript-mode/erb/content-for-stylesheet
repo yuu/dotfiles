@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: content for stylesheet
+# key: content-for-css
+# --
+<% content_for(:stylesheet) do %>
+  $1
+<% end %>

@@ -22,6 +22,9 @@ esac
 # zshrc local setting
 [ -f $cpath/local.zsh ] && source $cpath/local.zsh
 
+autoload -U compinit
+compinit
+
 # profiling
 # if type zprof > /dev/null 2>&1; then
 #     zprof |less

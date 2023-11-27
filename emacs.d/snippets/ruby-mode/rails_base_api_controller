@@ -1,0 +1,27 @@
+# -*- mode: snippet -*-
+# name: rails base api controller
+# key: baseapi
+# --
+# frozen_string_literal: true
+
+module Api
+  module V1
+    class Controller < BaseApiController
+      def resource_class
+
+      end
+
+      def resource_params
+        params
+          .require(:)
+          .permit(
+
+          )
+      end
+
+      def index_query(query)
+        query
+      end
+    end
+  end
+end

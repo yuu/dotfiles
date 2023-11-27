@@ -105,7 +105,7 @@ zle -N zsh-select-history
 bindkey '^[r' zsh-select-history
 
 function peco-dfind() {
-    local selected_dir="$(find . -maxdepth 5 -type f ! -path "*/.*"| sort | peco)"
+    local selected_dir="$(find . -maxdepth 10 -type f ! -path "*/.*"| sort | peco)"
     BUFFER="${LBUFFER}${selected_dir}"
     CURSOR=$#BUFFER
     zle clear-screen
@@ -120,4 +120,17 @@ rpmcat() {
 
 rpmshow() {
     rpm -qlp $1
+}
+
+resolve-name() {
+    ping -c 1 $1 |head -n 1 |grep -Po '(?<=\()\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}(?=\))'
+}
+
+pyhttpserver() {
+    local port=${1:-8080}
+    python -m http.server $port
+}
+
+lssh() {
+    ssh $(cat ~/.ssh/config |grep -Po "(?<=Host ).*" |grep -v "\*"| peco)
 }

@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: yup schema template
+# key: yup-schema
+# --
+import * as yup from 'yup'
+
+export const $1Schema = yup.object({
+  email: yup.string().email().required().default(''),
+  password: yup.string().required().min(6).default('')
+})
+
+export type $2$1SchemaType = yup.InferType<typeof $1Schema>

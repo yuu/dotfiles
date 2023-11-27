@@ -7,12 +7,8 @@ function remenber-cmd(){
 
 add-zsh-hook preexec remenber-cmd
 
-local terminal_identity="com.apple.Terminal"
-if [[ ${OSTYPE} == darwin* ]] then
-  if [[ "${TERM_PROGRAM}" == "iTerm.app" ]] then
-    terminal_identity="com.googlecode.iterm2"
-  fi
-fi
+# local terminal_identity="com.apple.Terminal"
+local terminal_identity="com.googlecode.iterm2"
 
 function behind-window-notify() {
   if [[ -n $TMUX ]] then

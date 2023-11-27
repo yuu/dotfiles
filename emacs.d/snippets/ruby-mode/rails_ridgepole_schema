@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: schema
+# key: schema
+# --
+# encoding: utf-8
+# frozen_string_literal: true
+
+create_table :$1, force: :cascade do |t|
+  t.timestamps
+end

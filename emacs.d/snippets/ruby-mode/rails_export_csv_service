@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: export csv service
+# key: exportcsv
+# --
+# frozen_string_literal: true
+
+module ExportCsv
+  class $1 < ::ExportCsv::BaseStreamService
+    def initialize(datasets, stream)
+      super
+    end
+
+    def run
+      csv_data
+    end
+
+    private
+
+    def header_to_value_hash
+      {
+        'id' => -> (record) { record.id }
+      }
+    end
+  end
+end

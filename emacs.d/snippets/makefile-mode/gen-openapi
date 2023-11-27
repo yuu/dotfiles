@@ -1,0 +1,9 @@
+OAPI_SCHEMA_ROOT_FILE := /local/schemas/api/root.yml
+OAPI_SCHEMA_GEN_DIR := /local/schemas/api/generated
+OAPI_GEN_DIR := /local/api
+
+gen-openapi-schema: ## OpenAPI Schema を結合します
+	docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli:v5.0.0 generate -i ${OAPI_SCHEMA_ROOT_FILE} -g openapi-yaml -o ${OAPI_SCHEMA_GEN_DIR}
+
+gen-frontend-api: ## 結合済み OpenAPI Schema からコード生成します
+	docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli:v5.0.0 generate -i ${OAPI_SCHEMA_GEN_DIR}/openapi/openapi.yaml -g typescript-fetch -o ${OAPI_GEN_DIR}

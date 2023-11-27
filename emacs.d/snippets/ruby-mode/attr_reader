@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: attr reader
+# key: ruby attr reader
+# --
+attr_reader :$1

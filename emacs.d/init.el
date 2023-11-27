@@ -1,3 +1,7 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -12,8 +16,19 @@
   (load bootstrap-file nil 'nomessage))
 
 (straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
 
-(use-package init-loader)
-(setq init-loader-show-log-after-init nil)
-(init-loader-load (concat user-emacs-directory "inits"))
+(setq debug-on-error nil)
+(setq straight-vc-git-debug nil)
+
+(use-package straight
+  :ensure nil
+  :custom (straight-use-package-by-default t))
+
+(use-package init-loader
+  :ensure t
+  :custom
+  (init-loader-show-log-after-init nil)
+  :config
+  (init-loader-load (concat user-emacs-directory "inits")))
+
+;;; init.el ends here

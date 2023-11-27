@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: erb stylesheet_pack_tag
+# key: erb-css-tag
+# --
+<%= stylesheet_pack_tag "$1", "data-turbolinks-track": "reload" %>

@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: nodejs cli template
+# key: nodejs-cli
+# --
+const program = require('commander');
+
+function main(args) {
+    const input = args.input;
+}
+
+program
+    .version('0.0.1')
+    .requiredOption('-i, --input [path]', 'description')
+    .action(function (args, command) {
+        main(args);
+    });
+
+program.parse(process.argv);

@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: nextjs getStatic
+# key: nextjs-ssg
+# --
+import { GetStaticProps, GetStaticPaths } from 'next'
+
+export const getStaticProps: GetStaticProps = async (context) => {
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  $1
+}

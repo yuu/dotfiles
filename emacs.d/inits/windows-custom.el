@@ -1,3 +1,7 @@
+;;; package --- Summary
+;;; Commentary:
+;;; Code:
+
 ;; using (w32-select-font)
 ;; "源ノ角ゴシック Code JP M-10:medium"
 ;; "Source Code Pro Medium-11:medium"
@@ -12,3 +16,5 @@
   :config
   (add-to-list 'rg-toggle-command-line-flags "--path-separator \"/\"")
 )
+
+;;; windows-custom.el ends here

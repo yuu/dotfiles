@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: mui import alias
+# key: im-mui
+# --
+import { $1 } from '@mui/material'
