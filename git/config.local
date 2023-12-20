@@ -21,7 +21,8 @@ gpgSign = true
 format = ssh
 
 [gpg "ssh"]
-program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+# alias from /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+program = /usr/local/bin/op-ssh-sign
 
 [tag]
 forceSignAnnotated = true
