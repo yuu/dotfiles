@@ -90,4 +90,9 @@
   ("db/schemas/.*\\.schema\\'" . ruby-mode)
 )
 
+(use-package conf-mode
+  :defer t
+  :mode
+  ("\\.env\\'" . conf-mode))
+
 ;;; 09-general-package.el ends here
