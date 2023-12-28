@@ -11,7 +11,7 @@ export GPG_TTY=`tty`
 export PYTHONSTARTUP=~/.config/python/pythonstartup
 
 export GOPATH=$HOME/.local
-path=(~/.rbenv/shims(N-/) ~/.local/bin(N-/) /usr/local/bin(N-/) /usr/local/sbin(N-/) ${path})
+path=(~/.local/bin(N-/) /usr/local/bin(N-/) /usr/local/sbin(N-/) ${path})
 
 
 export LANG=en_US.UTF-8
