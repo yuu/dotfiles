@@ -134,3 +134,7 @@ pyhttpserver() {
 lssh() {
     ssh $(cat ~/.ssh/config |grep -Po "(?<=Host ).*" |grep -v "\*"| peco)
 }
+
+aws-switch-profile() {
+  export AWS_PROFILE=$(cat $HOME/.aws/config |ggrep -Po '(?<=profile ).*(?=\])' |peco)
+}
