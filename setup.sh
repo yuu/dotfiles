@@ -40,7 +40,7 @@ ln -s $(pwd)/emacs.d/versions $EMCONF/straight
 # terminal
 ALACONF=$HOME/.config/alacritty
 mkdir -p $ALACONF
-ln -s $(pwd)/alacritty.yml $ALACONF
+ln -s $(pwd)/config/alacritty/alacritty.toml $ALACONF
 
 # other
 ln -s $(pwd)/peco ~/.config/peco
