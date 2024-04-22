@@ -261,7 +261,7 @@
   (web-mode-content-types-alist '(("jsx"  . "\\.jsx?\\'")))
   (web-mode-content-types-alist '(("jsx"  . "\\.tsx?\\'")))
   (web-mode-engines-alist
-    '(("djang" . "\\.twig\\'"))
+    '(("django" . "\\.twig\\'"))
   )
   (flycheck-add-mode 'javascript-eslint 'web-mode)
   (web-mode-enable-auto-pairing t)
