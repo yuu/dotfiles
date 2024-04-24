@@ -233,6 +233,8 @@
   :defer t
   :bind
   ("C-c TAB" . nil)
+  ("C-c C-n". web-mode-element-end)
+  ("C-c C-p". web-mode-element-beginning)
   :mode
   ("\\.html\\'" . web-mode)
   ("\\.js\\'" . web-mode)
@@ -256,6 +258,7 @@
   :hook
   (web-mode-on-engine-setted . my-web-setup-yas)
   (web-mode . lsp-deferred)
+  (web-mode . my-web-mode-twig-setup)
 
   :custom
   (web-mode-content-types-alist '(("jsx"  . "\\.jsx?\\'")))
@@ -273,7 +276,12 @@
     (require 'yasnippet)
     (let ((extra-mode (cdr (assoc-string web-mode-engine my-web-yas-mode-alist))))
       (when extra-mode
-        (yas-activate-extra-mode extra-mode)))))
+        (yas-activate-extra-mode extra-mode))))
+  (defun my-web-mode-twig-setup ()
+    "Custom setup for .twig files in web mode."
+    (when (string-equal "twig" (file-name-extension buffer-file-name))
+      (electric-pair-local-mode -1)))
+)
 
 (use-package add-node-modules-path
   :after web-mode
