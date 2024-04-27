@@ -68,7 +68,10 @@
 )
 
 (use-package google-this
-  :defer t)
+  :defer t
+  :config
+  (google-this-mode)
+)
 
 (use-package exec-path-from-shell
   :config
