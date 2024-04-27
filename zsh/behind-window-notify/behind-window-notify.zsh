@@ -17,7 +17,7 @@ function behind-window-notify() {
 
       if [[ ${OSTYPE} == darwin* ]] then
         ret=$?
-        /usr/local/bin/terminal-notifier -title "$LASTCMD" -message "$ret" -activate $terminal_identity
+        terminal-notifier -title "$LASTCMD" -message "$ret" -activate $terminal_identity
       else
         notify-send -t 3000 -u low "コマンド終了: " "$LASTCMD"
       fi
