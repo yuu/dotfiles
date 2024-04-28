@@ -96,6 +96,8 @@
           ("M-p" . flycheck-previous-error))
 )
 
+(use-package flycheck-projectile)
+
 (use-package prettier
   :defer t
   :bind
