@@ -91,6 +91,11 @@
   :defer t
   :custom
   (flycheck-check-syntax-automatically '(save))
+  (display-buffer-alist '(("\\*Flycheck errors\\*"
+                          (display-buffer-reuse-window display-buffer-in-side-window)
+                          (side . bottom)
+                          (reusable-frames . visible)
+                          (window-height . 10))))
   :bind (:map flycheck-mode-map
           ("M-n" . flycheck-next-error)
           ("M-p" . flycheck-previous-error))
@@ -143,8 +148,8 @@
   (lsp-headerline-breadcrumb-enable nil)
   (gc-cons-threshold 1600000)
   (read-process-output-max (* 1024 32768)) ;; 32mb
-  (lsp-document-sync-method 'lsp--sync-incremental)
-  (lsp-solargraph-use-bundler t)
+  ;; (lsp-document-sync-method 'lsp--sync-incremental)
+  ;; (lsp-solargraph-use-bundler t)
   (lsp-prefer-capf t)
   (lsp-headerline-breadcrumb-enable nil)
   :config
@@ -287,6 +292,7 @@
   (flycheck-add-mode 'javascript-eslint 'web-mode)
   (web-mode-enable-auto-pairing t)
   (web-mode-enable-auto-closing t)
+  (web-mode-enable-current-element-highlight t)
 
   :init
   (defun my-web-setup-yas ()
