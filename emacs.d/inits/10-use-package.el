@@ -352,4 +352,9 @@
   :defer t
 )
 
+;;; golang
+(use-package go-mode
+  :defer t
+)
+
 ;;; 10-use-package.el ends here
