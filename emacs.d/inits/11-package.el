@@ -102,6 +102,14 @@
 (use-package rg
   :config
   (rg-enable-menu)
+  (setq transient-display-buffer-action
+        '(display-buffer-in-side-window
+          (side . bottom)
+          (window-height . fit-window-to-buffer)
+          (window-width . nil)
+          (dedicated . t)
+          (inhibit-same-window . t)
+          ))
   :custom
   (rg-align-position-numbers t)
   (rg-align-position-content-separator "|")

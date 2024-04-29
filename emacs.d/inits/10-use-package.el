@@ -89,13 +89,17 @@
 
 (use-package flycheck
   :defer t
+  :init
+  (setq display-buffer-alist '(("\\*Flycheck errors\\*"
+                          (display-buffer-in-side-window)
+                          (side . right)
+                          (window-height . 0.20)
+                          (window-width . nil)
+                          (dedicated . t)
+                          (inhibit-same-window . t)
+                          )))
   :custom
   (flycheck-check-syntax-automatically '(save))
-  (display-buffer-alist '(("\\*Flycheck errors\\*"
-                          (display-buffer-reuse-window display-buffer-in-side-window)
-                          (side . bottom)
-                          (reusable-frames . visible)
-                          (window-height . 10))))
   :bind (:map flycheck-mode-map
           ("M-n" . flycheck-next-error)
           ("M-p" . flycheck-previous-error))
