@@ -248,6 +248,6 @@
                 (call-interactively command)))
             (message "Quit")
             (throw 'end-flag t)))))))
-(global-set-key "\C-xwr" 'window-resizer)
+(global-set-key (kbd "C-x w r") 'window-resizer)
 
 ;;; 90-util.el ends here
