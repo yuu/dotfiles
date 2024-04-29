@@ -11,7 +11,7 @@
 (global-unset-key (kbd "C-x ;"))
 
 (define-key key-translation-map (kbd "C-h") (kbd "<DEL>")) ; C-h BackSpace
-(global-set-key (kbd "M-k")(lambda () (interactive) (kill-line 0))) ; backward kill line
+; (global-set-key (kbd "M-k")(lambda () (interactive) (kill-line 0))) ; backward kill line
 (global-set-key (kbd "C-c ;") 'comment-line)
 
 (use-package el-patch

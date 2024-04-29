@@ -62,6 +62,11 @@
 (setq window-resize-pixelwise t)
 (setq frame-resize-pixelwise t)
 
+(global-set-key (kbd "M-h") 'windmove-left)
+(global-set-key (kbd "M-j") 'windmove-down)
+(global-set-key (kbd "M-k") 'windmove-up)
+(global-set-key (kbd "M-l") 'windmove-right)
+
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
 ;;; 00-general.el ends here
