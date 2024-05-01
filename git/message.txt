@@ -9,6 +9,7 @@
 
 
 # ==== Type ====
+# chore: Miscellaneous commits
 # fix: A bug fix
 # feat: A new feature
 # build: Changes that affect the build system or external dependencies
