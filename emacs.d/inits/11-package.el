@@ -69,8 +69,10 @@
 
 (use-package google-this
   :defer t
-  :config
-  (google-this-mode)
+  :bind
+  ("C-c / t" . google-this)
+  ("C-c / w" . google-this-word)
+  ("C-c / l" . google-this-line)
 )
 
 (use-package exec-path-from-shell
