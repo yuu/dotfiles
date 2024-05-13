@@ -96,7 +96,17 @@
 
 (use-package projectile
   :bind
-  ("C-c p" . 'projectile-command-map))
+  ("C-c p" . 'projectile-command-map)
+  :custom
+  (projectile-switch-project-action 'projectile-dired)
+  :config
+  (projectile-mode +1)
+  (when (executable-find "ghq")
+    (setq projectile-known-projects
+          (mapcar
+           (lambda (x) (abbreviate-file-name x))
+           (split-string (shell-command-to-string "ghq list --full-path")))))
+)
 
 (use-package indent-guide
   :defer t)
