@@ -119,6 +119,11 @@
 
 (use-package yasnippet
   :diminish yas-minor-mode
+  :bind
+  (:map yas-minor-mode-map
+    ("C-'". yas-expand)
+    ([(tab)] . nil)
+    ("TAB" . nil))
   :init
   (add-hook 'after-init-hook 'yas-global-mode))
 
