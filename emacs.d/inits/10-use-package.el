@@ -171,13 +171,11 @@
     ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
     ([remap xref-find-references] . lsp-ui-peek-find-references)))
 
-; completion-map not working...
 (use-package copilot
-  :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
+  :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))
   :ensure t
   :bind
-  (:map copilot-mode-map ("TAB" . copilot-accept-completion))
-)
+  (:map copilot-mode-map ("TAB" . copilot-accept-completion)))
 
 ;;; markup lang
 (use-package markdown-mode
