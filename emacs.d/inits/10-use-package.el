@@ -354,6 +354,8 @@
   :defer t
 )
 
+(use-package flycheck-phpstan)
+
 ;;; golang
 (use-package go-mode
   :defer t
