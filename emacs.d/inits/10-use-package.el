@@ -110,8 +110,19 @@
 (use-package reformatter
   :defer t
   :bind
-  ("C-c f f" . refmt-prettier-format-buffer)
+  ("C-c f f" . refmt-format-buffer)
   :config
+  (defun refmt-format-buffer ()
+    "Buffer format function that dispatches to the appropriate formatter."
+    (interactive)
+    (cond
+     ((derived-mode-p 'web-mode 'php-mode)
+      (refmt-prettier-format-buffer))
+     ((derived-mode-p 'rust-mode)
+      (rust-format-buffer))
+     ;; 他のモードに対するフォーマッタをここに追加
+     (t (message "No formatter defined for this mode."))))
+
   (reformatter-define refmt-prettier-format
     :program "prettier"
     :args (let ((filepath (or buffer-file-name (buffer-name))))
@@ -241,6 +252,8 @@
 (use-package rust-mode
   :defer t
   :hook (rust-mode . lsp)
+  :config
+  (define-key rust-mode-map (kbd "C-c C-f") nil)
 )
 
 (use-package cargo
