@@ -107,10 +107,17 @@
 
 (use-package flycheck-projectile)
 
-(use-package prettier
+(use-package reformatter
   :defer t
   :bind
-  ("C-c f f" . prettier-prettify))
+  ("C-c f f" . refmt-prettier-format-buffer)
+  :config
+  (reformatter-define refmt-prettier-format
+    :program "prettier"
+    :args (let ((filepath (or buffer-file-name (buffer-name))))
+            `("--stdin-filepath" ,filepath))
+    :lighter "run prettier")
+)
 
 ;;; auto complete
 (use-package company
