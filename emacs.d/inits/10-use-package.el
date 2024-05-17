@@ -352,6 +352,9 @@
 ;;; php
 (use-package php-mode
   :defer t
+  :config
+  (define-key php-mode-map (kbd "C-c C-f") nil)
+  (define-key php-mode-map (kbd "C-c RET") nil)
 )
 
 (use-package flycheck-phpstan)
