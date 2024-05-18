@@ -92,7 +92,7 @@
   :init
   (setq display-buffer-alist '(("\\*Flycheck errors\\*"
                           (display-buffer-in-side-window)
-                          (side . right)
+                          (side . bottom)
                           (window-height . 0.20)
                           (window-width . nil)
                           (dedicated . t)
