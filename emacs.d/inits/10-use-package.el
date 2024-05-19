@@ -95,7 +95,7 @@
 (use-package flycheck
   :defer t
   :init
-  (setq display-buffer-alist '(("\\*Flycheck errors\\*"
+  (setq display-buffer-alist '(("\\*\\(Flycheck\\|Project\\) errors\\*"
                           (display-buffer-in-side-window)
                           (side . bottom)
                           (window-height . 0.20)
