@@ -162,7 +162,12 @@
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l")
-  :hook ((rust-mode . lsp))
+  :hook
+  (
+    (web-mode-hook . lsp-deferred)
+    (rust-mode-hook . lsp-deferred)
+    (ruby-mode-hook . lsp-deferred)
+  )
   :bind
   (:map lsp-mode ("C-c u d" . lsp-ui-doc-toggle))
   :custom
@@ -178,7 +183,6 @@
   ;; (lsp-document-sync-method 'lsp--sync-incremental)
   ;; (lsp-solargraph-use-bundler t)
   (lsp-prefer-capf t)
-  (lsp-headerline-breadcrumb-enable nil)
   :config
   (add-to-list 'lsp-language-id-configuration '(web-mode . "twig"))
   (lsp-register-client
@@ -307,7 +311,6 @@
 
   :hook
   (web-mode-on-engine-setted . my-web-setup-yas)
-  (web-mode . lsp-deferred)
   (web-mode . my-web-mode-twig-setup)
 
   :custom
