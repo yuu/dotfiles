@@ -91,10 +91,13 @@
   :defer t)
 
 (use-package editorconfig
+  :diminish editorconfig-mode
   :config
   (editorconfig-mode))
 
 (use-package projectile
+  :ensure t
+  :diminish projectile-mode
   :bind
   ("C-c p" . 'projectile-command-map)
   :custom
@@ -160,7 +163,9 @@
 
 (use-package git-gutter
   :defer t
-  :init (global-git-gutter-mode))
+  :diminish git-gutter-mode
+  :init (global-git-gutter-mode)
+)
 
 ; tramp-container
 ;; (use-package docker-tramp

@@ -3,6 +3,7 @@
 ;;; Code:
 
 (use-package counsel
+  :diminish (ivy-mode counsel-mode)
   :bind
   ("M-x" . counsel-M-x)
   ("M-y" . counsel-yank-pop)
@@ -61,6 +62,7 @@
 (use-package eldoc
   :defer t
   :ensure nil
+  :diminish eldoc-mode
   :config
   (defun ad:eldoc-message (f &optional string)
     (unless (active-minibuffer-window)

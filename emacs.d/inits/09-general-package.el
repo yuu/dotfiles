@@ -14,6 +14,8 @@
 ; (global-set-key (kbd "M-k")(lambda () (interactive) (kill-line 0))) ; backward kill line
 (global-set-key (kbd "C-c ;") 'comment-line)
 
+(use-package diminish)
+
 (use-package el-patch
   :custom
   (el-patch-use-aggressive-defvar t))
