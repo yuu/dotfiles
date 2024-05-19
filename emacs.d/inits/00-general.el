@@ -4,7 +4,7 @@
 
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message "")
-(kill-buffer "*Messages*")
+;(kill-buffer "*Messages*")
 ;(kill-buffer "*scratch*")
 (setq-default message-log-max nil)
 
