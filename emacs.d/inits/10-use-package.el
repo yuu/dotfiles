@@ -162,12 +162,6 @@
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l")
-  :hook
-  (
-    (web-mode-hook . lsp-deferred)
-    (rust-mode-hook . lsp-deferred)
-    (ruby-mode-hook . lsp-deferred)
-  )
   :bind
   (:map lsp-mode ("C-c u d" . lsp-ui-doc-toggle))
   :custom
@@ -184,6 +178,10 @@
   ;; (lsp-solargraph-use-bundler t)
   (lsp-prefer-capf t)
   :config
+  (add-hook 'web-mode-hook 'lsp-deferred)
+  (add-hook 'rust-mode-hook 'lsp-deferred)
+  (add-hook 'ruby-mode-hook 'lsp-deferred)
+
   (add-to-list 'lsp-language-id-configuration '(web-mode . "twig"))
   (lsp-register-client
     (make-lsp-client :new-connection (lsp-stdio-connection "node_modules/twig-language-server/out/index.js" "--stdio")
