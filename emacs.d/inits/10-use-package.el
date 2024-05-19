@@ -20,9 +20,12 @@
   (enable-recursive-minibuffers t)
   (minibuffer-depth-indicate-mode 1)
   (counsel-find-file-ignore-regexp (regexp-opt completion-ignored-extensions))
-  :config
-  (ivy-mode)
-  (counsel-mode))
+  :init
+  (add-hook 'after-init-hook (lambda ()
+                               (ivy-mode t)
+                               (counsel-mode t)
+                               ))
+)
 
 (use-package counsel-tramp
   :after counsel)
