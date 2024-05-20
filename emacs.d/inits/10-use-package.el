@@ -189,10 +189,10 @@
       :server-id 'twig-ls))
 
   (lsp-register-client
-   (make-lsp-client
-    :new-connection (lsp-stdio-connection '("bundle" "exec" "solargraph" "stdio"))
-    :major-modes '(ruby-mode)
-    :server-id 'ruby-ls))
+    (make-lsp-client
+      :new-connection (lsp-stdio-connection '("bundle" "exec" "solargraph" "stdio"))
+      :major-modes '(ruby-mode)
+      :server-id 'ruby-ls))
 )
 
 (use-package lsp-docker
