@@ -129,9 +129,9 @@
      (t (message "No formatter defined for this mode."))))
 
   (reformatter-define refmt-prettier-format
-    :program "prettier"
+    :program "npx"
     :args (let ((filepath (or buffer-file-name (buffer-name))))
-            `("--stdin-filepath" ,filepath))
+            `("prettier" "--stdin-filepath" ,filepath))
     :lighter "run prettier")
 )
 
@@ -347,11 +347,6 @@
     (when (string-equal "twig" (file-name-extension buffer-file-name))
       (electric-pair-local-mode -1)))
 )
-
-(use-package add-node-modules-path
-  :after web-mode
-  :hook
-  ((web-mode . add-node-modules-path)))
 
 (use-package emmet-mode
   :defer t
