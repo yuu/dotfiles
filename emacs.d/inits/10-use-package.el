@@ -184,7 +184,8 @@
 
   (add-to-list 'lsp-language-id-configuration '(web-mode . "twig"))
   (lsp-register-client
-    (make-lsp-client :new-connection (lsp-stdio-connection "node_modules/twig-language-server/out/index.js" "--stdio")
+    (make-lsp-client
+      :new-connection (lsp-stdio-connection '("npx" "twiggy-language-server" "--stdio"))
       :major-modes '(web-mode)
       :server-id 'twig-ls))
 
