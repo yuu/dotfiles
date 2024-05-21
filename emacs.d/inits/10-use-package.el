@@ -186,7 +186,8 @@
   (lsp-register-client
     (make-lsp-client
       :new-connection (lsp-stdio-connection '("npx" "twiggy-language-server" "--stdio"))
-      :major-modes '(web-mode)
+      :activation-fn (lambda (file-name _mode)
+                       (string-match-p "\\.twig\\'" file-name))
       :server-id 'twig-ls
       :download-server-fn (lambda (_client callback error-callback _update?)
                             (lsp-package-ensure 'twiggy-language-server
