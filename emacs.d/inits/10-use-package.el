@@ -187,7 +187,10 @@
     (make-lsp-client
       :new-connection (lsp-stdio-connection '("npx" "twiggy-language-server" "--stdio"))
       :major-modes '(web-mode)
-      :server-id 'twig-ls))
+      :server-id 'twig-ls
+      :download-server-fn (lambda (_client callback error-callback _update?)
+                            (lsp-package-ensure 'twiggy-language-server
+                              callback error-callback))))
 
   (lsp-register-client
     (make-lsp-client
