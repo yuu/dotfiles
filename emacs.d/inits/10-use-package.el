@@ -183,6 +183,10 @@
   (add-hook 'ruby-mode-hook 'lsp-deferred)
 
   (add-to-list 'lsp-language-id-configuration '(web-mode . "twig"))
+  (lsp-dependency 'twiggy-language-server
+    '(:system "twiggy-language-server")
+    '(:npm :package "twiggy-language-server"
+       :path "twiggy-language-server"))
   (lsp-register-client
     (make-lsp-client
       :new-connection (lsp-stdio-connection '("npx" "twiggy-language-server" "--stdio"))
