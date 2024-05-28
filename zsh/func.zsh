@@ -138,3 +138,15 @@ lssh() {
 aws-switch-profile() {
   export AWS_PROFILE=$(cat $HOME/.aws/config |ggrep -Po '(?<=profile ).*(?=\])' |peco)
 }
+
+fd-peco-files() {
+    selection=$(fd --type f --type d . | peco)
+
+    if [[ -n "$selection" ]]; then
+        LBUFFER+="${(q)selection}"
+        zle redisplay
+    fi
+}
+
+zle -N fd-peco-files
+bindkey '^o' fd-peco-files
