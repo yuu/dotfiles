@@ -181,6 +181,7 @@
   (add-hook 'web-mode-hook 'lsp-deferred)
   (add-hook 'rust-mode-hook 'lsp-deferred)
   (add-hook 'ruby-mode-hook 'lsp-deferred)
+  (add-hook 'php-mode-hook 'lsp-deferred)
 
   (add-to-list 'lsp-language-id-configuration '(web-mode . "twig"))
   (lsp-dependency 'twiggy-language-server
@@ -202,6 +203,20 @@
       :new-connection (lsp-stdio-connection '("bundle" "exec" "solargraph" "stdio"))
       :major-modes '(ruby-mode)
       :server-id 'ruby-ls))
+
+  (lsp-dependency 'intelephense-language-server
+    '(:system "intelephense-language-server")
+    '(:npm :package "intelephense"
+       :path "intelephense"))
+  (lsp-register-client
+    (make-lsp-client
+      :new-connection (lsp-stdio-connection `("intelephense" "--stdio"))
+      :priority -1
+      :major-modes '(php-mode)
+      :server-id 'php-lsp
+      :download-server-fn (lambda (_client callback error-callback _update?)
+                            (lsp-package-ensure 'intelephense-language-server
+                              callback error-callback))))
 )
 
 (use-package lsp-docker
