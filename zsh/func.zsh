@@ -23,11 +23,6 @@ pgrep() {
     fi
 }
 
-# mac app execute
-run(){
-    $1/Contents/MacOS/$(basename $1 .app)
-}
-
 xcode-switch() {
     sudo xcode-select --switch $1/Contents/Developer
 }
@@ -62,56 +57,6 @@ function ghq-list() {
 }
 zle -N ghq-list
 bindkey '^xl' ghq-list
-
-function dropbox-list() {
-    export GHQ_ROOT="$HOME/Dropbox/src"
-    local selected_dir=$(ghq list | peco --query "$LBUFFER")
-    local root_dir=$(ghq root)
-    if [ -n "$selected_dir" ]; then
-        BUFFER=" cd $root_dir/${selected_dir}"
-        zle accept-line
-    fi
-    unset GHQ_ROOT
-}
-zle -N dropbox-list
-bindkey '^x^l' dropbox-list
-
-function ghqd() {
-    export GHQ_ROOT="$HOME/Dropbox/src"
-    ghq $@
-    unset GHQ_ROOT
-}
-
-function proj-list() {
-    local root_dir="$HOME/projects"
-    if [ ! -d "$root_dir" ]; then
-        return
-    fi
-    local selected_dir="$(cd $root_dir; find . -maxdepth 4 -type d ! -path "*/.*"| sort | uniq | peco)"
-    if [ -n "$selected_dir" ]; then
-        BUFFER=" cd $root_dir/${selected_dir}"
-        zle accept-line
-    fi
-}
-zle -N proj-list
-bindkey '^xp' proj-list
-
-function zsh-select-history() {
-    BUFFER=$(fc -l -r -n 1 | peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle redisplay
-}
-zle -N zsh-select-history
-bindkey '^[r' zsh-select-history
-
-function peco-dfind() {
-    local selected_dir="$(find . -maxdepth 10 -type f ! -path "*/.*"| sort | peco)"
-    BUFFER="${LBUFFER}${selected_dir}"
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-zle -N peco-dfind
-bindkey '^xf' peco-dfind
 
 # rpm
 rpmcat() {
