@@ -48,7 +48,7 @@ remake(){
 }
 
 function ghq-list() {
-    local selected_dir=$(ghq list | peco --query "$LBUFFER")
+    local selected_dir=$(ghq list | fzf --query "$LBUFFER")
     local root_dir=$(ghq root)
     if [ -n "$selected_dir" ]; then
         BUFFER=" cd $root_dir/${selected_dir}"
@@ -81,7 +81,7 @@ lssh() {
 }
 
 aws-switch-profile() {
-  export AWS_PROFILE=$(cat $HOME/.aws/config |ggrep -Po '(?<=profile ).*(?=\])' |peco)
+  export AWS_PROFILE=$(cat $HOME/.aws/config |ggrep -Po '(?<=profile ).*(?=\])' |fzf)
 }
 
 fd-peco-files() {
