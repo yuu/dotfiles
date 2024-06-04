@@ -53,6 +53,8 @@ function ghq-list() {
     if [ -n "$selected_dir" ]; then
         BUFFER=" cd $root_dir/${selected_dir}"
         zle accept-line
+    else
+        zle redisplay
     fi
 }
 zle -N ghq-list
