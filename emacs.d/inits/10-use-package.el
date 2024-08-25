@@ -327,6 +327,7 @@
   :mode
   ("\\.html\\'" . web-mode)
   ("\\.js\\'" . web-mode)
+  ("\\.mjs\\'" . web-mode)
   ("\\.jsx\\'" . web-mode)
   ("\\.tsx\\'" . web-mode)
   ("\\.ts\\'" . web-mode)
