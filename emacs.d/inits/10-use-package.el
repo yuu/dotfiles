@@ -420,7 +420,9 @@
 
 ;;; golang
 (use-package go-mode
-  :defer t
-)
+  :defer t)
+
+(use-package prisma-mode
+  :straight (:host github :repo "pimeys/emacs-prisma-mode" :branch "main"))
 
 ;;; 10-use-package.el ends here
