@@ -378,6 +378,10 @@
   :after web-mode
   :hook (web-mode . emmet-mode))
 
+;(use-package lsp-tailwindcss
+;  :straight (:host github :repo "merrickluo/lsp-tailwindcss" :files ("*.el"))
+;  :ensure t)
+
 ;; See: https://qiita.com/watson1978/items/debafdfc49511fb173e9
 (flycheck-define-checker ruby-rubocop
   "A Ruby syntax and style checker using the RuboCop tool."
