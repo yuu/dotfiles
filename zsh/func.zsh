@@ -97,3 +97,7 @@ fd-peco-files() {
 
 zle -N fd-peco-files
 bindkey '^o' fd-peco-files
+
+get-ip-me() {
+    curl http://checkip.amazonaws.com
+}
