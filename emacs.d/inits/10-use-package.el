@@ -110,7 +110,10 @@
           ("M-p" . flycheck-previous-error))
 )
 
-(use-package flycheck-projectile)
+(use-package flycheck-projectile
+  :after (flycheck projectile)
+  :bind (:map projectile-mode-map
+          ("C-c p ! l" . flycheck-projectile-list-errors)))
 
 (use-package reformatter
   :defer t
