@@ -180,6 +180,7 @@
   ;; (lsp-document-sync-method 'lsp--sync-incremental)
   ;; (lsp-solargraph-use-bundler t)
   (lsp-prefer-capf t)
+  (lsp-warn-no-matched-clients nil)
   :config
   (add-hook 'web-mode-hook 'lsp-deferred)
   (add-hook 'rust-mode-hook 'lsp-deferred)
