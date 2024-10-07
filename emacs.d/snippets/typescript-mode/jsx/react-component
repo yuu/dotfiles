@@ -2,9 +2,11 @@
 # name: react component
 # key: fc
 # --
+import React, { ReactElement } from 'react';
+
 type $1Props = {}
 
-export const $1 = (props: $1Props) => {
+export const $1 = (props: $1Props): ReactElement<$1Props> => {
   return (
     $2
   )
