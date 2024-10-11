@@ -247,11 +247,13 @@
 (use-package markdown-mode
   :mode ("\\.md\\'" . gfm-mode)
   :config
-  (setq
-    markdown-split-window-direction 'right
-    markdown-command "github-markup"
-    markdown-command-needs-filename t
-    markdown-css-paths (list "https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css")))
+  (setopt markdown-command '("pandoc" "--from=gfm+hard_line_breaks" "--to=html5"))
+  (setopt markdown-fontify-code-blocks-natively t)
+  (setopt markdown-header-scaling nil)
+  (setopt markdown-indent-on-enter 'indent-and-new-item)
+  (setopt markdown-xhtml-body-preamble "<div class=\"markdown-body\">")
+  (setopt markdown-xhtml-body-epilogue "</div>")
+  (setopt markdown-css-paths (list "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.7.0/github-markdown.min.css")))
 
 (use-package markdown-toc)
 
