@@ -181,6 +181,7 @@
   ;; (lsp-solargraph-use-bundler t)
   (lsp-prefer-capf t)
   (lsp-warn-no-matched-clients nil)
+  (lsp-restart 'ignore)
   :config
   (add-hook 'web-mode-hook 'lsp-deferred)
   (add-hook 'rust-mode-hook 'lsp-deferred)
