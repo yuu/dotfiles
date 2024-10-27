@@ -18,7 +18,7 @@ return {
 
     { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard' },
     { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard' },
-    { key = 'p', mods = 'SUPER', action = act.ActivateCommandPalette },
+    { key = 'p', mods = 'SUPER|SHIFT', action = act.ActivateCommandPalette },
     { key = 'f', mods = 'SUPER', action = act.Search 'CurrentSelectionOrEmptyString' },
     { key = 'm', mods = 'SUPER', action = act.Hide },
     { key = 'q', mods = 'SUPER', action = wezterm.action.QuitApplication },
