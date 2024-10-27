@@ -41,7 +41,7 @@ end
 
 -- For example, changing the color scheme:
 config.color_scheme_dirs = { '/Users/yuu/.config/wezterm' }
-config.color_scheme = 'zenburn'
+config.color_scheme = 'nord'
 
 config.tab_max_width = 25
 config.tab_bar_at_bottom = true
