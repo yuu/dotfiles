@@ -128,6 +128,8 @@
       (refmt-prettier-format-buffer))
      ((derived-mode-p 'rust-mode)
       (rust-format-buffer))
+     ((derived-mode-p 'prisma-mode)
+      (prisma-format-buffer))
      ;; 他のモードに対するフォーマッタをここに追加
      (t (message "No formatter defined for this mode."))))
 
@@ -136,6 +138,11 @@
     :args (let ((filepath (or buffer-file-name (buffer-name))))
             `("prettier" "--stdin-filepath" ,filepath))
     :lighter "run prettier")
+  (reformatter-define prisma-format
+    :program "npx"
+    :args (let ((filepath (or buffer-file-name (buffer-name))))
+            `("prisma" "format" ,filepath))
+    :lighter "run prisma format")
 )
 
 ;;; auto complete
@@ -435,5 +442,7 @@
 
 (use-package prisma-mode
   :straight (:host github :repo "pimeys/emacs-prisma-mode" :branch "main"))
+
+(use-package lua-mode)
 
 ;;; 10-use-package.el ends here
