@@ -62,6 +62,9 @@ config.leader = keybinds.leader
 config.keys = keybinds.keys
 config.key_tables = keybinds.key_tables
 
+-- macos ime
+config.macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL'
+
 wezterm.on('format-tab-title', on_format_tab_title)
 
 return config
