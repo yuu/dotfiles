@@ -20,6 +20,7 @@ return {
     { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard' },
     { key = 'p', mods = 'SUPER|SHIFT', action = act.ActivateCommandPalette },
     { key = 'f', mods = 'SUPER', action = act.Search 'CurrentSelectionOrEmptyString' },
+    { key = 'h', mods = 'SUPER', action = act.HideApplication },
     { key = 'm', mods = 'SUPER', action = act.Hide },
     { key = 'q', mods = 'SUPER', action = wezterm.action.QuitApplication },
     { key = 'phys:Space', mods = 'LEADER', action = act.ActivateCopyMode },
