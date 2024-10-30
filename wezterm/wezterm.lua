@@ -57,7 +57,7 @@ config.window_background_gradient = {
 config.font = wezterm.font('Source Han Code JP', { weight = 'Bold', italic = false })
 config.font_size = 14.0
 local hostname = wezterm.hostname()
-if (hostname == 'ayame') then
+if (hostname == 'ayame.local') then
   config.font_size = 16
 end
 
