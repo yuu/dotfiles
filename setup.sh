@@ -42,6 +42,8 @@ ALACONF=$HOME/.config/alacritty
 mkdir -p $ALACONF
 ln -s $(pwd)/config/alacritty/alacritty.toml $ALACONF
 
+ln -s $(pwd)/config/wezterm $HOME/config/wezterm
+
 # other
 ln -s $(pwd)/peco ~/.config/peco
 ln -s $(pwd)/clang-format ~/.clang-format
