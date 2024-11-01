@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(use-package ffap)
+
 (use-package counsel
   :diminish (ivy-mode counsel-mode)
   :bind
@@ -10,7 +12,7 @@
   ("C-x b" . ivy-switch-buffer)
   ("C-x C-b" . counsel-ibuffer)
   ("C-x f" . counsel-git)
-  ("C-x C-f" . counsel-find-file)
+  ("C-x C-f" . counsel-find-file-with-ffap)
   ("M-s M-s" . swiper-thing-at-point)
   ("C-c i" . imenu)
   ("C-c g g" . counsel-rg)
@@ -25,6 +27,14 @@
                                (ivy-mode t)
                                (counsel-mode t)
                                ))
+  :config
+  (defun counsel-find-file-with-ffap ()
+  "counsel-find-file file if ffap guessed"
+  (interactive)
+  (let ((file (ffap-guesser)))
+    (if file
+        (counsel-find-file file)
+      (counsel-find-file))))
 )
 
 (use-package counsel-tramp
