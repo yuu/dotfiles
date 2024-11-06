@@ -19,3 +19,5 @@ alias lv="lv -c"
 alias grep="grep --color=auto"
 alias rsync="rsync --progress"
 alias dc="docker compose"
+
+alias icat='wezterm imgcat'
