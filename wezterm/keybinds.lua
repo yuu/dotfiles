@@ -71,8 +71,10 @@ return {
       -- move page
       { key = 'g', mods = 'NONE', action = act.CopyMode 'MoveToScrollbackTop' },
       { key = 'g', mods = 'SHIFT', action = act.CopyMode 'MoveToScrollbackBottom' },
-      { key = 'u', mods = 'CTRL', action = act.CopyMode{ MoveByPage = (-0.5) } },
-      { key = 'd', mods = 'CTRL', action = act.CopyMode{ MoveByPage = (0.5) } },
+      { key = 'u', mods = 'NONE', action = act.CopyMode{ MoveByPage = (-0.5) } },
+      { key = 'u', mods = 'CTRL', action = act.CopyMode{ MoveByPage = (-1) } },
+      { key = 'd', mods = 'NONE', action = act.CopyMode{ MoveByPage = (0.5) } },
+      { key = 'd', mods = 'CTRL', action = act.CopyMode{ MoveByPage = (1) } },
       { key = 'b', mods = 'CTRL', action = act.CopyMode 'PageUp' },
       { key = 'f', mods = 'CTRL', action = act.CopyMode 'PageDown' },
       { key = 'PageUp', mods = 'NONE', action = act.CopyMode 'PageUp' },
