@@ -27,6 +27,7 @@ return {
     { key = 'phys:Space', mods = 'LEADER', action = act.ActivateCopyMode },
     --{ key = 'phys:Space', mods = 'LEADER|CTRL', action = act.QuickSelect },
     { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackOnly' },
+    { key = 'k', mods = 'SUPER|SHIFT', action = act.ClearScrollback 'ScrollbackAndViewport' },
 
     -- font size
     { key = '0', mods = 'SUPER', action = act.ResetFontSize },
