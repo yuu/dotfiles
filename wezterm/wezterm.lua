@@ -38,6 +38,8 @@ function on_format_tab_title(tab, tabs, _, _, _, max_width)
 end
 
 -- This is where you actually apply your config choices
+config.initial_rows = 50
+config.initial_cols = 180
 
 -- For example, changing the color scheme:
 config.color_scheme_dirs = { '/Users/yuu/.config/wezterm' }
