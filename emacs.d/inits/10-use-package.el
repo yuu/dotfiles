@@ -22,6 +22,7 @@
   (enable-recursive-minibuffers t)
   (minibuffer-depth-indicate-mode 1)
   (counsel-find-file-ignore-regexp (regexp-opt completion-ignored-extensions))
+  (ivy-on-del-error-function 'ignore)
   :init
   (add-hook 'after-init-hook (lambda ()
                                (ivy-mode t)
