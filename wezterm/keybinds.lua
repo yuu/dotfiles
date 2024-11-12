@@ -58,6 +58,7 @@ return {
   key_tables = {
     copy_mode = {
       { key = 'Escape', mods = 'NONE', action = act.CopyMode 'Close' },
+      { key = 'c', mods = 'CTRL', action = act.CopyMode 'Close' },
       { key = 'g', mods = 'CTRL', action = act.Multiple{ { CopyMode = 'ClearPattern' }, { CopyMode = 'Close' } } },
       { key = '/', mods = 'NONE', action = act.Search 'CurrentSelectionOrEmptyString' },
       -- copy
@@ -76,8 +77,6 @@ return {
       { key = 'u', mods = 'CTRL', action = act.CopyMode{ MoveByPage = (-1) } },
       { key = 'd', mods = 'NONE', action = act.CopyMode{ MoveByPage = (0.5) } },
       { key = 'd', mods = 'CTRL', action = act.CopyMode{ MoveByPage = (1) } },
-      { key = 'b', mods = 'CTRL', action = act.CopyMode 'PageUp' },
-      { key = 'f', mods = 'CTRL', action = act.CopyMode 'PageDown' },
       { key = 'PageUp', mods = 'NONE', action = act.CopyMode 'PageUp' },
       { key = 'PageDown', mods = 'NONE', action = act.CopyMode 'PageDown' },
       -- move line
@@ -102,6 +101,7 @@ return {
 
     search_mode = {
       { key = 'Escape', mods = 'NONE', action = act.CopyMode 'Close' },
+      { key = 'c', mods = 'CTRL', action = act.CopyMode 'Close' },
       { key = 'g', mods = 'CTRL', action = act.Multiple{ { CopyMode = 'ClearPattern' }, { CopyMode = 'Close' } } },
       { key = 's', mods = 'CTRL', action = act.ActivateCopyMode },
       { key = 'Enter', mods = 'NONE', action = act.CopyMode 'PriorMatch' },
@@ -113,6 +113,7 @@ return {
 
     resize_pane = {
       { key = 'Escape', action = 'PopKeyTable' },
+      { key = 'c', mode = 'CTRL', action = 'PopKeyTable' },
       { key = 'g', mode = 'CTRL', action = 'PopKeyTable' },
       { key = 'h', mods = 'NONE', action = act.AdjustPaneSize { 'Left', 10 } },
       { key = 'l', mods = 'NONE', action = act.AdjustPaneSize { 'Right', 10 } },
