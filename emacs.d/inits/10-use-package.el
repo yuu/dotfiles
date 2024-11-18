@@ -135,7 +135,7 @@
     "Buffer format function that dispatches to the appropriate formatter."
     (interactive)
     (cond
-     ((derived-mode-p 'web-mode 'php-mode)
+     ((derived-mode-p 'web-mode 'php-mode 'scss-mode)
       (refmt-prettier-format-buffer))
      ((derived-mode-p 'rust-mode)
       (rust-format-buffer))
