@@ -12,7 +12,7 @@ function echo_blue() { echo -e "\e[2;34m$*\e[m"; }
 # git
 echo_blue link: git
 mkdir -p ~/.config/git
-ln -fs ~/dotfiles/git/gitconfig ~/.gitconfig
+ln -fs ~/dotfiles/git/config ~/.config/git/config
 ln -fs ~/dotfiles/git/ignore ~/.config/git/ignore
 cp    ~/dotfiles/git/config.local ~/.config/git/config.local
 ln -fs ~/dotfiles/git/message.txt ~/.config/git/message.txt
