@@ -104,7 +104,7 @@ return {
       { key = 'c', mods = 'CTRL', action = act.CopyMode 'Close' },
       { key = 'g', mods = 'CTRL', action = act.Multiple{ { CopyMode = 'ClearPattern' }, { CopyMode = 'Close' } } },
       { key = 's', mods = 'CTRL', action = act.ActivateCopyMode },
-      { key = 'Enter', mods = 'NONE', action = act.CopyMode 'PriorMatch' },
+      { key = 'Enter', mods = 'NONE', action = act.ActivateCopyMode },
       { key = 'n', mods = 'CTRL', action = act.CopyMode 'NextMatch' },
       { key = 'p', mods = 'CTRL', action = act.CopyMode 'PriorMatch' },
       { key = 'r', mods = 'CTRL', action = act.CopyMode 'CycleMatchType' },
