@@ -41,6 +41,7 @@ end
 config.initial_rows = 50
 config.initial_cols = 180
 config.audible_bell = 'Disabled'
+config.scrollback_lines = 250000
 
 -- For example, changing the color scheme:
 config.color_scheme_dirs = { '/Users/yuu/.config/wezterm' }
