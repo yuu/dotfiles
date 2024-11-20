@@ -113,6 +113,7 @@ return {
 
     resize_pane = {
       { key = 'Escape', action = 'PopKeyTable' },
+      { key = 'Enter', action = 'PopKeyTable' },
       { key = 'c', mode = 'CTRL', action = 'PopKeyTable' },
       { key = 'g', mode = 'CTRL', action = 'PopKeyTable' },
       { key = 'h', mods = 'NONE', action = act.AdjustPaneSize { 'Left', 10 } },
