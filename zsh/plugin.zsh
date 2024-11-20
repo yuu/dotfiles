@@ -3,7 +3,7 @@
 # notify
 source $HOME/.config/zsh/behind-window-notify/behind-window-notify.zsh
 
-export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_COMMAND='rg --files --sort path --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --color=fg:#d0d0d0,fg+:#3D4258,bg:-1,bg+:#74A8DF
