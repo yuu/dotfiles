@@ -62,7 +62,7 @@ config.window_background_gradient = {
 -- config.font =  wezterm.font("HackGen Console NF", { weight="Bold", stretch="Normal", style="Normal" })
 config.font = wezterm.font("HackGen35 Console NF", { weight="Bold", stretch="Normal", style="Normal" })
 
-config.font_size = 14.0
+config.font_size = 13.0
 local hostname = wezterm.hostname()
 if (hostname == 'ayame.local') then
   config.font_size = 16
