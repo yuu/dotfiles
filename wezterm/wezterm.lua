@@ -58,7 +58,10 @@ config.window_background_gradient = {
   colors = { '#000000' },
 }
 
-config.font = wezterm.font('Source Han Code JP', { weight = 'Bold', italic = false })
+-- config.font = wezterm.font('Source Han Code JP', { weight = 'Bold' })
+-- config.font =  wezterm.font("HackGen Console NF", { weight="Bold", stretch="Normal", style="Normal" })
+config.font = wezterm.font("HackGen35 Console NF", { weight="Bold", stretch="Normal", style="Normal" })
+
 config.font_size = 14.0
 local hostname = wezterm.hostname()
 if (hostname == 'ayame.local') then
