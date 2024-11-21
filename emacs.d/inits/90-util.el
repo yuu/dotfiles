@@ -250,4 +250,14 @@
             (throw 'end-flag t)))))))
 (global-set-key (kbd "C-x w r") 'window-resizer)
 
+(defun find-files ()
+  "Use `find` to locate files and open them interactively."
+  (interactive)
+  (let* ((default-directory (read-directory-name "Start directory: "))
+         (find-command (read-string "Find command: " "fd -t f "))
+         (candidates (split-string (shell-command-to-string find-command) "\n" t)))
+    (ivy-read "Find file: " candidates
+              :action (lambda (file)
+                        (find-file (expand-file-name file default-directory))))))
+
 ;;; 90-util.el ends here
