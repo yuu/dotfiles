@@ -581,9 +581,9 @@ mouse = "Middle"
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-[shell]
-args = ["-l", "-c", "/usr/local/bin/tmux a -t 0 || /usr/local/bin/tmux -u"]
-program = "/bin/zsh"
+#[shell]
+#args = ["-l", "-c", "/usr/local/bin/tmux a -t 0 || /usr/local/bin/tmux -u"]
+#program = "/bin/zsh"
 
 [window]
 opacity = 0.9
