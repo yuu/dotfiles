@@ -285,6 +285,8 @@
   (plantuml-indent-level 2)
 )
 
+(use-package mermaid-mode)
+
 (use-package flycheck-plantuml
   :hook
   (plantuml-mode . flycheck-plantuml-setup)
