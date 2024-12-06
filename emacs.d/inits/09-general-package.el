@@ -70,6 +70,12 @@
 (use-package dired
   :ensure nil
   :straight nil
+  :bind (:map dired-mode-map
+          ("h" . dired-up-directory)
+          ("l" . dired-find-file)
+          ("J" . dired-goto-file)
+          ("j" . dired-next-line)
+          ("k" . dired-previous-line))
   :custom
   (dired-listing-switches "-alh"))
 
