@@ -7,3 +7,4 @@ GTAGS
 .env
 .env*
 *.~undo-tree~
+.dir-locals.el
