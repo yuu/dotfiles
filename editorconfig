@@ -56,7 +56,7 @@ max_line_length = 120
 [*.{rb,rake,erb}]
 indent_size = 2
 
-[*.{js,jsx,ts,tsx}]
+[*.{js,mjs,jsx,ts,tsx}]
 indent_size = 2
 
 [*.{css,scss}]
