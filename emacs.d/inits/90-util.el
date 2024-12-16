@@ -254,7 +254,7 @@
   "Use `find` to locate files and open them interactively."
   (interactive)
   (let* ((default-directory (read-directory-name "Start directory: "))
-         (find-command (read-string "Find command: " "fd -t f "))
+         (find-command (read-string "Find command: " "fd -t f -I "))
          (candidates (split-string (shell-command-to-string find-command) "\n" t)))
     (ivy-read "Find file: " candidates
               :action (lambda (file)
