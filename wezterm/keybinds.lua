@@ -29,6 +29,9 @@ return {
     { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackOnly' },
     { key = 'k', mods = 'SUPER|ALT', action = act.ClearScrollback 'ScrollbackAndViewport' },
 
+    { key = 'PageUp', action = act.ScrollByPage(-1) },
+    { key = 'PageDown', action = act.ScrollByPage(1) },
+
     -- font size
     { key = '0', mods = 'SUPER', action = act.ResetFontSize },
     { key = '=', mods = 'SUPER', action = act.IncreaseFontSize },
