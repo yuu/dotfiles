@@ -458,4 +458,6 @@
 
 (use-package lua-mode)
 
+(use-package protobuf-mode)
+
 ;;; 10-use-package.el ends here
