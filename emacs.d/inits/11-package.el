@@ -138,9 +138,7 @@
     ([(tab)] . nil)
     ("TAB" . nil))
   :init
-  (add-hook 'after-init-hook 'yas-global-mode)
-  :config
-  (add-to-list 'warning-suppress-types '(yasnippet backquote-change)))
+  (add-hook 'after-init-hook 'yas-global-mode))
 
 ;;; vsc
 (defun magit-display-buffer-status-same-window (buffer)
