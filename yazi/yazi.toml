@@ -1,0 +1,18 @@
+# https://github.com/sxyazi/yazi/blob/v0.3.3/yazi-config/preset/yazi.toml
+
+[manager]
+show_hidden = false
+
+[opener]
+play = [
+  { run = 'vlc "$@"', orphan = true, desc = "VLC", for = "unix" },
+  { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+]
+
+[open]
+prepend_rules = [
+  { name = "*.mkv", use = ["play"] },
+  { name = "*.m3u", use = ["play"] },
+  { name = "*.gsheet", use = ["open"] },
+  { name = "*.gdraw", use = ["open"] },
+]
