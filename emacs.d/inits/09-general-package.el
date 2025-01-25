@@ -10,7 +10,9 @@
 (global-unset-key (kbd "C-h C-n")) ;view-emacs-news
 (global-unset-key (kbd "C-x ;"))
 
-(define-key key-translation-map (kbd "C-h") (kbd "<DEL>")) ; C-h BackSpace
+(keyboard-translate ?\C-h ?\C-?)
+(keymap-global-set "C-h" nil)
+
 ; (global-set-key (kbd "M-k")(lambda () (interactive) (kill-line 0))) ; backward kill line
 (global-set-key (kbd "C-c ;") 'comment-line)
 
