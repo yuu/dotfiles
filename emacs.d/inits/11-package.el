@@ -102,6 +102,7 @@
   ("C-c p" . 'projectile-command-map)
   :custom
   (projectile-switch-project-action 'projectile-dired)
+  (projectile-completion-system 'ivy)
   :config
   (projectile-mode +1)
   (when (executable-find "ghq")
