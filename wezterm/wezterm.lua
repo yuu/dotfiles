@@ -60,7 +60,19 @@ config.window_background_gradient = {
 
 -- config.font = wezterm.font('Source Han Code JP', { weight = 'Bold' })
 -- config.font =  wezterm.font("HackGen Console NF", { weight="Bold", stretch="Normal", style="Normal" })
-config.font = wezterm.font("HackGen35 Console NF", { weight="Bold", stretch="Normal", style="Normal" })
+config.font = wezterm.font_with_fallback({
+  -- user fonts
+  {family="HackGen35 Console NF", weight="Bold", stretch="Normal", style="Normal"},
+  -- <built-in>, BuiltIn
+  {family="Menlo", weight="Regular", stretch="Normal", style="Normal"},
+  -- <built-in>, BuiltIn
+  "JetBrains Mono",
+  -- <built-in>, BuiltIn
+  -- Assumed to have Emoji Presentation
+  "Noto Color Emoji",
+  -- <built-in>, BuiltIn
+  "Symbols Nerd Font Mono",
+})
 
 config.font_size = 13.0
 local hostname = wezterm.hostname()
