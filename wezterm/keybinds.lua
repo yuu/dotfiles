@@ -5,7 +5,6 @@ return {
   leader = { key = "t", mods = "CTRL", timeout_milliseconds = 2000 },
   keys = {
     { key = "t", mods = "CTRL|LEADER", action = wezterm.action{SendString="\x14"} },
-    { key = 'Enter', mods = 'ALT', action = act.ToggleFullScreen },
 
     { key = '1', mods = 'LEADER', action = act.ActivateTab(0) },
     { key = '2', mods = 'LEADER', action = act.ActivateTab(1) },
