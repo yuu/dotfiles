@@ -460,4 +460,16 @@
 
 (use-package protobuf-mode)
 
+(use-package ruby-mode
+  :ensure nil
+  :straight nil
+  :mode
+  ("db/schemas/.*\\.schema\\'" . ruby-mode)
+)
+
+(use-package conf-mode
+  :defer t
+  :mode
+  ("\\.env\\'" . conf-mode))
+
 ;;; 10-use-package.el ends here
