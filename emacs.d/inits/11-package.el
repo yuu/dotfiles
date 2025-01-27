@@ -173,10 +173,12 @@
   :ensure nil
   :straight nil
   :bind
-  (("C-c a" . 'org-agenda))
+  (("C-c a" . 'org-agenda)
+   ("C-c c" . 'org-capture))
   :custom
   (org-directory (expand-file-name "~/.local/notes/"))
   (org-default-notes-file (concat org-directory "notes.org"))
+  (org-default-tasks-file (concat org-directory "tasks.org"))
   (org-agenda-files (directory-files-recursively org-directory "\\.org$"))
   (org-refile-targets
     `((,(seq-filter (lambda (file)
@@ -185,6 +187,12 @@
         :level . 2)))
   (org-log-done 'time)
   (org-time-stamp-formats '("<%Y-%m-%dT%H:%M:%S>" . "<%Y-%m-%dT%H:%M:%S>"))
+  (org-tag-alist '(("meeting" . ?m) ("office" . ?o) ("document" . ?d) ("kitting" . ?k) ("study" . ?s) ("travel" . ?t) ))
+  (org-capture-templates
+    '(("t" "Task" entry (file+headline org-default-tasks-file "Tasks") "* TODO %?" :empty-lines 1)
+       ("n" "Note" entry (file+headline org-default-notes-file "Notes") "* %?")
+       ("c" "Note With Mark" entry (file+headline org-default-notes-file "Notes") "* %?\n %i\n %a")
+       ))
   (org-startup-folded t))
 
 (use-package org-tempo
