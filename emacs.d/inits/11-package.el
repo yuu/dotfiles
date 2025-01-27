@@ -183,7 +183,8 @@
                       (not (string-match-p "archive" file)))
           (directory-files-recursively org-directory "\\.org$"))
         :level . 2)))
-
+  (org-log-done 'time)
+  (org-time-stamp-formats '("<%Y-%m-%dT%H:%M:%S>" . "<%Y-%m-%dT%H:%M:%S>"))
   (org-startup-folded t))
 
 (use-package org-tempo
