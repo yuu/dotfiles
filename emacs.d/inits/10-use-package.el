@@ -254,7 +254,10 @@
     ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
     ([remap xref-find-references] . lsp-ui-peek-find-references)))
 
-(use-package dap-mode)
+(use-package dap-mode
+  :config
+  (dap-mode 1)
+  (dap-auto-configure-mode 1))
 
 (use-package copilot
   :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))
