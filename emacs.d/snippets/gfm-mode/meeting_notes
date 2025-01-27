@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: meeting notes
+# key: mtg
+# --
+
+# $0
+
+## Date
+📆 `(format-time-string "%Y-%m-%d")` HH:MM ~ HH:MM
+
+## Participants
+- $1
+
+## Objetives
+-
+
+## Action Items
+- [ ]
+
+## Decisions
+-
