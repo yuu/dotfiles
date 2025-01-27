@@ -168,6 +168,34 @@
   :init (global-git-gutter-mode)
 )
 
+;;; org-mode
+(use-package org
+  :ensure nil
+  :straight nil
+  :bind
+  (("C-c a" . 'org-agenda))
+  :custom
+  (org-directory (expand-file-name "~/.local/notes/"))
+  (org-default-notes-file (concat org-directory "notes.org"))
+  (org-agenda-files (directory-files-recursively org-directory "\\.org$"))
+  (org-refile-targets
+    `((,(seq-filter (lambda (file)
+                      (not (string-match-p "archive" file)))
+          (directory-files-recursively org-directory "\\.org$"))
+        :level . 2)))
+
+  (org-startup-folded t))
+
+(use-package org-tempo
+    :straight nil)
+
+(defun org-find-file (file)
+  "open file with org-directory"
+  (interactive
+    (list (let ((default-directory org-directory))
+            (counsel-find-file))))
+  (find-file file))
+
 ; tramp-container
 ;; (use-package docker-tramp
 ;;   :custom
