@@ -62,10 +62,24 @@
 (setq window-resize-pixelwise t)
 (setq frame-resize-pixelwise t)
 
+;;;; keybind
+(global-unset-key (kbd "C-x C-b"))
+(global-unset-key (kbd "M-g g"))
+(global-unset-key (kbd "C-h C-p")) ;view-emacs-problems
+(global-unset-key (kbd "C-h n")) ;view-emacs-news
+(global-unset-key (kbd "C-h C-n")) ;view-emacs-news
+(global-unset-key (kbd "C-x ;"))
+
 (global-set-key (kbd "M-h") 'windmove-left)
 (global-set-key (kbd "M-j") 'windmove-down)
 (global-set-key (kbd "M-k") 'windmove-up)
 (global-set-key (kbd "M-l") 'windmove-right)
+
+(keyboard-translate ?\C-h ?\C-?)
+(keymap-global-set "C-h" nil)
+
+; (global-set-key (kbd "M-k")(lambda () (interactive) (kill-line 0))) ; backward kill line
+(global-set-key (kbd "C-c ;") 'comment-line)
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
