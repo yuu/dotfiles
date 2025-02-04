@@ -195,6 +195,7 @@
        ))
   (org-src-tab-acts-natively t)
   (org-startup-folded t)
+  (org-use-speed-commands t)
   :config
   (major-mode-hydra-define
     global-org-hydra
@@ -257,6 +258,10 @@
     (list (let ((default-directory org-directory))
             (counsel-find-file))))
   (find-file file))
+
+(use-package org-bullets
+  :ensure t
+  :hook (org-mode . org-bullets-mode))
 
 ; tramp-container
 ;; (use-package docker-tramp
