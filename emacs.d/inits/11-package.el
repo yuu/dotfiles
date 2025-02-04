@@ -249,9 +249,6 @@
      (("," org-cycle-agenda-files "Cycle"))))
 )
 
-(use-package org-tempo
-    :straight nil)
-
 (defun org-find-file (file)
   "open file with org-directory"
   (interactive
