@@ -6,6 +6,9 @@
 
 (use-package counsel
   :diminish (ivy-mode counsel-mode)
+  :hook (
+          (after-init . ivy-mode)
+          (after-init . counsel-mode))
   :bind
   ("M-x" . counsel-M-x)
   ("M-y" . counsel-yank-pop)
@@ -23,11 +26,6 @@
   (minibuffer-depth-indicate-mode 1)
   (counsel-find-file-ignore-regexp ".git/")
   (ivy-on-del-error-function 'ignore)
-  :init
-  (add-hook 'after-init-hook (lambda ()
-                               (ivy-mode t)
-                               (counsel-mode t)
-                               ))
   :config
   (defun counsel-find-file-with-ffap ()
   "counsel-find-file file if ffap guessed"
