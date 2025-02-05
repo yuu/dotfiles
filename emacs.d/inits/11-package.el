@@ -260,6 +260,24 @@
   :ensure t
   :hook (org-mode . org-bullets-mode))
 
+(use-package org-pomodoro
+  :custom
+  (org-pomodoro-ask-upon-killing t)
+  (org-pomodoro-format "🍅 %s")
+  (org-pomodoro-short-break-format "☕️ %s")
+  (org-pomodoro-long-break-format  "🏝️ %s")
+  (org-pomodoro-start-sound-args "--volume 0.1")
+  (org-pomodoro-finished-sound-args "--volume 0.1")
+  (org-pomodoro-short-break-sound-args "--volume 0.1")
+  (org-pomodoro-long-break-sound-args "--volume 0.1")
+  :hook
+  (org-pomodoro-started . (lambda () (alert
+                                       "🍅 Let's focus for 25 minutes!"
+                                       :title "org-pomodoro")))
+  (org-pomodoro-finished . (lambda () (alert
+                                        "☕️ Well done! Take a break."
+                                        :title "org-pomodoro"))))
+
 ; tramp-container
 ;; (use-package docker-tramp
 ;;   :custom
