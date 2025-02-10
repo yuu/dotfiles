@@ -198,11 +198,9 @@
   (org-use-speed-commands t)
   :config
   (org-babel-do-load-languages
-    'org-babel-load-languages '(
-      (shell . t)
-      (emacs-lisp . t)
-    )
-  )
+    'org-babel-load-languages '((shell . t)
+                                (lisp . t)
+                                (emacs-lisp . t)))
   (major-mode-hydra-define
     global-org-hydra
     (:separator "-"

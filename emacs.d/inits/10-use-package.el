@@ -541,4 +541,8 @@
   :mode
   ("\\.env\\'" . conf-mode))
 
+(use-package slime
+  :custom
+  (inferior-lisp-program "sbcl"))
+
 ;;; 10-use-package.el ends here
