@@ -19,6 +19,8 @@
 
 (setq-default indent-tabs-mode nil)
 
+(put 'downcase-region 'disabled nil)
+
 ;;; view
 (tool-bar-mode -1)
 (menu-bar-mode -1)
