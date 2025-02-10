@@ -1,0 +1,12 @@
+#!/usr/bin/env zx
+#
+# alert -t 3s -m <message>
+
+const argv = minimist(process.argv.slice(2), {})
+
+const ms = argv['t']
+const msg = argv['m']
+console.log(chalk.blue(ms), chalk.underline(msg));
+
+await sleep(ms);
+await $`terminal-notifier -message "${msg}"`
