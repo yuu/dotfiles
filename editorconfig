@@ -33,7 +33,7 @@ indent_size = 2
 tab_width = 2
 trim_trailing_whitespace = false
 
-[*.{puml,mmd}]
+[*.{puml,mmd,mermaid}]
 indent_size = 2
 tab_width = 2
 
