@@ -13,4 +13,3 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="$ "
   --marker=">" --pointer=">" --separator="─" --scrollbar="│"
   --layout="reverse"'
-source <(fzf --zsh)

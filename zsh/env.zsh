@@ -11,8 +11,9 @@ export GPG_TTY=`tty`
 export PYTHONSTARTUP=~/.config/python/pythonstartup
 
 export GOPATH=$HOME/.local
-path=(~/.local/bin(N-/) /usr/local/bin(N-/) /usr/local/sbin(N-/) ${path})
 
+path=(~/.local/bin(N-/) /usr/local/bin(N-/) /usr/local/sbin(N-/) ${path})
+fpath=(~/.config/zsh/func(N-/) ~/.config/zsh/completions(N-/) ${fpath})
 
 export LANG=en_US.UTF-8
 export HOMEBREW_NO_INSTALL_CLEANUP=1

@@ -3,8 +3,6 @@ PS1="[@${HOST%%.*} %1~]%(!.#.$) "
 #RPROMPT="%T"                      # 右側に時間を表示する
 setopt transient_rprompt          # 右側まで入力がきたら時間を消す
 
-fpath+=($HOME/.config/zsh/func)
-
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
 SAVEHIST=20000
