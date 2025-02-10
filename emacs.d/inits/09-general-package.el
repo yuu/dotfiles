@@ -82,9 +82,6 @@
 (use-package alert
   :custom
   (alert-notifier-command "/opt/homebrew/bin/terminal-notifier")
-  :config
-  (if (or (eq window-system 'ns) (eq window-system 'mac))
-    (setq alert-default-style 'notifier)
-    (setq alert-default-style 'libnotify)))
+  (alert-default-style 'notifier))
 
 ;;; 09-general-package.el ends here
