@@ -207,6 +207,11 @@
     'org-babel-load-languages '((shell . t)
                                 (lisp . t)
                                 (emacs-lisp . t)))
+  (set-face-attribute 'org-headline-todo nil :foreground (face-attribute 'default :foreground))
+  (set-face-attribute 'org-headline-done nil :foreground "#BCE5BC")
+  (set-face-attribute 'org-level-1 nil :foreground "#ECBC9C")
+  (set-face-attribute 'org-level-2 nil :foreground "#89C5C8")
+  (set-face-attribute 'org-level-3 nil :foreground "#89C5C8"))
 
 (defun org-find-file (file)
   "open file with org-directory"
