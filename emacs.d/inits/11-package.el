@@ -175,27 +175,33 @@
   :bind
   (("C-c a" . 'org-agenda)
    ("C-c c" . 'org-capture))
+  :custom-face
+  (org-drawer ((t (:foreground "hot pink"))))
   :custom
   (org-directory (expand-file-name "~/.local/notes/"))
   (org-default-notes-file (concat org-directory "notes.org"))
-  (org-default-tasks-file (concat org-directory "tasks.org"))
   (org-agenda-files (directory-files-recursively org-directory "\\.org$"))
   (org-refile-targets
     `((,(seq-filter (lambda (file)
                       (not (string-match-p "archive" file)))
           (directory-files-recursively org-directory "\\.org$"))
-        :level . 2)))
+        :level . 3)))
   (org-log-done 'time)
-  (org-time-stamp-formats '("<%Y-%m-%dT%H:%M:%S>" . "<%Y-%m-%dT%H:%M:%S>"))
   (org-tag-alist '(("meeting" . ?m) ("office" . ?o) ("document" . ?d) ("kitting" . ?k) ("study" . ?s) ("travel" . ?t) ))
   (org-capture-templates
-    '(("t" "Task" entry (file+headline org-default-tasks-file "Tasks") "* TODO %?" :empty-lines 1)
+    '(("t" "Task" entry (file+headline "~/.local/notes/tasks.org" "Tasks") "* TODO %?")
        ("n" "Note" entry (file+headline org-default-notes-file "Notes") "* %?")
-       ("c" "Note With Mark" entry (file+headline org-default-notes-file "Notes") "* %?\n %i\n %a")
-       ))
+       ("c" "Note With Mark" entry (file+headline org-default-notes-file "Notes") "* %?\n %i\n %a")))
+  (org-todo-keyword-faces
+    '(("TODO"      :inherit (org-todo) :foreground "#D9A0A0" :weight bold)
+       ("DONE"      :inherit (org-todo) :foreground "#BCE5BC" :weight bold)))
   (org-src-tab-acts-natively t)
   (org-startup-folded t)
   (org-use-speed-commands t)
+  (org-fontify-todo-headline t)
+  (org-hide-emphasis-markers t)
+  (org-num-skip-unnumbered t)
+  (org-html-validation-link nil)
   :config
   (org-babel-do-load-languages
     'org-babel-load-languages '((shell . t)
