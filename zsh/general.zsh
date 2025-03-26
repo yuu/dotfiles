@@ -138,6 +138,10 @@ zstyle ':chpwd:*' recent-dirs-max 5000
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
 
+# https://nemoplus.hateblo.jp/entry/20090119/1232373540
+#export LSCOLORS=exfxcxdxcxexbxabagacad
+#zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 # tty start/stop shortcut
 stty stop  undef #C-s
 stty start undef #C-q
