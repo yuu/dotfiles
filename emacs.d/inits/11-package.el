@@ -268,7 +268,10 @@
 
 (use-package org-bullets
   :ensure t
-  :hook (org-mode . org-bullets-mode))
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-appear-autoemphasis t)
+  (org-appear-autolinks t))
 
 (use-package org-pomodoro
   :custom
