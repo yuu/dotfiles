@@ -207,57 +207,6 @@
     'org-babel-load-languages '((shell . t)
                                 (lisp . t)
                                 (emacs-lisp . t)))
-  (major-mode-hydra-define
-    global-org-hydra
-    (:separator "-"
-     :quit-key "q"
-     :color teal
-     :foreign-key warn
-     :title "Global Org commands")
-
-     ("Navigation"
-       (("H" counsel-outline "Outline"))
-
-      "Insert"
-       (("l" org-insert-link                     "Link")
-        ("T" org-insert-todo-heading             "Todo")
-        ("h" org-insert-heading-respect-content  "Heading")
-        ("P" org-set-property                    "Property")
-        ("." org-time-stamp                      "Timestamp")
-        ("!" org-time-stamp-inactive             "Timestamp(inactive)")
-        ("S" org-insert-structure-template       "Snippet"))
-
-     "Edit"
-     (("a" org-archive-subtree  "Archive")
-      ("r" org-refile           "Refile")
-      ("Q" org-set-tags-command "Tag"))
-
-     "View"
-     (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
-      ("C" org-columns "Columns")
-      ("O" org-global-cycle "Toggle open")
-      ("D" my/org-clock-toggle-display  "Toggle Display"))
-
-     "Task"
-     (("s" org-schedule         "Schedule")
-      ("d" org-deadline         "Deadline")
-      ("t" my/org-todo          "Change state")
-      ("c" org-toggle-checkbox  "Toggle checkbox"))
-
-     "Clock"
-     (("i" org-clock-in      "In")
-      ("o" org-clock-out     "Out")
-      ("E" org-set-effort    "Effort")
-      ("R" org-clock-report  "Report")
-      ("p" org-pomodoro      "Pomodoro"))
-
-     "Babel"
-     (("e" org-babel-confirm-evaluate "Eval")
-      ("x" org-babel-tangle "Export SRC"))
-
-     "Agenda"
-     (("," org-cycle-agenda-files "Cycle"))))
-)
 
 (defun org-find-file (file)
   "open file with org-directory"
