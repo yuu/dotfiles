@@ -204,9 +204,15 @@
   (org-html-validation-link nil)
   :config
   (org-babel-do-load-languages
-    'org-babel-load-languages '((shell . t)
-                                (lisp . t)
-                                (emacs-lisp . t)))
+    'org-babel-load-languages
+    '(
+       (shell . t)
+       (emacs-lisp . emacs-lisp)
+       (lisp . t)
+       (dot . t)
+       (makefile . makefile)
+       (sql . t)
+       ))
   (set-face-attribute 'org-headline-todo nil :foreground (face-attribute 'default :foreground))
   (set-face-attribute 'org-headline-done nil :foreground "#BCE5BC")
   (set-face-attribute 'org-level-1 nil :foreground "#ECBC9C")
@@ -244,6 +250,16 @@
   (org-pomodoro-finished . (lambda () (alert
                                         "C Well done! Take a break."
                                         :title "org-pomodoro"))))
+
+(use-package ob-rust
+  :after org
+  :config
+  (org-babel-do-load-languages
+    'org-babel-load-languages
+    (append org-babel-load-languages
+      '(
+         (rust . t)
+         ))))
 
 ; tramp-container
 ;; (use-package docker-tramp
