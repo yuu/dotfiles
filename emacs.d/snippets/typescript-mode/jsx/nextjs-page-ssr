@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: nextjs page component with noprops
+# key: page
+# --
+import type { NextPage } from 'next'
+
+const $1Page: NextPage = () => {
+  return $2
+}
+
+export default $1Page
