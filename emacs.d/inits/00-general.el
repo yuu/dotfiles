@@ -16,6 +16,7 @@
 (setq recentf-max-saved-itemds 3000)
 
 (prefer-coding-system 'utf-8-unix)
+(use-cjk-char-width-table 'ja_JP)
 
 (setq-default indent-tabs-mode nil)
 
