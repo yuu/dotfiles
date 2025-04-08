@@ -46,6 +46,9 @@
   :custom
   (ivy-read-action-function 'ivy-hydra-read-action))
 
+(use-package counsel-projectile
+  :hook ((after-init . counsel-projectile-mode)))
+
 ;; (use-package ivy-xref
 ;;   :defer t
 ;;   :custom
