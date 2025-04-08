@@ -268,4 +268,18 @@
 ;;   :custom
 ;;   (docker-tramp-use-names t))
 
+(use-package migemo
+  :if (executable-find "cmigemo")
+  :commands (migemo-init)
+  :defer t
+  :init
+  (add-hook 'emacs-startup-hook 'migemo-init)
+  :config
+  (setq migemo-command "cmigemo")
+  (setq migemo-options '("-q" "--emacs"))
+  (setq migemo-dictionary "/opt/homebrew/Cellar/cmigemo/20110227/share/migemo/utf-8/migemo-dict")
+  (setq migemo-user-dictionary nil)
+  (setq migemo-regex-dictionary nil)
+  (setq migemo-coding-system 'utf-8-unix))
+
 ;;; 11-package.el ends here
