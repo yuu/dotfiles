@@ -26,7 +26,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (blink-cursor-mode nil)
-(defalias 'yes-or-no-p 'y-or-n-p)
+(setq use-short-answers t)
 (setq frame-title-format "%f") ; titilebar file full name
 
 ;; disable bell and flash
