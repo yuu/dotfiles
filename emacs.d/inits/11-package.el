@@ -181,11 +181,12 @@
   (org-directory (expand-file-name "~/.local/notes/"))
   (org-default-notes-file (concat org-directory "notes.org"))
   (org-agenda-files (directory-files-recursively org-directory "\\.org$"))
+  (org-outline-path-complete-in-steps nil)
   (org-refile-targets
     `((,(seq-filter (lambda (file)
                       (not (string-match-p "archive" file)))
           (directory-files-recursively org-directory "\\.org$"))
-        :level . 3)))
+        :maxlevel . 2)))
   (org-log-done 'time)
   (org-tag-alist '(("meeting" . ?m) ("office" . ?o) ("document" . ?d) ("kitting" . ?k) ("study" . ?s) ("travel" . ?t) ))
   (org-capture-templates
