@@ -212,6 +212,7 @@
        (dot . t)
        (makefile . makefile)
        (sql . t)
+       (sqlite . t)
        ))
   (set-face-attribute 'org-headline-todo nil :foreground (face-attribute 'default :foreground))
   (set-face-attribute 'org-headline-done nil :foreground "#BCE5BC")
