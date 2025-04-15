@@ -169,6 +169,7 @@
 )
 
 ;;; org-mode
+(straight-use-package 'org)
 (use-package org
   :ensure nil
   :straight nil
@@ -234,6 +235,10 @@
   :custom
   (org-appear-autoemphasis t)
   (org-appear-autolinks t))
+
+(use-package org-roam
+  :custom
+  (org-roam-directory (file-truename (concat org-directory "roam"))))
 
 (use-package org-pomodoro
   :custom
