@@ -32,6 +32,8 @@
 ;; disable bell and flash
 (setq ring-bell-function 'ignore)
 
+(setq delete-by-moving-to-trash t)
+
 ;; 整数の場合は、元のウィンドウが最低でもその行数なければ分割しないことを意味する。
 ;; nilの場合は、この方法では分割しないことを意味する。
 (defun adjust-window-split-thresholds nil
