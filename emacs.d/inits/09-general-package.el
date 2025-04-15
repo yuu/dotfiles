@@ -15,6 +15,11 @@
   (setq sml/no-confirm-load-theme t)
   (sml/setup))
 
+(use-package minions
+  :hook (after-init. minions-mode)
+  :config
+  (setq minions-mode-line-lighter "[+]"))
+
 ;;;; theme
 (use-package hc-zenburn-theme
   :config
