@@ -273,6 +273,21 @@
 ;;   :custom
 ;;   (docker-tramp-use-names t))
 
+(use-package yeetube
+  :straight (:repo "https://codeberg.org/thanosapollo/emacs-yeetube.git")
+  :init (define-prefix-command 'my/yeetube-map)
+  :config
+  (setq yeetube-mpv-disable-video t)
+  :bind (("C-c y" . 'my/yeetube-map)
+          :map my/yeetube-map
+	  ("s" . 'yeetube-search)
+	  ("b" . 'yeetube-play-saved-video)
+	  ("d" . 'yeetube-download-videos)
+	  ("p" . 'yeetube-mpv-toggle-pause)
+	  ("v" . 'yeetube-mpv-toggle-video)
+	  ("V" . 'yeetube-mpv-toggle-no-video-flag)
+	  ("k" . 'yeetube-remove-saved-video)))
+
 (use-package migemo
   :if (executable-find "cmigemo")
   :commands (migemo-init)
