@@ -268,6 +268,9 @@
          (rust . t)
          ))))
 
+(use-package ox-gfm
+  :straight (:host github :repo "yuu/ox-gfm"))
+
 ; tramp-container
 ;; (use-package docker-tramp
 ;;   :custom
