@@ -302,7 +302,8 @@
   (setq migemo-regex-dictionary nil)
   (setq migemo-coding-system 'utf-8-unix))
 
-(use-package pdf-tools)
+(use-package pdf-tools
+  :mode ("\\.pdf\\'" . pdf-view-mode))
 (use-package nov
   :straight (:repo "https://depp.brause.cc/nov.el.git"))
 
