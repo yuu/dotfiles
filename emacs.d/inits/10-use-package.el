@@ -427,6 +427,7 @@
   ("\\.html\\'" . web-mode)
   ("\\.js\\'" . web-mode)
   ("\\.mjs\\'" . web-mode)
+  ("\\.cjs\\'" . web-mode)
   ("\\.jsx\\'" . web-mode)
   ("\\.tsx\\'" . web-mode)
   ("\\.ts\\'" . web-mode)
