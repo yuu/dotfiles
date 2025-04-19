@@ -7,7 +7,6 @@ source $cpath/general.zsh
 source $cpath/env.zsh
 source $cpath/plugin.zsh
 source $cpath/func.zsh
-source $cpath/cheatcheet.zsh
 source $cpath/common.zsh
 
 case "${OSTYPE}" in
