@@ -1,0 +1,22 @@
+---
+style:
+  tag:
+    color: white
+    width_percentage: 26
+    min_width: 20
+  comment:
+    color: green
+    width_percentage: 42
+    min_width: 45
+  snippet:
+    color: white
+
+finder:
+  command: fzf
+
+cheats:
+  paths:
+    - ~/.local/share/navi/cheats
+
+shell:
+  command: zsh
