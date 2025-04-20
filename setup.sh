@@ -9,58 +9,52 @@ function echo_blue() { echo -e "\e[2;34m$*\e[m"; }
 #----------------------------------------------------------------------------#
 # dotfiles                                                                   #
 #----------------------------------------------------------------------------#
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}
+
 # git
 echo_blue link: git
-mkdir -p ~/.config/git
-ln -fs ~/dotfiles/git/config ~/.config/git/config
-ln -fs ~/dotfiles/git/ignore ~/.config/git/ignore
-cp    ~/dotfiles/git/config.local ~/.config/git/config.local
-ln -fs ~/dotfiles/git/message.txt ~/.config/git/message.txt
-
-# tmux
-echo_blue link: tmux
-ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
-git clone git://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+A=~/dotfiles/git
+B=$XDG_CONFIG_HOME/git
+mkdir -p $B
+ln -fs $A/config $B/config
+ln -fs $A/ignore $B/ignore
+ln -fs $A/message.txt $B/message.txt
+if [ ! -e $B/config.local ]; then
+    cp $A/config.local $B/config.local
+fi
 
 # zsh
 echo_blue link: zsh
-mkdir -p ~/.config/zsh
-ln -s $(pwd)/zsh/* ~/.config/zsh/
-ln -s ~/.config/zsh/zshrc.zsh ~/.zshrc
-git clone --depth 1 https://github.com/zsh-users/zaw.git ~/.config/zsh/zaw
-curl -fLo ~/.config/zsh/func/_docker https://raw.github.com/felixr/docker-zsh-completion/master/_docker
+A=~/dotfiles/zsh
+B=$XDG_CONFIG_HOME/zsh
+mkdir -p $B
+ln -s $A/* $B/
+ln -s $B/zshrc.zsh ~/.zshrc
 
 # emacs
 echo_blue link: emacs
-EMCONF="$HOME/.emacs.d"
-mkdir -p $EMCONF/straight
-for i in $(command ls emacs.d |grep -v versions); do echo $i; ln -s $(pwd)/emacs.d/$i $EMCONF/; done
-ln -s $(pwd)/emacs.d/versions $EMCONF/straight
+A=~/dotfiles/emacs.d
+B=~/.emacs.d
+mkdir -p $B/straight
+for i in $(command ls emacs.d |grep -v versions); do echo $i; ln -s $A/$i $B/; done
+ln -s $A/versions $B/straight
 
 # terminal
-ALACONF=$HOME/.config/alacritty
-mkdir -p $ALACONF
-ln -s $(pwd)/config/alacritty/alacritty.toml $ALACONF
-
-ln -s $(pwd)/config/wezterm $HOME/config/wezterm
+A=~/dotfiles/wezterm
+B=$XDG_CONFIG_HOME/wezterm
+ln -s $A $B
 
 # other
-ln -s $(pwd)/peco ~/.config/peco
-ln -s $(pwd)/clang-format ~/.clang-format
-ln -s $(pwd)/rtorrent.rc ~/.rtorrent.rc
-mkdir ~/.config/python
-ln -s $(pwd)/pythonstartup ~/.config/python/pythonstartup
-ln -s $(pwd)/screenrc ~/.screenrc
-ln -s $(pwd)/editorconfig ~/.editorconfig
+A=~/dotfiles
+ln -s $A/peco $XDG_CONFIG_HOME/peco
+ln -s $A/rtorrent.rc ~/.rtorrent.rc
+ln -s $A/screenrc ~/.screenrc
+ln -s $A/editorconfig ~/.editorconfig
 
 if [ "$(uname)" == 'Darwin' ]; then
-    KD=$HOME/.config/karabiner
-    mkdir -p $KD
-    ln -s ~/dotfiles/karabiner.json $KD
-    ln -s ~/dotfiles/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
-else
-    TC=~/.config/terminator
-    mkdir -p $TC
-    ln -s ~/dotfiles/terminator/config $TC/
+    B=$XDG_CONFIG_HOME/karabiner
+    mkdir -p $B
+    ln -s $A/karabiner.json $B
 fi
+
 echo_success success
