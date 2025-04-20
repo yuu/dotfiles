@@ -44,6 +44,11 @@ A=~/dotfiles/wezterm
 B=$XDG_CONFIG_HOME/wezterm
 ln -s $A $B
 
+# yazi
+A=~/dotfiles/yazi
+B=$XDG_CONFIG_HOME/yazi
+ln -s $A $B
+
 # other
 A=~/dotfiles
 ln -s $A/peco $XDG_CONFIG_HOME/peco

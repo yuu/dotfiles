@@ -1,0 +1,9 @@
+[plugin]
+deps = [
+  { use = "Sonico98/exifaudio", rev = "d794614" },
+  { use = "boydaihungst/mediainfo", rev = "e2a7cfd" },
+  { use = "AnirudhG07/custom-shell", rev = "90d5f32" }
+]
+
+[flavor]
+deps = []
