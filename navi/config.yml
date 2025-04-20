@@ -16,7 +16,9 @@ finder:
 
 cheats:
   paths:
-    - ~/.local/share/navi/cheats
+    - ~/.local/share/navi/cheats/common
+    - ~/.local/share/navi/cheats/mac
+    # - ~/.local/share/navi/cheats/linux
 
 shell:
   command: zsh

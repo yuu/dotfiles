@@ -5,8 +5,6 @@ alias emacs='emacs -nw'
 alias ekill='emacsclient -e "(kill-emacs)"'
 
 # エイリアスいろいろ
-alias du="du -h"
-alias df="df -h"
 alias su="su -l"
 alias lv="lv -c"
 alias grep="grep --color=auto"

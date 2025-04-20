@@ -10,9 +10,6 @@ alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"
 
 # time
-alias date="date --iso-8601=seconds"
-alias datem="date --iso-8601=minutes"
-alias today="command date +'%Y-%m-%d'"
-alias now="command date +'%H.%M.%S'"
-
-alias make="make -j$(nproc)"
+alias date="date +%Y-%m-%dT%H:%M:%S%z"
+alias today="command date '+%Y-%m-%d'"
+alias now="command date '+%H:%M:%S'"
