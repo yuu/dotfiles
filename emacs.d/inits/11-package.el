@@ -258,6 +258,16 @@
                                         "C Well done! Take a break."
                                         :title "org-pomodoro"))))
 
+(use-package org-ai
+  :ensure t
+  :commands (org-ai-mode
+              org-ai-global-mode)
+  :hook ((after-init . (org-ai-global-mode))
+          (org-mode-hook . org-ai-mode))
+  :config
+  (setq org-ai-default-chat-model "gpt-4o-mini")
+  (org-ai-install-yasnippets))
+
 (use-package ob-rust
   :after org
   :config
@@ -309,5 +319,7 @@
   :mode ("\\.pdf\\'" . pdf-view-mode))
 (use-package nov
   :straight (:repo "https://depp.brause.cc/nov.el.git"))
+
+(use-package feature-mode)
 
 ;;; 11-package.el ends here
