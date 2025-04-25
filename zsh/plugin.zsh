@@ -4,7 +4,7 @@
 source $HOME/.config/zsh/behind-window-notify/behind-window-notify.zsh
 
 export FZF_DEFAULT_COMMAND='rg --files --sort path --hidden --glob "!.git"'
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border --bind ctrl-v:page-down,alt-v:page-up'
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --color=fg:#d0d0d0,fg+:#3D4258,bg:-1,bg+:#74A8DF
   --color=hl:#5f87af,hl+:#5fd7ff,info:#afaf87,marker:#87ff00
