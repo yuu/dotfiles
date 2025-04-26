@@ -83,7 +83,7 @@
 (use-package undo-tree
   :diminish undo-tree-mode
   :custom
-  (undo-tree-history-directory-alist '(("." . "~/.cache/emacs")))
+  (undo-tree-history-directory-alist '(("." . "~/.cache/emacs/undo")))
   :config
   (global-undo-tree-mode))
 
