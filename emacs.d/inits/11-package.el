@@ -169,10 +169,8 @@
 )
 
 ;;; org-mode
-(straight-use-package 'org)
 (use-package org
-  :ensure nil
-  :straight nil
+  :straight t
   :bind
   (("C-c a" . 'org-agenda)
    ("C-c c" . 'org-capture))

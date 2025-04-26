@@ -359,7 +359,8 @@
   (plantuml-indent-level 2)
 )
 
-(use-package mermaid-mode)
+(use-package mermaid-mode
+  :after org)
 
 (use-package flycheck-plantuml
   :hook
