@@ -320,6 +320,9 @@
 (use-package nov
   :straight (:repo "https://depp.brause.cc/nov.el.git"))
 
-(use-package feature-mode)
+(use-package feature-mode
+  :custom
+  (feature-default-language "ja")
+  (feature-i18n-file "~/.local/share/gherkin/gherkin-languages.json"))
 
 ;;; 11-package.el ends here
