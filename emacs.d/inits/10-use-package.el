@@ -246,7 +246,8 @@
   :init
   (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (delete 'company-clang company-backends))
+  (delete 'company-clang company-backends)
+  (add-to-list 'company-backends 'company-keywords-gherkin))
 
 ;;; lsp
 (use-package lsp-mode
