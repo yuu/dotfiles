@@ -77,7 +77,7 @@ config.font = wezterm.font_with_fallback({
 config.font_size = 13.0
 local hostname = wezterm.hostname()
 if (hostname == 'ayame.local') then
-  config.font_size = 16
+  config.font_size = 14
 end
 
 config.disable_default_key_bindings = true
