@@ -86,7 +86,7 @@
 ; (global-set-key (kbd "M-k")(lambda () (interactive) (kill-line 0))) ; backward kill line
 (global-set-key (kbd "C-c ;") 'comment-line)
 
-(global-set-key (kbd "C-x j") 'pretty-hydra-usefull-commands/body)
+(global-set-key (kbd "C-x j") 'my/global-hydra-command-palette/body)
 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 

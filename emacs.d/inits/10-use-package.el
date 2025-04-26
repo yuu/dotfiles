@@ -75,71 +75,76 @@
 
 (use-package major-mode-hydra
   :ensure t
+  :demand
   :bind
   ("M-SPC" . major-mode-hydra))
 
 (pretty-hydra-define
-  pretty-hydra-usefull-commands
-  (:separator "-" :color teal :foreign-key warn :title "Usefull commands" :quit-key "q")
+  my/global-hydra-command-palette
+  (:separator "-" :color teal :foreign-key warn :title "Global Palette" :quit-key "q")
   ("File"
-   (("p" projectile-hydra/body "Projectile")
-    ("f" counsel-find-file     "Find File")
-    ("d" counsel-find-dir      "Find Dir")
-    ("r" counsel-recentf       "Recentf")
-    ("L" counsel-locate        "Locate"))
+    (
+      ;; ("p" projectile-hydra/body "Projectile")
+      ("f" counsel-find-file     "Find File")
+      ;; ("d" counsel-find-dir      "Find Dir")
+      ("r" counsel-recentf       "Recentf")
+      ;; ("L" counsel-locate        "Locate")
+      )
 
-   "Edit"
-   (("a" align-regexp "Align Regexp")
-    ("[" origami-hydra/body "Origami")
-    (";" comment-dwim "Comment"))
+    ;; "Edit"
+    ;; (("a" align-regexp "Align Regexp")
+    ;;  ("[" origami-hydra/body "Origami")
+    ;;  (";" comment-dwim "Comment"))
 
-   "Code"
-   (("G" counsel-projectile-rg            "Grep")
-    ("j" dumb-jump-pretty-hydra/body      "Dumb jump")
-    ("g" avy-hydra/body                   "Avy")
-    ("l" pretty-hydra-lsp/body            "LSP")
-    ("i" counsel-imenu                    "imenu")
-    ("y" yasnippet-hydra/body             "Yasnippet")
-    ("B" browse-at-remote                 "Browse")
-    ("C" blamer-show-posframe-commit-info "Bramer")
-    ("m" magit-status                     "Magit"))
+    "Code"
+    (("G" counsel-projectile-rg            "Grep")
+      ;; ("j" dumb-jump-pretty-hydra/body      "Dumb jump")
+      ;; ("g" avy-hydra/body                   "Avy")
+      ;; ("l" pretty-hydra-lsp/body            "LSP")
+      ;; ("i" counsel-imenu                    "imenu")
+      ;; ("y" yasnippet-hydra/body             "Yasnippet")
+      ;; ("B" browse-at-remote                 "Browse")
+      ;; ("C" blamer-show-posframe-commit-info "Bramer")
+      ("g" magit-status                     "Magit"))
 
-   "View"
-   (("D" delete-other-windows      "Only This Win")
-    ("W" window-control-hydra/body "Window Control")
-    ("+" text-scale-hydra/body     "Text Scale")
-    ("w" ace-swap-window           "Swap Window"))
+    "View"
+    (("D" delete-other-windows      "Only This Win")
+      ;; ("W" window-control-hydra/body "Window Control")
+      ;; ("+" text-scale-hydra/body     "Text Scale")
+      ("w" ace-swap-window           "Swap Window"))
 
-   "Tool"
-   (("SPC" major-mode-hydra         "Hydra(Major)")
-    ("h"   my/project-hydra         "Hydra(Project)")
-    ("s"   toggle-hydra/body        "Toggle switches")
-    ("c"   counsel-org-capture      "Capture")
-    ("A"   copilot-chat-hydra/body  "Copilot Chat")
-    ("o"   global-org-hydra/body    "Org")
-    ("e"   el-get-hydra/body        "el-get")
-    ("k"   kibela-hydra/body        "Kibela")
-    ("/"   google-pretty-hydra/body "Google")
-    ("t"   subtools-hydra/body      "Sub Tools"))))
+    "Tool"
+    (("SPC" major-mode-hydra         "Hydra(Major)")
+      ;; ("h"   my/project-hydra         "Hydra(Project)")
+      ;; ("s"   toggle-hydra/body        "Toggle switches")
+      ;; ("A"   copilot-chat-hydra/body  "Copilot Chat")
+      ("o"   global-org-hydra/body    "Org")
+      ;; ("e"   el-get-hydra/body        "el-get")
+      ;; ("k"   kibela-hydra/body        "Kibela")
+      ;; ("/"   google-pretty-hydra/body "Google")
+      ;; ("t"   subtools-hydra/body      "Sub Tools")
+      )))
 
 (pretty-hydra-define
   global-org-hydra
-  (:separator "="
-   :title "Global Org commands")
+  (:separator "=" :title "Global Org commands")
   ("Main"
-   (("a" org-agenda "Agenda")
-    ("c" org-capture "Capture")
-    ("l" org-store-link "Store link")
-    ("t" my/org-tags-view-only-todo "Tagged Todo")
-    ("F" org-gcal-fetch "Fetch Calendar")
-    ("C" my/open-user-calendar "Calendar"))
-   "Clock"
-   (("i" org-clock-in  "In")
-    ("o" org-clock-out "Out")
-    ("r" org-clock-in-last "Restart")
-    ("x" org-clock-cancel "Cancel")
-    ("j" org-clock-goto "Goto")
-    ("r" org-clock-report "Report"))))
+    (("a" org-agenda "Agenda")
+      ("c" counsel-org-capture "Capture")
+      ("C" org-roam-dailies-capture-today "Capture today")
+      ("l" org-store-link "Store link")
+      ("F" org-roam-node-find "Find")
+      ;; ("t" my/org-tags-view-only-todo "Tagged Todo")
+      ;; ("F" org-gcal-fetch "Fetch Calendar")
+      ;; ("C" my/open-user-calendar "Calendar"))
+      )
+    "Clock"
+    (("i" org-clock-in  "In")
+      ("o" org-clock-out "Out")
+      ("r" org-clock-in-last "Restart")
+      ("x" org-clock-cancel "Cancel")
+      ("j" org-clock-goto "Goto")
+      ("r" org-clock-report "Report"))))
 
 ;;; general
 (use-package eldoc

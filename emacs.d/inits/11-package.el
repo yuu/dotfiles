@@ -173,7 +173,7 @@
   :straight t
   :bind
   (("C-c a" . 'org-agenda)
-   ("C-c c" . 'org-capture))
+    ("C-c c" . 'org-capture))
   :custom-face
   (org-drawer ((t (:foreground "hot pink"))))
   :custom
@@ -218,7 +218,25 @@
   (set-face-attribute 'org-headline-done nil :foreground "#BCE5BC")
   (set-face-attribute 'org-level-1 nil :foreground "#ECBC9C")
   (set-face-attribute 'org-level-2 nil :foreground "#89C5C8")
-  (set-face-attribute 'org-level-3 nil :foreground "#89C5C8"))
+  (set-face-attribute 'org-level-3 nil :foreground "#89C5C8")
+  :mode-hydra
+  (org-mode (:title "Org")
+    ("Insert"
+      (("l" org-insert-link "Link"))
+
+      "Roam"
+      (("i" org-roam-node-insert "Roam Node Insert")
+        ("t" org-roam-buffer-toggle "Toggle Roam Buffer")
+        ("a" org-roam-alias-add "Add Roam Alias"))
+
+      "Edit"
+      (("A" org-archive-subtree "Archive"))
+
+      "View"
+      (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
+        ;; ("D" my/org-clock-toggle-display "Toggle Display")
+        ("L" org-toggle-link-display "Toggle Link Display"))
+      )))
 
 (defun org-find-file (file)
   "open file with org-directory"
