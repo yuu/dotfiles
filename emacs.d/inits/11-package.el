@@ -238,7 +238,13 @@
 
 (use-package org-roam
   :custom
-  (org-roam-directory (file-truename (concat org-directory "roam"))))
+  (org-roam-directory (file-truename (concat org-directory "roam")))
+  (org-roam-capture-templates
+    '(("d" "default" plain "%?"
+        :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                  "#+STARTUP: indent showall\n#+title: ${title}\n")
+        :unnarrowed t)))
+  )
 
 (use-package org-pomodoro
   :custom
