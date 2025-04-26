@@ -232,7 +232,8 @@
   (:map company-active-map
     ("C-n" . company-select-next)
     ("C-p" . company-select-previous)
-    ("TAB" . company-complete-selection))
+    ("TAB" . company-complete-selection)
+    ("C-s" . company-filter-candidates))
   (:map company-search-map
     ("C-n" . company-select-next)
     ("C-p" . company-select-previous))
