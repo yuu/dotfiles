@@ -282,6 +282,7 @@
 
 (use-package org-ai
   :ensure t
+  :after yasnippet
   :commands (org-ai-mode
               org-ai-global-mode)
   :hook ((after-init . (org-ai-global-mode))
