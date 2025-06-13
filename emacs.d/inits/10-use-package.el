@@ -209,26 +209,31 @@
     "Buffer format function that dispatches to the appropriate formatter."
     (interactive)
     (cond
-     ((derived-mode-p 'web-mode 'php-mode 'scss-mode)
-      (refmt-prettier-format-buffer))
-     ((derived-mode-p 'rust-mode)
-      (rust-format-buffer))
-     ((derived-mode-p 'prisma-mode)
-      (refmt-prisma-format-buffer))
-     ;; 他のモードに対するフォーマッタをここに追加
-     (t (message "No formatter defined for this mode."))))
+      ((derived-mode-p 'web-mode 'php-mode 'scss-mode)
+        (refmt-prettier-format-buffer))
+      ((derived-mode-p 'rust-mode)
+        (rust-format-buffer))
+      ((derived-mode-p 'prisma-mode)
+        (refmt-prisma-format-buffer))
+      ((derived-mode-p 'sql-mode)
+        (refmt-sql-format-buffer))
+
+      ;; 他のモードに対するフォーマッタをここに追加
+      (t (message "No formatter defined for this mode."))))
 
   (reformatter-define refmt-prettier-format
     :program "npx"
     :args (let ((filepath (or buffer-file-name (buffer-name))))
             `("prettier" "--stdin-filepath" ,filepath))
-    :lighter "run prettier")
+    :lighter " prettier-auto-fmt")
   (reformatter-define refmt-prisma-format
     :program "npx"
-    :args (let ((filepath (or buffer-file-name (buffer-name))))
-            `("prisma" "format" ,filepath))
-    :lighter "run prisma format")
-)
+    :args `("prisma" "format" ,buffer-file-name)
+    :lighter " prisma-auto-fmt")
+  (reformatter-define refmt-sql-format
+    :program "sleek"
+    :args `()
+    :lighter " sql-auto-fmt"))
 
 ;;; auto complete
 (use-package company
