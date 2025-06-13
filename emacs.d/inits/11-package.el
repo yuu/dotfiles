@@ -348,4 +348,7 @@
   (feature-default-language "ja")
   (feature-i18n-file "~/.local/share/gherkin/gherkin-languages.json"))
 
+(use-package string-inflection
+  :straight (:type git :host github :repo "akicho8/string-inflection"))
+
 ;;; 11-package.el ends here
