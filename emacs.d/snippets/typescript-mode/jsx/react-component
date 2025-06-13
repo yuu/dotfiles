@@ -2,7 +2,7 @@
 # name: react component
 # key: fc
 # --
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 type $1Props = {}
 
