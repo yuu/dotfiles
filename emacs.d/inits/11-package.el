@@ -250,7 +250,16 @@
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-appear-autoemphasis t)
-  (org-appear-autolinks t))
+  (org-appear-autolinks t)
+  (org-bullets-bullet-list
+    '(
+       "◉"
+       "○"
+       "◆"
+       "✿"
+       ;; ♥ ● ◇ ✚ ✜ ☯ ◆ ♠ ♣ ♦ ☢ ❀ ◆ ◖ ▶
+       ;; ► • ★
+       )))
 
 (use-package org-roam
   :custom
