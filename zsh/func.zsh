@@ -57,3 +57,8 @@ _navi_widget() {
 
 zle -N _navi_widget
 bindkey '^xj' _navi_widget
+
+function confirm() {
+  echo -n "Run '$*'? [y/N] "
+  read -q && echo "" && "$@" || echo "Canceled"
+}
