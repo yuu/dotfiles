@@ -185,7 +185,7 @@
     `((,(seq-filter (lambda (file)
                       (not (string-match-p "archive" file)))
           (directory-files-recursively org-directory "\\.org$"))
-        :maxlevel . 2)))
+        :maxlevel . 1)))
   (org-log-done 'time)
   (org-tag-alist '(("meeting" . ?m) ("office" . ?o) ("document" . ?d) ("kitting" . ?k) ("study" . ?s) ("travel" . ?t) ))
   (org-capture-templates
@@ -202,6 +202,7 @@
   (org-hide-emphasis-markers t)
   (org-num-skip-unnumbered t)
   (org-html-validation-link nil)
+  (org-display-remote-inline-images 'cache)
   :config
   (org-babel-do-load-languages
     'org-babel-load-languages
