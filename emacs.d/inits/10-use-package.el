@@ -233,7 +233,11 @@
   (reformatter-define refmt-sql-format
     :program "sleek"
     :args `()
-    :lighter " sql-auto-fmt"))
+    :lighter " sql-auto-fmt")
+  (reformatter-define refmt-ruby-format
+    :program "bundle"
+    :args `("exec", "rubocop", "-a")
+    :lighter " ruby-rubocop-auto-fmt"))
 
 ;;; auto complete
 (use-package company
