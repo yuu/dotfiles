@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: new book
+# key: org book
+# --
+** $1
+:PROPERTIES:
+:author: null
+:platform: paper
+:cycle: null
+:read: null
+:score: null
+:created: `(insert (format-time-string "%Y-%m-%dT%H:%M"))`
+:updated: `(insert (format-time-string "%Y-%m-%dT%H:%M"))`
+:END:
