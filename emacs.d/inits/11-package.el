@@ -296,8 +296,11 @@
               org-ai-global-mode)
   :hook ((after-init . (org-ai-global-mode))
           (org-mode-hook . org-ai-mode))
+  :custom
+  (org-ai-service 'anthropic)
+  (org-ai-default-chat-model "claude-sonnet-4-20250514")
+  (org-ai-default-max-tokens 2000)
   :config
-  (setq org-ai-default-chat-model "gpt-4o-mini")
   (org-ai-install-yasnippets))
 
 (use-package ob-rust
