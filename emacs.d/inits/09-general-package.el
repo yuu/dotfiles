@@ -64,11 +64,8 @@
   :ensure nil
   :straight nil
   :bind (:map dired-mode-map
-          ("h" . dired-up-directory)
-          ("l" . dired-find-file)
-          ("J" . dired-goto-file)
-          ("j" . dired-next-line)
-          ("k" . dired-previous-line))
+          ("C-u" . dired-up-directory)
+          ("J" . dired-goto-file))
   :custom
   (dired-listing-switches "-alh"))
 

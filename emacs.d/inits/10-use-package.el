@@ -565,4 +565,11 @@
   :config
   (setq inferior-lisp-program "sbcl"))
 
+(use-package eww
+  :bind (:map eww-mode-map
+          ("n" . scroll-up)
+          ("p" . scroll-down)
+          ("N" . eww-next-url)
+          ("P" . eww-previous-url)))
+
 ;;; 10-use-package.el ends here
