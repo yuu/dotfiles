@@ -310,6 +310,16 @@
          (rust . t)
          ))))
 
+(use-package ob-mermaid
+  :after org
+  :config
+  (org-babel-do-load-languages
+    'org-babel-load-languages
+    (append org-babel-load-languages
+      '(
+         (mermaid . t)
+         ))))
+
 (use-package ox-gfm
   :straight (:host github :repo "yuu/ox-gfm"))
 
