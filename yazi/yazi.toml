@@ -1,6 +1,6 @@
 # https://github.com/sxyazi/yazi/blob/v0.3.3/yazi-config/preset/yazi.toml
 
-[manager]
+[mgr]
 show_hidden = false
 
 [opener]
