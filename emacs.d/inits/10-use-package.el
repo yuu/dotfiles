@@ -388,6 +388,9 @@
   :hook
   (terraform-mode-hook . terraform-format-on-save-mode))
 
+(use-package rego-mode
+  :ensure t)
+
 ;;; cpp lang
 (use-package modern-cpp-font-lock
   :defer t
