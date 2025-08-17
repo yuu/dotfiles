@@ -181,6 +181,7 @@ automatically-unhide-macos-hidden-apps = true
     j = 'resize height +50'
     k = 'resize height -50'
     l = 'resize width +50'
+    r = ['balance-sizes', 'mode main']
     enter = 'mode main'
     esc = 'mode main'
 
