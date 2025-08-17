@@ -43,6 +43,16 @@ indent_size = 2
 [*.json]
 indent_size = 2
 
+[*.rego]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+indent_style = tab
+indent_size = 4
+
+[*.kdl]
+indent_size = 2
+
 [*.{c,h,cpp,hpp,cc,hh}]
 indent_size = 4
 max_line_length = 120
