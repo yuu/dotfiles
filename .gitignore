@@ -5,4 +5,5 @@ emacs.d/el-get
 emacs.d/elpa
 emacs.d/history
 *.elc
-yazi/plugins
+config/yazi/plugins
+config/navi/navi.log

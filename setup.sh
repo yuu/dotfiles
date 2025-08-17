@@ -40,12 +40,12 @@ for i in $(command ls emacs.d |grep -v versions); do echo $i; ln -s $A/$i $B/; d
 ln -s $A/versions $B/straight
 
 # terminal
-A=~/dotfiles/wezterm
+A=~/dotfiles/config/wezterm
 B=$XDG_CONFIG_HOME/wezterm
 ln -s $A $B
 
 # yazi
-A=~/dotfiles/yazi
+A=~/dotfiles/config/yazi
 B=$XDG_CONFIG_HOME/yazi
 ln -s $A $B
 
