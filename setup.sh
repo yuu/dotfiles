@@ -49,6 +49,11 @@ A=~/dotfiles/yazi
 B=$XDG_CONFIG_HOME/yazi
 ln -s $A $B
 
+# aerospace
+A=~/dotfiles/config/aerospace
+B=$XDG_CONFIG_HOME/aerospace
+ln -s $A $B
+
 # other
 A=~/dotfiles
 ln -s $A/peco $XDG_CONFIG_HOME/peco
