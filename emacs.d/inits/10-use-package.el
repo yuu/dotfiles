@@ -388,6 +388,9 @@
 (use-package dockerfile-mode)
 (use-package graphql-mode)
 
+(use-package kdl-mode
+  :straight (:host github :repo "taquangtrung/emacs-kdl-mode" :branch "main"))
+
 (use-package terraform-mode
   :hook
   (terraform-mode-hook . terraform-format-on-save-mode))
