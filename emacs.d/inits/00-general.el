@@ -19,6 +19,7 @@
 ;; (use-cjk-char-width-table 'ja_JP)
 
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
 
 (put 'downcase-region 'disabled nil)
 
