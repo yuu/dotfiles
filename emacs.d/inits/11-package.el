@@ -179,8 +179,12 @@
   :custom
   (org-directory (expand-file-name "~/.local/notes/"))
   (org-default-notes-file (concat org-directory "notes.org"))
-  (org-agenda-files (directory-files-recursively org-directory "\\.org$"))
+  (org-agenda-files (seq-filter (lambda (file)
+                                   (not (or (string-match-p "_archive\\.org$" file)
+                                            (string-match-p "/roam/" file))))
+                                 (directory-files-recursively org-directory "\\.org$")))
   (org-outline-path-complete-in-steps nil)
+  (org-archive-location "%s_archive.org::")
   (org-refile-targets
     `((,(seq-filter (lambda (file)
                       (not (string-match-p "archive" file)))
