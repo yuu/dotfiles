@@ -52,6 +52,7 @@ indent_size = 4
 
 [*.kdl]
 indent_size = 2
+tab_width = 2
 
 [*.{c,h,cpp,hpp,cc,hh}]
 indent_size = 4
