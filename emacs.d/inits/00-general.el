@@ -76,11 +76,6 @@
 (global-unset-key (kbd "C-h C-n")) ;view-emacs-news
 (global-unset-key (kbd "C-x ;"))
 
-(global-set-key (kbd "M-h") 'windmove-left)
-(global-set-key (kbd "M-j") 'windmove-down)
-(global-set-key (kbd "M-k") 'windmove-up)
-(global-set-key (kbd "M-l") 'windmove-right)
-
 (keyboard-translate ?\C-h ?\C-?)
 (keymap-global-set "C-h" nil)
 
