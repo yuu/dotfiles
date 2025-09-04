@@ -12,19 +12,25 @@
 (use-package smart-mode-line
   :init
   (setq sml/theme 'light)
-  (setq sml/no-confirm-load-theme t)
-  (sml/setup))
+  (setq sml/no-confirm-load-theme t))
 
 (use-package minions
-  :hook (after-init. minions-mode)
+  :hook (after-init . minions-mode)
   :config
   (setq minions-mode-line-lighter "[+]"))
 
 ;;;; theme
 (use-package hc-zenburn-theme
   :config
-  (load-theme 'hc-zenburn t)
-  (set-face-background 'region "#696969"))
+  ;; (load-theme 'hc-zenburn t)
+  ;; (set-face-background 'region "#696969")
+)
+
+(use-package ef-themes
+  :config
+  (add-hook 'ef-themes-post-load-hook 'sml/setup)
+  (add-to-list 'custom-theme-load-path (expand-file-name "themes" user-emacs-directory))
+  (ef-themes-select 'ef-hc-zenburn))
 
 (use-package whitespace
   :straight (:type built-in)
