@@ -260,4 +260,17 @@
               :action (lambda (file)
                         (find-file (expand-file-name file default-directory))))))
 
+(defalias 'what-face 'describe-text-properties)
+
+(defun project-buffer-file-name-path ()
+  (if-let* ((pr (project-current))
+            (root (project-root pr))
+            (file buffer-file-name))
+      (file-relative-name file root)
+    (user-error "No project or file associated.")))
+
+(defun project-copy-buffer-file-name-path ()
+  (interactive)
+  (kill-new (project-buffer-file-name-path)))
+
 ;;; 90-util.el ends here
