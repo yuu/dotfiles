@@ -223,6 +223,12 @@
   (set-face-attribute 'org-level-1 nil :foreground "#ECBC9C")
   (set-face-attribute 'org-level-2 nil :foreground "#89C5C8")
   (set-face-attribute 'org-level-3 nil :foreground "#89C5C8")
+  (dolist (pair '(
+                   ("ts" . typescript-ts)
+                   ("tsx" . tsx-ts)
+                   ))
+    (setf (alist-get (car pair) org-src-lang-modes nil nil #'string=)
+      (cdr pair)))
   :mode-hydra
   (org-mode (:title "Org")
     ("Insert"
