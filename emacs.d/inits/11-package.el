@@ -2,10 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(straight-use-package '(hl-todo :type git :host github :repo "tarsius/hl-todo"))
 (use-package hl-todo
   :defer t
-  :ensure nil
+  :straight (:type git :host github :repo "tarsius/hl-todo")
   :custom
   (hl-todo-keyword-faces
     '(("TODO"   . "#FF0000")

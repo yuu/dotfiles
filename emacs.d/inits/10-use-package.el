@@ -62,7 +62,7 @@
 
 (straight-use-package '(ivy-ghq :type git :host github :repo "analyticd/ivy-ghq"))
 (use-package ivy-ghq
-  :ensure nil
+  :straight (:type git :host github :repo "analyticd/ivy-ghq")
   :after counsel
   :commands (ghq ivy-ghq-open)
   :config
@@ -149,7 +149,7 @@
 ;;; general
 (use-package eldoc
   :defer t
-  :ensure nil
+  :straight (:type built-in)
   :diminish eldoc-mode
   :config
   (defun ad:eldoc-message (f &optional string)

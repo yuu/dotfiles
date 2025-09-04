@@ -27,7 +27,7 @@
   (set-face-background 'region "#696969"))
 
 (use-package whitespace
-  :ensure nil
+  :straight (:type built-in)
   :defer t
   :commands whitespace-mode
   :config
@@ -52,7 +52,7 @@
   (set-face-underline  'whitespace-tab t))
 
 (use-package paren
-  :ensure nil
+  :straight (:type built-in)
   :hook
   (after-init . show-paren-mode)
   (after-init . electric-pair-mode)
