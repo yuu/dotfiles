@@ -60,7 +60,6 @@
 ;;   ;; commands other than xref-find-definitions (e.g. project-find-regexp) as well
 ;;   (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
-(straight-use-package '(ivy-ghq :type git :host github :repo "analyticd/ivy-ghq"))
 (use-package ivy-ghq
   :straight (:type git :host github :repo "analyticd/ivy-ghq")
   :after counsel
@@ -109,10 +108,10 @@
 
     "View"
     (("D" delete-other-windows      "Only This Win")
-      ;; ("W" window-control-hydra/body "Window Control")
-      ;; ("+" text-scale-hydra/body     "Text Scale")
-      ("w" ace-swap-window           "Swap Window"))
-
+      ("h" windmove-left "focus left")
+      ("j" windmove-down "focus down")
+      ("k" windmove-up "focus up")
+      ("l" windmove-right "focus right"))
     "Tool"
     (("SPC" major-mode-hydra         "Hydra(Major)")
       ;; ("h"   my/project-hydra         "Hydra(Project)")
@@ -177,6 +176,69 @@
        (:remove  . ("%e")))
     :default "c++"))
 
+;;; General Syntax
+(use-package treesit
+  :straight (:type built-in)
+  :custom
+  (treesit-font-lock-level 4)
+  :config
+  (dolist (mapping
+            '(
+               (sh-mode . bash-ts-mode)
+               (sh-base-mode . bash-ts-mode)
+               (js-json-mode json-ts-mode)
+               (yaml-mode yaml-ts-mode) ; via nothing
+               (conf-toml-mode . toml-ts-mode)
+               (c-mode . c-ts-mode)
+               (c++-mode . c++-ts-mode)
+               (c-or-c++-mode . c-or-c++-ts-mode)
+               (css-mode . css-ts-mode)
+               (html-mode . html-ts-mode)
+               (js-mode . js-ts-mode)
+               (python-mode . python-ts-mode)
+               (ruby-mode . ruby-ts-mode)
+               ))
+    (add-to-list 'major-mode-remap-alist mapping)))
+
+(defun treesit/setup-install-grammars ()
+  "Install tree-sitter grammmars"
+  "interactive"
+  (dolist (grammar
+            '(
+               (bash "https://github.com/tree-sitter/tree-sitter-bash") ; version mismatch
+               (json "https://github.com/tree-sitter/tree-sitter-json")
+               (yaml "https://github.com/ikatyang/tree-sitter-yaml")
+               (toml "https://github.com/tree-sitter/tree-sitter-toml")
+               (kdl "https://github.com/tree-sitter-grammars/tree-sitter-kdl")
+               (cmake "https://github.com/uyha/tree-sitter-cmake")
+               (dockerfile "https://github.com/camdencheek/tree-sitter-dockerfile")
+               (typespec "https://github.com/happenslol/tree-sitter-typespec")
+               (c "https://github.com/tree-sitter/tree-sitter-c") ; version mismatch
+               (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+               (rust "https://github.com/tree-sitter/tree-sitter-rust") ; version mismatch
+               (haskell "https://github.com/tree-sitter/tree-sitter-haskell")
+               (css "https://github.com/tree-sitter/tree-sitter-css")
+               (html "https://github.com/tree-sitter/tree-sitter-html")
+               (javascript "https://github.com/tree-sitter/tree-sitter-javascript")
+               (jsdoc "https://github.com/tree-sitter/tree-sitter-jsdoc")
+               (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.23.2" "tsx/src"))
+               (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "v0.23.2" "typescript/src"))
+               (prisma "https://github.com/victorhqc/tree-sitter-prisma")
+               (python "https://github.com/tree-sitter/tree-sitter-python")
+               (ruby "https://github.com/tree-sitter/tree-sitter-ruby")
+               (php . ("https://github.com/tree-sitter/tree-sitter-php" "v0.24.2" "php/src")) ; version mismatch
+               (phpdoc "https://github.com/claytonrcarter/tree-sitter-phpdoc")
+               ))
+    (add-to-list 'treesit-language-source-alist grammar)
+    ;; Only install `grammar' if we don't already have it
+    ;; installed. However, if you want to *update* a grammar then
+    ;; this obviously prevents that from happening.
+    (unless (treesit-language-available-p (car grammar))
+      (treesit-install-language-grammar (car grammar))))
+  )
+;; (treesit/setup-install-grammars)
+
+;;; Linter / Formatter
 (use-package flycheck
   :defer t
   :init
@@ -209,7 +271,7 @@
     "Buffer format function that dispatches to the appropriate formatter."
     (interactive)
     (cond
-      ((derived-mode-p 'web-mode 'php-mode 'scss-mode)
+      ((derived-mode-p 'web-mode 'typescript-ts-mode 'tsx-ts-mode 'php-mode 'scss-mode)
         (refmt-prettier-format-buffer))
       ((derived-mode-p 'rust-mode)
         (rust-format-buffer))
@@ -266,11 +328,10 @@
 ;;; lsp
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
   :bind
   (:map lsp-mode ("C-c u d" . lsp-ui-doc-toggle))
   :custom
+  (lsp-keymap-prefix "C-c l")
   ;; debug
   (lsp-print-io nil)
   (lsp-trace nil)
@@ -286,11 +347,6 @@
   (lsp-warn-no-matched-clients nil)
   (lsp-restart 'ignore)
   :config
-  (add-hook 'web-mode-hook 'lsp-deferred)
-  (add-hook 'rust-mode-hook 'lsp-deferred)
-  (add-hook 'ruby-mode-hook 'lsp-deferred)
-  (add-hook 'php-mode-hook 'lsp-deferred)
-
   (add-to-list 'lsp-language-id-configuration '(web-mode . "twig"))
   (lsp-dependency 'twiggy-language-server
     '(:system "twiggy-language-server")
@@ -324,13 +380,7 @@
       :server-id 'php-lsp
       :download-server-fn (lambda (_client callback error-callback _update?)
                             (lsp-package-ensure 'intelephense-language-server
-                              callback error-callback))))
-)
-
-(use-package lsp-docker
-  :custom
-  (lsp-docker-log-docker-supplemental-calls t)
-)
+                              callback error-callback)))))
 
 (use-package lsp-ui
   :hook ((lsp-mode-hook . lsp-ui-mode))
@@ -339,11 +389,13 @@
     ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
     ([remap xref-find-references] . lsp-ui-peek-find-references)))
 
+;;; Debugger
 (use-package dap-mode
   :config
   (dap-mode 1)
   (dap-auto-configure-mode 1))
 
+;;; AI
 (use-package copilot
   :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))
   :ensure t
@@ -370,26 +422,45 @@
   ("\\.plantuml\\'" . plantuml-mode))
   :custom
   (plantuml-default-exec-mode 'jar)
-  (plantuml-indent-level 2)
-)
-
-(use-package mermaid-mode
-  :after org)
+  (plantuml-indent-level 2))
 
 (use-package flycheck-plantuml
   :hook
   (plantuml-mode . flycheck-plantuml-setup)
   (plantuml-mode . flycheck-mode))
 
-(use-package toml-mode)
-(use-package yaml-mode)
-(use-package json-mode)
-(use-package csv-mode)
-(use-package dockerfile-mode)
-(use-package graphql-mode)
+(use-package mermaid-mode
+  :after org)
+
+(use-package json-ts-mode
+  :straight (:type built-in)
+  :mode (("\\.json\\'" . json-ts-mode)))
+
+(use-package yaml-ts-mode
+  :straight (:type built-in)
+  :mode (("\\.yml\\'" . yaml-ts-mode)
+          ("\\.yaml\\'" . yaml-ts-mode)))
+
+(use-package toml-ts-mode
+  :straight (:type built-in)
+  :mode (("\\.toml\\'" . toml-ts-mode)))
 
 (use-package kdl-mode
   :straight (:host github :repo "taquangtrung/emacs-kdl-mode" :branch "main"))
+
+(use-package csv-mode)
+
+;;; docker
+(use-package dockerfile-ts-mode
+  :straight nil
+  :mode (("[/\\]\\(?:Containerfile\\|Dockerfile\\)\\(?:\\.[^/\\]*\\)?\\'" . dockerfile-ts-mode)
+          ("\\.dockerfile\\'" . dockerfile-ts-mode)))
+
+(use-package lsp-docker
+  :custom
+  (lsp-docker-log-docker-supplemental-calls t))
+
+(use-package graphql-mode)
 
 (use-package terraform-mode
   :hook
@@ -397,6 +468,8 @@
 
 (use-package rego-mode
   :ensure t)
+
+(use-package typespec-ts-mode)
 
 ;;; cpp lang
 (use-package modern-cpp-font-lock
@@ -416,11 +489,11 @@
 
 ;;; rust lang
 (use-package rust-mode
-  :defer t
-  :hook (rust-mode . lsp)
+  :hook ((rust-mode . lsp-deferred))
+  ;; :custom
+  ;; (rust-mode-treesitter-derive t)
   :config
-  (define-key rust-mode-map (kbd "C-c C-f") nil)
-)
+  (define-key rust-mode-map (kbd "C-c C-f") nil))
 
 (use-package cargo
   :defer t
@@ -448,13 +521,6 @@
   ("C-c C-p". web-mode-element-beginning)
   :mode
   ("\\.html\\'" . web-mode)
-  ("\\.js\\'" . web-mode)
-  ("\\.mjs\\'" . web-mode)
-  ("\\.cjs\\'" . web-mode)
-  ("\\.jsx\\'" . web-mode)
-  ("\\.tsx\\'" . web-mode)
-  ("\\.ts\\'" . web-mode)
-  ("\\.d.ts\\'" . web-mode)
   ("\\.erb\\'" . web-mode)
   ("\\.twig\\'" . web-mode)
   :config
@@ -501,9 +567,44 @@
   :after web-mode
   :hook (web-mode . emmet-mode))
 
-;(use-package lsp-tailwindcss
-;  :straight (:host github :repo "merrickluo/lsp-tailwindcss" :files ("*.el"))
-;  :ensure t)
+(use-package js-ts-mode
+  :straight nil
+  :hook (typescript-ts-mode . lsp-deferred))
+
+(use-package jsdoc
+  :straight (:host github :repo "isamert/jsdoc.el"))
+
+(use-package typescript-ts-mode
+  :straight nil
+  :mode (("\\.m?ts\\'" . typescript-ts-mode))
+  :hook (typescript-ts-mode . lsp-deferred))
+
+(use-package tsx-ts-mode
+  :straight nil
+  ;; :mode (("\\.tsx\\'" . tsx-ts-mode))
+  :hook (tsx-ts-mode . lsp-deferred))
+
+(use-package tsx-ts-helper-mode
+  :straight (tsx-ts-helper-mode
+             :type git
+             :host codeberg
+             :repo "ckruse/tsx-ts-helper-mode")
+  :commands (tsx-ts-helper-mode)
+  :hook (tsx-ts-mode . tsx-ts-helper-mode))
+
+(use-package lsp-tailwindcss
+  :straight '(lsp-tailwindcss :type git :host github :repo "merrickluo/lsp-tailwindcss")
+  :init (setq lsp-tailwindcss-add-on-mode t)
+  :config
+  (dolist (tw-major-mode
+            '(css-mode
+               css-ts-mode
+               js-ts-mode
+               typescript-mode
+               typescript-ts-mode
+               tsx-ts-mode
+               clojure-mode))
+    (add-to-list 'lsp-tailwindcss-major-modes tw-major-mode)))
 
 ;; See: https://qiita.com/watson1978/items/debafdfc49511fb173e9
 (flycheck-define-checker ruby-rubocop
@@ -523,9 +624,6 @@
 ;;   (ruby-mode-hook . (lambda () (setq flycheck-checker 'ruby-rubocop)))
 ;; )
 
-(use-package js-doc
-  :defer t)
-
 ;; (straight-use-package '(compile-eslint :type git :host github :repo "Fuco1/compile-eslint"))
 ;; (use-package compile-eslint
 ;;   :ensure nil
@@ -536,12 +634,15 @@
 ;; (use-package vtl-mode :defer t)
 
 ;;; php
-(use-package php-mode
-  :defer t
-  :config
-  (define-key php-mode-map (kbd "C-c C-f") nil)
-  (define-key php-mode-map (kbd "C-c RET") nil)
-)
+(use-package php-ts-mode
+  :straight (:type built-in)
+  :hook ((php-ts-mode . lsp-deferred)))
+;; (use-package php--mode
+;;   :defer t
+;;   :config
+;;   (define-key php-mode-map (kbd "C-c C-f") nil)
+;;   (define-key php-mode-map (kbd "C-c RET") nil)
+;; )
 
 (use-package flycheck-phpstan)
 
@@ -556,12 +657,10 @@
 
 (use-package protobuf-mode)
 
-(use-package ruby-mode
-  :ensure nil
-  :straight nil
-  :mode
-  ("db/schemas/.*\\.schema\\'" . ruby-mode)
-)
+(use-package ruby-ts-mode
+  :straight (:type built-in)
+  :mode (("db/schemas/.*\\.schema\\'" . ruby-ts-mode))
+  :hook (ruby-ts-mode . lsp-deferred))
 
 (use-package conf-mode
   :defer t
