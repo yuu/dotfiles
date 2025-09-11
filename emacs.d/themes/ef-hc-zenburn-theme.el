@@ -348,9 +348,27 @@
       (custom-theme-set-faces
         'ef-hc-zenburn
         `(git-commit-summary        ((,c :foreground "#DCDCCC"))) ; fg-main
+;;;;; magit
         `(magit-section-heading     ((,c :foreground "#FDECBC" :weight bold))) ; yellow
         `(magit-diff-file-heading   ((,c :foreground "#DCDCCC"))) ; fg-main
+;;;;; grep
+        `(grep-context-face ((,c :foreground "#DCDCCC"))) ; fg-main
+        `(grep-error-face ((,c :foreground "#D9A0A0" :weight bold :underline t)))
+        `(grep-hit-face ((,c :foreground "#99DDE0")))
+        `(grep-match-face ((,c :foreground "#ECBC9C" :weight bold)))
+        `(match ((,c :background "#3E3E3E" :foreground "#ECBC9C" :weight bold)))
         )))
+
+;; (defface rg-match-face `((t :inherit ,grep-match-face))
+;; (defface rg-error-face `((t :inherit ,grep-error-face))
+;; (defface rg-context-face `((t :inherit ,grep-context-face))
+;; (defface rg-info-face '((t :inherit compilation-info))
+;; (defface rg-warning-face '((t :inherit compilation-warning))
+;; (defface rg-filename-face '((t :inherit rg-info-face))
+;; (defface rg-file-tag-face '((t :inherit rg-info-face))
+;; (defface rg-line-number-face '((t :inherit compilation-line-number))
+;; (defface rg-column-number-face '((t :inherit compilation-column-number))
+;; (defface rg-match-position-face '((t :inherit default))
 
   (ef-themes-theme ef-hc-zenburn ef-hc-zenburn-palette)
 
