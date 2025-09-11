@@ -25,7 +25,7 @@ fi
 
 # zsh
 echo_blue link: zsh
-A=~/dotfiles/zsh
+A=~/dotfiles/config/zsh
 B=$XDG_CONFIG_HOME/zsh
 mkdir -p $B
 ln -s $A/* $B/
