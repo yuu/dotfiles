@@ -49,16 +49,16 @@
 (use-package counsel-projectile
   :hook ((after-init . counsel-projectile-mode)))
 
-;; (use-package ivy-xref
-;;   :defer t
-;;   :custom
-;;   (xref-show-xrefs-function 'ivy-xref-show-xrefs)
-;;   :init
-;;   (when (>= emacs-major-version 27)
-;;     (setq xref-show-definitions-function 'ivy-xref-show-defs))
-;;   ;; Necessary in Emacs <27. In Emacs 27 it will affect all xref-based
-;;   ;; commands other than xref-find-definitions (e.g. project-find-regexp) as well
-;;   (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
+(use-package ivy-xref
+  :defer t
+  :custom
+  (xref-show-xrefs-function 'ivy-xref-show-xrefs)
+  :init
+  (when (>= emacs-major-version 27)
+    (setq xref-show-definitions-function 'ivy-xref-show-defs))
+  ;; Necessary in Emacs <27. In Emacs 27 it will affect all xref-based
+  ;; commands other than xref-find-definitions (e.g. project-find-regexp) as well
+  (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
 (use-package ivy-ghq
   :straight (:type git :host github :repo "analyticd/ivy-ghq")
