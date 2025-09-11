@@ -13,7 +13,7 @@ XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}
 
 # git
 echo_blue link: git
-A=~/dotfiles/git
+A=~/dotfiles/config/git
 B=$XDG_CONFIG_HOME/git
 mkdir -p $B
 ln -fs $A/config $B/config
