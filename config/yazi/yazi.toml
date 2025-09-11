@@ -6,6 +6,8 @@ show_hidden = false
 [opener]
 play = [
   { run = 'vlc "$@"', orphan = true, desc = "VLC", for = "unix" },
+  { run = 'mpv --no-video "$@"', orphan = true, desc = "MVP Audio", for = "unix" },
+  { run = 'mpv "$@"', orphan = true, desc = "MVP", for = "unix" },
   { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 edit = [
