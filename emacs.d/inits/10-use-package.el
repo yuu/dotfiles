@@ -205,7 +205,7 @@
   "interactive"
   (dolist (grammar
             '(
-               (bash "https://github.com/tree-sitter/tree-sitter-bash") ; version mismatch
+               (bash "https://github.com/tree-sitter/tree-sitter-bash" "v0.23.3")
                (json "https://github.com/tree-sitter/tree-sitter-json")
                (yaml "https://github.com/ikatyang/tree-sitter-yaml")
                (toml "https://github.com/tree-sitter/tree-sitter-toml")
@@ -213,9 +213,9 @@
                (cmake "https://github.com/uyha/tree-sitter-cmake")
                (dockerfile "https://github.com/camdencheek/tree-sitter-dockerfile")
                (typespec "https://github.com/happenslol/tree-sitter-typespec")
-               (c "https://github.com/tree-sitter/tree-sitter-c") ; version mismatch
+               (c "https://github.com/tree-sitter/tree-sitter-c" "v0.23.6")
                (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
-               (rust "https://github.com/tree-sitter/tree-sitter-rust") ; version mismatch
+               (rust "https://github.com/tree-sitter/tree-sitter-rust" "v0.23.3")
                (haskell "https://github.com/tree-sitter/tree-sitter-haskell")
                (css "https://github.com/tree-sitter/tree-sitter-css")
                (html "https://github.com/tree-sitter/tree-sitter-html")
@@ -226,7 +226,7 @@
                (prisma "https://github.com/victorhqc/tree-sitter-prisma")
                (python "https://github.com/tree-sitter/tree-sitter-python")
                (ruby "https://github.com/tree-sitter/tree-sitter-ruby")
-               (php . ("https://github.com/tree-sitter/tree-sitter-php" "v0.24.2" "php/src")) ; version mismatch
+               (php . ("https://github.com/tree-sitter/tree-sitter-php" "v0.23.12" "php/src"))
                (phpdoc "https://github.com/claytonrcarter/tree-sitter-phpdoc")
                ))
     (add-to-list 'treesit-language-source-alist grammar)
@@ -236,7 +236,6 @@
     (unless (treesit-language-available-p (car grammar))
       (treesit-install-language-grammar (car grammar))))
   )
-;; (treesit/setup-install-grammars)
 
 ;;; Linter / Formatter
 (use-package flycheck
