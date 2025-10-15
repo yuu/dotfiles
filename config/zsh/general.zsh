@@ -7,6 +7,11 @@ HISTFILE=~/.zsh_history
 HISTSIZE=20000
 SAVEHIST=20000
 
+zshaddhistory() {
+    local line="${1%%$'\n'}"
+    [[ ! "$line" =~ "^(cd|la|ll|ls|rm|rmdir)($| )" ]]
+}
+
 bindkey -e
 bindkey '^W' kill-region
 bindkey \^U backward-kill-line
