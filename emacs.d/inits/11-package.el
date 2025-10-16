@@ -344,8 +344,9 @@
 (use-package yeetube
   :straight (:repo "https://codeberg.org/thanosapollo/emacs-yeetube.git")
   :init (define-prefix-command 'my/yeetube-map)
-  :config
-  (setq yeetube-mpv-disable-video t)
+  :custom
+  (yeetube-results-limit  50)
+  (yeetube-mpv-additional-flags '("--no-video"))
   :bind (("C-c y" . 'my/yeetube-map)
           :map my/yeetube-map
 	  ("s" . 'yeetube-search)
