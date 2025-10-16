@@ -644,12 +644,15 @@
 (use-package php-ts-mode
   :straight (:type built-in)
   :hook ((php-ts-mode . lsp-deferred)))
-;; (use-package php--mode
-;;   :defer t
-;;   :config
-;;   (define-key php-mode-map (kbd "C-c C-f") nil)
-;;   (define-key php-mode-map (kbd "C-c RET") nil)
-;; )
+
+(use-package php-mode
+  :defer t
+  :config
+  (define-key php-mode-map (kbd "C-c C-f") nil)
+  (define-key php-mode-map (kbd "C-c C-r") nil)
+  (define-key php-mode-map (kbd "C-c .") nil)
+  (define-key php-mode-map (kbd "C-.") nil)
+)
 
 (use-package flycheck-phpstan)
 
