@@ -210,7 +210,7 @@
 
 (defun treesit/setup-install-grammars ()
   "Install tree-sitter grammmars"
-  "interactive"
+  (interactive)
   (dolist (grammar
             '(
                (bash "https://github.com/tree-sitter/tree-sitter-bash" "v0.23.3")
