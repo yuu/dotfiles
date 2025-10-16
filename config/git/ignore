@@ -8,3 +8,5 @@ GTAGS
 .env*
 *.~undo-tree~
 .dir-locals.el
+
+**/.claude/settings.local.json
