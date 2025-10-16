@@ -588,7 +588,7 @@
 
 (use-package tsx-ts-mode
   :straight nil
-  ;; :mode (("\\.tsx\\'" . tsx-ts-mode))
+  :mode (("\\.tsx\\'" . tsx-ts-mode))
   :hook (tsx-ts-mode . lsp-deferred))
 
 (use-package tsx-ts-helper-mode
