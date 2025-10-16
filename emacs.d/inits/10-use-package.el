@@ -51,6 +51,8 @@
 
 (use-package ivy-xref
   :defer t
+  :bind
+  ("M-m" . my/xref-push-marker-stack)
   :custom
   (xref-show-xrefs-function 'ivy-xref-show-xrefs)
   :init
@@ -58,7 +60,13 @@
     (setq xref-show-definitions-function 'ivy-xref-show-defs))
   ;; Necessary in Emacs <27. In Emacs 27 it will affect all xref-based
   ;; commands other than xref-find-definitions (e.g. project-find-regexp) as well
-  (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
+  (setq xref-show-xrefs-function 'ivy-xref-show-xrefs)
+  :config
+  (defun my/xref-push-marker-stack ()
+    "push xref marker"
+    (interactive)
+    (xref-push-marker-stack))
+)
 
 (use-package ivy-ghq
   :straight (:type git :host github :repo "analyticd/ivy-ghq")
