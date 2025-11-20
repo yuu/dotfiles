@@ -157,6 +157,7 @@ automatically-unhide-macos-hidden-apps = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
+    enter = 'mode main'
     r = ['flatten-workspace-tree', 'mode main'] # reset layout
     f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
     backspace = ['close-all-windows-but-current', 'mode main']
@@ -188,11 +189,12 @@ automatically-unhide-macos-hidden-apps = true
 
 [[on-window-detected]]
     if.app-id = 'com.tinyspeck.slackmacgap'
-    run = "move-node-to-workspace 2"
+    run = 'move-node-to-workspace 2'
 
+# outlook
 [[on-window-detected]]
     if.app-id = 'com.google.Chrome.app.faolnafnngnfdaknnbpnkhgohbobgegn'
-    run = "move-node-to-workspace 2"
+    run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
     if.app-name-regex-substring = 'Google Chrome'
