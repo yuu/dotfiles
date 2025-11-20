@@ -41,6 +41,8 @@ return {
     { key = 'x', mods = 'LEADER', action = act.CloseCurrentTab{ confirm = true } },
     { key = 'l', mods = 'LEADER|CTRL', action = act.ActivateTabRelative(1) },
     { key = 'h', mods = 'LEADER|CTRL', action = act.ActivateTabRelative(-1) },
+    { key = '{', mods = 'SHIFT|ALT', action = act.MoveTabRelative(-1) },
+    { key = '}', mods = 'SHIFT|ALT', action = act.MoveTabRelative(1) },
 
     -- panel move
     { key = '\\', mods = 'LEADER', action = act.SplitHorizontal {domain = 'CurrentPaneDomain'} },
