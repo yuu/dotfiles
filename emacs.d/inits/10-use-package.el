@@ -699,4 +699,13 @@
           ("N" . eww-next-url)
           ("P" . eww-previous-url)))
 
+(use-package compile
+  :straight (:type built-in)
+  :config
+  (add-to-list 'compilation-error-regexp-alist-alist
+    '(biome
+       "^\\([^ \n]+\\):\\([0-9]+\\):\\([0-9]+\\) lint/"
+       1 2 3))
+  (add-to-list 'compilation-error-regexp-alist 'biome))
+
 ;;; 10-use-package.el ends here
