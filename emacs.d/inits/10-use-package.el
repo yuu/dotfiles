@@ -446,7 +446,10 @@
 
 (use-package json-ts-mode
   :straight (:type built-in)
-  :mode (("\\.json\\'" . json-ts-mode)))
+  :mode (
+         ("\\.json?\\'" . json-ts-mode)
+         ("\\.jsonl?\\'" . json-ts-mode)
+         ("\\.jsonc?\\'" . json-ts-mode)))
 
 (use-package yaml-ts-mode
   :straight (:type built-in)
@@ -580,19 +583,22 @@
   :hook (web-mode . emmet-mode))
 
 (use-package js-ts-mode
-  :straight nil
-  :hook (typescript-ts-mode . lsp-deferred))
+  :straight (:type built-in)
+  :mode (("\\.js\\'" . js-ts-mode)
+         ("\\.mjs\\'" . js-ts-mode)
+         ("\\.cjs\\'" . js-ts-mode))
+  :hook (js-ts-mode . lsp-deferred))
 
 (use-package jsdoc
   :straight (:host github :repo "isamert/jsdoc.el"))
 
 (use-package typescript-ts-mode
-  :straight nil
+  :straight (:type built-in)
   :mode (("\\.m?ts\\'" . typescript-ts-mode))
   :hook (typescript-ts-mode . lsp-deferred))
 
 (use-package tsx-ts-mode
-  :straight nil
+  :straight (:type built-in)
   :mode (("\\.tsx\\'" . tsx-ts-mode))
   :hook (tsx-ts-mode . lsp-deferred))
 
