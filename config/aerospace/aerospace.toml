@@ -210,3 +210,8 @@ automatically-unhide-macos-hidden-apps = true
     if.app-name-regex-substring = 'Google Chrome'
     if.window-title-regex-substring = "Who's using Chrome?"
     run = ['layout floating']
+
+[[on-window-detected]]
+    if.app-name-regex-substring = '1Password'
+    if.window-title-regex-substring = '.*? — number — 1Password'
+    run = ['layout floating']
