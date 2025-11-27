@@ -278,8 +278,8 @@
     "Buffer format function that dispatches to the appropriate formatter."
     (interactive)
     (cond
-      ((derived-mode-p 'web-mode 'typescript-ts-mode 'tsx-ts-mode 'php-mode 'scss-mode)
-        (refmt-prettier-format-buffer))
+      ((derived-mode-p 'web-mode 'typescript-ts-mode 'tsx-ts-mode 'php-mode 'scss-mode 'json-ts-mode)
+        (refmt-biome-format-buffer))
       ((derived-mode-p 'rust-mode)
         (rust-format-buffer))
       ((derived-mode-p 'prisma-mode)
@@ -295,6 +295,11 @@
     :args (let ((filepath (or buffer-file-name (buffer-name))))
             `("prettier" "--stdin-filepath" ,filepath))
     :lighter " prettier-auto-fmt")
+  (reformatter-define refmt-biome-format
+    :program "npx"
+    :args (let ((filepath (or buffer-file-name (buffer-name))))
+            `("biome" "check" "--write" "--stdin-file-path" ,filepath))
+    :lighter " biome-auto-fmt")
   (reformatter-define refmt-prisma-format
     :program "npx"
     :args `("prisma" "format" ,buffer-file-name)
