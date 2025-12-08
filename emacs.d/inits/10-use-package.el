@@ -141,6 +141,7 @@
       ("C" org-roam-dailies-capture-today "Capture today")
       ("l" org-store-link "Store link")
       ("F" org-roam-node-find "Find")
+      ("n" (find-file org-default-notes-file) "Open Note")
       ;; ("t" my/org-tags-view-only-todo "Tagged Todo")
       ;; ("F" org-gcal-fetch "Fetch Calendar")
       ;; ("C" my/open-user-calendar "Calendar"))
