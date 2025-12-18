@@ -206,6 +206,7 @@
                (js-mode . js-ts-mode)
                (python-mode . python-ts-mode)
                (ruby-mode . ruby-ts-mode)
+               (php-mode . php-ts-mode)
                ))
     (add-to-list 'major-mode-remap-alist mapping)))
 
