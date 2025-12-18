@@ -226,9 +226,19 @@
   (dolist (pair '(
                    ("ts" . typescript-ts)
                    ("tsx" . tsx-ts)
+                   ("zx" . js-ts)
+                   ("dockerfile" . dockerfile-ts)
                    ))
     (setf (alist-get (car pair) org-src-lang-modes nil nil #'string=)
       (cdr pair)))
+
+  (defun org-babel-execute:zx (body params)
+    "Execute a zx code block using zx CLI."
+    (let* ((tmp (org-babel-temp-file "zx-" ".mjs"))
+           (cmd (format "zx %s" (shell-quote-argument tmp))))
+      (with-temp-file tmp (insert body))
+      (org-babel-eval cmd "")))
+
   :mode-hydra
   (org-mode (:title "Org")
     ("Insert"
