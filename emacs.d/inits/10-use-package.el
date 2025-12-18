@@ -474,8 +474,10 @@
           ("\\.dockerfile\\'" . dockerfile-ts-mode)))
 
 (use-package lsp-docker
+  :after lsp-mode
   :custom
-  (lsp-docker-log-docker-supplemental-calls t))
+  (lsp-docker-log-docker-supplemental-calls t)
+  (lsp-docker-command "podman"))
 
 (use-package graphql-mode)
 
