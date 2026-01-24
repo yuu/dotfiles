@@ -27,6 +27,7 @@ return {
     --{ key = 'phys:Space', mods = 'LEADER|CTRL', action = act.QuickSelect },
     { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackOnly' },
     { key = 'k', mods = 'SUPER|ALT', action = act.ClearScrollback 'ScrollbackAndViewport' },
+    { key = "Enter", mods = "SHIFT", action = wezterm.action{SendString="\x1b\r"} }, -- from claude code
 
     { key = 'PageUp', action = act.ScrollByPage(-1) },
     { key = 'PageDown', action = act.ScrollByPage(1) },
@@ -41,8 +42,8 @@ return {
     { key = 'x', mods = 'LEADER', action = act.CloseCurrentTab{ confirm = true } },
     { key = 'l', mods = 'LEADER|CTRL', action = act.ActivateTabRelative(1) },
     { key = 'h', mods = 'LEADER|CTRL', action = act.ActivateTabRelative(-1) },
-    { key = '{', mods = 'SHIFT|ALT', action = act.MoveTabRelative(-1) },
-    { key = '}', mods = 'SHIFT|ALT', action = act.MoveTabRelative(1) },
+    { key = '{', mods = 'LEADER', action = act.MoveTabRelative(-1) },
+    { key = '}', mods = 'LEADER', action = act.MoveTabRelative(1) },
 
     -- panel move
     { key = '\\', mods = 'LEADER', action = act.SplitHorizontal {domain = 'CurrentPaneDomain'} },
