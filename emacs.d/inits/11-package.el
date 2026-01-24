@@ -228,6 +228,7 @@
                    ("tsx" . tsx-ts)
                    ("zx" . js-ts)
                    ("dockerfile" . dockerfile-ts)
+                   ("json" . json-ts)
                    ))
     (setf (alist-get (car pair) org-src-lang-modes nil nil #'string=)
       (cdr pair)))
