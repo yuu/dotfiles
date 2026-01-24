@@ -30,14 +30,6 @@ function fzf-select-history() {
 zle -N fzf-select-history
 bindkey '^r' fzf-select-history
 
-sudo-command-line() {
-    [[ -z $BUFFER ]] && zle up-history
-    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
-    zle end-of-line                 # move cursor to end-of-line
-}
-zle -N sudo-command-line
-bindkey "\e\e" sudo-command-line    # [Esc] [Esc]
-
 function confirm() {
   echo -n "Run '$*'? [y/N] "
   read -q && echo "" && "$@" || echo "Canceled"
