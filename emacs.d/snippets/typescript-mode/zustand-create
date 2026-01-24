@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: zustand create
+# key: zustand
+# --
+import { create } from "zustand";
+import { createComputed } from "zustand-computed";
+import { devtools } from "zustand/middleware";
+import { immer } from "zustand/middleware/immer";
+
+type State = {};
+
+type Action = {};
+
+type Selector = {};
+
+const computed = createComputed<State & Action, Selector>((state) => ({}));
+
+export const use$1Store = create(
+  devtools(immer(computed((set) => ({})))),
+);

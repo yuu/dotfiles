@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: rr page
+# key: rrpage
+# --
+import type { Route } from "./+types/$1";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "$1" },
+    { name: "description", content: "$1" },
+  ];
+}
+
+export default function ${1:$(yas-capitalize-first yas-text)}({}: Route.ComponentProps) {
+  return <div>$1</div>;
+}

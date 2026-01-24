@@ -1,0 +1,66 @@
+# -*- mode: snippet -*-
+# name: rr page modal
+# key: rrpagemodal
+# --
+import type { Route } from "./+types/$1";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "$1" },
+    { name: "description", content: "$1" },
+  ];
+}
+
+export async function loader({ params }: Route.LoaderArgs) {
+  const data = new Promise((resolve) => setTimeout(resolve, 2000));
+
+  return { data };
+}
+
+export async function action({}: Route.ActionArgs) {
+  return redirect("/");
+}
+
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  return (
+    <p>
+      {error.message}
+    </p>
+  );
+}
+
+export default function ${1:$(yas-capitalize-first yas-text)}({}: Route.ComponentProps) {
+  const loaderData = useLoaderData<typeof loader>();
+  const fetcher = useFetcher();
+  const navigate = useNavigate();
+
+  const handleSubmit = (data) => {
+    const formData = new FormData();
+    fetcher.submit(formData, { method: "post" });
+  };
+
+  return (
+    <Modal
+      header="編集"
+      visible
+      size="large"
+      onDismiss={() => navigate("/order_sch/calendar")}
+    >
+      <Suspense fallback={<Spinner />}>
+        <Await resolve={loaderData.data}>
+          {(data) => (
+            <OrderScheduleForm
+              mode="edit"
+              onCancel={() => navigate("/order_sch/calendar")}
+              onSubmit={handleSubmit}
+              defaultValues={data}
+              loading={fetcher.state === "submitting"}
+            >
+              <Attachments items={data.pdfs ?? []} />
+            </OrderScheduleForm>
+          )}
+        </Await>
+      </Suspense>
+    </Modal>
+  );
+}
