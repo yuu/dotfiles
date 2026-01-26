@@ -16,10 +16,40 @@ edit = [
   { run = 'code "$@"', block = false, desc = "VSCode", for = "unix" },
 ]
 
+[[opener.set-wallpaper]]
+run = '''
+  osascript -e 'on run {img}' -e 'tell application "system events" to set picture of every desktop to img' -e 'end run' %s1
+'''
+for  = "macos"
+desc = "set as wallpaper"
+
+[[opener.set-wallpaper1]]
+run = '''
+  osascript -e 'on run {img}' -e 'tell application "system events" to set picture of desktop 1 to img' -e 'end run' %s1
+'''
+for  = "macos"
+desc = "set as wallpaper1"
+
+[[opener.set-wallpaper2]]
+run = '''
+  osascript -e 'on run {img}' -e 'tell application "system events" to set picture of desktop 2 to img' -e 'end run' %s1
+'''
+for  = "macos"
+desc = "set as wallpaper2"
+
+[[opener.open-pdf]]
+run = '''
+  tdf "$@"
+'''
+block = true
+desc = "Open pdf by tdf"
+
 [open]
 prepend_rules = [
   { name = "*.mkv", use = ["play"] },
   { name = "*.m3u", use = ["play"] },
   { name = "*.gsheet", use = ["open"] },
   { name = "*.gdraw", use = ["open"] },
+  { mime = "application/pdf", use = ["open-pdf", "open"] },
+  { mime = "image/*", use = ["open", "set-wallpaper", "set-wallpaper1", "set-wallpaper2"] },
 ]

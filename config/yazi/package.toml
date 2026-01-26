@@ -1,9 +1,22 @@
-[plugin]
-deps = [
-  { use = "Sonico98/exifaudio", rev = "d794614" },
-  { use = "boydaihungst/mediainfo", rev = "e2a7cfd" },
-  { use = "AnirudhG07/custom-shell", rev = "90d5f32" }
-]
+[[plugin.deps]]
+use = "Sonico98/exifaudio"
+rev = "d794614"
+hash = ""
+
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "e2a7cfd"
+hash = ""
+
+[[plugin.deps]]
+use = "AnirudhG07/custom-shell"
+rev = "90d5f32"
+hash = ""
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "6c71385"
+hash = "8a7c58225816a163a6e8730c0adafbc8"
 
 [flavor]
 deps = []
