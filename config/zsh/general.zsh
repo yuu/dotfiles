@@ -97,17 +97,35 @@ autoload -U colors; colors
 #ターミナルのタイトル設定
 case "${TERM}" in
 mlterm|kterm*|xterm*)
-    titlechange(){
-        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+    titlechange() {
+        # echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+
+        # i.e. @<hostname> <current dir name>
+        echo -ne "\033]0;@${HOST%%.*} ${PWD##*/}\007"
+    }
+    titlechange_preexec() {
+        # ssh@<host name>
+        case "$1" in
+          ssh\ *)
+              local host="${1##* }"
+              echo -ne "\033]0;ssh@${host}\007"
+              ;;
+          *)
+              echo -ne "\033]0;${1}\007"
+              ;;
+        esac
     }
     ;;
 screen*)
-    titlechange(){
-        echo -ne "\033P\033]0;${USER}@${HOST%%.*}:${PWD}\007\033\\"
+    titlechange() {
+    }
+    titlechange_preexec() {
     }
     ;;
 *)
-    titlechange(){
+    titlechange() {
+    }
+    titlechange_preexec() {
     }
     ;;
 esac
@@ -129,9 +147,14 @@ repinfo(){
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
+
 precmd () {
     repinfo
     titlechange
+}
+
+preexec() {
+    titlechange_preexec "$1"
 }
 
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
