@@ -14,8 +14,6 @@ alias z=yazi
 path=(/opt/homebrew/bin(N-/) /opt/homebrew/sbin(N-/) ${path})
 fpath=(/opt/homebrew/share/zsh-completions(N-/) /opt/homebrew/share/zsh/site-functions(N-/) ${fpath})
 
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 source <(zoxide init zsh)
 source <(fzf --zsh)
 
