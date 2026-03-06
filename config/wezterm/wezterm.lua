@@ -18,11 +18,31 @@ function basename(s)
   return string.gsub(s, '(.*[/\\])(.*)', '%2')
 end
 
+-- This function returns the suggested title for a tab.
+-- It prefers the title that was set via `tab:set_title()`
+-- or `wezterm cli set-tab-title`, but falls back to the
+-- title of the active pane in that tab.
+--
+-- tab_info.tab_title: tab:set_title() or wezterm cli set-tab-title
+-- tab_info.active_pane.title: titlechange function via precmd / preexec
+function tab_title(tab_info)
+  local title = tab_info.tab_title
+  -- if the tab title is explicitly set, take that
+  if title and #title > 0 then
+    return title
+  end
+
+  -- Otherwise, use the title from the active pane
+  -- in that tab
+  return tab_info.active_pane.title
+end
+
 function on_format_tab_title(tab, tabs, _, _, _, max_width)
   local background = '#282828'
   local foreground = '#d8dee9'
 
-  local name = basename(tab.active_pane.foreground_process_name)
+  --local name = basename(tab.active_pane.foreground_process_name)
+  local name = tab_title(tab)
   local title = '  ' .. to_padding(name, max_width)
 
   if tab.is_active then
