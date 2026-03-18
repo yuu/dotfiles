@@ -115,10 +115,20 @@
   },
   {
     "name": "Type: Feature",
-    "color": "1d76db",
+    "color": "0052cc",
     "description": "New Feature",
     "aliases": [
+      "feature",
       "enhancement"
+    ]
+  },
+  {
+    "name": "Type: Improve",
+    "color": "1d76db",
+    "description": "Improve existing features",
+    "aliases": [
+      "feature",
+      "improvement"
     ]
   },
   {
