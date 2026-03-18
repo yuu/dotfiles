@@ -58,6 +58,20 @@ return {
     { key = 'l', mods = 'LEADER|SHIFT', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
     { key = 'k', mods = 'LEADER|SHIFT', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
     { key = 'j', mods = 'LEADER|SHIFT', action = act.ActivateKeyTable { name = 'resize_pane', one_shot = false } },
+
+    -- custom: new tab name
+    {
+      key = 'r',
+      mods = 'LEADER|SHIFT',
+      action = wezterm.action.PromptInputLine {
+        description = 'Enter new name for tab',
+        action = wezterm.action_callback(function(window, pane, line)
+          if line then
+            window:active_tab():set_title(line)
+          end
+        end),
+      },
+    },
   },
 
   key_tables = {

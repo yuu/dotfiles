@@ -43,7 +43,11 @@ function on_format_tab_title(tab, tabs, _, _, _, max_width)
 
   --local name = basename(tab.active_pane.foreground_process_name)
   local name = tab_title(tab)
-  local title = '  ' .. to_padding(name, max_width)
+  local available = max_width - 2
+  if #name > available then
+    name = string.sub(name, 1, available)
+  end
+  local title = '  ' .. to_padding(name, available)
 
   if tab.is_active then
     background = '#87CEFA'
