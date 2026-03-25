@@ -1,0 +1,36 @@
+;; Migrate the small set of active Karabiner rules to kanata.
+;;
+;; - tap left command  -> Eisu
+;; - tap right command -> Kana
+;; - hold right command + h/j/k/l -> arrows
+;; - other command shortcuts should keep working while holding right command
+;;
+;; On macOS Japanese keyboards, kanata v1.9.0 added Lang1/Lang2 mappings.
+;; The common mapping is:
+;; - Lang2 = Eisu
+;; - Lang1 = Kana
+
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  lmet rmet h j k l
+)
+
+(defalias
+  lcmd (tap-hold-press 200 1000 Lang2 lmet)
+  rcmd (tap-hold-press 200 1000 Lang1 (multi rmet (layer-while-held rcmd-nav)))
+  left  (multi (release-key rmet) left)
+  down  (multi (release-key rmet) down)
+  up    (multi (release-key rmet) up)
+  right (multi (release-key rmet) rght)
+)
+
+(deflayer base
+  @lcmd @rcmd h     j     k   l
+)
+
+(deflayer rcmd-nav
+  _     _     @left @down @up @right
+)
