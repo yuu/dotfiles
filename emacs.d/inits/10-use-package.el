@@ -702,6 +702,8 @@
   :config
   (setq inferior-lisp-program "sbcl"))
 
+(use-package visual-basic-mode)
+
 (use-package eww
   :bind (:map eww-mode-map
           ("n" . scroll-up)
