@@ -432,7 +432,7 @@
   (setopt markdown-indent-on-enter 'indent-and-new-item)
   (setopt markdown-xhtml-body-preamble "<div class=\"markdown-body\">")
   (setopt markdown-xhtml-body-epilogue "</div>")
-  (setopt markdown-css-paths (list "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.7.0/github-markdown.min.css")))
+  (setopt markdown-css-paths (list "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown-light.min.css")))
 
 (use-package markdown-toc)
 
