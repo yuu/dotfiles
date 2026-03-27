@@ -696,7 +696,10 @@
   :config
   (setq inferior-lisp-program "sbcl"))
 
-(use-package visual-basic-mode)
+(use-package visual-basic-mode
+  :mode ("\\.\\(bas\\|cls\\|vbs\\)\\'" . visual-basic-mode)
+  :config
+  (declare-function zmacs-activate-region "ext:zmacs-activate-region"))
 
 (use-package eww
   :bind (:map eww-mode-map
