@@ -76,7 +76,7 @@
   (defalias 'ghq 'ivy-ghq-open))
 
 (use-package ivy-yasnippet
-  :ensure t
+  :straight (:host github :repo "yuu/ivy-yasnippet")
   :after yasnippet
   :bind (("C-c y" . ivy-yasnippet)))
 
