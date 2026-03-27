@@ -92,4 +92,10 @@
   (alert-notifier-command "/opt/homebrew/bin/terminal-notifier")
   (alert-default-style 'notifier))
 
+(use-package major-mode-hydra
+  :ensure t
+  :demand
+  :bind
+  ("M-SPC" . major-mode-hydra))
+
 ;;; 09-general-package.el ends here

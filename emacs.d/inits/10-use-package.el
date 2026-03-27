@@ -80,12 +80,6 @@
   :after yasnippet
   :bind (("C-c y" . ivy-yasnippet)))
 
-(use-package major-mode-hydra
-  :ensure t
-  :demand
-  :bind
-  ("M-SPC" . major-mode-hydra))
-
 (pretty-hydra-define
   my/global-hydra-command-palette
   (:separator "-" :color teal :foreign-key warn :title "Global Palette" :quit-key "q")
