@@ -6,7 +6,7 @@ import { createContext, useContext } from 'react'
 
 export type ${1:$(yas-capitalize-first yas-text)}Context = {}
 
-const $1Context = createContext<${1:$(yas-capitalize-first yas-text)}Context>(undefined!)
+const $1Context = createContext<${1:$(yas-capitalize-first yas-text)}Context>(undefined as unknown as ${1:$(yas-capitalize-first yas-text)}Context)
 
 export const ${1:$(yas-capitalize-first yas-text)}ContextProvider = $1Context.Provider
 
