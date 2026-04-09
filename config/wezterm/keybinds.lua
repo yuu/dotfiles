@@ -23,7 +23,7 @@ return {
     { key = 'h', mods = 'SUPER', action = act.HideApplication },
     { key = 'm', mods = 'SUPER', action = act.Hide },
     { key = 'q', mods = 'SUPER', action = wezterm.action.QuitApplication },
-    { key = 'phys:Space', mods = 'LEADER', action = act.ActivateCopyMode },
+    { key = 'phys:Space', mods = 'LEADER|CTRL', action = act.ActivateCopyMode },
     --{ key = 'phys:Space', mods = 'LEADER|CTRL', action = act.QuickSelect },
     { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackOnly' },
     { key = 'k', mods = 'SUPER|ALT', action = act.ClearScrollback 'ScrollbackAndViewport' },
