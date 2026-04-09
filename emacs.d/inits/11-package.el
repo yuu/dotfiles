@@ -327,6 +327,8 @@
   :config
   (org-ai-install-yasnippets))
 
+(use-package org-side-tree)
+
 (use-package ob-rust
   :after org
   :config
