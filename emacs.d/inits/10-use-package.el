@@ -542,6 +542,7 @@
   ("\\.html\\'" . web-mode)
   ("\\.erb\\'" . web-mode)
   ("\\.twig\\'" . web-mode)
+  ("\\.astro\\'" . web-mode)
   :config
   (defcustom my-web-yas-mode-alist
     '(("erb" . erb)
