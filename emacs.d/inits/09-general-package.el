@@ -98,4 +98,7 @@
   :bind
   ("M-SPC" . major-mode-hydra))
 
+(use-package valign
+  :hook ((gfm-mode org-mode) . valign-mode))
+
 ;;; 09-general-package.el ends here
