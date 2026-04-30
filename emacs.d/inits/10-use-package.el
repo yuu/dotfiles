@@ -274,7 +274,7 @@
     "Buffer format function that dispatches to the appropriate formatter."
     (interactive)
     (cond
-      ((derived-mode-p 'web-mode 'typescript-ts-mode 'tsx-ts-mode 'php-mode 'scss-mode 'json-ts-mode)
+      ((derived-mode-p 'web-mode 'typescript-ts-mode 'tsx-ts-mode 'php-mode 'scss-mode 'json-ts-mode 'gfm-mode)
         (refmt-oxfmt-format-buffer))
       ((derived-mode-p 'rust-mode)
         (rust-format-buffer))
