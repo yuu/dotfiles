@@ -135,6 +135,10 @@
       ("C" org-roam-dailies-capture-today "Capture today")
       ("l" org-store-link "Store link")
       ("F" org-roam-node-find "Find")
+      ("G" (lambda () (interactive)
+             (rgrep (grep-read-regexp) "*"
+                    (expand-file-name "~/.local/notes")))
+        "Grep notes")
       ("n" (find-file org-default-notes-file) "Open Note")
       ;; ("t" my/org-tags-view-only-todo "Tagged Todo")
       ;; ("F" org-gcal-fetch "Fetch Calendar")
