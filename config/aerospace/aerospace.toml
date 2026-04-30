@@ -64,11 +64,12 @@ automatically-unhide-macos-hidden-apps = true
     3 = 'main'
     4 = 'main'
     5 = 'main'
-    6 = 'secondary'
-    7 = 'secondary'
-    8 = 'secondary'
-    9 = 'secondary'
-    10 = 'secondary'
+    6 = ['EV3237', 'secondary', 'EX-LDH241DB']
+    7 = ['EV3237', 'secondary', 'EX-LDH241DB']
+    8 = ['EV3237', 'secondary', 'EX-LDH241DB']
+    9 = ['EV3237', 'secondary', 'EX-LDH241DB']
+    10 = ['EV3237', 'secondary', 'EX-LDH241DB']
+    'A' = ['Sidecar Display *', 'Built-in Retina Display']
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -131,6 +132,7 @@ automatically-unhide-macos-hidden-apps = true
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
     alt-0 = 'workspace 10'
+    alt-a = 'workspace A'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
@@ -143,6 +145,7 @@ automatically-unhide-macos-hidden-apps = true
     alt-shift-8 = 'move-node-to-workspace 8'
     alt-shift-9 = 'move-node-to-workspace 9'
     alt-shift-0 = 'move-node-to-workspace 10'
+    alt-shift-a = 'move-node-to-workspace A'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
