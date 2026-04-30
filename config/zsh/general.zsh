@@ -56,7 +56,7 @@ setopt auto_param_slash
 # 最後がディレクトリ名で終わっている場合末尾の / を自動的に取り除く
 setopt auto_remove_slash
 # {a-c} を a b c に展開する機能を使えるようにする
-setopt brace_ccl
+# setopt brace_ccl
 # コマンドのスペルチェックをする
 setopt correct
 # =command を command のパス名に展開する
