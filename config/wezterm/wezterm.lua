@@ -61,6 +61,13 @@ function on_format_tab_title(tab, tabs, _, _, _, max_width)
   }
 end
 
+function on_open_uri(window, pane, uri)
+  pane:send_text('bcat ' .. wezterm.shell_quote_arg(uri) .. '\n')
+  return false
+end
+
+-- wezterm.on('open-uri', on_open_uri)
+
 -- This is where you actually apply your config choices
 config.initial_rows = 50
 config.initial_cols = 180
