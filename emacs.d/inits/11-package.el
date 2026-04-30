@@ -178,8 +178,12 @@
   :custom
   (org-directory (expand-file-name "~/.local/notes/"))
   (org-mobile-directory "~/.local/mnt/mobileorg")
-  (org-mobile-files (list (concat org-directory "notes.org")))
+  (org-mobile-files (seq-filter (lambda (file)
+                                   (not (or (string-match-p "_archive\\.org$" file)
+                                            (string-match-p "/roam/" file))))
+                                 (directory-files-recursively org-directory "\\.org$")))
   (org-mobile-inbox-for-pull (concat org-directory "from-mobile.org"))
+  (org-mobile-agendas '("a"))
   (org-default-notes-file (concat org-directory "notes.org"))
   (org-agenda-files (seq-filter (lambda (file)
                                    (not (or (string-match-p "_archive\\.org$" file)
