@@ -54,6 +54,13 @@ A=~/dotfiles/config/aerospace
 B=$XDG_CONFIG_HOME/aerospace
 ln -s $A $B
 
+# kanata
+# sudo mkdir -p /etc/xdg
+# sudo ln -s ~/dotfiles/config/kanata /etc/xdg/kanata
+# cp -s config/kanata/io.yuuxzy.kanata.plist /Library/LaunchDaemons/io.yuuxzy.kanata.plist
+# sudo launchctl bootstrap system /Library/LaunchDaemons/io.yuuxzy.kanata.plist
+# sudo launchctl enable system/io.yuuxzy.kanata
+
 # other
 A=~/dotfiles
 ln -s $A/peco $XDG_CONFIG_HOME/peco
