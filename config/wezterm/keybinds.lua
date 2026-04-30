@@ -61,8 +61,8 @@ return {
 
     -- custom: new tab name
     {
-      key = 'r',
-      mods = 'LEADER|SHIFT',
+      key = ',',
+      mods = 'LEADER',
       action = wezterm.action.PromptInputLine {
         description = 'Enter new name for tab',
         action = wezterm.action_callback(function(window, pane, line)
