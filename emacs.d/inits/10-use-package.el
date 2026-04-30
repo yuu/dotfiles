@@ -419,6 +419,13 @@
 ;;; markup lang
 (use-package markdown-mode
   :mode ("\\.md\\'" . gfm-mode)
+  :bind
+  (:map markdown-mode-map
+    ("C-c C-u" . markdown-outline-up)
+    ("C-c C-p" . markdown-outline-previous)
+    ("C-c C-n" . markdown-outline-next)
+    ("C-c C-f" . markdown-outline-next-same-level)
+    ("C-c C-b" . markdown-outline-previous-same-level))
   :config
   (setopt markdown-command '("pandoc" "--from=gfm+hard_line_breaks" "--to=html5"))
   (setopt markdown-fontify-code-blocks-natively t)
