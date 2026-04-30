@@ -11,4 +11,24 @@ alias grep="grep --color=auto"
 alias rsync="rsync --progress"
 alias dc="docker compose"
 
-alias icat='wezterm imgcat'
+#alias icat='wezterm imgcat'
+alias icat='timg -pk'
+
+source <(zoxide init zsh)
+alias z=yazi
+
+source <(navi widget zsh)
+bindkey -r '^G'
+bindkey "^[j" _navi_widget
+
+source <(fzf --zsh)
+export FZF_DEFAULT_COMMAND='rg --files --sort path --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border --bind ctrl-v:page-down,alt-v:page-up,ctrl-k:kill-line'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=fg:#d0d0d0,fg+:#3D4258,bg:-1,bg+:#74A8DF
+  --color=hl:#5f87af,hl+:#5fd7ff,info:#afaf87,marker:#87ff00
+  --color=prompt:#d7005f,spinner:#af5fff,pointer:#af5fff,header:#87afaf
+  --color=gutter:#d0d0d0,border:#262626,label:#aeaeae,query:#d9d9d9
+  --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="$ "
+  --marker=">" --pointer=">" --separator="─" --scrollbar="│"
+  --layout="reverse"'
