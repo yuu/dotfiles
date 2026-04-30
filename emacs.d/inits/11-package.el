@@ -128,6 +128,7 @@
   :custom
   (rg-align-position-numbers t)
   (rg-align-position-content-separator "|")
+  (rg-prioritized-type-aliases '("ts" "typescript"))
   (rg-custom-type-aliases '(("scss" . "*.scss"))))
 
 (use-package yasnippet
