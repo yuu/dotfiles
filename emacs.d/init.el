@@ -21,11 +21,10 @@
 (setq straight-vc-git-debug nil)
 
 (use-package straight
-  :ensure nil
+  :straight nil
   :custom (straight-use-package-by-default t))
 
 (use-package init-loader
-  :ensure t
   :custom
   (init-loader-show-log-after-init nil)
   :config

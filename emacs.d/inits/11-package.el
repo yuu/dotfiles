@@ -95,7 +95,6 @@
   (editorconfig-mode))
 
 (use-package projectile
-  :ensure t
   :diminish projectile-mode
   :bind
   ("C-c p" . 'projectile-command-map)
@@ -275,7 +274,6 @@
   (find-file file))
 
 (use-package org-bullets
-  :ensure t
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-appear-autoemphasis t)
@@ -319,7 +317,6 @@
                                         :title "org-pomodoro"))))
 
 (use-package org-ai
-  :ensure t
   :after yasnippet
   :commands (org-ai-mode
               org-ai-global-mode)

@@ -67,7 +67,6 @@
   (show-paren-style 'parenthesis))
 
 (use-package dired
-  :ensure nil
   :straight nil
   :bind (:map dired-mode-map
           ("C-u" . dired-up-directory)
@@ -83,7 +82,6 @@
   :hook (compilation-filter . my-colorize-compilation-buffer))
 
 (use-package cua-mode
-  :ensure nil
   :straight nil
   :bind ("C-x c TAB" . cua-rectangle-mark-mode))
 
@@ -93,7 +91,6 @@
   (alert-default-style 'notifier))
 
 (use-package major-mode-hydra
-  :ensure t
   :demand
   :bind
   ("M-SPC" . major-mode-hydra))

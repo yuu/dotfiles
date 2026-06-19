@@ -416,7 +416,6 @@
 ;;; AI
 (use-package copilot
   :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))
-  :ensure t
   :bind
   (:map copilot-mode-map ("TAB" . copilot-accept-completion)))
 
@@ -496,8 +495,7 @@
   :hook
   (terraform-mode-hook . terraform-format-on-save-mode))
 
-(use-package rego-mode
-  :ensure t)
+(use-package rego-mode)
 
 (use-package typespec-ts-mode)
 
