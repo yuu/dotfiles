@@ -727,4 +727,9 @@
        1 2 3))
   (add-to-list 'compilation-error-regexp-alist 'biome))
 
+(use-package docker
+  :custom
+  (docker-command "podman")
+  (docker-compose-command "podman compose"))
+
 ;;; 10-use-package.el ends here
