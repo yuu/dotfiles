@@ -3,8 +3,8 @@
 
 local cpath=$HOME/.config/zsh
 
-source $cpath/general.zsh
 source $cpath/env.zsh
+source $cpath/general.zsh
 source $cpath/plugin.zsh
 source $cpath/func.zsh
 source $cpath/common.zsh

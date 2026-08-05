@@ -1,3 +1,5 @@
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
@@ -12,5 +14,5 @@ export GPG_TTY=`tty`
 # python
 export PYTHONSTARTUP=~/.config/python/pythonstartup
 
-path=(~/.local/bin(N-/) /usr/local/bin(N-/) /usr/local/sbin(N-/) ${path})
-fpath=(~/.config/zsh/func(N-/) ~/.config/zsh/completions(N-/) ${fpath})
+path=(~/.local/bin(N-/) /opt/homebrew/bin(N-/) /opt/homebrew/sbin(N-/) /usr/local/sbin(N-/) ${path})
+fpath=(~/.config/zsh/func(N-/) ~/.config/zsh/completions(N-/) /opt/homebrew/share/zsh-completions(N-/) /opt/homebrew/share/zsh/site-functions(N-/) ${fpath})
