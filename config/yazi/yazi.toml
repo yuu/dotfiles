@@ -3,6 +3,9 @@
 [mgr]
 show_hidden = false
 
+[preview]
+max_width = 2560
+
 [opener]
 play = [
   { run = 'vlc "$@"', orphan = true, desc = "VLC", for = "unix" },
@@ -46,10 +49,10 @@ desc = "Open pdf by tdf"
 
 [open]
 prepend_rules = [
-  { name = "*.mkv", use = ["play"] },
-  { name = "*.m3u", use = ["play"] },
-  { name = "*.gsheet", use = ["open"] },
-  { name = "*.gdraw", use = ["open"] },
+  { url = "*.mkv", use = ["play"] },
+  { url = "*.m3u", use = ["play"] },
+  { url = "*.gsheet", use = ["open"] },
+  { url = "*.gdraw", use = ["open"] },
   { mime = "application/pdf", use = ["open-pdf", "open"] },
   { mime = "image/*", use = ["open", "set-wallpaper", "set-wallpaper1", "set-wallpaper2"] },
 ]
