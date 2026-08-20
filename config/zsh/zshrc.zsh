@@ -24,6 +24,9 @@ esac
 autoload -U compinit
 compinit
 
+# workaround: diff args2 file name completion not working
+compdef '_diff_options diff "*:file:_files"' diff
+
 # profiling
 # if type zprof > /dev/null 2>&1; then
 #     zprof |less
