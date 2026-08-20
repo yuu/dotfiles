@@ -4,6 +4,7 @@
 [core]
     excludesfile = ~/.config/git/ignore
     editor = vim
+    pager = delta
     quotepath = false
     ignorecase = true
 
@@ -53,10 +54,16 @@
 [diff]
     compactionHeuristic = true
 
+[merge]
+    conflictStyle = zdiff3
+
 [init]
     defaultBranch = main
 
-[pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    dark = true
+    sline-numbers = true
