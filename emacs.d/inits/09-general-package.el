@@ -30,7 +30,7 @@
   :config
   (add-hook 'ef-themes-post-load-hook 'sml/setup)
   (add-to-list 'custom-theme-load-path (expand-file-name "themes" user-emacs-directory))
-  (ef-themes-select 'ef-hc-zenburn))
+  (ef-themes-load-theme 'ef-hc-zenburn))
 
 (use-package whitespace
   :straight (:type built-in)
