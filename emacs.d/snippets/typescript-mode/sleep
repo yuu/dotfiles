@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sleep
+# key: sleep
+# --
+await new Promise((resolve) => setTimeout(resolve, $1));
