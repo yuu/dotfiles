@@ -360,7 +360,7 @@
 ;;   (docker-tramp-use-names t))
 
 (use-package yeetube
-  :straight (:repo "https://codeberg.org/thanosapollo/emacs-yeetube.git")
+  :straight (:repo "https://github.com/emacsmirror/yeetube.git")
   :init (define-prefix-command 'my/yeetube-map)
   :custom
   (yeetube-results-limit  50)
