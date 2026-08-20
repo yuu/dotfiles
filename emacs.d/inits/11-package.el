@@ -213,6 +213,7 @@
   (org-num-skip-unnumbered t)
   (org-html-validation-link nil)
   (org-display-remote-inline-images 'cache)
+  (org-startup-truncated nil)
   :config
   (org-babel-do-load-languages
     'org-babel-load-languages
