@@ -15,7 +15,7 @@
   ("C-x b" . ivy-switch-buffer)
   ("C-x C-b" . counsel-ibuffer)
   ("C-x f" . counsel-git)
-  ("C-x C-f" . counsel-find-file-with-ffap)
+  ("C-x C-f" . counsel-find-file)
   ("M-s M-s" . swiper-thing-at-point)
   ("C-c i" . imenu)
   ("C-c g g" . counsel-rg)
@@ -420,6 +420,10 @@
   (:map copilot-mode-map ("TAB" . copilot-accept-completion)))
 
 ;;; markup lang
+
+;; hydora
+;; ("C-c C-p" . markdown-move-up)
+;; ("C-c C-n" . markdown-move-down)
 (use-package markdown-mode
   :mode ("\\.md\\'" . gfm-mode)
   :bind
@@ -429,6 +433,9 @@
     ("C-c C-n" . markdown-outline-next)
     ("C-c C-f" . markdown-outline-next-same-level)
     ("C-c C-b" . markdown-outline-previous-same-level))
+  :init
+  ;; (add-hook 'markdown-mode-hook #'turn-off-auto-fill)
+  ;; (add-hook 'markdown-mode-hook #'turn-on-visual-line-mode)
   :config
   (setopt markdown-command '("pandoc" "--from=gfm+hard_line_breaks" "--to=html5"))
   (setopt markdown-fontify-code-blocks-natively t)
@@ -439,6 +446,21 @@
   (setopt markdown-css-paths (list "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown-light.min.css")))
 
 (use-package markdown-toc)
+
+(use-package word-wrap-mode
+  :hook (visual-line-mode . word-wrap-whitespace-mode)
+  :config
+  (add-to-list 'word-wrap-whitespace-characters ?\]))
+
+(use-package visual-fill-column
+  :hook (visual-line-mode . visual-fill-column-mode)
+  :init
+  (setq visual-line-fringe-indicators '(left-curly-arrow nil))
+  :config
+  (setq visual-fill-column-width 120))
+
+(use-package adaptive-wrap
+  :hook (visual-line-mode . adaptive-wrap-prefix-mode))
 
 (use-package plantuml-mode
   :mode
@@ -701,6 +723,10 @@
   :defer t
   :mode
   ("\\.env\\'" . conf-mode))
+
+(use-package peg-mode
+  :straight nil
+  :mode ("\\.peg\\'" . peg-mode))
 
 (use-package slime
   :config
