@@ -263,6 +263,9 @@
       "Edit"
       (("A" org-archive-subtree "Archive"))
 
+      "Clock"
+      (("p" org-pomodoro "Pomodoro"))
+
       "View"
       (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
         ;; ("D" my/org-clock-toggle-display "Toggle Display")
