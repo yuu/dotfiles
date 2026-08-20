@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: nextjs page component with noprops
+# name: nextjs page component with noprops ssr
 # key: page
 # --
 import type { NextPage } from 'next'
