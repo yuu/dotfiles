@@ -294,6 +294,9 @@
        ;; ► • ★
        )))
 
+(use-package org-phscroll
+  :straight (:host github :repo "misohena/phscroll"))
+
 (use-package org-roam
   :custom
   (org-roam-directory (file-truename (concat org-directory "roam")))
