@@ -237,6 +237,8 @@
                    ("zx" . js-ts)
                    ("dockerfile" . dockerfile-ts)
                    ("json" . json-ts)
+                   ("yaml" . yaml-ts)
+                   ("typespec" . typespec-ts)
                    ))
     (setf (alist-get (car pair) org-src-lang-modes nil nil #'string=)
       (cdr pair)))
