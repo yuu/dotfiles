@@ -1,4 +1,4 @@
-# https://github.com/sxyazi/yazi/blob/v0.3.3/yazi-config/preset/yazi.toml
+# https://github.com/sxyazi/yazi/blob/v26.8.15/yazi-config/preset/yazi-default.toml
 
 [mgr]
 show_hidden = false
@@ -8,15 +8,15 @@ max_width = 2560
 
 [opener]
 play = [
-  { run = 'vlc "$@"', orphan = true, desc = "VLC", for = "unix" },
-  { run = 'mpv --no-video "$@"', orphan = true, desc = "MVP Audio", for = "unix" },
-  { run = 'mpv "$@"', orphan = true, desc = "MVP", for = "unix" },
-  { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+  { run = 'vlc %s', orphan = true, desc = "VLC", for = "unix" },
+  { run = 'mpv --no-video %s', orphan = true, desc = "MPV Audio", for = "unix" },
+  { run = 'mpv %s', orphan = true, desc = "MPV", for = "unix" },
+  { run = '''mediainfo %s1; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 edit = [
-  { run = 'vi "$@"', block = true, for = "unix" },
-  { run = "%EDITOR% %*",  block = true, for = "windows" },
-  { run = 'code "$@"', block = false, desc = "VSCode", for = "unix" },
+  { run = 'vi %s', block = true, for = "unix" },
+  { run = "%EDITOR% %s",  block = true, for = "windows" },
+  { run = 'code %s', block = false, desc = "VSCode", for = "unix" },
 ]
 
 [[opener.set-wallpaper]]
@@ -40,19 +40,26 @@ run = '''
 for  = "macos"
 desc = "set as wallpaper2"
 
+[[opener.set-wallpaper3]]
+run = '''
+  osascript -e 'on run {img}' -e 'tell application "system events" to set picture of desktop 3 to img' -e 'end run' %s1
+'''
+for  = "macos"
+desc = "set as wallpaper3"
+
 [[opener.open-pdf]]
 run = '''
-  tdf "$@"
+  tdf %s
 '''
 block = true
 desc = "Open pdf by tdf"
 
 [open]
 prepend_rules = [
-  { url = "*.mkv", use = ["play"] },
+  { url = "*.mkv", use = ["play", "open"] },
   { url = "*.m3u", use = ["play"] },
   { url = "*.gsheet", use = ["open"] },
   { url = "*.gdraw", use = ["open"] },
   { mime = "application/pdf", use = ["open-pdf", "open"] },
-  { mime = "image/*", use = ["open", "set-wallpaper", "set-wallpaper1", "set-wallpaper2"] },
+  { mime = "image/*", use = ["open", "set-wallpaper", "set-wallpaper1", "set-wallpaper2", "set-wallpaper3"] },
 ]
