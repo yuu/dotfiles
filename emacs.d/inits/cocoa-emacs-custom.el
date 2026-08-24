@@ -9,7 +9,7 @@
     (shell-command-on-region (region-beginning) (region-end) "pbcopy" nil nil)))
 
 (set-face-attribute 'default nil
-                    :family "Source Han Code JP"
+                    :family "Moralerspace Neon"
                     :height 140
                     :weight 'normal
                     :width 'normal)
