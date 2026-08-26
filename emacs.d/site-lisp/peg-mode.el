@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; peg-mode.el --- emacs mode for editing PEG grammar files
 
 ;; Copyright (C) 2008  Utz-Uwe Haus <lisp@uuhaus.de>

@@ -1,4 +1,4 @@
-;;; ef-hc-zenburn-theme.el --- hc-zenburn-theme -*- lexical-binding:
+;;; -*- lexical-binding: -*-
 
 ;; clone https://github.com/edran/hc-zenburn-emacs
 

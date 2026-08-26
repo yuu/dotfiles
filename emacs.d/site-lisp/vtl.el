@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; vtl.el --- fontify velocity template language code
 
 ;; Author: Brian Leonard <brian@brainslug.org>

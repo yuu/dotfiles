@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;; company-keywords-gherkin.el --- company-mode keywords support for feature-mode
 
 ;; Authors: yuu <yuuxzy@gmail.com>
