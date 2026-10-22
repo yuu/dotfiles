@@ -17,6 +17,8 @@ alias icat='timg -pk'
 source <(zoxide init zsh)
 alias z=yazi
 
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+source /run/current-system/sw/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source <(navi widget zsh)
 bindkey -r '^G'
