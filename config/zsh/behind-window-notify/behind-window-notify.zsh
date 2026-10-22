@@ -35,10 +35,11 @@ function is_tmux_focus() {
 function notify() {
     local title=$1
     local message=$2
-    local option="-activate ${terminal_identity}"
 
     if [[ ${OSTYPE} == darwin* ]]; then
-        terminal-notifier -title "${title}" -message "${message}" ${option}
+        osascript -e 'on run argv' \
+                  -e 'display notification (item 2 of argv) with title (item 1 of argv)' \
+                  -e 'end run' "${title}" "${message}"
     else
         notify-send -t 3000 -u low "${message}"
     fi
