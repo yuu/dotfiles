@@ -17,6 +17,7 @@ alias icat='timg -pk'
 source <(zoxide init zsh)
 alias z=yazi
 
+
 source <(navi widget zsh)
 bindkey -r '^G'
 bindkey "^[j" _navi_widget
@@ -32,3 +33,17 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="$ "
   --marker=">" --pointer=">" --separator="─" --scrollbar="│"
   --layout="reverse"'
+fzf() {
+    if [[ $1 == (--version|--help|-h|--man|--zsh|--bash|--fish) ]]; then
+        command fzf "$@"
+        return
+    fi
+
+    local z
+    [[ "$FZF_DEFAULT_OPTS $*" == *--read0* ]] && z=-z
+
+    () {
+        local src=$1; shift
+        command fzf --disabled --bind "start,change:reload:fzf-migemo $z {q} < ${(q)src}" "$@" < /dev/null
+    } =(if [[ -t 0 ]]; then command fzf "$@" --filter ''; else cat; fi) "$@"
+}

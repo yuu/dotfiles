@@ -1,15 +1,22 @@
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
+
 export TERM=xterm-256color
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export LC_COLLATE=C
+
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_NO_AUTO_UPDATE=1
+
 export CUCUMBER_PUBLISH_ENABLED=false
 export CUCUMBER_PUBLISH_QUIET=true
+
 export GOPATH=$HOME/.local
+
 export GPG_TTY=`tty`
+
+export MIGEMO_DICT=/run/current-system/sw/share/migemo/utf-8/migemo-dict
 
 # python
 export PYTHONSTARTUP=~/.config/python/pythonstartup

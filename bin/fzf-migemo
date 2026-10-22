@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+z=()
+[[ $1 == -z ]] && { z=(-z); shift }
+
+f() {
+  (( $# )) || { cat; return }
+
+  local pat=$(cmigemo -q -d "$MIGEMO_DICT" -w "$1") opt=-E
+  grep -E -- "$pat" </dev/null 2>/dev/null
+  (( $? == 2 )) && { pat=$1; opt=-F }
+
+  shift
+  grep $z -i $opt -- "$pat" | f "$@"
+}
+
+f ${=1}
