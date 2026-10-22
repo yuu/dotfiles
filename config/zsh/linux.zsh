@@ -1,8 +1,8 @@
 # ls
 alias ls="ls --color -Fh"
 alias la="ls --color -aFh"
-alias ll="ls --color -lFh"
-alias lla="ls --color -laFh"
+alias ll="ls --color -lFh --time-style=long-iso"
+alias lla="ls --color -laFh --time-style=long-iso"
 
 # エイリアスいろいろ
 alias open="xdg-open > /dev/null 2>&1"
