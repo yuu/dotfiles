@@ -14,7 +14,7 @@ alias dc="docker compose"
 #alias icat='wezterm imgcat'
 alias icat='timg -pk'
 
-source <(zoxide init zsh)
+#source <(zoxide init zsh)
 alias z=yazi
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
